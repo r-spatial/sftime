@@ -1,0 +1,10 @@
+.travis.yml
+appveyor.yml
+codecov.yml
+^docs$
+tic.R
+TODO
+README.md
+^.*\.Rproj$
+^\.Rproj\.user$
+LICENSE

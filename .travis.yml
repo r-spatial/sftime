@@ -1,0 +1,40 @@
+language: r
+
+r:
+  - release
+  - oldrel
+  - devel #-- tic errors!
+
+sudo: required
+dist: trusty
+# cache: packages
+latex: true
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
+    packages:
+      - libudunits2-dev
+      - libnetcdf-dev
+      - libproj-dev
+      - libgeos-dev
+      - libgdal-dev
+
+before_install:
+  - R -q -e 'install.packages("remotes"); remotes::install_github("ropenscilabs/tic"); tic::prepare_all_stages(); tic::before_install()'
+
+after_success: R -q -e 'covr::codecov(quiet = FALSE)'
+install: R -q -e 'tic::install()'
+script: R -q -e 'tic::script()'
+
+before_deploy: R -q -e 'tic::before_deploy()'
+deploy:
+   provider: script
+   script: R -q -e 'tic::deploy()'
+   on:
+     branch: master
+     condition:
+       - $TRAVIS_PULL_REQUEST = false
+       - $TRAVIS_EVENT_TYPE != cron
+       - $TRAVIS_R_VERSION_STRING = release
