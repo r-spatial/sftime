@@ -8,3 +8,6 @@ README.md
 ^.*\.Rproj$
 ^\.Rproj\.user$
 LICENSE
+^\.travis\.yml$
+^appveyor\.yml$
+^tic\.R$
