@@ -41,6 +41,7 @@ print.sf_time = function(x, ..., n = getOption("sf_max_print", default = 10)) {
 	app = paste("and", nf, ifelse(nf == 1, "field", "fields"))
 	if (length(geoms) > 1)
 		app = paste0(app, "\n", "Active geometry column: ", attr(x, "sf_column"))
+	app = paste0(app, "\n",     "Time column:    ", attr(x, "time_column"))
 	print(st_geometry(x), n = 0, what = "Simple feature + time collection with", append = app)
 	if (n > 0) {
 		if (inherits(x, "tbl_df"))
