@@ -5,6 +5,8 @@ time = as.Date("2019-10-01") + 0:1
 sf = st_sf(a = 1:2, time = time, geom = sfc)
 
 sft = sf_time(sf, "time")
+sft0 = sf_time(sf)
+all.equal(sft, sft0)
 class(sft)
 sft
-sftime:::print.sf_time(sft)
+print(sft, n = 1)

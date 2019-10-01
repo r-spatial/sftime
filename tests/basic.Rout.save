@@ -24,6 +24,9 @@ Linking to GEOS 3.7.1, GDAL 2.4.2, PROJ 5.2.0
 > sf = st_sf(a = 1:2, time = time, geom = sfc)
 > 
 > sft = sf_time(sf, "time")
+> sft0 = sf_time(sf)
+> all.equal(sft, sft0)
+[1] TRUE
 > class(sft)
 [1] "sf_time"    "sf"         "data.frame"
 > sft
@@ -37,7 +40,7 @@ proj4string:    NA
   a       time        geom
 1 1 2019-10-01 POINT (0 1)
 2 2 2019-10-02 POINT (2 1)
-> sftime:::print.sf_time(sft)
+> print(sft, n = 1)
 Simple feature + time collection with 2 features and 1 field
 Time column:    time
 geometry type:  POINT
@@ -45,10 +48,10 @@ dimension:      XY
 bbox:           xmin: 0 ymin: 1 xmax: 2 ymax: 1
 epsg (SRID):    NA
 proj4string:    NA
+First 1 features:
   a       time        geom
 1 1 2019-10-01 POINT (0 1)
-2 2 2019-10-02 POINT (2 1)
 > 
 > proc.time()
    user  system elapsed 
-  0.320   0.020   0.331 
+  0.322   0.016   0.329 
