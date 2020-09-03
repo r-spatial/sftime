@@ -3,6 +3,7 @@ Title: classes and methods for sf objects that have a time column
 Description: Provides classes and methods for spatial objects that have a registered time column. The time column needs to be sortable.
 Version: 0.2-0
 Depends: sf
+Imports: methods
 Authors@R: 
     c(person(given = "Edzer",
              family = "Pebesma",
@@ -18,7 +19,9 @@ License: Apache License
 Type: Package
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Collate:
+  tc.R
   sftime.R
   init.R
+  
