@@ -4,6 +4,7 @@ Description: Provides classes and methods for spatial objects that have a regist
 Version: 0.2-0
 Depends: sf
 Imports: methods
+Suggests: knitr, spacetime
 Authors@R: 
     c(person(given = "Edzer",
              family = "Pebesma",
@@ -18,6 +19,7 @@ Authors@R:
 License: Apache License
 Type: Package
 Encoding: UTF-8
+VignetteBuilder: knitr
 LazyData: true
 RoxygenNote: 7.0.2
 Collate:
