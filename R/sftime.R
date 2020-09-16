@@ -9,6 +9,9 @@
 st_sf_time <- function(sf, time) {
   sf$time <- time
   class(sf) <- c("sftime", class(sf))
+  
+  # add attributes:
+  attr(sf, "time_column") = "time"
   sf
 }
 
