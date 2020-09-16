@@ -144,8 +144,6 @@ st_as_sftime.ST <- function(x) {
 #'
 #' @return te time column as tc object
 #' @export
-#'
-#' @examples
 st_get_time <- function(x) {
   as.data.frame(x)[,"time"]
 }

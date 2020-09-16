@@ -86,7 +86,15 @@ sft <- st_sf_time(sf, sort(tc))
 
 sft <- st_sf_time(sf, st_tc(Sys.time()-0:3*3600*24))
 
-## -----------------------------------------------------------------------------
-plot(sft)
+## ---- fig.width=7-------------------------------------------------------------
+coords <- matrix(runif(100), ncol = 2)
+g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
+sf <- st_sf(a=1:50, g)
+
+sft <- st_sf_time(sf, st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6))
+
+plot(sft, key.pos = 4)
+
+plot(sft, number=10, max.plot=10)
 
 

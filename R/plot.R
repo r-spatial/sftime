@@ -32,16 +32,17 @@
 
 #' Plot an sftime object
 #'
+#' @aliases plot
 #' @param x the sftime object to be plotted
 #' @param y the variabel name to be plotted; if missing, the first variable is plotted
 #' @param ... passed on to nested plot functions
 #' @param mode how to project the 3D object to a 2D device: 'xy' = separate maps for time ranges
 #' @param number of panels to be plotted, cannot be larger than the number of timestamps; ignored when 'tcuts' is provided
 #' @param tcuts predefined temporal ranges assigned to each map; if missing, will be determined as equal spans according to 'number'
-#' @param key.pos see \link{sf::plot_sf}
+#' @param key.pos see \link[sf]{plot_sf}
 #'
-#' @return
 #' @export
+#' @importFrom graphics plot
 #'
 #' @examples
 #' set.seed(123)

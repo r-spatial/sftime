@@ -2,6 +2,7 @@
 % Please edit documentation in R/plot.R
 \name{plot.sftime}
 \alias{plot.sftime}
+\alias{plot}
 \title{Plot an sftime object}
 \usage{
 \method{plot}{sftime}(x, y, ..., mode = "xy", number = 6, tcuts, key.pos = 0)
@@ -19,10 +20,7 @@
 
 \item{tcuts}{predefined temporal ranges assigned to each map; if missing, will be determined as equal spans according to 'number'}
 
-\item{key.pos}{see \link{sf::plot_sf}}
-}
-\value{
-
+\item{key.pos}{see \link[sf]{plot_sf}}
 }
 \description{
 Plot an sftime object
