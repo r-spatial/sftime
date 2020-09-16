@@ -136,3 +136,18 @@ st_as_sftime.ST <- function(x) {
   else
     st_sftime(st_as_sfc(x@sp), st_tc(times))
 }
+
+## extract time column of a sftime object
+#' Title
+#'
+#' @param x the sftime object
+#'
+#' @return te time column as tc object
+#' @export
+#'
+#' @examples
+st_get_time <- function(x) {
+  as.data.frame(x)[,"time"]
+}
+
+## keep time while subsetting a column!
