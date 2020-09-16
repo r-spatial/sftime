@@ -17,9 +17,10 @@ cache:
 latex: false
 
 r_github_packages:
-  - r-spatial/stars
-  - r-spatial/s2
+  - bengraeler/sf
 
+#  - r-spatial/stars
+#  - r-spatial/s2
 #  - r-dbi/DBI
 #  - r-dbi/RPostgres
 #  - r-lib/covr
