@@ -125,17 +125,33 @@ The class `sftime` is tightly coupled with the `sf` class and only introduces th
 g = st_sfc(st_point(1:2), st_point(c(1,3)), st_point(2:3), st_point(c(2,1)))
 sf <- st_sf(a=1:4, g)
 
-stf <- st_sf_time(sf, sort(tc))
+sft <- st_sf_time(sf, sort(tc))
 
-stf <- st_sf_time(sf, st_tc(Sys.time()-0:3*3600*24))
+sft <- st_sf_time(sf, st_tc(Sys.time()-0:3*3600*24))
 ```
 
-This is the very beginning there is more to come:
+This is the very beginning there is more to come.
 
 ## coercion
 
 ## sub-setting
 
 ## plotting
+One of the first thing to do after a data set has been created, is to inspect it by plotting it. 
+Plotting an 3+ dimensional onject is always a projection of selected dimensions. 
+The following plotting abilities are provided in `sftime` through the mode argument (just as in `spacetime::stplot`). Depending on the nature of the data/underlying processes, some options might not lead to useful visulaisations:
+
+  - `"xy"`: maps for time ranges are plotted, ranges can be defined or will be equally distributed. Geometries might be overlaid several times when multiple times fall in the same selected range.
+  - `"xt"`: a space-time plot is constructed, this might lead to a straight line along the main diagonal in case not two geometries are recorded for the same time stamp nor are geometries recorded more than once. 
+  - `"ts"`: multiple-locations time series are plotted in a single plot, or in a separate panel for each attribute
+  - `"tp"`: single- or multi-attribute time series are plotted in multiple panels, one panel per location.
+  
+Examples for `mode="xy"`, the default:
+
+```{r}
+plot(sft)
+
+```
+
 
 ## ...

@@ -68,12 +68,12 @@ order(tc)
 sort(tc)[1]
 
 #### sftime construction ####
-g = st_sfc(st_point(1:2), st_point(c(1,3)), st_point(2:3), st_point(c(2,1)))
-sf <- st_sf(a=1:4, g)
+library(sf)
+coords <- matrix(runif(100), ncol = 2)
+g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
+sf <- st_sf(a=1:50, g)
 
-stf <- st_sf_time(sf, sort(tc))
-
-stf <- st_sf_time(sf, st_tc(Sys.time()-0:3*3600*24))
+sft <- st_sf_time(sf, st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6))
 
 # # coercion
 # library(spacetime)

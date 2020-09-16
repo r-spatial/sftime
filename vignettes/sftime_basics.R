@@ -82,7 +82,11 @@ sort(tc)[1]
 g = st_sfc(st_point(1:2), st_point(c(1,3)), st_point(2:3), st_point(c(2,1)))
 sf <- st_sf(a=1:4, g)
 
-stf <- st_sf_time(sf, sort(tc))
+sft <- st_sf_time(sf, sort(tc))
 
-stf <- st_sf_time(sf, st_tc(Sys.time()-0:3*3600*24))
+sft <- st_sf_time(sf, st_tc(Sys.time()-0:3*3600*24))
+
+## -----------------------------------------------------------------------------
+plot(sft)
+
 

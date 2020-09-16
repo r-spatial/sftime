@@ -12,7 +12,7 @@
 
 <meta name="author" content="Benedikt Gräler, Edzer Pebesma" />
 
-<meta name="date" content="2020-09-03" />
+<meta name="date" content="2020-09-16" />
 
 <title>Introduction to sftime</title>
 
@@ -301,7 +301,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Introduction to sftime</h1>
 <h4 class="author">Benedikt Gräler, Edzer Pebesma</h4>
-<h4 class="date">2020-09-03</h4>
+<h4 class="date">2020-09-16</h4>
 
 
 
@@ -411,10 +411,10 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">g =<span class="st"> </span><span class="kw">st_sfc</span>(<span class="kw">st_point</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>), <span class="kw">st_point</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)), <span class="kw">st_point</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>), <span class="kw">st_point</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)))</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">sf &lt;-<span class="st"> </span><span class="kw">st_sf</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, g)</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">stf &lt;-<span class="st"> </span><span class="kw">st_sf_time</span>(sf, <span class="kw">sort</span>(tc))</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">sft &lt;-<span class="st"> </span><span class="kw">st_sf_time</span>(sf, <span class="kw">sort</span>(tc))</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">stf &lt;-<span class="st"> </span><span class="kw">st_sf_time</span>(sf, <span class="kw">st_tc</span>(<span class="kw">Sys.time</span>()<span class="op">-</span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span><span class="op">*</span><span class="dv">3600</span><span class="op">*</span><span class="dv">24</span>))</a></code></pre></div>
-<p>This is the very beginning there is more to come:</p>
+<a class="sourceLine" id="cb8-6" data-line-number="6">sft &lt;-<span class="st"> </span><span class="kw">st_sf_time</span>(sf, <span class="kw">st_tc</span>(<span class="kw">Sys.time</span>()<span class="op">-</span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span><span class="op">*</span><span class="dv">3600</span><span class="op">*</span><span class="dv">24</span>))</a></code></pre></div>
+<p>This is the very beginning there is more to come.</p>
 </div>
 <div id="coercion" class="section level2">
 <h2>coercion</h2>
@@ -424,6 +424,17 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="plotting" class="section level2">
 <h2>plotting</h2>
+<p>One of the first thing to do after a data set has been created, is to inspect it by plotting it. Plotting an 3+ dimensional onject is always a projection of selected dimensions. The following plotting abilities are provided in <code>sftime</code> through the mode argument (just as in <code>spacetime::stplot</code>). Depending on the nature of the data/underlying processes, some options might not lead to useful visulaisations:</p>
+<ul>
+<li><code>&quot;xy&quot;</code>: maps for time ranges are plotted, ranges can be defined or will be equally distributed. Geometries might be overlaid several times when multiple times fall in the same selected range.</li>
+<li><code>&quot;xt&quot;</code>: a space-time plot is constructed, this might lead to a straight line along the main diagonal in case not two geometries are recorded for the same time stamp nor are geometries recorded more than once.</li>
+<li><code>&quot;ts&quot;</code>: multiple-locations time series are plotted in a single plot, or in a separate panel for each attribute</li>
+<li><code>&quot;tp&quot;</code>: single- or multi-attribute time series are plotted in multiple panels, one panel per location.</li>
+</ul>
+<p>Examples for <code>mode=&quot;xy&quot;</code>, the default:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">plot</span>(sft)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">#&gt; [INFO] Fewer time stamps in the data than asked for; argument 'number' set to: 4</span></a></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="section" class="section level2">
 <h2>…</h2>

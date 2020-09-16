@@ -11,7 +11,7 @@ Authors@R:
              role = c("aut", "cre"),
              email = "edzer.pebesma@uni-muenster.de",
              comment = c(ORCID = "0000-0001-8049-7069")),
-             person(given = "Benedikt",
+      person(given = "Benedikt",
              family = "Graeler",
              role = c("aut"),
              email = "b.graeler@52north.org",
@@ -21,9 +21,9 @@ Type: Package
 Encoding: UTF-8
 VignetteBuilder: knitr
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
 Collate:
   tc.R
   sftime.R
   init.R
-  
+  plot.R
