@@ -53,7 +53,7 @@
 #' sft <- st_sf_time(sf, st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6))
 #' plot(sft)
 #' 
-plot.sftime <- function(x, y, ..., mode="xy", number=6, tcuts, key.pos=0) {
+plot.sftime <- function(x, y, ..., mode="xy", number=6, tcuts, key.pos=-1) {
   if (missing(y))
     y <- colnames(x)[1]
   else 

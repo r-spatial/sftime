@@ -5,7 +5,7 @@
 \alias{plot}
 \title{Plot an sftime object}
 \usage{
-\method{plot}{sftime}(x, y, ..., mode = "xy", number = 6, tcuts, key.pos = 0)
+\method{plot}{sftime}(x, y, ..., mode = "xy", number = 6, tcuts, key.pos = -1)
 }
 \arguments{
 \item{x}{the sftime object to be plotted}
