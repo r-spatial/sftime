@@ -75,8 +75,26 @@ sf <- st_sf(a=1:50, g)
 
 sft <- st_sf_time(sf, st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6))
 
-# # coercion
-# library(spacetime)
-# example(STI)
-# 
-# sft <- st_as_sftime(stidf)
+# coercion
+library(spacetime)
+example(STI)
+
+sft <- st_as_sftime(stidf)
+sft
+
+plot(sft, pch=12)
+
+# custom interval scenario
+intrvls <- lapply(1:12, function(i) {
+  iv <- runif(1)+c(0,runif(1))
+  class(iv) <- "interval"
+  iv
+})
+
+class(intrvls) <- "intervals"
+intrvls <- intrvls[order(intrvls)]
+
+tc_intrvls <- st_tc(intrvls)
+sft_intrvls <- st_sf_time(sft[,-4], tc_intrvls)
+
+plot(sft_intrvls, number=4, pch=12)

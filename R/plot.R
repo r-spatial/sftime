@@ -66,9 +66,17 @@ plot.sftime <- function(x, y, ..., mode="xy", number=6, tcuts, key.pos=-1) {
     
     if (missing(tcuts)) {
       ts_ord <- order(ts)
-      ts_fac <- as.factor(ts[ts_ord])
+      ts_fac <- tryCatch(as.factor(ts[ts_ord]), error = function(e) e)
+      if (inherits(ts_fac, "error")) {
+        ts_fac <- factor(as.character(ts[ts_ord]), 
+                         levels = unique(as.character(ts[ts_ord])),
+                         ordered = TRUE)
+      }
       
       ts_nlv <- length(levels(ts_fac))
+      
+      
+      
       
       if (number > ts_nlv) {
         number <- ts_nlv
