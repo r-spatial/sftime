@@ -1,14 +1,23 @@
+## ----setup, include = FALSE---------------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+## -----------------------------------------------------------------------------
 library(sftime)
-
-#### checks on tc  ####
-# popular POSIXct
 tc <- st_tc(as.POSIXct("2020-09-01 08:00:00")-0:3*3600*24)
-tc
-tc[1]
-order(tc)
-sort(tc)[1]
 
-# custom interval class
+tc
+
+## -----------------------------------------------------------------------------
+tc[1]
+
+order(tc)
+
+sort(tc)
+
+## -----------------------------------------------------------------------------
 # utility functions
 as.character.interval <- function(x) {
   paste0("[", x[1], ", ", x[2], "]")
@@ -24,23 +33,23 @@ print.interval<- function(x) {
   sx
 }
 
+## -----------------------------------------------------------------------------
 # time interval definition
 i1 <- c(5.3,12)
 class(i1) <- "interval"
 i2 <- c(3.1,6)
 class(i2) <- "interval"
-i3 <- c(1.4,2.9)
+i3 <- c(1.4,6.9)
 class(i3) <- "interval"
-i4 <- c(1,2)
+i4 <- c(1,21)
 class(i4) <- "interval"
 
 intrvls <- list(i1, i2, i3, i4)
 class(intrvls) <- "intervals"
-
 # provide dedicated generic to xtfrm for class intervals
 xtfrm.intervals <- function(is) sapply(is, xtfrm)
 
-# different sort definitions:
+## -----------------------------------------------------------------------------
 # - sort by centre
 xtfrm.interval <- function(i) mean(i)
 
@@ -50,6 +59,7 @@ tc[1]
 order(tc)
 sort(tc)[1]
 
+## -----------------------------------------------------------------------------
 # - sort by end
 xtfrm.interval <- function(i) i[2]
 tc <- st_tc(intrvls)
@@ -58,6 +68,7 @@ tc[1]
 order(tc)
 sort(tc)[1]
 
+## -----------------------------------------------------------------------------
 # - sort by start
 xtfrm.interval <- function(i) i[1]
 
@@ -67,34 +78,23 @@ tc[1]
 order(tc)
 sort(tc)[1]
 
-#### sftime construction ####
-library(sf)
+## -----------------------------------------------------------------------------
+g = st_sfc(st_point(1:2), st_point(c(1,3)), st_point(2:3), st_point(c(2,1)))
+sf <- st_sf(a=1:4, g)
+
+sft <- st_sf_time(sf, sort(tc))
+
+sft <- st_sf_time(sf, st_tc(Sys.time()-0:3*3600*24))
+
+## ---- fig.width=7-------------------------------------------------------------
 coords <- matrix(runif(100), ncol = 2)
 g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
 sf <- st_sf(a=1:50, g)
 
 sft <- st_sf_time(sf, st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6))
 
-# coercion
-library(spacetime)
-example(STI)
+plot(sft, key.pos = 4)
 
-sft <- st_as_sftime(stidf)
-sft
+plot(sft, number=10, max.plot=10)
 
-plot(sft, pch=12)
 
-# custom interval scenario
-intrvls <- lapply(1:12, function(i) {
-  iv <- runif(1)+c(0,runif(1))
-  class(iv) <- "interval"
-  iv
-})
-
-class(intrvls) <- "intervals"
-intrvls <- intrvls[order(intrvls)]
-
-tc_intrvls <- st_tc(intrvls)
-sft_intrvls <- st_sf_time(sft[,-4], tc_intrvls)
-
-plot(sft_intrvls, number=4, pch=12)

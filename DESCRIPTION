@@ -1,18 +1,29 @@
 Package: sftime
 Title: classes and methods for sf objects that have a time column
-Description: Provides classes and methods for spatial objects that have a registered time column.
-Version: 0.1-0
+Description: Provides classes and methods for spatial objects that have a registered time column. The time column needs to be sortable.
+Version: 0.2-0
 Depends: sf
+Imports: methods
+Suggests: knitr, spacetime
 Authors@R: 
     c(person(given = "Edzer",
              family = "Pebesma",
              role = c("aut", "cre"),
              email = "edzer.pebesma@uni-muenster.de",
-             comment = c(ORCID = "0000-0001-8049-7069")))
+             comment = c(ORCID = "0000-0001-8049-7069")),
+      person(given = "Benedikt",
+             family = "Graeler",
+             role = c("aut"),
+             email = "b.graeler@52north.org",
+             comment = c(ORCID = "0000-0001-5443-4304")))
 License: Apache License
+Type: Package
 Encoding: UTF-8
+VignetteBuilder: knitr
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Collate:
+  tc.R
   sftime.R
   init.R
+  plot.R

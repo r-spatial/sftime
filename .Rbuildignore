@@ -5,6 +5,8 @@ codecov.yml
 tic.R
 TODO
 README.md
+^packrat/
+^\.Rprofile$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 LICENSE
