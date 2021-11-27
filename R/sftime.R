@@ -1,20 +1,5 @@
 #### construction ####
 
-#' combine sf and tc objects to an sftime object
-#' 
-#' @param sf an sf object
-#' @param time an tc object, see \link{st_tc} for details
-#'
-#' @export
-st_sf_time <- function(sf, time) {
-  sf$time <- time
-  class(sf) <- c("sftime", class(sf))
-  
-  # add attributes:
-  attr(sf, "time_column") = "time"
-  sf
-}
-
 #' Construct a \code{sftime} object from all its components
 #'
 #' @param ... Column elements to be binded into an \code{sftime} object or a 
@@ -183,9 +168,9 @@ st_as_sftime.ST <- function(x) {
   times <- as.POSIXct(attr(x@time, "index"), origin="1970-01-01")
   
   if (hasData)  
-    st_sftime(x@data, st_as_sfc(x@sp), st_tc(times))
+    st_sftime(x@data, st_as_sfc(x@sp), time = st_tc(times))
   else
-    st_sftime(st_as_sfc(x@sp), st_tc(times))
+    st_sftime(st_as_sfc(x@sp), time = st_tc(times))
 }
 
 ## extract time column of a sftime object
