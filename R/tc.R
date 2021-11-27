@@ -67,26 +67,30 @@ st_tc <- function(x) {
 }
 
 #### printing ####
+
 #' \code{print} generic for \code{tc}
 #'
-#' @param x an object of class \code{tc}
-#' @param noFeature logical: whether the number of features shall not be printed (default: FALSE)
-#' @param ... currently unused, for compatability
-#'
-#' @return human readable print on the console
+#' @param x An object of class \code{tc}.
+#' @param print_number_features A logical value; whether the number of features 
+#' shall be printed (\code{TRUE}) or not (\code{FALSE}).
+#' @param ... Currently unused arguments, for compatibility.
 #' @export
-print.tc <- function(x, ..., noFeature = FALSE) {
+print.tc <- function(x, ..., print_number_features = FALSE) {
+  
+  stopifnot(is.logical(print_number_features) && length(print_number_features) == 1)
+  
   ord <- order(x)
-  minVal <- x[which.min(ord)]
-  maxVal <- x[which.max(ord)]
-  cls <- class(x)
-  oneFeature <- length(x) == 1
+  x_min <- x[[which.min(ord)]]
+  x_max <- x[[which.max(ord)]]
+  x_class <- class(x)
+  x_is_value <- length(x) == 1
+  
   cat(paste0("Time column with ", 
-             ifelse(noFeature, "",
-                    paste0( length(x), ifelse(oneFeature, " feature of ", " features each of "))),
-             ifelse(length(cls) == 2, "class", "classes"), ": \'", 
-             paste0(cls[-1], collapse="\', \'"), "\'.\n",
-             ifelse(oneFeature, 
-                    paste0("Representing ", minVal, ".\n" ), 
-                    paste0("Ranging from ", minVal, " to ", maxVal, ".\n" ))))
+             ifelse(print_number_features, "",
+                    paste0(length(x), ifelse(x_is_value, " feature of ", " features, each of "))),
+             ifelse(length(x_class) == 2, "class", "classes"), ": \'", 
+             paste0(x_class[-1], collapse="\', \'"), "\'.\n",
+             ifelse(x_is_value, 
+                    paste0("Representing ", x_min, ".\n" ), 
+                    paste0("Ranging from ", x_min, " to ", x_max, ".\n" ))))
 }
