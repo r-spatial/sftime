@@ -108,30 +108,28 @@ st_sftime <- function(...,
 
 #' Print a \code{sftime} object
 #'
-#' @param x the object to be printed
-#' @param ... currently unused, for compatability
-#' @param n maximum number of printed elements
-#'
-#' @return a human readble print out on the console
+#' @param x An object of class \code{sftime}.
+#' @param ... Currently unused arguments, for compatibility.
+#' @param n Numeric value; maximum number of printed elements.
 #' @export
 print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
-  geoms = which(vapply(x, function(col) inherits(col, "sfc"), TRUE))
-  nf = length(x) - length(geoms) - 1
-  app = paste("and", nf, ifelse(nf == 1, "field", "fields"))
+  geoms <- which(vapply(x, function(col) inherits(col, "sfc"), TRUE))
+  nf <- length(x) - length(geoms) - 1
+  app <- paste("and", nf, ifelse(nf == 1, "field", "fields"))
   if (any(!is.na(st_agr(x))))
-    app = paste0(app, "\n", "Attribute-geometry relationship: ", sf:::summarize_agr(x))
+    app <- paste0(app, "\n", "Attribute-geometry relationship: ", sf:::summarize_agr(x))
   if (length(geoms) > 1)
-    app = paste0(app, "\n", "Active geometry column: ", attr(x, "sf_column"))
+    app <- paste0(app, "\n", "Active geometry column: ", attr(x, "sf_column"))
   print(st_geometry(x), n = 0, what = "Spatiotemporal feature collection with", append = app)
   
   # temporal information
-  print(x$time, noFeature=TRUE)
-  if (n > 0) {
+  print(x[, attr(x, "tc_column"), drop = TRUE], print_number_features = FALSE)
+  if(n > 0) {
     if (inherits(x, "tbl_df"))
       NextMethod()
     else {
       y <- x
-      if (nrow(y) > n) {
+      if(nrow(y) > n) {
         cat(paste("First", n, "features:\n"))
         y <- x[1:n, , drop = FALSE]
       }
@@ -173,15 +171,18 @@ st_as_sftime.ST <- function(x) {
     st_sftime(st_as_sfc(x@sp), time = st_tc(times))
 }
 
-## extract time column of a sftime object
-#' Title
+
+#### manipulate time column ####
+
+#' Extract the active time column of an \code{sftime} object.
 #'
-#' @param x the sftime object
+#' @param x An \code{sftime} object.
 #'
-#' @return te time column as tc object
+#' @return The active time column in \code{x} as \code{tc} object.
 #' @export
 st_get_time <- function(x) {
-  as.data.frame(x)[,"time"]
+  stopifnot(inherits(x, "sftime"))
+  as.data.frame(x)[, attr(x, "tc_column")]
 }
 
 ## keep time while subsetting a column!

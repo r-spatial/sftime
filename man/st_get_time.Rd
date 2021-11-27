@@ -2,16 +2,16 @@
 % Please edit documentation in R/sftime.R
 \name{st_get_time}
 \alias{st_get_time}
-\title{Title}
+\title{Extract the active time column of an \code{sftime} object.}
 \usage{
 st_get_time(x)
 }
 \arguments{
-\item{x}{the sftime object}
+\item{x}{An \code{sftime} object.}
 }
 \value{
-te time column as tc object
+The active time column in \code{x} as \code{tc} object.
 }
 \description{
-Title
+Extract the active time column of an \code{sftime} object.
 }

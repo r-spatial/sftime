@@ -86,7 +86,7 @@ print.tc <- function(x, ..., print_number_features = FALSE) {
   x_is_value <- length(x) == 1
   
   cat(paste0("Time column with ", 
-             ifelse(print_number_features, "",
+             ifelse(!print_number_features, "",
                     paste0(length(x), ifelse(x_is_value, " feature of ", " features, each of "))),
              ifelse(length(x_class) == 2, "class", "classes"), ": \'", 
              paste0(x_class[-1], collapse="\', \'"), "\'.\n",
