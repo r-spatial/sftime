@@ -32,18 +32,17 @@ timeColumnIsSortable <- function (x) {
   return(FALSE)  
 }
 
-#' Create temporal column
+#' Construct a \code{tc} object from a vector with time information
 #'
-#' Check temporal column and set class
+#' An object of class \code{tc} stores time information and can be used as
+#' time column in a \code{\link[sftime:st_sftime]{sftime}} object.
 #'
-#' @param times the time stamps to be used
+#' @param x A vector or list.
+#' @return An object of class \code{tc}.
 #' @export
-st_tc = function(times) {
-  stopifnot(timeColumnIsSortable(times))
-  
-  class(times) <- c("tc", class(times))
-  
-  times
+st_tc <- function(x) {
+  stopifnot(timeColumnIsSortable(x))
+  structure(x, class = c("tc", class(x)))
 }
 
 
@@ -55,7 +54,7 @@ st_tc = function(times) {
 #' @param i Any subsetting expression supported by the temporal class provided by the \code{tc} object.
 #' @param ... any further arguments for the underlying subsetting method.
 #'
-#' @return A \code{tc] object representing a subset of \code{x}.
+#' @return A \code{tc} object representing a subset of \code{x}.
 #' @export
 "[.tc" <- function(x, i, ...) {
   st_tc(NextMethod())

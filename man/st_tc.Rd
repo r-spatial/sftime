@@ -2,13 +2,17 @@
 % Please edit documentation in R/tc.R
 \name{st_tc}
 \alias{st_tc}
-\title{Create temporal column}
+\title{Construct a \code{tc} object from a vector with time information}
 \usage{
-st_tc(times)
+st_tc(x)
 }
 \arguments{
-\item{times}{the time stamps to be used}
+\item{x}{A vector or list.}
+}
+\value{
+An object of class \code{tc}.
 }
 \description{
-Check temporal column and set class
+An object of class \code{tc} stores time information and can be used as
+time column in a \code{\link[sftime:st_sftime]{sftime}} object.
 }
