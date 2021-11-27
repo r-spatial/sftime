@@ -1,18 +1,29 @@
 #### construction ####
 
-#' Check the time column
+#' Checks whether a vector or list is sortable.
 #' 
-#' Checks whether the time column is sortable.
+#' Checks whether a vector or list is sortable. This is the condition to coerce
+#' a vector or list to a \code{tc} object.
 #' 
-#' @name timeColumnIsSortable
-#' @param x the object to check
-#' @details checks whether the provided object can be handled by \link{order}. A couple of basic types are whitelisted. However, custom types can be defined when they provide a dedicated generic to \link{xtfrm}. Note that a \code{list} can only be sorted with \link{atomic} values. See the examples below for a template.
+#' @name is_sortable
+#' @param x The object to check.
+#' @return \code{TRUE} if \code{x} passes the check, else \code{FALSE}.
+#' @details Checks whether the provided object can be handled by 
+#' \code{\link{order}}. A couple of basic types are whitelisted. However, custom 
+#' types can be defined when they provide a dedicated generic to \link{xtfrm}. 
+#' Note that a \code{list} can only be sorted with \link{atomic} values. See the 
+#' examples below for a template.
 #' @importFrom utils methods
-timeColumnIsSortable <- function (x) {
+#' 
+#' @examples
+#' x <- Sys.time() + 5:1 * 3600*24
+#' sort(x)
+#' is_sortable(x)
+#' 
+is_sortable <- function (x) {
   # can x be sorted?
   # sort.default checks 'is.object(x)' and uses 'order' to subset and sort the object 
-  # lists and vectors are no objects, sort then uses sort.int which can onyl handle atomic values
-  # have a list of wellknown exceptions
+  # lists and vectors are no objects, sort then uses sort.int which can only handle atomic values
   
   # Examples:
   # x <- Sys.time() + 5:1 * 3600*24
@@ -22,14 +33,9 @@ timeColumnIsSortable <- function (x) {
   # sort(x)
   # order(x)
   # class(x)
-  if (any(sapply(class(x), function(clsnm) clsnm %in% c("numeric", "POSIXct", "POSIXlt", "Date", "yearmon", "yearqtr", "factor"))))
-    return (TRUE)
+  any(vapply(class(x), function(clsnm) clsnm %in% c("numeric", "POSIXct", "POSIXlt", "Date", "yearmon", "yearqtr", "factor"), TRUE)) || # have a list of wellknown exceptions
+    paste("xtfrm", class(x), sep=".") %in% methods(class = class(x)) # check for function 'xtfrm.[CLASSNAME]' which is used by 'order' which in turn is used by sort.default
   
-  # check for function 'xtfrm.[CLASSNAME]' which is used by 'order' which in turn is used by sort.default
-  if (paste("xtfrm", class(x), sep=".") %in% methods(class = class(x)))
-    return (TRUE)
-  
-  return(FALSE)  
 }
 
 #' Construct a \code{tc} object from a vector with time information
@@ -41,7 +47,7 @@ timeColumnIsSortable <- function (x) {
 #' @return An object of class \code{tc}.
 #' @export
 st_tc <- function(x) {
-  stopifnot(timeColumnIsSortable(x))
+  stopifnot(is_sortable(x))
   structure(x, class = c("tc", class(x)))
 }
 
