@@ -4,17 +4,15 @@
 \alias{print.tc}
 \title{\code{print} generic for \code{tc}}
 \usage{
-\method{print}{tc}(x, ..., noFeature = FALSE)
+\method{print}{tc}(x, ..., print_number_features = FALSE)
 }
 \arguments{
-\item{x}{an object of class \code{tc}}
+\item{x}{An object of class \code{tc}.}
 
-\item{...}{currently unused, for compatability}
+\item{...}{Currently unused arguments, for compatibility.}
 
-\item{noFeature}{logical: whether the number of features shall not be printed (default: FALSE)}
-}
-\value{
-human readable print on the console
+\item{print_number_features}{A logical value; whether the number of features 
+shall be printed (\code{TRUE}) or not (\code{FALSE}).}
 }
 \description{
 \code{print} generic for \code{tc}
