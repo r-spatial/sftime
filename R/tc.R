@@ -49,22 +49,16 @@ st_tc = function(times) {
 
 #### subsetting ####
 
-#' Subsetting of time columns \code{tc}
+#' Subsetting of \code{tc} objects
 #'
-#' @param x the object to be subsetted
-#' @param i any subsetting expression supported by the temporal class provided to the \code{tc}.
-#' @param ... any further arguments for the underlying subsetting function
+#' @param x The \code{\link{tc}} object to be subsetted.
+#' @param i Any subsetting expression supported by the temporal class provided by the \code{tc} object.
+#' @param ... any further arguments for the underlying subsetting method.
 #'
-#' @return a time column \code{tc} holding a subset of the orignal time column 
+#' @return A \code{tc] object representing a subset of \code{x}.
 #' @export
-"[.tc" = function(x, i, ...) {
-  cls <- class(x)
-  # remove 'tc' class flag
-  class(x) <- cls[which(cls != "tc")]
-  # do any subsetting the original class supports
-  sx <- x[i, ...]
-  # re-build as time column
-  st_tc(sx)
+"[.tc" <- function(x, i, ...) {
+  st_tc(NextMethod())
 }
 
 #### printing ####

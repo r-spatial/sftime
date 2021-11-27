@@ -2,20 +2,20 @@
 % Please edit documentation in R/tc.R
 \name{[.tc}
 \alias{[.tc}
-\title{Subsetting of time columns \code{tc}}
+\title{Subsetting of \code{tc} objects}
 \usage{
 \method{[}{tc}(x, i, ...)
 }
 \arguments{
-\item{x}{the object to be subsetted}
+\item{x}{The \code{\link{tc}} object to be subsetted.}
 
-\item{i}{any subsetting expression supported by the temporal class provided to the \code{tc}.}
+\item{i}{Any subsetting expression supported by the temporal class provided by the \code{tc} object.}
 
-\item{...}{any further arguments for the underlying subsetting function}
+\item{...}{any further arguments for the underlying subsetting method.}
 }
 \value{
-a time column \code{tc} holding a subset of the orignal time column
+A \code{tc} object representing a subset of \code{x}.
 }
 \description{
-Subsetting of time columns \code{tc}
+Subsetting of \code{tc} objects
 }
