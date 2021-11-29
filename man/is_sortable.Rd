@@ -2,7 +2,7 @@
 % Please edit documentation in R/tc.R
 \name{is_sortable}
 \alias{is_sortable}
-\title{Checks whether a vector or list is sortable.}
+\title{Checks whether a vector or list is sortable}
 \usage{
 is_sortable(x)
 }

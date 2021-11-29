@@ -13,6 +13,9 @@
 
 \item{n}{Numeric value; maximum number of printed elements.}
 }
+\value{
+\code{x} (invisible).
+}
 \description{
 Print a \code{sftime} object
 }

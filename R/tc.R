@@ -1,6 +1,6 @@
 #### construction ####
 
-#' Checks whether a vector or list is sortable.
+#' Checks whether a vector or list is sortable
 #' 
 #' Checks whether a vector or list is sortable. This is the condition to coerce
 #' a vector or list to a \code{tc} object.
@@ -8,19 +8,20 @@
 #' @name is_sortable
 #' @param x The object to check.
 #' @return \code{TRUE} if \code{x} passes the check, else \code{FALSE}.
+#' 
 #' @details Checks whether the provided object can be handled by 
 #' \code{\link{order}}. A couple of basic types are whitelisted. However, custom 
 #' types can be defined when they provide a dedicated generic to \link{xtfrm}. 
 #' Note that a \code{list} can only be sorted with \link{atomic} values. See the 
 #' examples below for a template.
-#' @importFrom utils methods
 #' 
 #' @examples
 #' x <- Sys.time() + 5:1 * 3600*24
 #' sort(x)
 #' is_sortable(x)
 #' 
-is_sortable <- function (x) {
+#' @importFrom utils methods
+is_sortable <- function(x) {
   # can x be sorted?
   # sort.default checks 'is.object(x)' and uses 'order' to subset and sort the object 
   # lists and vectors are no objects, sort then uses sort.int which can only handle atomic values
@@ -44,6 +45,7 @@ is_sortable <- function (x) {
 #' time column in a \code{\link[sftime:st_sftime]{sftime}} object.
 #'
 #' @param x A vector or list.
+#' 
 #' @return An object of class \code{tc}.
 #' @export
 st_tc <- function(x) {
@@ -57,7 +59,8 @@ st_tc <- function(x) {
 #' Subsetting of \code{tc} objects
 #'
 #' @param x The \code{\link{tc}} object to be subsetted.
-#' @param i Any subsetting expression supported by the temporal class provided by the \code{tc} object.
+#' @param i Any subsetting expression supported by the temporal class provided 
+#' by the \code{tc} object.
 #' @param ... any further arguments for the underlying subsetting method.
 #'
 #' @return A \code{tc} object representing a subset of \code{x}.
@@ -74,6 +77,8 @@ st_tc <- function(x) {
 #' @param print_number_features A logical value; whether the number of features 
 #' shall be printed (\code{TRUE}) or not (\code{FALSE}).
 #' @param ... Currently unused arguments, for compatibility.
+#' 
+#' @return \code{x} (invisible).
 #' @export
 print.tc <- function(x, ..., print_number_features = FALSE) {
   

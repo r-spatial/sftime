@@ -3,13 +3,13 @@
 \name{st_as_sftime}
 \alias{st_as_sftime}
 \alias{st_as_sftime.ST}
-\title{Convert foreign object to an sftime object}
+\title{Convert a foreign object to an \code{sftime} object}
 \usage{
 st_as_sftime(x)
 }
 \arguments{
-\item{x}{object to be converted into an object class \code{sftime}}
+\item{x}{An object to be converted into an object class \code{sftime}.}
 }
 \description{
-Convert foreign object to an sftime object
+Convert a foreign object to an \code{sftime} object.
 }

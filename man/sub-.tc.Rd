@@ -9,7 +9,8 @@
 \arguments{
 \item{x}{The \code{\link{tc}} object to be subsetted.}
 
-\item{i}{Any subsetting expression supported by the temporal class provided by the \code{tc} object.}
+\item{i}{Any subsetting expression supported by the temporal class provided 
+by the \code{tc} object.}
 
 \item{...}{any further arguments for the underlying subsetting method.}
 }

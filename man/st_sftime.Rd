@@ -2,7 +2,7 @@
 % Please edit documentation in R/sftime.R
 \name{st_sftime}
 \alias{st_sftime}
-\title{Construct a \code{sftime} object from all its components}
+\title{Construct an \code{sftime} object from all its components}
 \usage{
 st_sftime(
   ...,
@@ -57,7 +57,7 @@ and \code{tc_last} are \code{TRUE}, \code{tc} columns are put last.}
 An object of class \code{sftime}.
 }
 \description{
-Construct a \code{sftime} object from all its components
+Construct an \code{sftime} object from all its components
 }
 \examples{
 ## construction with a sfc object
@@ -65,6 +65,7 @@ library(sf)
 g <- st_sfc(st_point(1:2))
 tc <- st_tc(Sys.time())
 st_sftime(a = 3, g, time = tc)
+
 ## construction with an sf object
 \dontrun{st_sftime(st_sf(a = 3, g), time = tc) # error, because if ... contains a data.frame-like object, no other objects may be passed through ... . Instead, add the time column before.}
 st_sftime(st_sf(a = 3, g, time = tc))

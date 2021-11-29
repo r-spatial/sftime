@@ -14,6 +14,9 @@
 \item{print_number_features}{A logical value; whether the number of features 
 shall be printed (\code{TRUE}) or not (\code{FALSE}).}
 }
+\value{
+\code{x} (invisible).
+}
 \description{
 \code{print} generic for \code{tc}
 }

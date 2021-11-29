@@ -1,6 +1,6 @@
 #### construction ####
 
-#' Construct a \code{sftime} object from all its components
+#' Construct an \code{sftime} object from all its components
 #'
 #' @param ... Column elements to be binded into an \code{sftime} object or a 
 #' single \code{list} or \code{data.frame} with such columns. At least one of 
@@ -27,16 +27,17 @@
 #' @param check_ring_dir A logical value; see \link{st_read}.
 #'
 #' @return An object of class \code{sftime}.
-#' @export
 #' @examples
 #' ## construction with a sfc object
 #' library(sf)
 #' g <- st_sfc(st_point(1:2))
 #' tc <- st_tc(Sys.time())
 #' st_sftime(a = 3, g, time = tc)
+#' 
 #' ## construction with an sf object
 #' \dontrun{st_sftime(st_sf(a = 3, g), time = tc) # error, because if ... contains a data.frame-like object, no other objects may be passed through ... . Instead, add the time column before.}
 #' st_sftime(st_sf(a = 3, g, time = tc))
+#' @export
 st_sftime <- function(..., 
                       agr = sf::NA_agr_, 
                       row.names,
@@ -111,6 +112,8 @@ st_sftime <- function(...,
 #' @param x An object of class \code{sftime}.
 #' @param ... Currently unused arguments, for compatibility.
 #' @param n Numeric value; maximum number of printed elements.
+#' 
+#' @return \code{x} (invisible).
 #' @export
 print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
   geoms <- which(vapply(x, function(col) inherits(col, "sfc"), TRUE))
@@ -142,30 +145,30 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
 
 #### coercion ####
 
-#' Convert foreign object to an sftime object
+#' Convert a foreign object to an \code{sftime} object
 #'
-#' Convert foreign object to an sftime object
+#' Convert a foreign object to an \code{sftime} object.
 #' 
 #' @aliases st_as_sftime.ST
-#' @param x object to be converted into an object class \code{sftime}
+#' @param x An object to be converted into an object class \code{sftime}.
 #' @export
 #' @importFrom methods slotNames as
 st_as_sftime = function(x) UseMethod("st_as_sftime")
 
 #' @export
 st_as_sftime.ST <- function(x) {
-  hasData <- "data" %in% slotNames(x)
+  has_data <- "data" %in% slotNames(x)
   
   if (!inherits(x, "STI")) {
-    if (hasData)
+    if (has_data)
       x <- as(x, "STIDF")
     else 
       x <- as(x, "STI")
   }
   
-  times <- as.POSIXct(attr(x@time, "index"), origin="1970-01-01")
+  times <- as.POSIXct(attr(x@time, "index"), origin = "1970-01-01")
   
-  if (hasData)  
+  if (has_data)  
     st_sftime(x@data, st_as_sfc(x@sp), time = st_tc(times))
   else
     st_sftime(st_as_sfc(x@sp), time = st_tc(times))
