@@ -7,13 +7,13 @@
 #' these columns shall be a geometry list-column of class \code{sfc} and one 
 #' shall be a time list-column of class \code{tc}.
 #' @param crs Coordinate reference system, something suitable as input to 
-#' \code{\link{sf}{st_crs}}.
+#' \code{\link[sf]{st_crs}}.
 #' @param agr A character vector; see details below.
 #' @param row.names row.names for the created \code{sf} object.
 #' @param stringsAsFactors A logical value; see 
-#' \code{\link{sf}{st_read}}.
+#' \code{\link[sf]{st_read}}.
 #' @param precision A numeric value; see 
-#' \code{\link{sf}{st_as_binary}}.
+#' \code{\link[sf]{st_as_binary}}.
 #' @param sf_column_name A character value; name of the active list-column with 
 #' simple feature geometries; in case there is more than one and 
 #' \code{sf_column_name} is \code{NULL}, the first one is taken.
@@ -26,7 +26,7 @@
 #' @param tc_last A logical value; if \code{TRUE}, \code{tc} columns are always 
 #' put last, otherwise column order is left unmodified. If both \code{sfc_last}
 #' and \code{tc_last} are \code{TRUE}, \code{tc} columns are put last.
-#' @param check_ring_dir A logical value; see \code{\link{sf}{st_read}}.
+#' @param check_ring_dir A logical value; see \code{\link[sf]{st_read}}.
 #'
 #' @return An object of class \code{sftime}.
 #' @examples
