@@ -7,7 +7,7 @@
 \method{[}{tc}(x, i, ...)
 }
 \arguments{
-\item{x}{The \code{\link{tc}} object to be subsetted.}
+\item{x}{The \code{\link[=st_tc]{tc}} object to be subsetted.}
 
 \item{i}{Any subsetting expression supported by the temporal class provided 
 by the \code{tc} object.}

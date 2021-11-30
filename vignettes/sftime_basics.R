@@ -80,18 +80,25 @@ sort(tc)[1]
 
 ## -----------------------------------------------------------------------------
 g = st_sfc(st_point(1:2), st_point(c(1,3)), st_point(2:3), st_point(c(2,1)))
-sf <- st_sf(a=1:4, g)
 
-sft <- st_sf_time(sf, sort(tc))
+# provide as.data.frame method. This is needed for sf::st_sf to not cause an error with lists when calling as.data.frame
+as.data.frame.intervals <- function(x, ...) {
+  nm <- deparse1(substitute(x))
+  if (!"nm" %in% names(list(...))) 
+    as.data.frame.vector(x, ..., nm = nm)
+  else as.data.frame.vector(x, ...)
+}
 
-sft <- st_sf_time(sf, st_tc(Sys.time()-0:3*3600*24))
+sft <- st_sftime(a = 1:4, g, time = sort(tc))
+
+sft <- st_sftime(g, time = st_tc(Sys.time()-0:3*3600*24))
 
 ## ---- fig.width=7-------------------------------------------------------------
 coords <- matrix(runif(100), ncol = 2)
 g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
 sf <- st_sf(a=1:50, g)
 
-sft <- st_sf_time(sf, st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6))
+sft <- st_sftime(cbind(sf, time = st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6)))
 
 plot(sft, key.pos = 4)
 

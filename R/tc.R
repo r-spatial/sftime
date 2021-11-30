@@ -8,6 +8,7 @@
 #' @name is_sortable
 #' @param x The object to check.
 #' @return \code{TRUE} if \code{x} passes the check, else \code{FALSE}.
+#' @keywords internal
 #' 
 #' @details Checks whether the provided object can be handled by 
 #' \code{\link{order}}. A couple of basic types are whitelisted. However, custom 
@@ -21,6 +22,7 @@
 #' is_sortable(x)
 #' 
 #' @importFrom utils methods
+#' @export
 is_sortable <- function(x) {
   # can x be sorted?
   # sort.default checks 'is.object(x)' and uses 'order' to subset and sort the object 
@@ -34,15 +36,15 @@ is_sortable <- function(x) {
   # sort(x)
   # order(x)
   # class(x)
-  any(vapply(class(x), function(clsnm) clsnm %in% c("numeric", "POSIXct", "POSIXlt", "Date", "yearmon", "yearqtr", "factor"), TRUE)) || # have a list of wellknown exceptions
-    paste("xtfrm", class(x), sep=".") %in% methods(class = class(x)) # check for function 'xtfrm.[CLASSNAME]' which is used by 'order' which in turn is used by sort.default
+  any(vapply(class(x), function(y) y %in% c("numeric", "POSIXct", "POSIXlt", "Date", "yearmon", "yearqtr", "factor"), TRUE)) || # have a list of wellknown exceptions
+    any(vapply(class(x), function(y) paste("xtfrm", y, sep=".") %in% methods(class = y), TRUE)) # check for function 'xtfrm.[CLASSNAME]' which is used by 'order' which in turn is used by sort.default
   
 }
 
 #' Construct a \code{tc} object from a vector with time information
 #'
 #' An object of class \code{tc} stores time information and can be used as
-#' time column in a \code{\link[sftime:st_sftime]{sftime}} object.
+#' time column in a \code{\link[=st_sftime]{sftime}} object.
 #'
 #' @param x A vector or list.
 #' 
@@ -58,7 +60,7 @@ st_tc <- function(x) {
 
 #' Subsetting of \code{tc} objects
 #'
-#' @param x The \code{\link{tc}} object to be subsetted.
+#' @param x The \code{\link[=st_tc]{tc}} object to be subsetted.
 #' @param i Any subsetting expression supported by the temporal class provided 
 #' by the \code{tc} object.
 #' @param ... any further arguments for the underlying subsetting method.

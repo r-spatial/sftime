@@ -31,7 +31,7 @@ coords <- matrix(runif(100), ncol = 2)
 g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
 sf <- st_sf(a=1:50, g)
 
-sft <- st_sf_time(sf, st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6))
+sft <- st_sftime(cbind(sf, time = st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6)))
 plot(sft)
 
 }

@@ -14,5 +14,5 @@ An object of class \code{tc}.
 }
 \description{
 An object of class \code{tc} stores time information and can be used as
-time column in a \code{\link[sftime:st_sftime]{sftime}} object.
+time column in a \code{\link[=st_sftime]{sftime}} object.
 }

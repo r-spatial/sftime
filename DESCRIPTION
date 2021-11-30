@@ -4,7 +4,10 @@ Description: Provides classes and methods for spatial objects that have a regist
 Version: 0.2-0
 Depends: sf
 Imports: methods
-Suggests: knitr, spacetime
+Suggests: 
+    knitr,
+    spacetime,
+    rmarkdown
 Authors@R: 
     c(person(given = "Edzer",
              family = "Pebesma",

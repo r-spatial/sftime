@@ -28,23 +28,25 @@ shall be a time list-column of class \code{tc}.}
 
 \item{row.names}{row.names for the created \code{sf} object.}
 
-\item{stringsAsFactors}{A logical value; see \link{st_read}.}
+\item{stringsAsFactors}{A logical value; see 
+\code{\link{sf}{st_read}}.}
 
 \item{crs}{Coordinate reference system, something suitable as input to 
-\code{\link{st_crs}}.}
+\code{\link{sf}{st_crs}}.}
 
-\item{precision}{A numeric value; see \link{st_as_binary}}
+\item{precision}{A numeric value; see 
+\code{\link{sf}{st_as_binary}}.}
 
 \item{sf_column_name}{A character value; name of the active list-column with 
 simple feature geometries; in case there is more than one and 
 \code{sf_column_name} is \code{NULL}, the first one is taken.}
 
 \item{tc_column_name}{A character value; name of the active 
-time column (\code{\link[tc]{tc}} object). In case there is more than one 
+time column (\code{\link[=st_tc]{tc}} object). In case there is more than one 
 \code{tc} object in \code{...} and \code{tc_column_name} is 
 \code{NULL}, the first \code{tc} is taken.}
 
-\item{check_ring_dir}{A logical value; see \link{st_read}.}
+\item{check_ring_dir}{A logical value; see \code{\link{sf}{st_read}}.}
 
 \item{sfc_last}{A logical value; if \code{TRUE}, \code{sfc} columns are 
 always put last, otherwise column order is left unmodified.}
@@ -67,6 +69,8 @@ tc <- st_tc(Sys.time())
 st_sftime(a = 3, g, time = tc)
 
 ## construction with an sf object
-\dontrun{st_sftime(st_sf(a = 3, g), time = tc) # error, because if ... contains a data.frame-like object, no other objects may be passed through ... . Instead, add the time column before.}
+\dontrun{st_sftime(st_sf(a = 3, g), time = tc) 
+# error, because if ... contains a data.frame-like object, no other objects 
+# may be passed through ... . Instead, add the time column before.}
 st_sftime(st_sf(a = 3, g, time = tc))
 }
