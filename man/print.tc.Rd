@@ -4,12 +4,14 @@
 \alias{print.tc}
 \title{\code{print} generic for \code{tc}}
 \usage{
-\method{print}{tc}(x, ..., print_number_features = FALSE)
+\method{print}{tc}(x, ..., n = 5L, print_number_features = FALSE)
 }
 \arguments{
 \item{x}{An object of class \code{tc}.}
 
 \item{...}{Currently unused arguments, for compatibility.}
+
+\item{n}{An integer value; The first \code{n} elements on \code{x} to print.}
 
 \item{print_number_features}{A logical value; whether the number of features 
 shall be printed (\code{TRUE}) or not (\code{FALSE}).}
