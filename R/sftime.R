@@ -40,7 +40,10 @@
 #' \dontrun{st_sftime(st_sf(a = 3, g), time = tc) 
 #' # error, because if ... contains a data.frame-like object, no other objects 
 #' # may be passed through ... . Instead, add the time column before.}
+#' 
 #' st_sftime(st_sf(a = 3, g, time = tc))
+#' 
+#' 
 #' @export
 st_sftime <- function(..., 
                       agr = sf::NA_agr_, 
@@ -108,6 +111,13 @@ st_sftime <- function(...,
 
 #### subsetting ####
 
+reorder_sftime_class_ <- function(x, tc_col) {
+  stopifnot(inherits(x, "sftime"))
+  class(x) <- c("sftime", setdiff(class(x), "sftime"))
+  attr(x, "tc_column") <- tc_col
+  x
+}
+
 #' @name st_sftime
 #' @param x An object of class \code{sf}.
 #' @param i Record selection, see \link{[.data.frame}
@@ -123,12 +133,17 @@ st_sftime <- function(...,
 #' return an \code{sftime} object; see also \link{[.data.frame}; for 
 #' \code{[.sftime} \code{...} arguments are passed to \code{op}.
 #' @examples
+#' ## Subsetting
 #' g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
 #'      st_point(c(2, 1)), st_point(c(3, 1)))
 #' tc <- st_tc(Sys.time() + 1:5)
 #' x <- st_sftime(st_sf(a = 1:5, g, time = tc))
+#' 
+#' # rows
 #' x[1, ]
 #' class(x[1, ])
+#' 
+#' # columns
 #' x[, 1]
 #' class(x[, 1]) # drops time column as for ordinary data.frame subsetting, 
 #' # keeps geometry column of sf object
@@ -137,13 +152,16 @@ st_sftime <- function(...,
 #' # keeps geometry column of sf object, returns an sftime object
 #' x[, 3, drop = TRUE] 
 #' class(x[, 3, drop = TRUE]) # if the geometry column is dropped, not only the
-#' # sf class is dropped, but also the sftime class 
+#' # sf class is dropped, but also the sftime class
+#' 
+#' # with sf or sftime object 
 #' pol = st_sfc(st_polygon(list(cbind(c(0,2,2,0,0),c(0,0,2,2,0)))))
 #' h = st_sf(r = 5, pol)
 #' x[h, ] 
 #' class(x[h, ]) # returns sftime object
 #' h[x, ] 
 #' class(h[x, ]) # returns sf object
+#' 
 #' @export
 "[.sftime" <- function(x, i, j, ..., drop = FALSE, op = sf::st_intersects) {
   
@@ -164,11 +182,17 @@ st_sftime <- function(...,
   
 }
 
-reorder_sftime_class_ <- function(x, tc_col) {
-  stopifnot(inherits(x, "sftime"))
-  class(x) <- c("sftime", setdiff(class(x), "sftime"))
-  attr(x, "tc_column") <- tc_col
-  x
+#' @name st_sftime
+#' @param value An object to insert into \code{x}.
+#' @export
+"[[<-.sftime" <- function(x, i, value) {
+  structure(NextMethod(), class = c("sftime", setdiff(class(x), "sftime")))
+}
+
+#' @name st_sftime
+#' @export
+"$<-.sftime" = function(x, i, value) {
+  structure(NextMethod(), class = c("sftime", setdiff(class(x), "sftime")))
 }
 
 #### printing ####

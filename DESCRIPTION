@@ -7,7 +7,8 @@ Imports: methods
 Suggests: 
     knitr,
     spacetime,
-    rmarkdown
+    rmarkdown,
+    dplyr (>= 0.8-3)
 Authors@R: 
     c(person(given = "Edzer",
              family = "Pebesma",
@@ -31,3 +32,4 @@ Collate:
   init.R
   plot.R
   st_time.R
+  bind.R
