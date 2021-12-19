@@ -52,7 +52,7 @@ st_time.tc <- function(obj, ...) obj
 st_time.sftime <- function(obj, ...) {
   ret <-  obj[[attr(obj, "tc_column")]]
   if (!inherits(ret, "tc")) # corrupt!
-    stop('attr(obj, "tc_column") does not point to a geometry column.\nDid you rename it, without setting st_time(obj) <- "newname"?')
+    stop('attr(obj, "tc_column") does not point to a time column.\nDid you rename it, without setting st_time(obj) <- "newname"?')
   ret
 }
 
