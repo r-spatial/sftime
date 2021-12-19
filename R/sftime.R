@@ -270,6 +270,51 @@ st_as_sftime.ST <- function(x, ...) {
 
 #' @name st_as_sftime
 #' @export
+st_as_sftime.Track <- function(x, ...) {
+  
+  has_data <- "data" %in% slotNames(x)
+  
+  if (has_data)
+    x <- as(x, "STIDF")
+  else 
+    x <- as(x, "STI")
+  
+  st_as_sftime(x)
+  
+} 
+
+#' @name st_as_sftime
+#' @export
+st_as_sftime.Tracks <- function(x, ...) {
+  
+  track_name <-
+    unlist(lapply(seq_along(x@tracks), function(i) rep(names(x@tracks)[[i]], x@tracksData$n[[i]])))
+  
+  cbind(st_as_sftime(as(x, "STIDF")), track_name = track_name)
+  
+} 
+
+#' @name st_as_sftime
+#' @export
+st_as_sftime.TracksCollection <- function(x, ...) {
+  
+  track_names <-
+    do.call(rbind, lapply(seq_along(x@tracksCollection), function(i) {
+      n <- sum(x@tracksCollection[[i]]@tracksData$n)
+      track_i <- x@tracksCollection[[i]]
+      data.frame(
+        tracks_name = rep(names(x@tracksCollection)[[i]], n),
+        track_name = unlist(lapply(seq_along(track_i@tracks), function(j) rep(names(track_i@tracks)[[j]], track_i@tracksData$n[[j]]))),
+        stringsAsFactors = FALSE
+      )
+    }))
+  
+  cbind(st_as_sftime(as(x, "STIDF")), track_names)
+  
+} 
+
+#' @name st_as_sftime
+#' @export
 st_as_sftime.sftime <- function(x, ...) x
 
 #' @name st_as_sftime

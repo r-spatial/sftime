@@ -3,6 +3,9 @@
 \name{st_as_sftime}
 \alias{st_as_sftime}
 \alias{st_as_sftime.ST}
+\alias{st_as_sftime.Track}
+\alias{st_as_sftime.Tracks}
+\alias{st_as_sftime.TracksCollection}
 \alias{st_as_sftime.sftime}
 \alias{st_as_sftime.sf}
 \alias{st_as_sftime.data.frame}
@@ -11,6 +14,12 @@
 st_as_sftime(x, ...)
 
 \method{st_as_sftime}{ST}(x, ...)
+
+\method{st_as_sftime}{Track}(x, ...)
+
+\method{st_as_sftime}{Tracks}(x, ...)
+
+\method{st_as_sftime}{TracksCollection}(x, ...)
 
 \method{st_as_sftime}{sftime}(x, ...)
 
