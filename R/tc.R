@@ -17,7 +17,7 @@
 #' examples below for a template.
 #' 
 #' @examples
-#' x <- Sys.time() + 5:1 * 3600*24
+#' x <- Sys.time() + 5:1 * 3600 * 24
 #' sort(x)
 #' is_sortable(x)
 #' 
@@ -36,7 +36,7 @@ is_sortable <- function(x) {
   # sort(x)
   # order(x)
   # class(x)
-  any(vapply(class(x), function(y) y %in% c("numeric", "POSIXct", "POSIXlt", "Date", "yearmon", "yearqtr", "factor"), TRUE)) || # have a list of wellknown exceptions
+  any(vapply(class(x), function(y) y %in% c("integer", "numeric", "POSIXct", "POSIXlt", "Date", "yearmon", "yearqtr", "factor"), TRUE)) || # have a list of wellknown exceptions
     any(vapply(class(x), function(y) paste("xtfrm", y, sep=".") %in% methods(class = y), TRUE)) # check for function 'xtfrm.[CLASSNAME]' which is used by 'order' which in turn is used by sort.default
   
 }
@@ -58,37 +58,84 @@ st_tc <- function(x) {
 
 #### subsetting ####
 
-#' Subsetting of \code{tc} objects
+#' Extract or replace elements in a \code{tc} object
 #'
-#' @param x The \code{\link[=st_tc]{tc}} object to be subsetted.
+#' @name st_tc-extract
+#' @param x The \code{\link[=st_tc]{tc}} object from which to extract 
+#' element(s) or in which to replace elements.
 #' @param i Any subsetting expression supported by the temporal class provided 
 #' by the \code{tc} object.
 #' @param ... any further arguments for the underlying subsetting method.
 #'
-#' @return A \code{tc} object representing a subset of \code{x}.
+#' @return A \code{tc} object representing a subset of \code{x} or \code{x} 
+#' with replaced values.
 #' @export
 "[.tc" <- function(x, i, ...) {
   st_tc(NextMethod())
 }
 
-#### printing ####
+#' @rdname st_tc-extract
+#' @param value An object with which to substitute elements in \code{x}. Must 
+#' be of the same class as elements in \code{x}.
+#' @export
+"[<-.tc" <- function(x, i, value) {
+  st_tc(NextMethod())
+}
+
+
+#### combine ####
+
+#' Combining \code{tc} objects
+#' 
+#' @param ... One or multiple \code{tc} objects to combine.
+#' @param recursive A logical value; ignored.
+#' @export
+c.tc <- function(..., recursive = FALSE) {
+  x <- list(...)
+  stopifnot(all(vapply(x, FUN = inherits, "tc", FUN.VALUE = logical(1L))))
+  x_classes <- lapply(x, class)
+  if(length(unique(x_classes)) != 1)
+    stop("All tc objects to combine must have identical classes.")
+  st_tc(NextMethod())
+}
+
+
+#### casting ####
+
+#' Cast a \code{tc} object to a data frame
+#' 
+#' @param x An object of class \code{tc}.
+#' @param ... Additional arguments; ignored.
+#' 
+#' @return A data frame with a column \code{time} with the values in \code{x}
+#' @export
+as.data.frame.tc <- function(x, ...) {
+  ret <- data.frame(row.names = seq_along(x))
+  ret$time <- x
+  ret
+}
+
+
+#### printing and summarizing ####
 
 #' \code{print} generic for \code{tc}
 #'
 #' @param x An object of class \code{tc}.
+#' @param n An integer value; The first \code{n} elements on \code{x} to print.
 #' @param print_number_features A logical value; whether the number of features 
 #' shall be printed (\code{TRUE}) or not (\code{FALSE}).
 #' @param ... Currently unused arguments, for compatibility.
 #' 
 #' @return \code{x} (invisible).
 #' @export
-print.tc <- function(x, ..., print_number_features = FALSE) {
+print.tc <- function(x, ..., n = 5L , print_number_features = FALSE) {
   
   stopifnot(is.logical(print_number_features) && length(print_number_features) == 1)
+  stopifnot(is.integer(n) && length(n) == 1)
   
   ord <- order(x)
-  x_min <- x[[which.min(ord)]]
-  x_max <- x[[which.max(ord)]]
+  x_min <- x[[ord[[1]]]]
+  x_max <- x[[ord[[length(ord)]]]]
   x_class <- class(x)
   x_is_value <- length(x) == 1
   
@@ -101,5 +148,55 @@ print.tc <- function(x, ..., print_number_features = FALSE) {
                     paste0("Representing ", x_min, ".\n" ), 
                     paste0("Ranging from ", x_min, " to ", x_max, ".\n" ))))
   
+  for(i in seq_len(min(n, length(x)))) {
+    ret <- x[[i]]
+    class(ret) <- setdiff(class(ret), "tc")
+    message(ret)
+  }
+    
   invisible(x)
 }
+
+#' Compactly display the structure of \code{tc} objects
+#'
+#' @param object An object of class \code{tc}.
+#' @param ... Additional arguments passed to the \code{str} method for the 
+#' first element in \code{object}.
+#'
+#' @export
+str.tc <- function(object, ...) {
+  n <- length(object)
+  cat(paste0(class(object)[1], " of length ", n))
+  if (n > 0) {
+    cat("; first list element: ")
+    ret <- object[[1]]
+    class(ret) <- setdiff(class(ret), "tc")
+    utils::str(ret, ...)
+  }
+}
+
+#' Range of \code{tc} objects.
+#' 
+#' @param ... \code{tc} objects.
+#' @param na.rm A logical value; Indicating if \code{NA}s should be omitted.
+#' 
+#' @export
+range.tc <- function(..., na.rm = FALSE) {
+  x <- list(...)
+  stopifnot(all(vapply(x, FUN = inherits, "tc", FUN.VALUE = logical(1L))))
+  x_classes <- lapply(x, class)
+  if(length(unique(x_classes)) != 1)
+    stop("All tc objects to combine must have identical classes.")
+  st_tc(NextMethod())
+}
+
+#' Summarize \code{tc} objects
+#' 
+#' @param object An object of class \code{tc}.
+#' @param ... Additional arguments; Ignored.
+#' @export
+summary.tc <- function(object, ...) {
+  print(range(object), n = 0L)
+}
+
+

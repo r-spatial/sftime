@@ -24,7 +24,7 @@ Note that a \code{list} can only be sorted with \link{atomic} values. See the
 examples below for a template.
 }
 \examples{
-x <- Sys.time() + 5:1 * 3600*24
+x <- Sys.time() + 5:1 * 3600 * 24
 sort(x)
 is_sortable(x)
 
