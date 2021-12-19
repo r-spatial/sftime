@@ -2,21 +2,105 @@
 % Please edit documentation in R/st_time.R
 \name{st_time}
 \alias{st_time}
+\alias{st_time<-}
 \alias{st_time.tc}
+\alias{st_time.sftime}
+\alias{st_time<-.sf}
+\alias{st_time<-.sftime}
+\alias{st_set_time}
+\alias{st_drop_time}
 \title{Get, set, or replace time information}
 \usage{
 st_time(obj, ...)
 
+st_time(x) <- value
+
 \method{st_time}{tc}(obj, ...)
+
+\method{st_time}{sftime}(obj, ...)
+
+\method{st_time}{sf}(x) <- value
+
+\method{st_time}{sftime}(x) <- value
+
+st_set_time(x, value)
+
+st_drop_time(x)
 }
 \arguments{
 \item{obj}{An object of class \code{sftime} or \code{tc}.}
 
 \item{...}{Additional arguments; Ignored.}
+
+\item{x}{An object of class \code{sftime} or \code{sf}.}
+
+\item{value}{An object of class \code{tc}, or \code{character}, or 
+\code{NULL}.}
 }
 \value{
-An object of class \code{\link[=st_tc]{tc}}
+\code{st_time} returns an object of class \code{\link[=st_tc]{tc}}. 
+Assigning a \code{tc} object to an \code{sf} object creates an 
+\code{\link[=st_sftime]{sftime}} object. Assigning a \code{tc} object to an \code{sftime}
+object replaces the time column.
 }
 \description{
 Get, set, or replace time information
+}
+\details{
+When applied to an \code{sf} object and when \code{value} is an 
+object of class \code{tc}, \code{st_set_time} and \code{st_time<-} will first 
+check for the existence of an attribute \code{tc_column} and overwrite that, 
+or else look for list-columns of class \code{tc} and overwrite the first of 
+that, or else write the time column to a new column named \code{time}.  
+
+In case \code{value} is character and \code{x} is of class \code{sftime}, 
+the "active" time column is set to \code{x[[value]]}.
+
+The replacement function applied to \code{sftime} objects will overwrite the 
+time column, if \code{value} is \code{NULL}, it will remove it and coerce 
+\code{x} to an \code{sftime} object.
+
+\code{st_drop_time} drops the time column of its argument, and 
+reclasses it accordingly.
+}
+\examples{
+## extracting tc objects
+
+# from tc object
+st_time(st_tc(Sys.time() + 1:5)) 
+
+# from sftime object
+g <- st_sfc(st_point(1:2))
+tc <- st_tc(Sys.time())
+x <- st_sftime(st_sf(a = 3, g, time = tc))
+st_time(x) 
+
+## assign tc objects
+
+# to sf object
+x <- st_sf(a = 3, g)
+st_time(x) <- tc
+x
+
+# to sftime object
+x <- st_sftime(st_sf(a = 3, g, time = tc))
+st_time(x) <- st_tc(Sys.time())
+
+## remove time column from sftime object
+st_time(x) <- NULL
+
+## pipe-friendly
+
+# assign time column to sf object
+x <- st_sf(a = 3, g)
+x <- st_set_time(x, tc)
+
+# remove time column from sftime object
+st_set_time(x, NULL)
+
+## drop time column and class
+
+# same as x <- st_set_time(x, NULL)
+st_drop_time(x)
+
 }

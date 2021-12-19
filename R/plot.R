@@ -62,7 +62,7 @@ plot.sftime <- function(x, y, ..., mode="xy", number=6, tcuts, key.pos=-1) {
   stopifnot(mode %in% c("xy"))
   
   if (mode == "xy") {  
-    ts <- st_get_time(x)
+    ts <- st_time(x)
     
     if (missing(tcuts)) {
       ts_ord <- order(ts)

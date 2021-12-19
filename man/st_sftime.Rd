@@ -2,6 +2,7 @@
 % Please edit documentation in R/sftime.R
 \name{st_sftime}
 \alias{st_sftime}
+\alias{[.sftime}
 \title{Construct an \code{sftime} object from all its components}
 \usage{
 st_sftime(
@@ -17,6 +18,8 @@ st_sftime(
   sfc_last = TRUE,
   tc_last = TRUE
 )
+
+\method{[}{sftime}(x, i, j, ..., drop = FALSE, op = sf::st_intersects)
 }
 \arguments{
 \item{...}{Column elements to be binded into an \code{sftime} object or a 
@@ -54,12 +57,32 @@ always put last, otherwise column order is left unmodified.}
 \item{tc_last}{A logical value; if \code{TRUE}, \code{tc} columns are always 
 put last, otherwise column order is left unmodified. If both \code{sfc_last}
 and \code{tc_last} are \code{TRUE}, \code{tc} columns are put last.}
+
+\item{x}{An object of class \code{sf}.}
+
+\item{i}{Record selection, see \link{[.data.frame}}
+
+\item{j}{Variable selection, see \link{[.data.frame}}
+
+\item{drop}{A logical value, default \code{FALSE}; if \code{TRUE} drop the 
+geometry column and return a \code{data.frame}, else make the geometry sticky 
+and return an \code{sf} object.}
+
+\item{op}{A function; geometrical binary predicate function to apply when 
+\code{i} is a simple feature object.}
 }
 \value{
 An object of class \code{sftime}.
 }
 \description{
 Construct an \code{sftime} object from all its components
+}
+\details{
+\code{[.sf} will return a \code{data.frame} or vector if the 
+geometry column (of class \code{sfc}) is dropped (\code{drop=TRUE}), an 
+\code{sfc} object if only the geometry column is selected, and otherwise 
+return an \code{sftime} object; see also \link{[.data.frame}; for 
+\code{[.sftime} \code{...} arguments are passed to \code{op}.
 }
 \examples{
 ## construction with a sfc object
@@ -73,4 +96,25 @@ st_sftime(a = 3, g, time = tc)
 # error, because if ... contains a data.frame-like object, no other objects 
 # may be passed through ... . Instead, add the time column before.}
 st_sftime(st_sf(a = 3, g, time = tc))
+g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+     st_point(c(2, 1)), st_point(c(3, 1)))
+tc <- st_tc(Sys.time() + 1:5)
+x <- st_sftime(st_sf(a = 1:5, g, time = tc))
+x[1, ]
+class(x[1, ])
+x[, 1]
+class(x[, 1]) # drops time column as for ordinary data.frame subsetting, 
+# keeps geometry column of sf object
+x[, 3]
+class(x[, 3]) # keeps time column because it is explicitly selected,
+# keeps geometry column of sf object, returns an sftime object
+x[, 3, drop = TRUE] 
+class(x[, 3, drop = TRUE]) # if the geometry column is dropped, not only the
+# sf class is dropped, but also the sftime class 
+pol = st_sfc(st_polygon(list(cbind(c(0,2,2,0,0),c(0,0,2,2,0)))))
+h = st_sf(r = 5, pol)
+x[h, ] 
+class(x[h, ]) # returns sftime object
+h[x, ] 
+class(h[x, ]) # returns sf object
 }

@@ -108,7 +108,68 @@ st_sftime <- function(...,
 
 #### subsetting ####
 
+#' @name st_sftime
+#' @param x An object of class \code{sf}.
+#' @param i Record selection, see \link{[.data.frame}
+#' @param j Variable selection, see \link{[.data.frame}
+#' @param drop A logical value, default \code{FALSE}; if \code{TRUE} drop the 
+#' geometry column and return a \code{data.frame}, else make the geometry sticky 
+#' and return an \code{sf} object.
+#' @param op A function; geometrical binary predicate function to apply when 
+#' \code{i} is a simple feature object.
+#' @details \code{[.sf} will return a \code{data.frame} or vector if the 
+#' geometry column (of class \code{sfc}) is dropped (\code{drop=TRUE}), an 
+#' \code{sfc} object if only the geometry column is selected, and otherwise 
+#' return an \code{sftime} object; see also \link{[.data.frame}; for 
+#' \code{[.sftime} \code{...} arguments are passed to \code{op}.
+#' @examples
+#' g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+#'      st_point(c(2, 1)), st_point(c(3, 1)))
+#' tc <- st_tc(Sys.time() + 1:5)
+#' x <- st_sftime(st_sf(a = 1:5, g, time = tc))
+#' x[1, ]
+#' class(x[1, ])
+#' x[, 1]
+#' class(x[, 1]) # drops time column as for ordinary data.frame subsetting, 
+#' # keeps geometry column of sf object
+#' x[, 3]
+#' class(x[, 3]) # keeps time column because it is explicitly selected,
+#' # keeps geometry column of sf object, returns an sftime object
+#' x[, 3, drop = TRUE] 
+#' class(x[, 3, drop = TRUE]) # if the geometry column is dropped, not only the
+#' # sf class is dropped, but also the sftime class 
+#' pol = st_sfc(st_polygon(list(cbind(c(0,2,2,0,0),c(0,0,2,2,0)))))
+#' h = st_sf(r = 5, pol)
+#' x[h, ] 
+#' class(x[h, ]) # returns sftime object
+#' h[x, ] 
+#' class(h[x, ]) # returns sf object
+#' @export
+"[.sftime" <- function(x, i, j, ..., drop = FALSE, op = sf::st_intersects) {
+  
+  # retain info on time column
+  tc_col <- attr(x, "tc_column")
+  
+  # perform subsetting for sf object
+  attr(x, "tc_column") <- NULL
+  if((!missing(j) && !drop && ((is.character(j) && any(j == tc_col)) || (is.numeric(j) && any(colnames(x)[j] == tc_col)))) ||
+     !missing(i) && !drop) {
+    reorder_sftime_class_(NextMethod(), tc_col = tc_col)
+  } else if (drop) {
+    class(x) <- setdiff(class(x), "sftime")
+    NextMethod()
+  } else {
+    NextMethod()
+  } # ---todo: what to do when i is an sftime object: match also time info
+  
+}
 
+reorder_sftime_class_ <- function(x, tc_col) {
+  stopifnot(inherits(x, "sftime"))
+  class(x) <- c("sftime", setdiff(class(x), "sftime"))
+  attr(x, "tc_column") <- tc_col
+  x
+}
 
 #### printing ####
 
@@ -178,19 +239,3 @@ st_as_sftime.ST <- function(x) {
   else
     st_sftime(st_as_sfc(x@sp), time = st_tc(times))
 }
-
-
-#### manipulate time column ####
-
-#' Extract the active time column of an \code{sftime} object.
-#'
-#' @param x An \code{sftime} object.
-#'
-#' @return The active time column in \code{x} as \code{tc} object.
-#' @export
-st_get_time <- function(x) {
-  stopifnot(inherits(x, "sftime"))
-  as.data.frame(x)[, attr(x, "tc_column")]
-}
-
-## keep time while subsetting a column!
