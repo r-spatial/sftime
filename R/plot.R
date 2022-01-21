@@ -73,43 +73,43 @@ plot.sftime <- function(x, y, ..., mode = "xy", number = 6, tcuts, key.pos = -1)
       ts_ord <- order(ts)
       ts_fac <- tryCatch(as.factor(ts[ts_ord]), error = function(e) e)
       if (inherits(ts_fac, "error")) {
-        ts_fac <- factor(as.character(ts[ts_ord]), 
-                         levels = unique(as.character(ts[ts_ord])),
-                         ordered = TRUE)
+        ts_fac <- 
+          factor(
+            as.character(ts[ts_ord]), 
+            levels = unique(as.character(ts[ts_ord])),
+            ordered = TRUE
+          )
       }
       
       ts_nlv <- length(levels(ts_fac))
-      
-      
-      
       
       if (number > ts_nlv) {
         number <- ts_nlv
         message("[INFO] Fewer time stamps in the data than asked for; argument 'number' set to: ", ts_nlv)
       }
       
-      tcuts <- seq(1, ts_nlv, length.out = number+1)
+      tcuts <- seq(1, ts_nlv, length.out = number + 1)
       
-      timeclass = findInterval(as.numeric(ts_fac), tcuts, rightmost.closed = TRUE)
+      timeclass <- findInterval(as.numeric(ts_fac), tcuts, rightmost.closed = TRUE)
     } else {
       number <- length(tcuts) - 1
-      timeclass = findInterval(ts, tcuts, rightmost.closed = TRUE)
+      timeclass <- findInterval(ts, tcuts, rightmost.closed = TRUE)
     }
-    d_ord <- as.data.frame(x)[,y, drop=F][order(ts),,drop=F]  
+    d_ord <- as.data.frame(x)[order(ts), y, drop = FALSE]
     
     data <- d_ord
     if (number > 1) { 
       for (i in 2:number) {
-        data = cbind(data, d_ord[,1])
+        data <- cbind(data, d_ord[, 1])
         data[timeclass != i, i] = NA
         if (i == number)
-          data[timeclass != 1, 1] = NA # deal with first time class
+          data[timeclass != 1, 1] <- NA # deal with first time class
       }
     }
     
-    names(data) = levels(ts_fac)[unique(timeclass)]
-    d = st_sf(data, x$g)
+    names(data) <- levels(ts_fac)[unique(timeclass)]
+    d <- sf::st_sf(data, x$g)
   }
   
-  plot(d, ..., key.pos=key.pos)
+  plot(d, ..., key.pos = key.pos)
 }
