@@ -24,8 +24,10 @@ This vignette is meant to briefly explain and illustrate the ideas and decisions
 
 ```{r packages}
 # load required packages
-library(sf)
 library(sftime)
+library(sf)
+library(stars)
+library(spacetime)
 ```
 
 
@@ -88,7 +90,7 @@ x_sftime1 <-
 ```
 
 
-## Coercion
+## Conversion to class `sftime`
 
 sftime supports coercion to `sftime` objects from the following classes (grouped according to packages):
 
@@ -98,6 +100,67 @@ sftime supports coercion to `sftime` objects from the following classes (grouped
 - trajectories: Track, Tracks, TracksCollection
 - sftrack: sftrack, sftraj
 
+**Conversion from `sf` objects:**
+
+```{r}
+# define the geometry column
+g <- 
+  st_sfc(
+    st_point(c(1, 2)), 
+    st_point(c(1, 3)), 
+    st_point(c(2, 3)), 
+    st_point(c(2, 1)), 
+    st_point(c(3, 1))
+  )
+
+# crate sf object
+x4_sf <- st_sf(a = 1:5, g, time = Sys.time() + 1:5)
+
+# convert to sftime
+x4_sftime <- st_as_sftime(x4_sf) 
+class(x4_sftime)
+```
+
+**Conversion from `stars` objects:**
+
+```{r}
+# load sample data
+x5_stars <- stars::read_ncdf(system.file("nc/bcsd_obs_1999.nc", package = "stars"), var = c("pr", "tas"))
+
+# convert to sftime
+x5_sftime <- st_as_sftime(x5_stars, time_column_name = "time")
+```
+
+`st_as_sftime.stars` is a wrapper around `st_as_sf.stars`. As a consequence, some dimensions of the `stars` object can be dropped during conversion. Temporal information in `stars` objects are typically stored as dimension of an attribute. Therefore, some argument settings to `st_as_sftime` can drop the dimension with temporal information and therefore throw an error. For example, setting `merge = TRUE` drops dimension `time` and therefore conversion fails. Similarly, setting `long = FALSE` returns the attribute values in a wide format, where each column is a time point:
+
+```{r, error = TRUE}
+# failed conversion to sftime
+x5_sftime <- st_as_sftime(x5_stars, merge = TRUE, time_column_name = "time")
+x5_sftime <- st_as_sftime(x5_stars, long = FALSE, time_column_name = "time")
+```
+
+**Conversion from `spacetime` objects**
+
+```{r}
+# get sample data
+example(STI, package = "spacetime")
+class(stidf)
+
+# conversion to sftime
+x1_sftime <- st_as_sftime(stidf)
+```
+
+**Conversion from `Track`, `Tracks`, `TracksCollections` objects (trajectories package)**
+
+```{r}
+# get a sample TracksCollection
+x2_TracksCollection <- trajectories::rTracksCollection(p = 2, m = 3, n = 40)
+
+# convert to sftime
+x2_TracksCollection_sftime <- st_as_sftime(x2_TracksCollection)
+x2_Tracks_sftime <- st_as_sftime(x2_TracksCollection@tracksCollection[[1]])
+x2_Track_sftime <- st_as_sftime(x2_TracksCollection@tracksCollection[[1]]@tracks[[1]])
+```
 
 
 ## Subsetting
