@@ -402,6 +402,13 @@ st_as_sftime.ST <- function(x, ...) {
 }
 
 #' @name st_as_sftime
+#' @examples 
+#' # convert a Track object from package trajectories to an sftime object
+#' library(trajectories)
+#' x1_Track <- trajectories::rTrack(n = 100)
+#' x1_Track@data$speed <- sort(rnorm(length(x1_Track)))
+#' x1_sftime <- st_as_sftime(x1_Track)
+#' 
 #' @export
 st_as_sftime.Track <- function(x, ...) {
   
@@ -417,6 +424,11 @@ st_as_sftime.Track <- function(x, ...) {
 } 
 
 #' @name st_as_sftime
+#' @examples 
+#' # convert a Tracks object from package trajectories to an sftime object
+#' x2_Tracks <- trajectories::rTracks(m = 6)
+#' x2_sftime <- st_as_sftime(x2_Tracks)
+#' 
 #' @export
 st_as_sftime.Tracks <- function(x, ...) {
   
@@ -428,6 +440,11 @@ st_as_sftime.Tracks <- function(x, ...) {
 } 
 
 #' @name st_as_sftime
+#' @examples 
+#' # convert a TracksCollection object from package trajectories to an sftime object
+#' x3_TracksCollection <- trajectories::rTracksCollection(p = 2, m = 3, n = 50)
+#' x3_sftime <- st_as_sftime(x3_TracksCollection)
+#' 
 #' @export
 st_as_sftime.TracksCollection <- function(x, ...) {
   
@@ -454,9 +471,40 @@ st_as_sftime.sftime <- function(x, ...) x
 #' @param time_column_name A character value; name of the active time column. In 
 #' case there is more than one and \code{time_column_name} is \code{NULL}, the 
 #' first one is taken.
+#' @examples
+#' # convert an sf object to an sftime object
+#' g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+#'      st_point(c(2, 1)), st_point(c(3, 1)))
+#' x4_sf <- st_sf(a = 1:5, g, time = Sys.time() + 1:5)
+#' x4_sftime <- st_as_sftime(x4_sf) 
+#' 
 #' @export
 st_as_sftime.sf <- function(x, ..., time_column_name = NULL) {
   st_sftime(x, ..., time_column_name = time_column_name)
+}
+
+#' @name st_as_sftime
+#' @param long A logical value; See \code{\link[stars:st_as_sf]{st_as_sf}}. 
+#' Typically, \code{long} should be set to \code{TRUE} since time information
+#' typically is a dimension of a stars object.
+#' @examples 
+#' # convert a Tracks object from package trajectories to an sftime object
+#' x5_stars <- stars::read_stars(system.file("nc/bcsd_obs_1999.nc", package = "stars"))
+#' x5_sftime <- st_as_sftime(x5_stars, time_column_name = "time")
+#' 
+#' # this requires some thought to not accidentally drop time dimensions. For
+#' # example, setting `merge = TRUE` will drop the time dimension and thus throw
+#' # an error:
+#' \dontrun{
+#' x5_sftime <- st_as_sftime(x5_stars, merge = TRUE, time_column_name = "time")
+#' }
+#' 
+#' @export
+st_as_sftime.stars <- function(x, ..., long = TRUE, time_column_name = NULL) {
+  res <- sf::st_as_sf(x, ..., long = long)
+  if(!time_column_name %in% colnames(res)) 
+    stop("`time_column_name` is not a column in the converted object.")
+  st_sftime(res, time_column_name = time_column_name)
 }
 
 #' @name st_as_sftime
@@ -472,6 +520,12 @@ st_as_sftime.sf <- function(x, ..., time_column_name = NULL) {
 #' @param na.fail A logical value; if \code{TRUE}, raise an error if coordinates 
 #' contain missing values.
 #' @inheritParams st_sftime
+#' @examples
+#' # convert a data frame to an sftime object
+#' x5_df <- 
+#'    data.frame(a = 1:5, g, time = Sys.time() + 1:5, stringsAsFactors = FALSE)
+#' x5_sftime <- st_as_sftime(x5_df)
+#' 
 #' @export
 st_as_sftime.data.frame <- 
   function(x, 

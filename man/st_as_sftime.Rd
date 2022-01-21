@@ -8,6 +8,7 @@
 \alias{st_as_sftime.TracksCollection}
 \alias{st_as_sftime.sftime}
 \alias{st_as_sftime.sf}
+\alias{st_as_sftime.stars}
 \alias{st_as_sftime.data.frame}
 \title{Convert a foreign object to an \code{sftime} object}
 \usage{
@@ -24,6 +25,8 @@ st_as_sftime(x, ...)
 \method{st_as_sftime}{sftime}(x, ...)
 
 \method{st_as_sftime}{sf}(x, ..., time_column_name = NULL)
+
+\method{st_as_sftime}{stars}(x, ..., long = TRUE, time_column_name = NULL)
 
 \method{st_as_sftime}{data.frame}(
   x,
@@ -48,6 +51,10 @@ st_as_sftime(x, ...)
 case there is more than one and \code{time_column_name} is \code{NULL}, the 
 first one is taken.}
 
+\item{long}{A logical value; See \code{\link[stars:st_as_sf]{st_as_sf}}. 
+Typically, \code{long} should be set to \code{TRUE} since time information
+typically is a dimension of a stars object.}
+
 \item{agr}{A character vector; see details section of \code{\link{st_sf}}.}
 
 \item{coords}{In case of point data: names or numbers of the numeric columns 
@@ -71,4 +78,42 @@ simple feature geometries; in case there is more than one and
 }
 \description{
 Convert a foreign object to an \code{sftime} object.
+}
+\examples{
+# convert a Track object from package trajectories to an sftime object
+library(trajectories)
+x1_Track <- trajectories::rTrack(n = 100)
+x1_Track@data$speed <- sort(rnorm(length(x1_Track)))
+x1_sftime <- st_as_sftime(x1_Track)
+
+# convert a Tracks object from package trajectories to an sftime object
+x2_Tracks <- trajectories::rTracks(m = 6)
+x2_sftime <- st_as_sftime(x2_Tracks)
+
+# convert a TracksCollection object from package trajectories to an sftime object
+x3_TracksCollection <- trajectories::rTracksCollection(p = 2, m = 3, n = 50)
+x3_sftime <- st_as_sftime(x3_TracksCollection)
+
+# convert an sf object to an sftime object
+g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+     st_point(c(2, 1)), st_point(c(3, 1)))
+x4_sf <- st_sf(a = 1:5, g, time = Sys.time() + 1:5)
+x4_sftime <- st_as_sftime(x4_sf) 
+
+# convert a Tracks object from package trajectories to an sftime object
+x5_stars <- stars::read_stars(system.file("nc/bcsd_obs_1999.nc", package = "stars"))
+x5_sftime <- st_as_sftime(x5_stars, time_column_name = "time")
+
+# this requires some thought to not accidentally drop time dimensions. For
+# example, setting `merge = TRUE` will drop the time dimension and thus throw
+# an error:
+\dontrun{
+x5_sftime <- st_as_sftime(x5_stars, merge = TRUE, time_column_name = "time")
+}
+
+# convert a data frame to an sftime object
+x5_df <- 
+   data.frame(a = 1:5, g, time = Sys.time() + 1:5, stringsAsFactors = FALSE)
+x5_sftime <- st_as_sftime(x5_df)
+
 }

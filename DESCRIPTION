@@ -8,7 +8,10 @@ Suggests:
     knitr,
     spacetime,
     rmarkdown,
-    dplyr (>= 0.8-3)
+    dplyr (>= 0.8-3),
+    trajectories (>= 0.2.2),
+    stars,
+    ncmeta
 Authors@R: 
     c(person(given = "Edzer",
              family = "Pebesma",
