@@ -33,32 +33,37 @@
 #' Plot an sftime object
 #'
 #' @aliases plot
-#' @param x the sftime object to be plotted
-#' @param y the variabel name to be plotted; if missing, the first variable is plotted
-#' @param ... passed on to nested plot functions
-#' @param mode how to project the 3D object to a 2D device: 'xy' = separate maps for time ranges
-#' @param number of panels to be plotted, cannot be larger than the number of timestamps; ignored when 'tcuts' is provided
-#' @param tcuts predefined temporal ranges assigned to each map; if missing, will be determined as equal spans according to 'number'
-#' @param key.pos see \link[sf]{plot_sf}
+#' @param x The \code{\link[=st_sftime]{sftime}} object to be plotted.
+#' @param y A character value; The variable name to be plotted; if missing, the 
+#' first variable is plotted.
+#' @param ... Additional arguments; Passed on to nested plot functions.
+#' @param mode A character value; How to project the 3D object to a 2D device. 
+#' Must be one of: 
+#' \describe{
+#'    \item{"xy"}{Separate panels for time ranges. Panels are maps.}
+#' }
+#' @param number A numeric value; The number of panels to be plotted, cannot be 
+#' larger than the number of timestamps; ignored when \code{tcuts} is provided.
+#' @param tcuts predefined temporal ranges assigned to each map; if missing, will be determined as equal spans according to \code{number}.
+#' @param key.pos An integer value. See \link[sf:plot]{plot.sf}.
 #'
-#' @export
 #' @importFrom graphics plot
 #'
 #' @examples
 #' set.seed(123)
 #' coords <- matrix(runif(100), ncol = 2)
-#' g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
-#' sf <- st_sf(a=1:50, g)
+#' g <- st_sfc(lapply(1:50, function(i) st_point(coords[i, ]) ))
+#' sft <- st_sftime(a = 1:50, g, time = as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6)
 #' 
-#' sft <- st_sftime(cbind(sf, time = st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6)))
 #' plot(sft)
 #' 
-plot.sftime <- function(x, y, ..., mode="xy", number=6, tcuts, key.pos=-1) {
-  if (missing(y))
-    y <- colnames(x)[1]
-  else 
-    stopifnot(y %in% colnames(x))
+#' @export
+plot.sftime <- function(x, y, ..., mode = "xy", number = 6, tcuts, key.pos = -1) {
   
+  if (missing(y))
+    y <- colnames(x)[[1]]
+  
+  stopifnot(y %in% colnames(x))
   stopifnot(mode %in% c("xy"))
   
   if (mode == "xy") {  

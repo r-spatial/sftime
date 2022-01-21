@@ -1,11 +1,52 @@
 #### construction ####
 
+#' Checks whether a vector or list is sortable
+#' 
+#' Checks whether a vector or list is sortable. This is the condition for a 
+#' vector to be usable as time column in a \code{sftime} object.
+#' 
+#' @name is_sortable
+#' @param x The object to check.
+#' @return \code{TRUE} if \code{x} passes the check, else \code{FALSE}.
+#' @keywords internal
+#' 
+#' @details Checks whether the provided object can be handled by 
+#' \code{\link{order}}. A couple of basic types are whitelisted. However, custom 
+#' types can be defined when they provide a dedicated generic to \link{xtfrm}. 
+#' Note that a \code{list} can only be sorted with \link{atomic} values. See the 
+#' examples below for a template.
+#' 
+#' @examples
+#' x <- Sys.time() + 5:1 * 3600 * 24
+#' sort(x)
+#' is_sortable(x)
+#' 
+#' @importFrom utils methods
+#' @export
+is_sortable <- function(x) {
+  # can x be sorted?
+  # sort.default checks 'is.object(x)' and uses 'order' to subset and sort the object 
+  # lists and vectors are no objects, sort then uses sort.int which can only handle atomic values
+  
+  # Examples:
+  # x <- Sys.time() + 5:1 * 3600*24
+  # x <- yearmon(2020+c(5:0)/12)
+  # x <- yearqtr(2020+c(5:0)/4)
+  # x <- factor(LETTERS[sample(26, replace = T)], levels=LETTERS[sample(26)])
+  # sort(x)
+  # order(x)
+  # class(x)
+  any(vapply(class(x), function(y) y %in% c("integer", "numeric", "POSIXct", "POSIXlt", "Date", "yearmon", "yearqtr", "factor"), TRUE)) || # have a list of wellknown exceptions
+    any(vapply(class(x), function(y) paste("xtfrm", y, sep=".") %in% methods(class = y), TRUE)) # check for function 'xtfrm.[CLASSNAME]' which is used by 'order' which in turn is used by sort.default
+  
+}
+
 #' Construct an \code{sftime} object from all its components
 #'
 #' @param ... Column elements to be binded into an \code{sftime} object or a 
 #' single \code{list} or \code{data.frame} with such columns. At least one of 
 #' these columns shall be a geometry list-column of class \code{sfc} and one 
-#' shall be a time list-column of class \code{tc}.
+#' shall be a time column (to be specified with \code{time_column_name}).
 #' @param crs Coordinate reference system, something suitable as input to 
 #' \code{\link[sf]{st_crs}}.
 #' @param agr A character vector; see details below.
@@ -17,15 +58,15 @@
 #' @param sf_column_name A character value; name of the active list-column with 
 #' simple feature geometries; in case there is more than one and 
 #' \code{sf_column_name} is \code{NULL}, the first one is taken.
-#' @param tc_column_name A character value; name of the active 
-#' time column (\code{\link[=st_tc]{tc}} object). In case there is more than one 
-#' \code{tc} object in \code{...} and \code{tc_column_name} is 
-#' \code{NULL}, the first \code{tc} is taken.
+#' @param time_column_name A character value; name of the active 
+#' time column. In case \code{time_column_name} is \code{NULL}, the first 
+#' \code{\link{POSIXct}} column is taken. If there is no \code{POSIXct} column,
+#' the first \code{\link{Date}} column is taken.
 #' @param sfc_last A logical value; if \code{TRUE}, \code{sfc} columns are 
 #' always put last, otherwise column order is left unmodified.
-#' @param tc_last A logical value; if \code{TRUE}, \code{tc} columns are always 
-#' put last, otherwise column order is left unmodified. If both \code{sfc_last}
-#' and \code{tc_last} are \code{TRUE}, \code{tc} columns are put last.
+#' @param time_column_last A logical value; if \code{TRUE}, the active time column is 
+#' always put last, otherwise column order is left unmodified. If both \code{sfc_last}
+#' and \code{time_column_last} are \code{TRUE}, the active time column is put last.
 #' @param check_ring_dir A logical value; see \code{\link[sf]{st_read}}.
 #'
 #' @return An object of class \code{sftime}.
@@ -33,16 +74,17 @@
 #' ## construction with a sfc object
 #' library(sf)
 #' g <- st_sfc(st_point(1:2))
-#' tc <- st_tc(Sys.time())
+#' tc <- Sys.time()
 #' st_sftime(a = 3, g, time = tc)
 #' 
 #' ## construction with an sf object
-#' \dontrun{st_sftime(st_sf(a = 3, g), time = tc) 
+#' \dontrun{
+#' st_sftime(st_sf(a = 3, g), time = tc) 
 #' # error, because if ... contains a data.frame-like object, no other objects 
-#' # may be passed through ... . Instead, add the time column before.}
+#' # may be passed through ... . Instead, add the time column before.
+#' }
 #' 
 #' st_sftime(st_sf(a = 3, g, time = tc))
-#' 
 #' 
 #' @export
 st_sftime <- function(..., 
@@ -52,14 +94,14 @@ st_sftime <- function(...,
                       crs, 
                       precision,
                       sf_column_name = NULL, 
-                      tc_column_name = NULL, 
+                      time_column_name = NULL, 
                       check_ring_dir = FALSE, 
                       sfc_last = TRUE,
-                      tc_last = TRUE) {
+                      time_column_last = TRUE) {
   
   # checks
-  stopifnot(is.null(tc_column_name) || (is.character(tc_column_name) && length(tc_column_name) == 1))
-  stopifnot(is.logical(tc_last) && length(tc_last) == 1)
+  stopifnot(is.null(time_column_name) || (is.character(time_column_name) && length(time_column_name) == 1))
+  stopifnot(is.logical(time_column_last) && length(time_column_last) == 1)
   
   # pass to sf::st_sf to get sf object
   x <- list(...)
@@ -72,26 +114,33 @@ st_sftime <- function(...,
                    sf_column_name = sf_column_name, 
                    sfc_last = sfc_last)
   
-  # search time column(s)
-  all_tc_names <- NULL
-  all_tc_columns <- vapply(res, function(x) inherits(x, "tc"), TRUE)
-  if(!any(all_tc_columns)) stop("No time column found.")
-  all_tc_columns <- which(unlist(all_tc_columns))
-  
   # get info on active time column (modified from sf)
-  if(!is.null(tc_column_name)) {
-    stopifnot(tc_column_name %in% colnames(res))
-    tc_column <- match(tc_column_name, all_tc_names)
-    tc_name <- tc_column_name
-  } else {
-    tc_column <- all_tc_columns[[1L]]
-    tc_name <- names(all_tc_columns)[[1L]]
+  if(!is.null(time_column_name)) { # time column manually specified
+    
+    stopifnot(time_column_name %in% colnames(res))
+    stopifnot(is_sortable(res[[time_column_name]]))
+    res_time_column <- match(time_column_name, colnames(res))
+    res_time_column_name <- time_column_name
+    
+  } else { #search for POSIXct and Date columns
+    
+    # search time column(s)
+    all_time_column_names <- NULL
+    all_time_columns <- vapply(res, function(x) inherits(x, "POSIXct"), TRUE)
+    if(!any(all_time_columns)) {
+      all_time_columns <- vapply(res, function(x) inherits(x, "Date"), TRUE)
+    }
+    if(!any(all_time_columns)) stop("No time column found.")
+    all_time_columns <- which(unlist(all_time_columns))
+    
+    res_time_column <- all_time_columns[[1L]]
+    res_time_column_name <- names(all_time_columns)[[1L]]
   }
   
   # sort time column
-  if(tc_last) {
-    res <- sf::st_sf(cbind(unclass(res[, -all_tc_columns]),
-                   sf::st_drop_geometry(res[, all_tc_columns])),
+  if(time_column_last) {
+    res <- sf::st_sf(cbind(unclass(res[, -res_time_column]),
+                   sf::st_drop_geometry(res[, res_time_column])),
                    agr = agr, 
                    row.names = row.names, 
                    stringsAsFactors = stringsAsFactors, 
@@ -102,21 +151,47 @@ st_sftime <- function(...,
   }
   
   # add attributes
-  attr(res, "tc_column") = tc_name
+  attr(res, "time_column") = res_time_column_name
   if(!inherits(res, "sftime"))
     class(res) = c("sftime", class(res))
   
   res
 }
 
-#### subsetting ####
-
-reorder_sftime_class_ <- function(x, tc_col) {
-  stopifnot(inherits(x, "sftime"))
-  class(x) <- c("sftime", setdiff(class(x), "sftime"))
-  attr(x, "tc_column") <- tc_col
-  x
+#' Helper function for reclassing sftime objects
+#' 
+#' Reclasses sftime objects to the correct new class after modification. Checks
+#' if the sftime object (the active time column) gets invalidated. If so, the
+#' sftime class is dropped. If not, the object is reclassed to an sftime object.
+#' 
+#' @param x An object to be reclassed to the \code{\link[=st_sftime]{sftime}} class.
+#' @param time_colmn_name A character value; name of the active time column.
+#' @return \code{x} as \code{sftime} object if the column indicated by 
+#' \code{time_colmn_name} is a valid time column (\code{\link{is_sortable}}) and
+#' \code{x} without \code{time_column} attribute if not.
+#' 
+#' @keywords internal
+#' @noRd
+reclass_sftime <- function(x, time_column_name) {
+  
+  if(! time_column_name %in% colnames(x)) {
+    structure(x, class = setdiff(class(x), "sftime"), time_column = NULL)
+  } else {
+    structure(x, class = c("sftime", setdiff(class(x), "sftime")))
+  }
+  
+  # res <- structure(x, class = c("sftime", setdiff(class(x), "sftime")))
+  
+  # check if  time column is still intact
+  # if(!is_sortable(res[, time_column_name, drop = TRUE])) {
+  #   structure(res, class = setdiff(class(res), "sftime"), time_column = NULL)
+  # } else {
+  #   st_as_sftime(res, time_column_name = time_column_name)
+  # }
+  
 }
+
+#### subsetting ####
 
 #' @name st_sftime
 #' @param x An object of class \code{sf}.
@@ -136,8 +211,8 @@ reorder_sftime_class_ <- function(x, tc_col) {
 #' ## Subsetting
 #' g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
 #'      st_point(c(2, 1)), st_point(c(3, 1)))
-#' tc <- st_tc(Sys.time() + 1:5)
-#' x <- st_sftime(st_sf(a = 1:5, g, time = tc))
+#' tc <- Sys.time() + 1:5
+#' x <- st_sftime(a = 1:5, g, time = tc)
 #' 
 #' # rows
 #' x[1, ]
@@ -147,9 +222,11 @@ reorder_sftime_class_ <- function(x, tc_col) {
 #' x[, 1]
 #' class(x[, 1]) # drops time column as for ordinary data.frame subsetting, 
 #' # keeps geometry column of sf object
+#' 
 #' x[, 3]
 #' class(x[, 3]) # keeps time column because it is explicitly selected,
 #' # keeps geometry column of sf object, returns an sftime object
+#' 
 #' x[, 3, drop = TRUE] 
 #' class(x[, 3, drop = TRUE]) # if the geometry column is dropped, not only the
 #' # sf class is dropped, but also the sftime class
@@ -157,8 +234,10 @@ reorder_sftime_class_ <- function(x, tc_col) {
 #' # with sf or sftime object 
 #' pol = st_sfc(st_polygon(list(cbind(c(0,2,2,0,0),c(0,0,2,2,0)))))
 #' h = st_sf(r = 5, pol)
+#' 
 #' x[h, ] 
 #' class(x[h, ]) # returns sftime object
+#' 
 #' h[x, ] 
 #' class(h[x, ]) # returns sf object
 #' 
@@ -166,17 +245,14 @@ reorder_sftime_class_ <- function(x, tc_col) {
 "[.sftime" <- function(x, i, j, ..., drop = FALSE, op = sf::st_intersects) {
   
   # retain info on time column
-  tc_col <- attr(x, "tc_column")
+  time_column <- attr(x, "time_column")
   
   # perform subsetting for sf object
-  attr(x, "tc_column") <- NULL
-  if((!missing(j) && !drop && ((is.character(j) && any(j == tc_col)) || (is.numeric(j) && any(colnames(x)[j] == tc_col)))) ||
+  if((!missing(j) && !drop && ((is.character(j) && any(j == time_column)) || (is.numeric(j) && any(colnames(x)[j] == time_column)))) ||
      !missing(i) && !drop) {
-    reorder_sftime_class_(NextMethod(), tc_col = tc_col)
-  } else if (drop) {
-    class(x) <- setdiff(class(x), "sftime")
-    NextMethod()
+    structure(NextMethod(), class = class(x), time_column = time_column)
   } else {
+    x <- structure(x, class = setdiff(class(x), "sftime"), time_column = NULL)
     NextMethod()
   } # ---todo: what to do when i is an sftime object: match also time info
   
@@ -184,9 +260,25 @@ reorder_sftime_class_ <- function(x, tc_col) {
 
 #' @name st_sftime
 #' @param value An object to insert into \code{x}.
+#' @examples
+#' ## Assigning values to columns
+#' 
+#' # assigning new values to a non-time column
+#' x[["a"]] <- 5:1
+#' class(x)
+#' 
+#' # assigning allowed new values to the time column
+#' x[["time"]] <- Sys.time() + 1:5
+#' class(x)
+#' 
+#' # assigning new values to the time column which invalidate the time column
+#' x[["time"]] <- list(letters[1:2])
+#' class(x)
+#' 
 #' @export
 "[[<-.sftime" <- function(x, i, value) {
-  structure(NextMethod(), class = c("sftime", setdiff(class(x), "sftime")))
+  time_column_name <- attr(x, "time_column")
+  reclass_sftime(NextMethod(), time_column_name = time_column_name)
 }
 
 #' @name st_sftime
@@ -196,6 +288,46 @@ reorder_sftime_class_ <- function(x, tc_col) {
 }
 
 #### printing ####
+
+#' Helper function to print time columns when printing sftime object
+#'
+#' @noRd
+#' @keywords internal
+#' @param x A time column from a \code{\link[=st_sftime]{sftime}} object.
+#' @param x A time column from a \code{\link[=st_sftime]{sftime}} object.
+#' @param n An integer value; The first \code{n} elements of \code{x} to print.
+#' @param print_number_features A logical value; whether the number of features 
+#' shall be printed (\code{TRUE}) or not (\code{FALSE}).
+#' 
+#' @return \code{x} (invisible).
+print_time_column <- function(x, n = 5L , print_number_features = FALSE) {
+  
+  stopifnot(is.logical(print_number_features) && length(print_number_features) == 1)
+  stopifnot(is.integer(n) && length(n) == 1)
+  
+  ord <- order(x)
+  x_min <- x[[ord[[1]]]]
+  x_max <- x[[ord[[length(ord)]]]]
+  x_class <- class(x)
+  x_is_value <- length(x) == 1
+  
+  cat(paste0("Time column with ", 
+             ifelse(!print_number_features, "",
+                    paste0(length(x), ifelse(x_is_value, " feature of ", " features, each of "))),
+             ifelse(length(x_class) == 2, "class", "classes"), ": \'", 
+             paste0(x_class[-1], collapse="\', \'"), "\'.\n",
+             ifelse(x_is_value, 
+                    paste0("Representing ", x_min, ".\n" ), 
+                    paste0("Ranging from ", x_min, " to ", x_max, ".\n" ))))
+  
+  for(i in seq_len(min(n, length(x)))) {
+    ret <- x[[i]]
+    class(ret) <- setdiff(class(ret), "tc")
+    message(ret)
+  }
+  
+  invisible(x)
+}
 
 #' Print a \code{sftime} object
 #'
@@ -216,7 +348,8 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
   print(st_geometry(x), n = 0, what = "Spatiotemporal feature collection with", append = app)
   
   # temporal information
-  print(x[, attr(x, "tc_column"), drop = TRUE], print_number_features = FALSE)
+  print_time_column(x[, attr(x, "time_column"), drop = TRUE], print_number_features = FALSE)
+  
   if(n > 0) {
     if (inherits(x, "tbl_df"))
       NextMethod()
@@ -224,7 +357,7 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
       y <- x
       if(nrow(y) > n) {
         cat(paste("First", n, "features:\n"))
-        y <- x[1:n, , drop = FALSE]
+        y <- x[seq_len(n), , drop = FALSE]
       }
       print.data.frame(y, ...)
     }
@@ -263,9 +396,9 @@ st_as_sftime.ST <- function(x, ...) {
   times <- as.POSIXct(attr(x@time, "index"), origin = "1970-01-01")
   
   if (has_data)  
-    st_sftime(x@data, st_as_sfc(x@sp), time = st_tc(times))
+    st_sftime(x@data, st_as_sfc(x@sp), time = times)
   else
-    st_sftime(st_as_sfc(x@sp), time = st_tc(times))
+    st_sftime(st_as_sfc(x@sp), time = times)
 }
 
 #' @name st_as_sftime
@@ -318,12 +451,12 @@ st_as_sftime.TracksCollection <- function(x, ...) {
 st_as_sftime.sftime <- function(x, ...) x
 
 #' @name st_as_sftime
-#' @param tc_column_name A character value; name of the active time column. In 
-#' case there is more than one and \code{tc_column_name} is \code{NULL}, the 
+#' @param time_column_name A character value; name of the active time column. In 
+#' case there is more than one and \code{time_column_name} is \code{NULL}, the 
 #' first one is taken.
 #' @export
-st_as_sftime.sf <- function(x, ..., tc_column_name = NULL) {
-  st_sftime(x, ..., tc_column_name = tc_column_name)
+st_as_sftime.sf <- function(x, ..., time_column_name = NULL) {
+  st_sftime(x, ..., time_column_name = time_column_name)
 }
 
 #' @name st_as_sftime
@@ -338,20 +471,19 @@ st_as_sftime.sf <- function(x, ..., tc_column_name = NULL) {
 #' remove these columns from code{data.frame}?
 #' @param na.fail A logical value; if \code{TRUE}, raise an error if coordinates 
 #' contain missing values.
-#' @param sf_column_name A character value; name of the active list-column with 
-#' simple feature geometries; in case there is more than one and 
-#' \code{sf_column_name} is \code{NULL}, the first one is taken.
+#' @inheritParams st_sftime
 #' @export
 st_as_sftime.data.frame <- 
   function(x, 
            ..., 
            agr = NA_agr_, 
-           coords, wkt,
+           coords, 
+           wkt,
            dim = "XYZ", 
            remove = TRUE, 
            na.fail = TRUE, 
            sf_column_name = NULL, 
-           tc_column_name = NULL) {
+           time_column_name = NULL) {
     
     st_sftime(
       sf::st_as_sf(
@@ -365,5 +497,5 @@ st_as_sftime.data.frame <-
         na.fail = na.fail, 
         sf_column_name = sf_column_name
       ), 
-      tc_column_name = tc_column_name)
+      time_column_name = time_column_name)
   }

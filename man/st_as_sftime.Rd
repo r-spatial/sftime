@@ -23,7 +23,7 @@ st_as_sftime(x, ...)
 
 \method{st_as_sftime}{sftime}(x, ...)
 
-\method{st_as_sftime}{sf}(x, ..., tc_column_name = NULL)
+\method{st_as_sftime}{sf}(x, ..., time_column_name = NULL)
 
 \method{st_as_sftime}{data.frame}(
   x,
@@ -35,7 +35,7 @@ st_as_sftime(x, ...)
   remove = TRUE,
   na.fail = TRUE,
   sf_column_name = NULL,
-  tc_column_name = NULL
+  time_column_name = NULL
 )
 }
 \arguments{
@@ -44,8 +44,8 @@ st_as_sftime(x, ...)
 
 \item{...}{Further arguments passed to methods.}
 
-\item{tc_column_name}{A character value; name of the active time column. In 
-case there is more than one and \code{tc_column_name} is \code{NULL}, the 
+\item{time_column_name}{A character value; name of the active time column. In 
+case there is more than one and \code{time_column_name} is \code{NULL}, the 
 first one is taken.}
 
 \item{agr}{A character vector; see details section of \code{\link{st_sf}}.}

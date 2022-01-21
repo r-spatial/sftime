@@ -46,12 +46,10 @@ result, or use \code{\link[dplyr:bind]{bind_cols}}; see examples.
 }
 \examples{
 g1 <- st_sfc(st_point(1:2))
-tc1 <- st_tc(Sys.time())
-x1 <- st_sftime(a = 3, g1, time = tc1)
+x1 <- st_sftime(a = 3, g1, time = Sys.time())
 
 g2 <- st_sfc(st_point(c(4, 6)))
-tc2 <- st_tc(Sys.time() + 5000)
-x2 <- st_sftime(a = 4, g2, time = tc2)
+x2 <- st_sftime(a = 4, g2, time = Sys.time())
 
 rbind(x1, x2) # works because both tc1 and tc2 have the same class
 

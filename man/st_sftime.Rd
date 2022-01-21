@@ -15,10 +15,10 @@ st_sftime(
   crs,
   precision,
   sf_column_name = NULL,
-  tc_column_name = NULL,
+  time_column_name = NULL,
   check_ring_dir = FALSE,
   sfc_last = TRUE,
-  tc_last = TRUE
+  time_column_last = TRUE
 )
 
 \method{[}{sftime}(x, i, j, ..., drop = FALSE, op = sf::st_intersects)
@@ -31,7 +31,7 @@ st_sftime(
 \item{...}{Column elements to be binded into an \code{sftime} object or a 
 single \code{list} or \code{data.frame} with such columns. At least one of 
 these columns shall be a geometry list-column of class \code{sfc} and one 
-shall be a time list-column of class \code{tc}.}
+shall be a time column (to be specified with \code{time_column_name}).}
 
 \item{agr}{A character vector; see details below.}
 
@@ -50,19 +50,19 @@ shall be a time list-column of class \code{tc}.}
 simple feature geometries; in case there is more than one and 
 \code{sf_column_name} is \code{NULL}, the first one is taken.}
 
-\item{tc_column_name}{A character value; name of the active 
-time column (\code{\link[=st_tc]{tc}} object). In case there is more than one 
-\code{tc} object in \code{...} and \code{tc_column_name} is 
-\code{NULL}, the first \code{tc} is taken.}
+\item{time_column_name}{A character value; name of the active 
+time column. In case \code{time_column_name} is \code{NULL}, the first 
+\code{\link{POSIXct}} column is taken. If there is no \code{POSIXct} column,
+the first \code{\link{Date}} column is taken.}
 
 \item{check_ring_dir}{A logical value; see \code{\link[sf]{st_read}}.}
 
 \item{sfc_last}{A logical value; if \code{TRUE}, \code{sfc} columns are 
 always put last, otherwise column order is left unmodified.}
 
-\item{tc_last}{A logical value; if \code{TRUE}, \code{tc} columns are always 
-put last, otherwise column order is left unmodified. If both \code{sfc_last}
-and \code{tc_last} are \code{TRUE}, \code{tc} columns are put last.}
+\item{time_column_last}{A logical value; if \code{TRUE}, the active time column is 
+always put last, otherwise column order is left unmodified. If both \code{sfc_last}
+and \code{time_column_last} are \code{TRUE}, the active time column is put last.}
 
 \item{x}{An object of class \code{sf}.}
 
@@ -96,22 +96,23 @@ return an \code{sftime} object; see also \link{[.data.frame}; for
 ## construction with a sfc object
 library(sf)
 g <- st_sfc(st_point(1:2))
-tc <- st_tc(Sys.time())
+tc <- Sys.time()
 st_sftime(a = 3, g, time = tc)
 
 ## construction with an sf object
-\dontrun{st_sftime(st_sf(a = 3, g), time = tc) 
+\dontrun{
+st_sftime(st_sf(a = 3, g), time = tc) 
 # error, because if ... contains a data.frame-like object, no other objects 
-# may be passed through ... . Instead, add the time column before.}
+# may be passed through ... . Instead, add the time column before.
+}
 
 st_sftime(st_sf(a = 3, g, time = tc))
-
 
 ## Subsetting
 g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
      st_point(c(2, 1)), st_point(c(3, 1)))
-tc <- st_tc(Sys.time() + 1:5)
-x <- st_sftime(st_sf(a = 1:5, g, time = tc))
+tc <- Sys.time() + 1:5
+x <- st_sftime(a = 1:5, g, time = tc)
 
 # rows
 x[1, ]
@@ -121,9 +122,11 @@ class(x[1, ])
 x[, 1]
 class(x[, 1]) # drops time column as for ordinary data.frame subsetting, 
 # keeps geometry column of sf object
+
 x[, 3]
 class(x[, 3]) # keeps time column because it is explicitly selected,
 # keeps geometry column of sf object, returns an sftime object
+
 x[, 3, drop = TRUE] 
 class(x[, 3, drop = TRUE]) # if the geometry column is dropped, not only the
 # sf class is dropped, but also the sftime class
@@ -131,9 +134,25 @@ class(x[, 3, drop = TRUE]) # if the geometry column is dropped, not only the
 # with sf or sftime object 
 pol = st_sfc(st_polygon(list(cbind(c(0,2,2,0,0),c(0,0,2,2,0)))))
 h = st_sf(r = 5, pol)
+
 x[h, ] 
 class(x[h, ]) # returns sftime object
+
 h[x, ] 
 class(h[x, ]) # returns sf object
+
+## Assigning values to columns
+
+# assigning new values to a non-time column
+x[["a"]] <- 5:1
+class(x)
+
+# assigning allowed new values to the time column
+x[["time"]] <- Sys.time() + 1:5
+class(x)
+
+# assigning new values to the time column which invalidate the time column
+x[["time"]] <- list(letters[1:2])
+class(x)
 
 }

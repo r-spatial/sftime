@@ -3,7 +3,6 @@
 \name{st_time}
 \alias{st_time}
 \alias{st_time<-}
-\alias{st_time.tc}
 \alias{st_time.sftime}
 \alias{st_time<-.sf}
 \alias{st_time<-.sftime}
@@ -13,17 +12,15 @@
 \usage{
 st_time(obj, ...)
 
-st_time(x) <- value
-
-\method{st_time}{tc}(obj, ...)
+st_time(x, ...) <- value
 
 \method{st_time}{sftime}(obj, ...)
 
-\method{st_time}{sf}(x) <- value
+\method{st_time}{sf}(x, ..., time_column_name = "time") <- value
 
-\method{st_time}{sftime}(x) <- value
+\method{st_time}{sftime}(x, ...) <- value
 
-st_set_time(x, value)
+st_set_time(x, value, ...)
 
 st_drop_time(x)
 }
@@ -36,9 +33,13 @@ st_drop_time(x)
 
 \item{value}{An object of class \code{tc}, or \code{character}, or 
 \code{NULL}.}
+
+\item{time_column_name}{Character value; The name of the column to set as 
+active time column in \code{x}.}
 }
 \value{
-\code{st_time} returns an object of class \code{\link[=st_tc]{tc}}. 
+\code{st_time} returns the content of the active time column of an
+\code{sftime} object. 
 Assigning a \code{tc} object to an \code{sf} object creates an 
 \code{\link[=st_sftime]{sftime}} object. Assigning a \code{tc} object to an \code{sftime}
 object replaces the time column.
@@ -47,12 +48,6 @@ object replaces the time column.
 Get, set, or replace time information
 }
 \details{
-When applied to an \code{sf} object and when \code{value} is an 
-object of class \code{tc}, \code{st_set_time} and \code{st_time<-} will first 
-check for the existence of an attribute \code{tc_column} and overwrite that, 
-or else look for list-columns of class \code{tc} and overwrite the first of 
-that, or else write the time column to a new column named \code{time}.  
-
 In case \code{value} is character and \code{x} is of class \code{sftime}, 
 the "active" time column is set to \code{x[[value]]}.
 
@@ -64,27 +59,22 @@ time column, if \code{value} is \code{NULL}, it will remove it and coerce
 reclasses it accordingly.
 }
 \examples{
-## extracting tc objects
-
-# from tc object
-st_time(st_tc(Sys.time() + 1:5)) 
-
 # from sftime object
 g <- st_sfc(st_point(1:2))
-tc <- st_tc(Sys.time())
-x <- st_sftime(st_sf(a = 3, g, time = tc))
+time <- Sys.time()
+x <- st_sftime(a = 3, g, time = time)
 st_time(x) 
 
-## assign tc objects
+## assign a vector with time information
 
 # to sf object
 x <- st_sf(a = 3, g)
-st_time(x) <- tc
+st_time(x) <- time
 x
 
 # to sftime object
-x <- st_sftime(st_sf(a = 3, g, time = tc))
-st_time(x) <- st_tc(Sys.time())
+x <- st_sftime(a = 3, g, time = time)
+st_time(x) <- Sys.time()
 
 ## remove time column from sftime object
 st_time(x) <- NULL
@@ -93,7 +83,7 @@ st_time(x) <- NULL
 
 # assign time column to sf object
 x <- st_sf(a = 3, g)
-x <- st_set_time(x, tc)
+x <- st_set_time(x, time)
 
 # remove time column from sftime object
 st_set_time(x, NULL)

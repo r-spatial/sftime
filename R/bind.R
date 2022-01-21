@@ -15,12 +15,10 @@
 #' @export
 #' @examples
 #' g1 <- st_sfc(st_point(1:2))
-#' tc1 <- st_tc(Sys.time())
-#' x1 <- st_sftime(a = 3, g1, time = tc1)
+#' x1 <- st_sftime(a = 3, g1, time = Sys.time())
 #' 
 #' g2 <- st_sfc(st_point(c(4, 6)))
-#' tc2 <- st_tc(Sys.time() + 5000)
-#' x2 <- st_sftime(a = 4, g2, time = tc2)
+#' x2 <- st_sftime(a = 4, g2, time = Sys.time())
 #' 
 #' rbind(x1, x2) # works because both tc1 and tc2 have the same class
 #' 
@@ -48,7 +46,7 @@ rbind.sftime <- function(..., deparse.level = 1) {
   else
     NULL
   
-  st_sftime(do.call(rbind, lapply(dots, function(x) structure(x, class = setdiff(class(x), "sftime")))), tc_column_name = tc_column)
+  st_sftime(do.call(rbind, lapply(dots, function(x) structure(x, class = setdiff(class(x), "sftime")))), time_column_name = tc_column)
   
 }
 
@@ -79,5 +77,5 @@ rbind.sftime <- function(..., deparse.level = 1) {
 #' st_sftime(data.frame(x1, df))   
 #'   
 cbind.sftime = function(..., deparse.level = 1, sf_column_name = NULL, tc_column_name = NULL) {
-  st_sftime(data.frame(...), sf_column_name = sf_column_name, tc_column_name = tc_column_name)
+  st_sftime(data.frame(...), sf_column_name = sf_column_name, time_column_name = tc_column_name)
 }

@@ -27,7 +27,6 @@ VignetteBuilder: knitr
 LazyData: true
 RoxygenNote: 7.1.2
 Collate:
-  tc.R
   sftime.R
   init.R
   plot.R
