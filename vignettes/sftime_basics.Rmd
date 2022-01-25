@@ -16,11 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-The package sftime extends the package sf to store and handle spatiotemporal data. To this end, sftime introduces a dedicated time column which stores the temporal information alongside the simple features column of sf objects. 
+The package `sftime` extends package `sf` to store and handle spatiotemporal data. To this end, `sftime` introduces a dedicated time column that stores the temporal information alongside the simple features column of an `sf` object. 
 
-The time column can consists of any collection of a class that allows to be sorted - reflecting the native order of time. Besides well-known time classes such as `Date` or `POSIXct`, it also allows for custom class definitions, that provide the necessary dedicated functions to make the sorting procedures work (we will see a example below).
+The time column can consists of any collection of a class that allows to be sorted - reflecting the native order of time. Besides well-known time classes such as `Date` or `POSIXct`, it also allows for custom class definitions that come with the necessary methods to make sorting work (we will see a example below).
 
-This vignette is meant to briefly explain and illustrate the ideas and decisions behind the implementations of sftime.
+This vignette briefly explains and illustrates the ideas and decisions behind the implementation of `sftime`.
 
 ```{r packages}
 # load required packages
@@ -33,9 +33,9 @@ library(spacetime)
 
 ## The `sftime` class
 
-An `sftime` object is an `sf` object with an additional time column which contains the temporal information alongside the simple features column. This allows it to handle irregular and regular temporal information.
+An `sftime` object is an `sf` object with an additional time column that contains the temporal information alongside the simple features column. This allows it to handle irregular and regular temporal information.
 
-For spatiotemporal data with regular temporal data, the package stars is developed as a powerful alternative (e.g. time series of remote sensing imagery, regular measurements of entire measurement network).
+For spatiotemporal data with regular temporal data (raster or vector data cubes: data where each geometry is observed at the same set of time instances), package `stars` is developed as a powerful alternative (e.g. time series of remote sensing imagery, regular measurements of entire measurement network). `sftime` fills the gap for data where arbitrary combinations of geometry and time occur, including irregularly collected sensor data or (spatiotemporal) point pattern data.
 
 `sftime` objects can be constructed directly from `sfc` objects by combining them with a vector representing temporal information:
 
@@ -84,8 +84,8 @@ class(x_sftime1)
 
 # These can also be used with pipes
 x_sftime1 <-
-  x_sftime1 %>%
-  st_drop_time() %>%
+  x_sftime1 |>
+  st_drop_time() |>
   st_set_time(Sys.time(), time_column_name = "time")
 ```
 
@@ -193,53 +193,46 @@ plot(sft, number = 10, max.plot = 10)
 
 
 
-# Old stuff
+## User-defined time columns
 
-## The time column
+The time column is a special column of the underlying sf object which defines time information (timestamps and temporal ordering) alongside the simple features column of an sf object. Common time representations in R (e.g. `POSIXct`, `POSIXlt`, `Date`, `yearmon`, `yearqtr`) are allowed, as well as optional user-defined types. Let us look at a simple example where we define a time column based on `POSIXct`
 
-The time column is a special column of the underlying sf object which defines time information (timestamps and temporal ordering) alongside the simple features column of an sf object. Common time representations in R (e.g. "POSIXct", "POSIXlt", "Date", "yearmon", "yearqtr", "factor") are allowed, as well as optional user defined types. Lets look at a simple example where we define a time column based on "POSIXct"
-
-```{r, eval=FALSE}
-library(sftime)
-tc <- st_tc(as.POSIXct("2020-09-01 08:00:00")-0:3*3600*24)
-
-tc
+```{r, eval=TRUE}
+(tc <- as.POSIXct("2020-09-01 08:00:00")-0:3*3600*24)
 ```
 
-The ordering is not altered upon construction (as in some other representations). If a different order is required, the "order" and "sort" functions can be applied to the time column:
+The ordering is not altered upon construction (as in some other representations). If a different order is required, the `order` function and `sort` method can be applied to the time column:
 
-```{r, eval=FALSE}
+```{r}
 tc[1]
-
 order(tc)
-
 sort(tc)
 ```
 
-In some applications it might be useful to have more complex temporal information such as intervals of different length. The following example is also meant as template for other user defined classes which could be used to build the time column of the sftime class.
+In some applications it might be useful to have more complex temporal information such as intervals of different length. The following example is also meant as template for other user-defined classes which could be used to build the time column of the sftime class.
 
 At first, we will need a few helper functions:
 
-```{r, eval=FALSE}
+```{r}
 # utility functions
 as.character.interval <- function(x) {
   paste0("[", x[1], ", ", x[2], "]")
 }
 
-print.interval<- function(x) {
-  cat("Interval:", as.character(x))
+print.interval <- function(x, ...) {
+  cat("Interval:", as.character(x), "\n")
 }
 
-'[.intervals' <- function(x, i) {
-  sx <- unclass(x)[i]
-  class(sx) <- "intervals"
-  sx
-}
+#'[.intervals' <- function(x, i) {
+#  sx <- unclass(x)[i]
+#  class(sx) <- "intervals"
+#  sx
+#}
 ```
 
 Now, we can define the different intervals used to represent our temporal information:
 
-```{r, eval=FALSE}
+```{r}
 # time interval definition
 i1 <- c(5.3,12)
 class(i1) <- "interval"
@@ -250,40 +243,37 @@ class(i3) <- "interval"
 i4 <- c(1,21)
 class(i4) <- "interval"
 
-intrvls <- list(i1, i2, i3, i4)
-class(intrvls) <- c("intervals", class(intrvls))
+intrvls <- structure(list(i1, i2, i3, i4), class = "intervals")
 # provide dedicated generic to xtfrm for class intervals
-xtfrm.intervals <- function(is) sapply(is, xtfrm)
 ```
 
 The advantage is to be able to define different sorting approaches:
 
-```{r, eval=FALSE}
+```{r}
+xtfrm.intervals <- function(is) sapply(is, mean)
 # - sort by centre
-xtfrm.interval <- function(i) mean(i)
-
-tc <- st_tc(intrvls)
+tc <- intrvls
 tc
 tc[1]
 order(tc)
 sort(tc)[1]
 ```
 
-```{r, eval=FALSE}
+```{r}
 # - sort by end
 xtfrm.interval <- function(i) i[2]
-tc <- st_tc(intrvls)
+tc <- intrvls
 tc
 tc[1]
 order(tc)
 sort(tc)[1]
 ```
 
-```{r, eval=FALSE}
+```{r}
 # - sort by start
 xtfrm.interval <- function(i) i[1]
 
-tc <- st_tc(intrvls)
+tc <- intrvls
 tc
 tc[1]
 order(tc)
@@ -300,7 +290,7 @@ For spatiotemporal data with regular temporal data, the package stars is develop
 
 sftime objects can be constructed based on sf objects:
 
-```{r, eval=FALSE}
+```{r}
 
 g = st_sfc(st_point(1:2), st_point(c(1,3)), st_point(2:3), st_point(c(2,1)))
 
@@ -312,38 +302,7 @@ as.data.frame.intervals <- function(x, ...) {
   else as.data.frame.vector(x, ...)
 }
 
-sft <- st_sftime(a = 1:4, g, time = sort(tc))
+as.data.frame.interval = function(x, ...) data.frame(as.character(x))
 
-sft <- st_sftime(g, time = st_tc(Sys.time()-0:3*3600*24))
-```
-
-This is the very beginning there is more to come.
-
-## coercion
-
-## sub-setting
-
-## plotting
-One of the first thing to do after a data set has been created, is to inspect it by plotting it. 
-Plotting an 3+ dimensional onject is always a projection of selected dimensions. 
-The following plotting abilities are provided in `sftime` through the mode argument (just as in `spacetime::stplot`). Depending on the nature of the data/underlying processes, some options might not lead to useful visulaisations:
-
-  - `"xy"`: maps for time ranges are plotted, ranges can be defined or will be equally distributed. Geometries might be overlaid several times when multiple times fall in the same selected range.
-  - `"xt"`: a space-time plot is constructed, this might lead to a straight line along the main diagonal in case not two geometries are recorded for the same time stamp nor are geometries recorded more than once. 
-  - `"ts"`: multiple-locations time series are plotted in a single plot, or in a separate panel for each attribute
-  - `"tp"`: single- or multi-attribute time series are plotted in multiple panels, one panel per location.
-  
-Examples for `mode="xy"`, the default:
-
-```{r, fig.width=7, eval=FALSE}
-coords <- matrix(runif(100), ncol = 2)
-g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
-sf <- st_sf(a=1:50, g)
-
-sft <- st_sftime(cbind(sf, time = st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6)))
-
-plot(sft, key.pos = 4)
-
-plot(sft, number=10, max.plot=10)
-
+# (sft <- st_sftime(a = 1:4, g, time = sort(tc)))
 ```

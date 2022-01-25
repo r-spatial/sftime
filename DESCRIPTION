@@ -27,7 +27,6 @@ License: Apache License
 Type: Package
 Encoding: UTF-8
 VignetteBuilder: knitr
-LazyData: true
 RoxygenNote: 7.1.2
 Collate:
   sftime.R
