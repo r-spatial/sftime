@@ -3,13 +3,117 @@
 \name{st_as_sftime}
 \alias{st_as_sftime}
 \alias{st_as_sftime.ST}
-\title{Convert foreign object to an sftime object}
+\alias{st_as_sftime.Track}
+\alias{st_as_sftime.Tracks}
+\alias{st_as_sftime.TracksCollection}
+\alias{st_as_sftime.sftime}
+\alias{st_as_sftime.sf}
+\alias{st_as_sftime.stars}
+\alias{st_as_sftime.data.frame}
+\title{Convert a foreign object to an \code{sftime} object}
 \usage{
-st_as_sftime(x)
+st_as_sftime(x, ...)
+
+\method{st_as_sftime}{ST}(x, ...)
+
+\method{st_as_sftime}{Track}(x, ...)
+
+\method{st_as_sftime}{Tracks}(x, ...)
+
+\method{st_as_sftime}{TracksCollection}(x, ...)
+
+\method{st_as_sftime}{sftime}(x, ...)
+
+\method{st_as_sftime}{sf}(x, ..., time_column_name = NULL)
+
+\method{st_as_sftime}{stars}(x, ..., long = TRUE, time_column_name = NULL)
+
+\method{st_as_sftime}{data.frame}(
+  x,
+  ...,
+  agr = NA_agr_,
+  coords,
+  wkt,
+  dim = "XYZ",
+  remove = TRUE,
+  na.fail = TRUE,
+  sf_column_name = NULL,
+  time_column_name = NULL
+)
 }
 \arguments{
-\item{x}{object to be converted into an object class \code{sftime}}
+\item{x}{An object to be converted into an object of class 
+\code{\link[=st_sftime]{sftime}}.}
+
+\item{...}{Further arguments passed to methods.}
+
+\item{time_column_name}{A character value; name of the active time column. In 
+case there is more than one and \code{time_column_name} is \code{NULL}, the 
+first one is taken.}
+
+\item{long}{A logical value; See \code{\link[stars:st_as_sf]{st_as_sf}}. 
+Typically, \code{long} should be set to \code{TRUE} since time information
+typically is a dimension of a stars object.}
+
+\item{agr}{A character vector; see details section of \code{\link{st_sf}}.}
+
+\item{coords}{In case of point data: names or numbers of the numeric columns 
+holding coordinates.}
+
+\item{wkt}{The name or number of the character column that holds WKT encoded 
+geometries.}
+
+\item{dim}{Passed on to \code{\link{st_point}} (only when argument 
+\code{coords} is given).}
+
+\item{remove}{A logical value; when \code{coords} or \code{wkt} is given, 
+remove these columns from code{data.frame}?}
+
+\item{na.fail}{A logical value; if \code{TRUE}, raise an error if coordinates 
+contain missing values.}
+
+\item{sf_column_name}{A character value; name of the active list-column with 
+simple feature geometries; in case there is more than one and 
+\code{sf_column_name} is \code{NULL}, the first one is taken.}
 }
 \description{
-Convert foreign object to an sftime object
+Convert a foreign object to an \code{sftime} object.
+}
+\examples{
+# convert a Track object from package trajectories to an sftime object
+library(trajectories)
+x1_Track <- trajectories::rTrack(n = 100)
+x1_Track@data$speed <- sort(rnorm(length(x1_Track)))
+x1_sftime <- st_as_sftime(x1_Track)
+
+# convert a Tracks object from package trajectories to an sftime object
+x2_Tracks <- trajectories::rTracks(m = 6)
+x2_sftime <- st_as_sftime(x2_Tracks)
+
+# convert a TracksCollection object from package trajectories to an sftime object
+x3_TracksCollection <- trajectories::rTracksCollection(p = 2, m = 3, n = 50)
+x3_sftime <- st_as_sftime(x3_TracksCollection)
+
+# convert an sf object to an sftime object
+g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+     st_point(c(2, 1)), st_point(c(3, 1)))
+x4_sf <- st_sf(a = 1:5, g, time = Sys.time() + 1:5)
+x4_sftime <- st_as_sftime(x4_sf) 
+
+# convert a Tracks object from package trajectories to an sftime object
+x5_stars <- stars::read_stars(system.file("nc/bcsd_obs_1999.nc", package = "stars"))
+x5_sftime <- st_as_sftime(x5_stars, time_column_name = "time")
+
+# this requires some thought to not accidentally drop time dimensions. For
+# example, setting `merge = TRUE` will drop the time dimension and thus throw
+# an error:
+\dontrun{
+x5_sftime <- st_as_sftime(x5_stars, merge = TRUE, time_column_name = "time")
+}
+
+# convert a data frame to an sftime object
+x5_df <- 
+   data.frame(a = 1:5, g, time = Sys.time() + 1:5, stringsAsFactors = FALSE)
+x5_sftime <- st_as_sftime(x5_df)
+
 }

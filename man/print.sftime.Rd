@@ -7,14 +7,14 @@
 \method{print}{sftime}(x, ..., n = getOption("sf_max_print", default = 10))
 }
 \arguments{
-\item{x}{the object to be printed}
+\item{x}{An object of class \code{sftime}.}
 
-\item{...}{currently unused, for compatability}
+\item{...}{Currently unused arguments, for compatibility.}
 
-\item{n}{maximum number of printed elements}
+\item{n}{Numeric value; maximum number of printed elements.}
 }
 \value{
-a human readble print out on the console
+\code{x} (invisible).
 }
 \description{
 Print a \code{sftime} object

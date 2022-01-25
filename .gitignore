@@ -4,3 +4,4 @@ packrat/lib*/
 .RData
 .Ruserdata
 sftime.Rproj
+inst/doc
