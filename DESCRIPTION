@@ -35,3 +35,4 @@ Collate:
   plot.R
   st_time.R
   bind.R
+  crop.R
