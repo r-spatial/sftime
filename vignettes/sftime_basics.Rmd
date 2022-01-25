@@ -204,7 +204,7 @@ The time column is a special column of the underlying sf object which defines ti
 The ordering is not altered upon construction (as in some other representations). If a different order is required, the `order` function and `sort` method can be applied to the time column:
 
 ```{r}
-tc[1]
+tc
 order(tc)
 sort(tc)
 ```
@@ -243,39 +243,32 @@ class(i3) <- "interval"
 i4 <- c(1,21)
 class(i4) <- "interval"
 
-intrvls <- structure(list(i1, i2, i3, i4), class = "intervals")
+intrvls <- structure(list(i1, i2, i3, i4), class = "Intervals")
 # provide dedicated generic to xtfrm for class intervals
 ```
 
 The advantage is to be able to define different sorting approaches:
 
 ```{r}
-xtfrm.intervals <- function(is) sapply(is, mean)
+xtfrm.Intervals <- function(x) sapply(x, mean)
 # - sort by centre
-tc <- intrvls
-tc
-tc[1]
+(tc <- intrvls)
 order(tc)
 sort(tc)[1]
 ```
 
 ```{r}
 # - sort by end
-xtfrm.interval <- function(i) i[2]
-tc <- intrvls
-tc
-tc[1]
+xtfrm.Intervals <- function(x) sapply(x, max)
+(tc <- intrvls)
 order(tc)
 sort(tc)[1]
 ```
 
 ```{r}
 # - sort by start
-xtfrm.interval <- function(i) i[1]
-
+xtfrm.Intervals <- function(x) sapply(x, min)
 tc <- intrvls
-tc
-tc[1]
 order(tc)
 sort(tc)[1]
 ```
@@ -304,5 +297,9 @@ as.data.frame.intervals <- function(x, ...) {
 
 as.data.frame.interval = function(x, ...) data.frame(as.character(x))
 
-# (sft <- st_sftime(a = 1:4, g, time = sort(tc)))
+sf = st_sf(a = 1:4, geom = g)
+sf$time = tc
+#(sft <- st_sftime(a = 1:4, g, time = sort(tc)))
+# sort(tc) returns a list, which can not be sorted as it is unclassed
+(sft <- st_sftime(sf, time_column_name = "time"))
 ```

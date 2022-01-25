@@ -13,7 +13,11 @@ Suggests:
     stars,
     ncmeta
 Authors@R: 
-    c(person(given = "Edzer",
+    c(person(given = "Henning",
+             family = "Teickner",
+             role = c("aut"),
+             email = "h_teic01@wwu.de"),
+      person(given = "Edzer",
              family = "Pebesma",
              role = c("aut", "cre"),
              email = "edzer.pebesma@uni-muenster.de",
