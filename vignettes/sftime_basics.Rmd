@@ -28,6 +28,9 @@ library(sftime)
 library(sf)
 library(stars)
 library(spacetime)
+library(ggplot2)
+library(tidyr)
+library(magrittr)
 ```
 
 
@@ -64,11 +67,23 @@ identical(x_sftime1, x_sftime3)
 x_sftime1
 ```
 
-Functions to get or set the time column of an `sftime` object.
+Methods for `sftime` objects are:
 
 ```{r sftime-class-2}
+methods(class = "sftime")
+```
+
+Methods for `sf` objects which are not listed above work also for `sftime` objects.
+
+
+## Functions to get or set the time column of an `sftime` object
+
+Functions to get or set the time column of an `sftime` object are:
+
+```{r time-column-1}
 # get the values from the time column
 st_time(x_sftime1)
+x_sftime1$time # alternative way
 
 # set the values in the time column
 st_time(x_sftime1) <- Sys.time()
@@ -167,30 +182,97 @@ x2_Track_sftime <- st_as_sftime(x2_TracksCollection@tracksCollection[[1]]@tracks
 
 Different subsetting methods exist for `sftime` objects. Since `sftime` objects are built on top of `sf` objects, all subsetting methods for `sf` objects also work for `sftime` objects.
 
+Above (section [The `sftime` class]), the method to subset the time column was introduced:
 
-## Plotting
-One of the first thing to do after a data set has been created, is to inspect it by plotting it. 
-Plotting an 3+ dimensional object is always a projection of selected dimensions. 
-The following plotting abilities are provided in `sftime` through the mode argument (just as in `spacetime::stplot`). Depending on the nature of the data/underlying processes, some options might not lead to useful visualizations:
-
-  - `"xy"`: maps for time ranges are plotted, ranges can be defined or will be equally distributed. Geometries might be overlaid several times when multiple times fall in the same selected range.
-  - `"xt"`: a space-time plot is constructed, this might lead to a straight line along the main diagonal in case not two geometries are recorded for the same time stamp nor are geometries recorded more than once. 
-  - `"ts"`: multiple-locations time series are plotted in a single plot, or in a separate panel for each attribute
-  - `"tp"`: single- or multi-attribute time series are plotted in multiple panels, one panel per location.
-  
-Examples for `mode="xy"`, the default:
-
-```{r, fig.width=7}
-coords <- matrix(runif(100), ncol = 2)
-g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
-sft <- st_sftime(a=1:50, g, time = as.POSIXct("2020-09-01 00:00:00") + 0:49 * 3600 * 6)
-
-plot(sft, key.pos = 4)
-
-plot(sft, number = 10, max.plot = 10)
-
+```{r}
+st_time(x_sftime1)
 ```
 
+Other subsetting functions work as for `sf` objects, e.g. selecting rows by row indices returns the specified rows. A key difference is that the active time column of an `sftime` object is not sticky --- in contrast to the active simple feature column in `sf` objects.  
+Therefore, the active time column of an `sftime` object always has to be selected explicitly. If omitted, the subset will simplify to an `sf` objects without the active time column:
+
+```{r}
+# selecting rows and columns (works just as for sf objects)
+x_sftime1[1, ]
+x_sftime1[, 3]
+
+# beware: the time column is not sticky. If omitted, the subset becomes an sf object
+class(x_sftime1[, 1])
+class(x_sftime1["a"]) # the same
+x_sftime1[, 1]
+
+# to retain the time column and an sftime object, explicitly select the time column during subsetting:
+class(x_sftime1[, c(1, 3)])
+class(x_sftime1[c("a", "time")]) # the same
+```
+
+
+## Plotting
+
+For quick plotting, a plot method exists for `sftime` objects, which plots longitude-latitude coordinates and colors simple features according to values of a specified variable. Different panels are plotted for different time intervals which can be specified. Simple feature geometries might be overlaid several times when multiple observations fall in the same time interval. This is similar to `stplot()` from package spacetime with `mode = "xy"`: 
+
+```{r plotting-plot.sftime-1, fig.width=7}
+coords <- matrix(runif(100), ncol = 2)
+g <- sf::st_sfc(lapply(1:50, function(i) st_point(coords[i, ]) ))
+
+x_sftime4 <- 
+  st_sftime(
+    a = 1:50,
+    b = rnorm(50),
+    id_object = as.factor(sample(x = 1:4, size = 50, replace = TRUE)),
+    geometry = g, 
+    time = as.POSIXct("2020-09-01 00:00:00") + 0:49 * 3600 * 6
+  )
+
+plot(x_sftime4, key.pos = 4)
+```
+
+The plotting method internally uses the `plot` method for `sf` objects. This makes it possible to customize plot appearance using the arguments of `plot.sf()`, for example:
+
+```{r plotting-plot.sftime-2, fig.width=7}
+plot(x_sftime4, number = 10, max.plot = 10, key.pos = 4)
+```
+
+To create customized plots or plots which have different variables on plot axes than longitude and latitude, we recommend using ggplot2. For example, the plot method output can be mimicked by:
+
+```{r plotting-ggplot-1, fig.width=7}
+library(ggplot2)
+
+ggplot() + 
+  geom_sf(data = x_sftime4, aes(color = b)) + 
+  facet_wrap(~ cut_number(time, n = 6)) +
+  theme(
+    panel.spacing.x = unit(4, "mm"), 
+    panel.spacing.y = unit(4, "mm")
+  )
+```
+
+This strategy can also be used to create other plots, for example plotting the id of entities over time (similar to `stplot()` with `mode = "xt"`):
+
+```{r plotting-ggplot-2, fig.width=7}
+ggplot(x_sftime4) + 
+  geom_point(aes(y = id_object, x = time, color = b))
+```
+
+Or for plotting time series of values of all variables with different panels for each entity (location) defined via a categorical variable (similar to `stplot()` with `mode = "tp"`):
+
+```{r plotting-ggplot-3, fig.width=7}
+x_sftime4 %>%
+  tidyr::pivot_longer(cols = c("a", "b"), names_to = "variable", values_to = "value") %>%
+  ggplot() + 
+  geom_path(aes(y = value, x = time, color = variable)) +
+  facet_wrap(~ id_object)
+```
+
+Or for plotting time series of values of all variables for all entities defined via a categorical variable with different panels for each variable (similar to `stplot()` with `mode = "ts"`):
+
+```{r plotting-ggplot-4, fig.width=7}
+x_sftime4 %>%
+  tidyr::pivot_longer(cols = c("a", "b"), names_to = "variable", values_to = "value") %>%
+  ggplot() + 
+  geom_path(aes(y = value, x = time, color = id_object)) +
+  facet_wrap(~ variable, scales = "free_y")
+```
 
 
 ## User-defined time columns

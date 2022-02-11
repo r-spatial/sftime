@@ -177,7 +177,7 @@ reclass_sftime <- function(x, time_column_name) {
   if(! time_column_name %in% colnames(x)) {
     structure(x, class = setdiff(class(x), "sftime"), time_column = NULL)
   } else {
-    structure(x, class = c("sftime", setdiff(class(x), "sftime")))
+    structure(x, class = c("sftime", setdiff(class(x), "sftime")), time_column = time_column_name)
   }
   
   # res <- structure(x, class = c("sftime", setdiff(class(x), "sftime")))
@@ -232,9 +232,9 @@ reclass_sftime <- function(x, time_column_name) {
 #' # sf class is dropped, but also the sftime class
 #' 
 #' x["a"]
-#' class(x["a"]) # Time solumns are not sticky: If a column is selected by a 
-#' character vector and this does not contain the active time column, the time 
-#' column is dropped. 
+#' class(x["a"]) # Time columns are not sticky: If a column is selected by a 
+#' # character vector and this does not contain the active time column, the time 
+#' # column is dropped. 
 #' 
 #' x[c("a", "time")]
 #' class(x[c("a", "time")]) # keeps the time column

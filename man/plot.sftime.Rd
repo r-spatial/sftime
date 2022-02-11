@@ -3,9 +3,9 @@
 \name{plot.sftime}
 \alias{plot.sftime}
 \alias{plot}
-\title{Plot an sftime object}
+\title{Plots an  \code{sftime} object}
 \usage{
-\method{plot}{sftime}(x, y, ..., mode = "xy", number = 6, tcuts, key.pos = -1)
+\method{plot}{sftime}(x, y, ..., number = 6, tcuts)
 }
 \arguments{
 \item{x}{The \code{\link[=st_sftime]{sftime}} object to be plotted.}
@@ -13,23 +13,16 @@
 \item{y}{A character value; The variable name to be plotted; if missing, the 
 first variable is plotted.}
 
-\item{...}{Additional arguments; Passed on to nested plot functions.}
-
-\item{mode}{A character value; How to project the 3D object to a 2D device. 
-Must be one of: 
-\describe{
-   \item{"xy"}{Separate panels for time ranges. Panels are maps.}
-}}
+\item{...}{Additional arguments; Passed on to \code{\link[sf:plot]{plot.sf}}.}
 
 \item{number}{A numeric value; The number of panels to be plotted, cannot be 
 larger than the number of timestamps; ignored when \code{tcuts} is provided.}
 
-\item{tcuts}{predefined temporal ranges assigned to each map; if missing, will be determined as equal spans according to \code{number}.}
-
-\item{key.pos}{An integer value. See \link[sf:plot]{plot.sf}.}
+\item{tcuts}{predefined temporal ranges assigned to each map; if missing, 
+will be determined as equal spans according to \code{number}.}
 }
 \description{
-Plot an sftime object
+\code{plot.sftime}
 }
 \examples{
 set.seed(123)
