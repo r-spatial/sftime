@@ -560,3 +560,19 @@ st_as_sftime.data.frame <-
       ), 
       time_column_name = time_column_name)
   }
+
+
+#### transform attributes ####
+
+#' Transform method for \code{sftime} objects
+#'
+#' Can be used to create or modify attribute variables; for transforming 
+#' geometries see \code{\link[sf]{st_transform}}, and all other functions starting with 
+#' \code{st_}.
+#'
+#' @param _data An object of class \code{\link[=st_sftime]{sftime}}.
+#' @inheritParams sf::transform.sf
+#' @export
+transform.sftime <- function (`_data`, ...) {
+  reclass_sftime(NextMethod(), time_column_name = attr(`_data`, "time_column"))
+}
