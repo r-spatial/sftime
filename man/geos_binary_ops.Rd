@@ -62,6 +62,7 @@ g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)),
 tc <- Sys.time() + 1:5
 x1 <- st_sftime(a = 1:5, g, time = tc)
 x2 <- st_buffer(x1, dist = 1)
+
 ## intersection
 
 # only x provided (no y)

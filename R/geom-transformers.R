@@ -21,6 +21,7 @@
 #' tc <- Sys.time() + 1:5
 #' x1 <- st_sftime(a = 1:5, g, time = tc)
 #' x2 <- st_buffer(x1, dist = 1)
+#' 
 NULL
 
 #' Intersection

@@ -39,6 +39,7 @@ RoxygenNote: 7.1.2
 Collate:
   sftime.R
   init.R
+  join.R
   plot.R
   st_time.R
   bind.R
