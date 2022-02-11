@@ -231,6 +231,14 @@ reclass_sftime <- function(x, time_column_name) {
 #' class(x[, 3, drop = TRUE]) # if the geometry column is dropped, not only the
 #' # sf class is dropped, but also the sftime class
 #' 
+#' x["a"]
+#' class(x["a"]) # Time solumns are not sticky: If a column is selected by a 
+#' character vector and this does not contain the active time column, the time 
+#' column is dropped. 
+#' 
+#' x[c("a", "time")]
+#' class(x[c("a", "time")]) # keeps the time column
+#' 
 #' # with sf or sftime object 
 #' pol = st_sfc(st_polygon(list(cbind(c(0,2,2,0,0),c(0,0,2,2,0)))))
 #' h = st_sf(r = 5, pol)
@@ -249,7 +257,7 @@ reclass_sftime <- function(x, time_column_name) {
   
   # perform subsetting for sf object
   if((!missing(j) && !drop && ((is.character(j) && any(j == time_column)) || (is.numeric(j) && any(colnames(x)[j] == time_column)))) ||
-     !missing(i) && !drop) {
+     !missing(i) && !drop && ((is.character(i)) && any(i == time_column)  || is.numeric(i))) {
     structure(NextMethod(), class = class(x), time_column = time_column)
   } else {
     x <- structure(x, class = setdiff(class(x), "sftime"), time_column = NULL)
