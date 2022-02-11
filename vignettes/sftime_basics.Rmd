@@ -84,8 +84,8 @@ class(x_sftime1)
 
 # These can also be used with pipes
 x_sftime1 <-
-  x_sftime1 |>
-  st_drop_time() |>
+  x_sftime1 %>%
+  st_drop_time() %>%
   st_set_time(Sys.time(), time_column_name = "time")
 ```
 
