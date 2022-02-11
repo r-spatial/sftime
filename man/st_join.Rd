@@ -23,7 +23,8 @@
 
 \item{y}{An object of class \code{sftime} or \code{sf}.}
 
-\item{join}{geometry predicate function with the same profile as \link[sf]{st_intersects}; see details}
+\item{join}{A geometry predicate function with the same profile as 
+\code{\link[sf:geos_binary_pred]{st_intersects}}; see details.}
 
 \item{...}{for \code{st_join}: arguments passed on to the \code{join} function or to \code{st_intersection} when \code{largest} is \code{TRUE}; for \code{st_filter} arguments passed on to the \code{.predicate} function, e.g. \code{prepared}, or a pattern for \link[sf]{st_relate}}
 
@@ -34,7 +35,8 @@ see also \link[dplyr:mutate-joins]{left_join}}
 
 \item{largest}{logical; if \code{TRUE}, return \code{x} features augmented with the fields of \code{y} that have the largest overlap with each of the features of \code{x}; see https://github.com/r-spatial/sf/issues/578}
 
-\item{.predicate}{geometry predicate function with the same profile as \link[sf]{st_intersects}; see details}
+\item{.predicate}{A geometry predicate function with the same profile as 
+\code{\link[sf:geos_binary_pred]{st_intersects}}; see details.}
 }
 \value{
 An object of class \code{sftime}, joined based on geometry.
@@ -45,19 +47,19 @@ Spatial join, spatial filter for \code{sftime} objects
 \details{
 Alternative values for argument \code{join} are:
 \itemize{
-  \item \link[sf]{st_contains_properly}
-  \item \link[sf]{st_contains}
-  \item \link[sf]{st_covered_by}
-  \item \link[sf]{st_covers}
-  \item \link[sf]{st_crosses}
-  \item \link[sf]{st_disjoint}
-  \item \link[sf]{st_equals_exact}
-  \item \link[sf]{st_equals}
-  \item \link[sf]{st_is_within_distance}
-  \item \link[sf]{st_nearest_feature}
-  \item \link[sf]{st_overlaps}
-  \item \link[sf]{st_touches}
-  \item \link[sf]{st_within}
+  \item \link[sf:geos_binary_pred]{st_contains_properly}
+  \item \link[sf:geos_binary_pred]{st_contains}
+  \item \link[sf:geos_binary_pred]{st_covered_by}
+  \item \link[sf:geos_binary_pred]{st_covers}
+  \item \link[sf:geos_binary_pred]{st_crosses}
+  \item \link[sf:geos_binary_pred]{st_disjoint}
+  \item \link[sf:geos_binary_pred]{st_equals_exact}
+  \item \link[sf:geos_binary_pred]{st_equals}
+  \item \link[sf:geos_binary_pred]{st_is_within_distance}
+  \item \link[sf:geos_binary_pred]{st_nearest_feature}
+  \item \link[sf:geos_binary_pred]{st_overlaps}
+  \item \link[sf:geos_binary_pred]{st_touches}
+  \item \link[sf:geos_binary_pred]{st_within}
   \item any user-defined function of the same profile as the above
 }
 A left join returns all records of the \code{x} object with \code{y} fields 

@@ -572,6 +572,18 @@ st_as_sftime.data.frame <-
 #'
 #' @param _data An object of class \code{\link[=st_sftime]{sftime}}.
 #' @inheritParams sf::transform.sf
+#' @examples
+#' # create an sftime object
+#' g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+#'      st_point(c(2, 1)), st_point(c(3, 1)))
+#' x <- 
+#'    data.frame(a = 1:5, g, time = Sys.time() + 1:5, stringsAsFactors = FALSE)
+#' x_sftime <- st_as_sftime(x)
+#' x_sftime
+#' 
+#' # modify values in column a
+#' transform(x_sftime, a = rev(a))
+#' 
 #' @export
 transform.sftime <- function (`_data`, ...) {
   reclass_sftime(NextMethod(), time_column_name = attr(`_data`, "time_column"))

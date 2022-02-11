@@ -16,3 +16,16 @@ Can be used to create or modify attribute variables; for transforming
 geometries see \code{\link[sf]{st_transform}}, and all other functions starting with 
 \code{st_}.
 }
+\examples{
+# create an sftime object
+g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+     st_point(c(2, 1)), st_point(c(3, 1)))
+x <- 
+   data.frame(a = 1:5, g, time = Sys.time() + 1:5, stringsAsFactors = FALSE)
+x_sftime <- st_as_sftime(x)
+x_sftime
+
+# modify values in column a
+transform(x_sftime, a = rev(a))
+
+}
