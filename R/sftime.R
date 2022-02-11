@@ -294,13 +294,12 @@ reclass_sftime <- function(x, time_column_name) {
 #' @noRd
 #' @keywords internal
 #' @param x A time column from a \code{\link[=st_sftime]{sftime}} object.
-#' @param x A time column from a \code{\link[=st_sftime]{sftime}} object.
 #' @param n An integer value; The first \code{n} elements of \code{x} to print.
 #' @param print_number_features A logical value; whether the number of features 
 #' shall be printed (\code{TRUE}) or not (\code{FALSE}).
 #' 
 #' @return \code{x} (invisible).
-print_time_column <- function(x, n = 5L , print_number_features = FALSE) {
+print_time_column <- function(x, n = 5L, print_number_features = FALSE) {
   
   stopifnot(is.logical(print_number_features) && length(print_number_features) == 1)
   stopifnot(is.integer(n) && length(n) == 1)
@@ -348,7 +347,7 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
   print(st_geometry(x), n = 0, what = "Spatiotemporal feature collection with", append = app)
   
   # temporal information
-  print_time_column(x[, attr(x, "time_column"), drop = TRUE], print_number_features = FALSE)
+  print_time_column(x[, attr(x, "time_column"), drop = TRUE], n = 0L, print_number_features = FALSE)
   
   if(n > 0) {
     if (inherits(x, "tbl_df"))
