@@ -11,13 +11,16 @@ Suggests:
     dplyr (>= 0.8-3),
     trajectories (>= 0.2.2),
     stars,
-    ncmeta
+    ncmeta,
+    tidyr,
+    ggplot2,
+    magrittr
 Authors@R: 
     c(person(given = "Henning",
              family = "Teickner",
              role = c("aut"),
              email = "henning.teickner@uni-muenster.de",
-             comment = "0000-0002-3993-1182"),
+             comment = c(ORCID = "0000-0002-3993-1182")),
       person(given = "Edzer",
              family = "Pebesma",
              role = c("aut", "cre"),
@@ -40,3 +43,4 @@ Collate:
   st_time.R
   bind.R
   crop.R
+  geom-transformers.R
