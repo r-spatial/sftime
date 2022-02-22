@@ -217,9 +217,9 @@ g <- sf::st_sfc(lapply(1:50, function(i) st_point(coords[i, ]) ))
 
 x_sftime4 <- 
   st_sftime(
-    a = 1:50,
-    b = rnorm(50),
-    id_object = as.factor(sample(x = 1:4, size = 50, replace = TRUE)),
+    a = 1:200,
+    b = rnorm(200),
+    id_object = as.factor(rep(1:4,each=50)),
     geometry = g, 
     time = as.POSIXct("2020-09-01 00:00:00") + 0:49 * 3600 * 6
   )
