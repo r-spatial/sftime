@@ -1,4 +1,5 @@
 library(sftime)
+set.seed(13531)
 
 ##### checks on tc  ####
 ## popular POSIXct
