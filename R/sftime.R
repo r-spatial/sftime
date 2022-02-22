@@ -139,21 +139,23 @@ st_sftime <- function(...,
   
   # sort time column
   if(time_column_last) {
-    res <- sf::st_sf(cbind(unclass(res[, -res_time_column]),
-                   sf::st_drop_geometry(res[, res_time_column])),
-                   agr = agr, 
-                   row.names = row.names, 
-                   stringsAsFactors = stringsAsFactors, 
-                   crs = crs, 
-                   precision = precision, 
-                   sf_column_name = sf_column_name, 
-                   sfc_last = FALSE)
+    res_only_time_column <- sf::st_drop_geometry(res[, res_time_column])[, 1, drop = TRUE]
+    res <- res[, -res_time_column]
+    res[, res_time_column_name] <- res_only_time_column
+    res <- sf::st_sf(res,
+                     agr = agr, 
+                     row.names = row.names, 
+                     stringsAsFactors = stringsAsFactors, 
+                     crs = crs, 
+                     precision = precision, 
+                     sf_column_name = sf_column_name, 
+                     sfc_last = FALSE)
   }
   
   # add attributes
-  attr(res, "time_column") = res_time_column_name
+  attr(res, "time_column") <- res_time_column_name
   if(!inherits(res, "sftime"))
-    class(res) = c("sftime", class(res))
+    class(res) <- c("sftime", class(res))
   
   res
 }
