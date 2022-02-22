@@ -350,8 +350,11 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
   geoms <- which(vapply(x, function(col) inherits(col, "sfc"), TRUE))
   nf <- length(x) - length(geoms) - 1
   app <- paste("and", nf, ifelse(nf == 1, "field", "fields"))
-  if (any(!is.na(st_agr(x))))
-    app <- paste0(app, "\n", "Attribute-geometry relationship: ", sf:::summarize_agr(x))
+  if (any(!is.na(st_agr(x)))) {
+    su = summary(st_agr(x))
+    summ = paste(paste(su, names(su)), collapse = ", ")
+    app <- paste0(app, "\n", "Attribute-geometry relationship: ", summ)
+  }
   if (length(geoms) > 1)
     app <- paste0(app, "\n", "Active geometry column: ", attr(x, "sf_column"))
   print(st_geometry(x), n = 0, what = "Spatiotemporal feature collection with", append = app)
