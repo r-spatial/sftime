@@ -1,5 +1,5 @@
 Package: sftime
-Title: classes and methods for sf objects that have a time column
+Title: Classes and Methods for Simple Feature Objects that Have a Time Column
 Description: Provides classes and methods for spatial objects that have a registered time column. The time column needs to be sortable.
 Version: 0.2-0
 Depends: sf
@@ -18,12 +18,12 @@ Suggests:
 Authors@R: 
     c(person(given = "Henning",
              family = "Teickner",
-             role = c("aut"),
+             role = c("aut", "cre"),
              email = "henning.teickner@uni-muenster.de",
              comment = c(ORCID = "0000-0002-3993-1182")),
       person(given = "Edzer",
              family = "Pebesma",
-             role = c("aut", "cre"),
+             role = c("aut"),
              email = "edzer.pebesma@uni-muenster.de",
              comment = c(ORCID = "0000-0001-8049-7069")),
       person(given = "Benedikt",
