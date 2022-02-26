@@ -16,6 +16,9 @@ to a \code{bbox} object.}
 
 \item{...}{Additional arguments; Ignored.}
 }
+\value{
+\code{x} cropped using \code{y}.
+}
 \description{
 crop an \code{sftime} object to a specific rectangle
 }
@@ -27,7 +30,9 @@ See \code{\link[sf:st_crop]{st_crop}}.
 box <- c(xmin = 0, ymin = 0, xmax = 1, ymax = 1)
 pol <- sf::st_sfc(sf::st_buffer(sf::st_point(c(0.5, 0.5)), 0.6))
 pol_sftime <- st_sftime(a = 1, geom = pol, time = Sys.time() + 1:2 * 1000)
+
 pol_sftime_cropped <- sf::st_crop(pol_sftime, sf::st_bbox(box))
+
 class(pol_sftime_cropped)
 plot(pol_sftime_cropped)
 }

@@ -66,3 +66,24 @@ A left join returns all records of the \code{x} object with \code{y} fields
 for non-matched records filled with \code{NA} values; an inner join returns 
 only records that spatially match.
 }
+\examples{
+g1 <- st_sfc(st_point(c(1,1)), st_point(c(2,2)), st_point(c(3,3)))
+x1 <- st_sftime(a = 1:3, geometry = g1, time = Sys.time())
+
+g2 <- st_sfc(st_point(c(10,10)), st_point(c(2,2)), st_point(c(2,2)), st_point(c(3,3)))
+x2 <- st_sftime(a = 11:14, geometry = g2, time = Sys.time())
+
+## st_join
+
+# left spatial join with st_intersects
+st_join(x1, x2)
+
+# inner spatial join with st_intersects
+st_join(x1, x2, left = FALSE)
+
+## st_filter
+
+st_filter(x1, x2)
+st_filter(x2, x1)
+
+}

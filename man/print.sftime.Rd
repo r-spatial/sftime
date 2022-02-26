@@ -19,3 +19,11 @@
 \description{
 Print a \code{sftime} object
 }
+\examples{
+g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+     st_point(c(2, 1)), st_point(c(3, 1)))
+tc <- Sys.time() + 1:5
+x <- st_sftime(a = 1:5, g, time = tc)
+print(x)
+
+}

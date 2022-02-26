@@ -24,20 +24,23 @@ passed on to \code{\link{st_sftime}}.}
 on to \code{\link{st_sftime}}.}
 }
 \value{
-\code{cbind} called with multiple \code{sftime} objects warns about 
-multiple time and geometry columns present when the time and geometry columns 
-to use are not specified by using arguments \code{tc_column_name} and 
-\code{sf_column_name}; see also \link{st_sftime}.
+\code{rbind} combines all \code{sftime} objects in \code{...} 
+row-wise and returns the combined \code{sftime} object.
+
+\code{cbind} combines all \code{sftime} objects in \code{...} 
+column-wise and returns the combined \code{sftime} object. When called with 
+multiple \code{sftime} objects warns about multiple time and geometry columns 
+present when the time and geometry columns to use are not specified by using 
+arguments \code{tc_column_name} and \code{sf_column_name}; see also 
+\link{st_sftime}.
 }
 \description{
-Bind rows (features) of \code{sftime} objects
-
 Bind columns (variables) of \code{sftime} objects.
 }
 \details{
 Both \code{rbind} and \code{cbind} have non-standard method dispatch 
 (see \link[base]{cbind}): the \code{rbind} or \code{cbind} method for 
-\code{sftime} objects is only called when all arguments to be binded are of 
+\code{sftime} objects is only called when all arguments to be combined are of 
 class \code{sftime}.
 
 If you need to \code{cbind} e.g. a \code{data.frame} to an \code{sf}, 
