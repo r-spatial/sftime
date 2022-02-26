@@ -1,16 +1,15 @@
 #' Bind rows (features) of \code{sftime} objects
-#'
-#' Bind rows (features) of \code{sftime} objects
 #' 
 #' @name bind
 #' @param ... Objects to bind; note that for the \code{rbind} and \code{cbind} 
 #' methods, all objects have to be of class \code{sftime}; see 
 #' \code{\link{dotsMethods}}.
 #' @param deparse.level An integer value; see \code{\link{rbind}}.
-#' 
+#' @return \code{rbind} combines all \code{sftime} objects in \code{...} 
+#' row-wise and returns the combined \code{sftime} object.
 #' @details Both \code{rbind} and \code{cbind} have non-standard method dispatch 
 #' (see \link[base]{cbind}): the \code{rbind} or \code{cbind} method for 
-#' \code{sftime} objects is only called when all arguments to be binded are of 
+#' \code{sftime} objects is only called when all arguments to be combined are of 
 #' class \code{sftime}.
 #' @export
 #' @examples
@@ -59,10 +58,12 @@ rbind.sftime <- function(..., deparse.level = 1) {
 #' passed on to \code{\link{st_sftime}}.
 #' @param tc_column_name Character value; specifies active time column; passed 
 #' on to \code{\link{st_sftime}}.
-#' @return \code{cbind} called with multiple \code{sftime} objects warns about 
-#' multiple time and geometry columns present when the time and geometry columns 
-#' to use are not specified by using arguments \code{tc_column_name} and 
-#' \code{sf_column_name}; see also \link{st_sftime}.
+#' @return \code{cbind} combines all \code{sftime} objects in \code{...} 
+#' column-wise and returns the combined \code{sftime} object. When called with 
+#' multiple \code{sftime} objects warns about multiple time and geometry columns 
+#' present when the time and geometry columns to use are not specified by using 
+#' arguments \code{tc_column_name} and \code{sf_column_name}; see also 
+#' \link{st_sftime}.
 #' @export
 #' @details If you need to \code{cbind} e.g. a \code{data.frame} to an \code{sf}, 
 #' use \code{\link{data.frame}} directly and use \code{\link{st_sftime}} on its 

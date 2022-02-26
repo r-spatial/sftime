@@ -14,7 +14,8 @@ Suggests:
     ncmeta,
     tidyr,
     ggplot2,
-    magrittr
+    magrittr,
+    sp
 Authors@R: 
     c(person(given = "Henning",
              family = "Teickner",

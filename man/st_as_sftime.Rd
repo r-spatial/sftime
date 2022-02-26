@@ -38,7 +38,8 @@ st_as_sftime(x, ...)
   remove = TRUE,
   na.fail = TRUE,
   sf_column_name = NULL,
-  time_column_name = NULL
+  time_column_name = NULL,
+  time_column_last = FALSE
 )
 }
 \arguments{
@@ -75,11 +76,27 @@ contain missing values.}
 \item{sf_column_name}{A character value; name of the active list-column with 
 simple feature geometries; in case there is more than one and 
 \code{sf_column_name} is \code{NULL}, the first one is taken.}
+
+\item{time_column_last}{A logical value; if \code{TRUE}, the active time column is 
+always put last, otherwise column order is left unmodified. If both \code{sfc_last}
+and \code{time_column_last} are \code{TRUE}, the active time column is put last.}
 }
 \description{
 Convert a foreign object to an \code{sftime} object.
 }
 \examples{
+# modified from spacetime:
+library(sp)
+library(spacetime)
+
+sp <- cbind(x = c(0,0,1), y = c(0,1,1))
+row.names(sp) <- paste("point", 1:nrow(sp), sep="")
+sp <- SpatialPoints(sp)
+time <- as.POSIXct("2010-08-05") + 3600 * (10:12)
+x <- STI(sp, time)
+
+st_as_sftime(x)
+
 # convert a Track object from package trajectories to an sftime object
 library(trajectories)
 x1_Track <- trajectories::rTrack(n = 100)
@@ -94,6 +111,9 @@ x2_sftime <- st_as_sftime(x2_Tracks)
 x3_TracksCollection <- trajectories::rTracksCollection(p = 2, m = 3, n = 50)
 x3_sftime <- st_as_sftime(x3_TracksCollection)
 
+# convert an sftime object to an sftime object
+st_as_sftime(x3_sftime)
+  
 # convert an sf object to an sftime object
 g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
      st_point(c(2, 1)), st_point(c(3, 1)))

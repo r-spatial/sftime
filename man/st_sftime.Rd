@@ -80,20 +80,22 @@ and return an \code{sf} object.}
 \item{value}{An object to insert into \code{x}.}
 }
 \value{
-An object of class \code{sftime}.
+\code{st_sftime}: An object of class \code{sftime}.
+
+Returned objects for subsetting functions: \code{[.sf} will return a 
+\code{data.frame} or vector if the geometry column (of class \code{sfc}) is 
+dropped (\code{drop=TRUE}), an \code{sfc} object if only the geometry column 
+is selected, and otherwise return an \code{sftime} object.
 }
 \description{
 Construct an \code{sftime} object from all its components
 }
 \details{
-\code{[.sf} will return a \code{data.frame} or vector if the 
-geometry column (of class \code{sfc}) is dropped (\code{drop=TRUE}), an 
-\code{sfc} object if only the geometry column is selected, and otherwise 
-return an \code{sftime} object; see also \link{[.data.frame}; for 
-\code{[.sftime} \code{...} arguments are passed to \code{op}.
+See also \link{[.data.frame}; for \code{[.sftime} \code{...} 
+arguments are passed to \code{op}.
 }
 \examples{
-## construction with a sfc object
+## construction with an sfc object
 library(sf)
 g <- st_sfc(st_point(1:2))
 tc <- Sys.time()
@@ -117,6 +119,9 @@ x <- st_sftime(a = 1:5, g, time = tc)
 # rows
 x[1, ]
 class(x[1, ])
+
+x[x$a < 3, ]
+class(x[x$a < 3, ])
 
 # columns
 x[, 1]
@@ -161,6 +166,10 @@ class(x)
 
 # assigning new values to the time column which invalidate the time column
 x[["time"]] <- list(letters[1:2])
+class(x)
+
+# assigning new values with `$`
+x$time <- Sys.time() + 1:5
 class(x)
 
 }

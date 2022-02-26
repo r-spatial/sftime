@@ -28,7 +28,7 @@ will be determined as equal spans according to \code{number}.}
 set.seed(123)
 coords <- matrix(runif(100), ncol = 2)
 g <- st_sfc(lapply(1:50, function(i) st_point(coords[i, ]) ))
-sft <- st_sftime(a = 1:50, g, time = as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6)
+sft <- st_sftime(a = 1:50, g, time = as.POSIXct("2020-09-01 00:00:00") + 0:49 * 3600 * 6)
 
 plot(sft)
 

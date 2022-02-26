@@ -69,9 +69,9 @@ is_sortable <- function(x) {
 #' and \code{time_column_last} are \code{TRUE}, the active time column is put last.
 #' @param check_ring_dir A logical value; see \code{\link[sf]{st_read}}.
 #'
-#' @return An object of class \code{sftime}.
+#' @return \code{st_sftime}: An object of class \code{sftime}.
 #' @examples
-#' ## construction with a sfc object
+#' ## construction with an sfc object
 #' library(sf)
 #' g <- st_sfc(st_point(1:2))
 #' tc <- Sys.time()
@@ -182,15 +182,6 @@ reclass_sftime <- function(x, time_column_name) {
     structure(x, class = c("sftime", setdiff(class(x), "sftime")), time_column = time_column_name)
   }
   
-  # res <- structure(x, class = c("sftime", setdiff(class(x), "sftime")))
-  
-  # check if  time column is still intact
-  # if(!is_sortable(res[, time_column_name, drop = TRUE])) {
-  #   structure(res, class = setdiff(class(res), "sftime"), time_column = NULL)
-  # } else {
-  #   st_as_sftime(res, time_column_name = time_column_name)
-  # }
-  
 }
 
 #### subsetting ####
@@ -204,11 +195,12 @@ reclass_sftime <- function(x, time_column_name) {
 #' and return an \code{sf} object.
 #' @param op A function; geometrical binary predicate function to apply when 
 #' \code{i} is a simple feature object.
-#' @details \code{[.sf} will return a \code{data.frame} or vector if the 
-#' geometry column (of class \code{sfc}) is dropped (\code{drop=TRUE}), an 
-#' \code{sfc} object if only the geometry column is selected, and otherwise 
-#' return an \code{sftime} object; see also \link{[.data.frame}; for 
-#' \code{[.sftime} \code{...} arguments are passed to \code{op}.
+#' @details See also \link{[.data.frame}; for \code{[.sftime} \code{...} 
+#' arguments are passed to \code{op}.
+#' @return Returned objects for subsetting functions: \code{[.sf} will return a 
+#' \code{data.frame} or vector if the geometry column (of class \code{sfc}) is 
+#' dropped (\code{drop=TRUE}), an \code{sfc} object if only the geometry column 
+#' is selected, and otherwise return an \code{sftime} object. 
 #' @examples
 #' ## Subsetting
 #' g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
@@ -219,6 +211,9 @@ reclass_sftime <- function(x, time_column_name) {
 #' # rows
 #' x[1, ]
 #' class(x[1, ])
+#' 
+#' x[x$a < 3, ]
+#' class(x[x$a < 3, ])
 #' 
 #' # columns
 #' x[, 1]
@@ -259,7 +254,7 @@ reclass_sftime <- function(x, time_column_name) {
   
   # perform subsetting for sf object
   if((!missing(j) && !drop && ((is.character(j) && any(j == time_column)) || (is.numeric(j) && any(colnames(x)[j] == time_column)))) ||
-     !missing(i) && !drop && ((is.character(i)) && any(i == time_column)  || is.numeric(i))) {
+     !missing(i) && !drop && ((is.character(i)) && any(i == time_column)  || is.numeric(i) || is.logical(i))) {
     structure(NextMethod(), class = class(x), time_column = time_column)
   } else {
     x <- structure(x, class = setdiff(class(x), "sftime"), time_column = NULL)
@@ -292,6 +287,11 @@ reclass_sftime <- function(x, time_column_name) {
 }
 
 #' @name st_sftime
+#' @examples
+#' # assigning new values with `$`
+#' x$time <- Sys.time() + 1:5
+#' class(x)
+#' 
 #' @export
 "$<-.sftime" = function(x, i, value) {
   structure(NextMethod(), class = c("sftime", setdiff(class(x), "sftime")))
@@ -345,6 +345,13 @@ print_time_column <- function(x, n = 5L, print_number_features = FALSE) {
 #' @param n Numeric value; maximum number of printed elements.
 #' 
 #' @return \code{x} (invisible).
+#' @examples
+#' g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+#'      st_point(c(2, 1)), st_point(c(3, 1)))
+#' tc <- Sys.time() + 1:5
+#' x <- st_sftime(a = 1:5, g, time = tc)
+#' print(x)
+#' 
 #' @export
 print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
   geoms <- which(vapply(x, function(col) inherits(col, "sfc"), TRUE))
@@ -394,6 +401,19 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
 st_as_sftime = function(x, ...) UseMethod("st_as_sftime")
 
 #' @name st_as_sftime
+#' @examples
+#' # modified from spacetime:
+#' library(sp)
+#' library(spacetime)
+#' 
+#' sp <- cbind(x = c(0,0,1), y = c(0,1,1))
+#' row.names(sp) <- paste("point", 1:nrow(sp), sep="")
+#' sp <- SpatialPoints(sp)
+#' time <- as.POSIXct("2010-08-05") + 3600 * (10:12)
+#' x <- STI(sp, time)
+#' 
+#' st_as_sftime(x)
+#' 
 #' @export
 st_as_sftime.ST <- function(x, ...) {
   has_data <- "data" %in% slotNames(x)
@@ -476,6 +496,10 @@ st_as_sftime.TracksCollection <- function(x, ...) {
 } 
 
 #' @name st_as_sftime
+#' @examples
+#' # convert an sftime object to an sftime object
+#' st_as_sftime(x3_sftime)
+#'   
 #' @export
 st_as_sftime.sftime <- function(x, ...) x
 
@@ -549,7 +573,8 @@ st_as_sftime.data.frame <-
            remove = TRUE, 
            na.fail = TRUE, 
            sf_column_name = NULL, 
-           time_column_name = NULL) {
+           time_column_name = NULL,
+           time_column_last = FALSE) {
     
     st_sftime(
       sf::st_as_sf(
@@ -563,7 +588,9 @@ st_as_sftime.data.frame <-
         na.fail = na.fail, 
         sf_column_name = sf_column_name
       ), 
-      time_column_name = time_column_name)
+      time_column_name = time_column_name, 
+      time_column_last = time_column_last
+    )
   }
 
 

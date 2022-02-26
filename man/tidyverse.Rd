@@ -10,22 +10,20 @@
 \alias{anti_join.sftime}
 \title{Tidyverse methods for \code{sftime} objects}
 \usage{
-inner_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{inner_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-left_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{left_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-right_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{right_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-full_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{full_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-semi_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{semi_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-anti_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{anti_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 }
 \arguments{
-\item{x}{A pair of data frames, data frame extensions (e.g. a tibble), or
-lazy data frames (e.g. from dbplyr or dtplyr). See \emph{Methods}, below, for
-more details.}
+\item{x}{An object of class \code{sftime}.}
 
 \item{y}{A pair of data frames, data frame extensions (e.g. a tibble), or
 lazy data frames (e.g. from dbplyr or dtplyr). See \emph{Methods}, below, for
@@ -60,9 +58,54 @@ Should be a character vector of length 2.}
 
 \item{...}{other arguments}
 }
+\value{
+An object of class \code{sftime} representing the joining result of
+\code{x} and \code{y}. See \code{\link[dplyr]{mutate-joins}}.
+}
 \description{
 Tidyverse methods for \code{sftime} objects. Geometries are sticky, use 
 \code{\link{as.data.frame}} to let \code{dplyr}'s own methods drop them. Use 
 these methods without the \code{.sftime} suffix and after loading the 
 tidyverse package with the generic (or after loading package tidyverse).
+}
+\examples{
+g1 <- st_sfc(st_point(1:2), st_point(c(5, 8)), st_point(c(2, 9)))
+x1 <- st_sftime(a = 1:3, geometry = g1, time = Sys.time())
+
+g2 <- st_sfc(st_point(c(4, 6)), st_point(c(4, 6)), st_point(c(4, 6)))
+x2 <- st_sftime(a = 2:4, geometry = g2, time = Sys.time())
+
+library(dplyr)
+
+## inner_join
+inner_join(x1, as.data.frame(x2), by = "a") # note: the active time column is
+# time.x and the active geometry column geometry.x
+
+inner_join(x2, as.data.frame(x1), by = "a")
+
+## left_join
+left_join(x1, as.data.frame(x2), by = "a")
+
+left_join(x2, as.data.frame(x1), by = "a")
+
+## right_join
+right_join(x1, as.data.frame(x2), by = "a")
+
+right_join(x2, as.data.frame(x1), by = "a")
+
+## full_join
+full_join(x1, as.data.frame(x2), by = "a")
+
+full_join(x2, as.data.frame(x1), by = "a")
+
+## semi_join
+semi_join(x1, as.data.frame(x2), by = "a")
+
+semi_join(x2, as.data.frame(x1), by = "a")
+
+## anti_join
+anti_join(x1, as.data.frame(x2), by = "a")
+
+anti_join(x2, as.data.frame(x1), by = "a")
+
 }

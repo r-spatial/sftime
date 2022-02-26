@@ -1,35 +1,3 @@
-# ## plotting of sftime objects
-# 
-# # spcetime
-# stplot.STIDF = function(obj, ..., names.attr = NULL,
-#                         as.table = TRUE, scales = list(draw=FALSE), xlab = NULL, ylab = NULL, 
-#                         type = 'p', number = 6, tcuts, sp.layout = NULL,
-#                         xlim = bbox(obj)[1,], ylim = bbox(obj)[2,]) 
-# {
-#   if (ncol(obj@data) > 1)
-#     warning("plotting only the first mark or attribute")
-#   tix = index(obj)
-#   if (missing(tcuts))
-#     tcuts = seq(min(tix), max(tix), length.out = number + 1)
-#   else
-#     number = length(tcuts) - 1
-#   timeclass = findInterval(tix, tcuts, rightmost.closed = TRUE) # EJP, Mon Aug 17 12:07:12 CEST 2015
-#   data = obj@data[,1,drop=FALSE]
-#   if (number > 1) for (i in 2:number) {
-#     data = cbind(data, obj@data[,1])
-#     data[timeclass != i, i] = NA
-#     if (i == number)
-#       data[timeclass != 1, 1] = NA # deal with first time class
-#   }
-#   names(data) = make.names(names(data), TRUE)
-#   d = addAttrToGeom(obj@sp, data, FALSE)
-#   if (is.null(names.attr))
-#     names.attr = trimDates(tcuts[1:number])
-#   spplot(d, 1:number, names.attr = names.attr, as.table = as.table, 
-#          scales = scales, xlab = xlab, ylab = ylab, sp.layout = sp.layout,
-#          xlim = xlim, ylim = ylim, ...)
-# }
-
 #' Plots an  \code{sftime} object
 #'
 #' \code{plot.sftime} 
@@ -50,7 +18,7 @@
 #' set.seed(123)
 #' coords <- matrix(runif(100), ncol = 2)
 #' g <- st_sfc(lapply(1:50, function(i) st_point(coords[i, ]) ))
-#' sft <- st_sftime(a = 1:50, g, time = as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6)
+#' sft <- st_sftime(a = 1:50, g, time = as.POSIXct("2020-09-01 00:00:00") + 0:49 * 3600 * 6)
 #' 
 #' plot(sft)
 #' 
@@ -62,6 +30,12 @@ plot.sftime <- function(x, y, ..., number = 6, tcuts) {
   
   stopifnot(y %in% colnames(x))
   
+  ts <- st_time(x)
+  if(any(is.na(ts))) {
+    message("[INFO] there are ", sum(is.na(ts)), " `NA` values in the active time column of `x`. These rows are dropped.")
+  }
+  
+  x <- x[!is.na(ts), ]
   ts <- st_time(x)
   
   if (missing(tcuts)) {
