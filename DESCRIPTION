@@ -43,6 +43,7 @@ Collate:
   init.R
   join.R
   plot.R
+  st_cast.R
   st_geometry.R
   st_time.R
   bind.R
