@@ -315,8 +315,13 @@ print_time_column <- function(x, n = 5L, print_number_features = FALSE) {
   stopifnot(is.integer(n) && length(n) == 1)
   
   ord <- order(x)
-  x_min <- x[[ord[[1]]]]
-  x_max <- x[[ord[[length(ord)]]]]
+  if(length(x) != 0) {
+    x_min <- x[[ord[[1]]]]
+    x_max <- x[[ord[[length(ord)]]]]
+  } else {
+    x_min <- x_max <- NA
+  }
+  
   x_class <- class(x)
   x_is_value <- length(x) == 1
   
@@ -351,6 +356,7 @@ print_time_column <- function(x, n = 5L, print_number_features = FALSE) {
 #' tc <- Sys.time() + 1:5
 #' x <- st_sftime(a = 1:5, g, time = tc)
 #' print(x)
+#' print(x[0, ])
 #' 
 #' @export
 print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
