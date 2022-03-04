@@ -23,18 +23,7 @@ sftime_join <- function(x, time_column_name, suffix_x = ".x") {
   st_as_sftime(x, time_column_name = time_column_name)
 }
 
-#' Tidyverse methods for \code{sftime} objects
-#'
-#' Tidyverse methods for \code{sftime} objects. Geometries are sticky, use 
-#' \code{\link{as.data.frame}} to let \code{dplyr}'s own methods drop them. Use 
-#' these methods without the \code{.sftime} suffix and after loading the 
-#' tidyverse package with the generic (or after loading package tidyverse).
-#' @name tidyverse
-#' @inheritParams sf::tidyverse
-#' @param x An object of class \code{sftime}.
-#' @return An object of class \code{sftime} representing the joining result of
-#' \code{x} and \code{y}. See \code{\link[dplyr]{mutate-joins}}.
-NULL
+## Tidyverse joins (see also tidyverse.R)
 
 #' @name tidyverse
 #' @examples 

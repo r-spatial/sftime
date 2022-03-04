@@ -46,6 +46,7 @@ Collate:
   st_cast.R
   st_geometry.R
   st_time.R
+  tidyverse.R
   bind.R
   crop.R
   geom-transformers.R
