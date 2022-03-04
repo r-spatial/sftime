@@ -76,7 +76,7 @@ plot.sftime <- function(x, y, ..., number = 6, tcuts) {
     }
   }
   
-  names(data) <- levels(ts_fac)[unique(timeclass)]
+  names(data) <- ts_fac[!duplicated(timeclass)]
   d <- sf::st_sf(data, geometry = sf::st_geometry(x))
   
   plot(d, ...)
