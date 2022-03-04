@@ -370,9 +370,9 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
   print_time_column(x[, attr(x, "time_column"), drop = TRUE], n = 0L, print_number_features = FALSE)
   
   if(n > 0) {
-    if (inherits(x, "tbl_df"))
-      NextMethod()
-    else {
+    if (inherits(x, "tbl_df")) {
+      print(sf::st_drop_geometry(x))
+    } else {
       y <- x
       if(nrow(y) > n) {
         cat(paste("First", n, "features:\n"))

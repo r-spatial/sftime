@@ -10,17 +10,17 @@
 \alias{anti_join.sftime}
 \title{Tidyverse methods for \code{sftime} objects}
 \usage{
-inner_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{inner_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-left_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{left_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-right_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{right_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-full_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{full_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-semi_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{semi_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-anti_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{anti_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 }
 \arguments{
 \item{x}{An object of class \code{sftime}.}
