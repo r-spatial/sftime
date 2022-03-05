@@ -1,7 +1,7 @@
 #' Drops the geometry column of \code{sftime} objects
 #' 
 #' Drops the geometry column of an \code{sftime} objects. This will also drop 
-#' the \code{sftime} class attribute and \code{time_column}. 
+#' the \code{sftime} class attribute and \code{time_column} attribute. 
 #' 
 #' @name st_geometry
 #' @inheritParams sf::st_drop_geometry
@@ -17,5 +17,6 @@
 #' 
 #' @export
 st_drop_geometry.sftime <- function(x, ...) {
-  st_drop_time(NextMethod())
+  class(x) <- setdiff(class(x), "sftime")
+  NextMethod()
 }

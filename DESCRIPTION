@@ -16,7 +16,8 @@ Suggests:
     tidyr,
     ggplot2,
     magrittr,
-    sp
+    sp,
+    rlang
 Authors@R: 
     c(person(given = "Henning",
              family = "Teickner",

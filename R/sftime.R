@@ -176,7 +176,7 @@ st_sftime <- function(...,
 #' @noRd
 reclass_sftime <- function(x, time_column_name) {
   
-  if(! time_column_name %in% colnames(x)) {
+  if(! time_column_name %in% colnames(x) || ! inherits(x, "sf")) {
     structure(x, class = setdiff(class(x), "sftime"), time_column = NULL)
   } else {
     structure(x, class = c("sftime", setdiff(class(x), "sftime")), time_column = time_column_name)
@@ -377,7 +377,9 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
   
   if(n > 0) {
     if (inherits(x, "tbl_df")) {
-      print(sf::st_drop_geometry(x))
+      x_print <- x
+      class(x_print) <- setdiff(class(x_print), c("sftime", "sf"))
+      print(x_print)
     } else {
       y <- x
       if(nrow(y) > n) {

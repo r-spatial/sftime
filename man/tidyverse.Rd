@@ -27,10 +27,10 @@
 \alias{sample_n.sftime}
 \alias{sample_frac.sftime}
 \alias{nest.sftime}
-\alias{separate.sftime}
-\alias{separate_rows.sftime}
-\alias{unite.sftime}
 \alias{unnest.sftime}
+\alias{separate.sftime}
+\alias{unite.sftime}
+\alias{separate_rows.sftime}
 \title{Tidyverse methods for \code{sftime} objects}
 \usage{
 \method{inner_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
@@ -112,6 +112,8 @@
 
 \method{nest}{sftime}(.data, ...)
 
+\method{unnest}{sftime}(data, ..., .preserve = NULL)
+
 \method{separate}{sftime}(
   data,
   col,
@@ -124,11 +126,9 @@
   ...
 )
 
-\method{separate_rows}{sftime}(data, ..., sep = "[^[:alnum:]]+", convert = FALSE)
-
 \method{unite}{sftime}(data, col, ..., sep = "_", remove = TRUE)
 
-\method{unnest}{sftime}(data, ..., .preserve = NULL)
+\method{separate_rows}{sftime}(data, ..., sep = "[^[:alnum:]]+", convert = FALSE)
 }
 \arguments{
 \item{x}{An object of class \code{sftime}.}
@@ -299,6 +299,8 @@ a character week variable to an integer.}
 
 \item{.env}{see original function docs}
 
+\item{.preserve}{see \link[tidyr:nest]{unnest}}
+
 \item{col}{see \link[tidyr]{separate}}
 
 \item{into}{see \link[tidyr]{separate}}
@@ -306,8 +308,6 @@ a character week variable to an integer.}
 \item{remove}{see \link[tidyr]{separate}}
 
 \item{extra}{see \link[tidyr]{separate}}
-
-\item{.preserve}{see \link[tidyr:nest]{unnest}}
 }
 \value{
 \itemize{
@@ -377,5 +377,107 @@ semi_join(x2, as.data.frame(x1), by = "a")
 anti_join(x1, as.data.frame(x2), by = "a")
 
 anti_join(x2, as.data.frame(x1), by = "a")
+
+## filter
+filter(x1, a <= 2)
+
+## arrange
+arrange(x1, dplyr::desc(a))
+
+## group_by
+group_by(x1, time)
+
+## ungroup
+ungroup(group_by(x1, time))
+
+## rowwise
+x1 \%>\%
+  mutate(a1 = 5:7) \%>\%
+  rowwise() \%>\%
+  mutate(a2 = mean(a, a1))
+
+## mutate
+x1 \%>\%
+  mutate(a1 = 5:7)
+
+## transmute
+x1 \%>\%
+  transmute(a1 = 5:7)
+
+## select
+x1 \%>\%
+  select(-time) \%>\%
+  select(geometry)
+
+## rename
+x1 \%>\%
+  rename(a1 = a)
+
+## slice
+x1 \%>\%
+  slice(1:2)
+
+## summarise
+x1 \%>\%
+  summarise(time = mean(time))
+  
+x1 \%>\%
+  summarize(time = mean(time))
+
+## distinct
+x1 \%>\%
+  distinct(geometry)
+
+## gather
+library(tidyr)
+x1 \%>\%
+  mutate(a1 = 5:7) \%>\%
+  gather(key = "variable", value = "value", a, a1)
+
+## pivot_longer
+x1 \%>\%
+  mutate(a1 = 5:7) \%>\%
+  pivot_longer(cols = c("a", "a1"), names_to = "variable", values_to = "value")
+
+## spread
+x1 \%>\%
+  mutate(a1 = 5:7) \%>\%
+  gather(key = "variable", value = "value", a, a1) \%>\%
+  spread(key = "variable", value = "value")
+
+## sample_n
+set.seed(234)
+x1 \%>\%
+  sample_n(size = 10, replace = TRUE)
+
+## sample_frac
+x1 \%>\%
+  sample_frac(size = 10, replace = TRUE) \%>\%
+  sample_frac(size = 0.1, replace = FALSE)
+
+## nest
+x1 \%>\%
+  nest(a1 = -time)
+
+## unnest
+x1 \%>\%
+  mutate(a1 = list(1, c(1, 2), 5)) \%>\%
+  unnest(a1)
+
+## separate
+x1 \%>\%
+  mutate(x = c(NA, "a.b", "a.d")) \%>\%
+  separate(x, c("A", "B"))
+
+## unite
+x1 \%>\%
+  mutate(x = c(NA, "a.b", "a.d")) \%>\%
+  separate(x, c("A", "B")) \%>\%
+  unite(x, c("A", "B"))
+  
+## separate_rows
+x1 \%>\%
+  mutate(z = c("1", "2,3,4", "5,6")) \%>\%
+  separate_rows(z, convert = TRUE)
 
 }
