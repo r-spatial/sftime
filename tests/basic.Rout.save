@@ -1,0 +1,191 @@
+
+R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(sftime)
+Loading required package: sf
+Linking to GEOS 3.10.1, GDAL 3.4.0, PROJ 8.2.0; sf_use_s2() is TRUE
+> set.seed(13531)
+> 
+> ##### checks on tc  ####
+> ## popular POSIXct
+> #tc <- st_tc(as.POSIXct("2020-09-01 08:00:00")-0:3*3600*24)
+> #tc
+> #tc[1]
+> #order(tc)
+> #sort(tc)[1]
+> #
+> ## custom interval class
+> ## utility functions
+> #as.character.interval <- function(x) {
+> #  paste0("[", x[1], ", ", x[2], "]")
+> #}
+> #
+> #print.interval<- function(x) {
+> #  cat("Interval:", as.character(x))
+> #}
+> #
+> #'[.intervals' <- function(x, i) {
+> #  sx <- unclass(x)[i]
+> #  class(sx) <- "intervals"
+> #  sx
+> #}
+> #
+> ## time interval definition
+> #i1 <- c(5.3,12)
+> #class(i1) <- "interval"
+> #i2 <- c(3.1,6)
+> #class(i2) <- "interval"
+> #i3 <- c(1.4,2.9)
+> #class(i3) <- "interval"
+> #i4 <- c(1,2)
+> #class(i4) <- "interval"
+> #
+> #intrvls <- list(i1, i2, i3, i4)
+> #class(intrvls) <- "intervals"
+> #
+> ## provide dedicated generic to xtfrm for class intervals
+> #xtfrm.intervals <- function(is) sapply(is, xtfrm)
+> #
+> ## different sort definitions:
+> ## - sort by centre
+> #xtfrm.interval <- function(i) mean(i)
+> #
+> #tc <- st_tc(intrvls)
+> #tc
+> #tc[1]
+> #order(tc)
+> #sort(tc)[1]
+> #
+> ## - sort by end
+> #xtfrm.interval <- function(i) i[2]
+> #tc <- st_tc(intrvls)
+> #tc
+> #tc[1]
+> #order(tc)
+> #sort(tc)[1]
+> #
+> ## - sort by start
+> #xtfrm.interval <- function(i) i[1]
+> #
+> #tc <- st_tc(intrvls)
+> #tc
+> #tc[1]
+> #order(tc)
+> #sort(tc)[1]
+> #
+> 
+> #### sftime construction ####
+> library(sf)
+> coords <- matrix(runif(100), ncol = 2)
+> g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
+> 
+> sft <- st_sftime(a = 1:50, g, time = as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6)
+> 
+> # coercion
+> library(spacetime)
+> example(STI)
+
+STI> sp = cbind(x = c(0,0,1), y = c(0,1,1))
+
+STI> row.names(sp) = paste("point", 1:nrow(sp), sep="")
+
+STI> library(sp)
+
+STI> sp = SpatialPoints(sp)
+
+STI> time = as.POSIXct("2010-08-05")+3600*(10:13)
+
+STI> m = c(10,20,30) # means for each of the 3 point locations
+
+STI> mydata = rnorm(length(sp)*length(time),mean=rep(m, 4))
+
+STI> IDs = paste("ID",1:length(mydata))
+
+STI> mydata = data.frame(values = signif(mydata,3), ID=IDs)
+
+STI> stidf = as(STFDF(sp, time, mydata), "STIDF")
+
+STI> stidf[1:2,]
+An object of class "STIDF"
+Slot "data":
+  values   ID
+1   10.4 ID 1
+2   19.1 ID 2
+
+Slot "sp":
+SpatialPoints:
+       x y
+point1 0 0
+point2 0 1
+Coordinate Reference System (CRS) arguments: NA 
+
+Slot "time":
+                    timeIndex
+2010-08-05 10:00:00         1
+2010-08-05 10:00:00         1
+
+Slot "endTime":
+[1] "2010-08-05 11:00:00 CEST" "2010-08-05 11:00:00 CEST"
+
+
+STI> all.equal(stidf, stidf[stidf,])
+[1] TRUE
+> 
+> sft <- st_as_sftime(stidf)
+> sft
+Spatiotemporal feature collection with 12 features and 2 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1
+CRS:           NA
+Time column with class: 'POSIXt'.
+Ranging from 2010-08-05 10:00:00 to 2010-08-05 13:00:00.
+First 10 features:
+   values    ID st_as_sfc.x.sp.                time
+1    10.4  ID 1     POINT (0 0) 2010-08-05 10:00:00
+2    19.1  ID 2     POINT (0 1) 2010-08-05 10:00:00
+3    30.5  ID 3     POINT (1 1) 2010-08-05 10:00:00
+4    10.2  ID 4     POINT (0 0) 2010-08-05 11:00:00
+5    20.7  ID 5     POINT (0 1) 2010-08-05 11:00:00
+6    30.8  ID 6     POINT (1 1) 2010-08-05 11:00:00
+7     8.8  ID 7     POINT (0 0) 2010-08-05 12:00:00
+8    19.0  ID 8     POINT (0 1) 2010-08-05 12:00:00
+9    27.7  ID 9     POINT (1 1) 2010-08-05 12:00:00
+10    9.6 ID 10     POINT (0 0) 2010-08-05 13:00:00
+> 
+> plot(sft, pch=12)
+[INFO] Fewer time stamps in the data than asked for; argument 'number' set to: 4
+> 
+> ## custom interval scenario
+> #intrvls <- lapply(1:12, function(i) {
+> #  iv <- runif(1)+c(0,runif(1))
+> #  class(iv) <- "interval"
+> #  iv
+> #})
+> #
+> #class(intrvls) <- "intervals"
+> #intrvls <- intrvls[order(intrvls)]
+> #
+> #tc_intrvls <- st_tc(intrvls)
+> #sft_intrvls <- sft
+> ## sft_intrvls$time <- tc_intrvls # does not work yet because class attribute order is changed, as discussed in https://github.com/r-spatial/sf/issues/1852
+> #
+> ## plot(sft_intrvls, number=4, pch=12)
+> 
+> proc.time()
+   user  system elapsed 
+  1.501   0.089   1.581 

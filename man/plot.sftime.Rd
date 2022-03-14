@@ -3,35 +3,33 @@
 \name{plot.sftime}
 \alias{plot.sftime}
 \alias{plot}
-\title{Plot an sftime object}
+\title{Plots an  \code{sftime} object}
 \usage{
-\method{plot}{sftime}(x, y, ..., mode = "xy", number = 6, tcuts, key.pos = -1)
+\method{plot}{sftime}(x, y, ..., number = 6, tcuts)
 }
 \arguments{
-\item{x}{the sftime object to be plotted}
+\item{x}{The \code{\link[=st_sftime]{sftime}} object to be plotted.}
 
-\item{y}{the variabel name to be plotted; if missing, the first variable is plotted}
+\item{y}{A character value; The variable name to be plotted; if missing, the 
+first variable is plotted.}
 
-\item{...}{passed on to nested plot functions}
+\item{...}{Additional arguments; Passed on to \code{\link[sf:plot]{plot.sf}}.}
 
-\item{mode}{how to project the 3D object to a 2D device: 'xy' = separate maps for time ranges}
+\item{number}{A numeric value; The number of panels to be plotted, cannot be 
+larger than the number of timestamps; ignored when \code{tcuts} is provided.}
 
-\item{number}{of panels to be plotted, cannot be larger than the number of timestamps; ignored when 'tcuts' is provided}
-
-\item{tcuts}{predefined temporal ranges assigned to each map; if missing, will be determined as equal spans according to 'number'}
-
-\item{key.pos}{see \link[sf]{plot_sf}}
+\item{tcuts}{predefined temporal ranges assigned to each map; if missing, 
+will be determined as equal spans according to \code{number}.}
 }
 \description{
-Plot an sftime object
+\code{plot.sftime}
 }
 \examples{
 set.seed(123)
 coords <- matrix(runif(100), ncol = 2)
-g = st_sfc(lapply(1:50, function(i) st_point(coords[i,]) ))
-sf <- st_sf(a=1:50, g)
+g <- st_sfc(lapply(1:50, function(i) st_point(coords[i, ]) ))
+sft <- st_sftime(a = 1:50, g, time = as.POSIXct("2020-09-01 00:00:00") + 0:49 * 3600 * 6)
 
-sft <- st_sf_time(sf, st_tc(as.POSIXct("2020-09-01 00:00:00")+0:49*3600*6))
 plot(sft)
 
 }

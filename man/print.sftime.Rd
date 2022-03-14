@@ -7,15 +7,24 @@
 \method{print}{sftime}(x, ..., n = getOption("sf_max_print", default = 10))
 }
 \arguments{
-\item{x}{the object to be printed}
+\item{x}{An object of class \code{sftime}.}
 
-\item{...}{currently unused, for compatability}
+\item{...}{Currently unused arguments, for compatibility.}
 
-\item{n}{maximum number of printed elements}
+\item{n}{Numeric value; maximum number of printed elements.}
 }
 \value{
-a human readble print out on the console
+\code{x} (invisible).
 }
 \description{
 Print a \code{sftime} object
+}
+\examples{
+g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
+     st_point(c(2, 1)), st_point(c(3, 1)))
+tc <- Sys.time() + 1:5
+x <- st_sftime(a = 1:5, g, time = tc)
+print(x)
+print(x[0, ])
+
 }

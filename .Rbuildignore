@@ -13,3 +13,7 @@ LICENSE
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^tic\.R$
+^doc$
+^cran-comments\.md$
+^README\.Rmd$
+^CODE_OF_CONDUCT\.md$
