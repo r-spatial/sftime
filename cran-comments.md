@@ -1,7 +1,7 @@
 # Submission 2:
 
 ## Resubmission
-This is a resubmission. In this version we have addressed the following issues:
+This is a resubmission. We have addressed the following issues:
 
 * "Please always write package names, software names and API (application programming interface) names in single quotes in title and description. e.g: --> 'stars' ":  
   - This was checked for all function titles and the DESCRIPTION. Changes were made in the DESCRIPTION and tidyverse.Rd.
@@ -19,9 +19,11 @@ transform.sftime.Rd: \value"
 * Additional changes:
   - The documentation for several functions was improved.
 
-## R CMD check results
+### R CMD check results
 
+0 errors | 0 warnings | 1 note
 
+* This is a new release.
 
 # Submission 1:
 
