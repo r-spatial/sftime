@@ -31,45 +31,45 @@
 \alias{separate.sftime}
 \alias{unite.sftime}
 \alias{separate_rows.sftime}
-\title{Tidyverse methods for \code{sftime} objects}
+\title{'tidyverse' methods for \code{sftime} objects}
 \usage{
-\method{inner_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+inner_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{left_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+left_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{right_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+right_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{full_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+full_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{semi_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+semi_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{anti_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+anti_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{filter}{sftime}(.data, ..., .dots)
+filter.sftime(.data, ..., .dots)
 
-\method{arrange}{sftime}(.data, ..., .dots)
+arrange.sftime(.data, ..., .dots)
 
-\method{group_by}{sftime}(.data, ..., add = FALSE)
+group_by.sftime(.data, ..., add = FALSE)
 
-\method{ungroup}{sftime}(.data, ...)
+ungroup.sftime(.data, ...)
 
-\method{rowwise}{sftime}(.data, ...)
+rowwise.sftime(.data, ...)
 
-\method{mutate}{sftime}(.data, ..., .dots)
+mutate.sftime(.data, ..., .dots)
 
-\method{transmute}{sftime}(.data, ..., .dots)
+transmute.sftime(.data, ..., .dots)
 
-\method{select}{sftime}(.data, ...)
+select.sftime(.data, ...)
 
-\method{rename}{sftime}(.data, ...)
+rename.sftime(.data, ...)
 
-\method{slice}{sftime}(.data, ..., .dots)
+slice.sftime(.data, ..., .dots)
 
-\method{summarise}{sftime}(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
+summarise.sftime(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
 
-\method{summarize}{sftime}(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
+summarize.sftime(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
 
-\method{distinct}{sftime}(.data, ..., .keep_all = FALSE)
+distinct.sftime(.data, ..., .keep_all = FALSE)
 
 \method{gather}{sftime}(
   data,
@@ -100,9 +100,15 @@
 
 \method{spread}{sftime}(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)
 
-\method{sample_n}{sftime}(tbl, size, replace = FALSE, weight = NULL, .env = parent.frame())
+sample_n.sftime(
+  tbl,
+  size,
+  replace = FALSE,
+  weight = NULL,
+  .env = parent.frame()
+)
 
-\method{sample_frac}{sftime}(
+sample_frac.sftime(
   tbl,
   size = 1,
   replace = FALSE,
@@ -333,10 +339,10 @@ a character week variable to an integer.}
 }
 }
 \description{
-Tidyverse methods for \code{sftime} objects. Geometries are sticky, use 
+'tidyverse' methods for \code{sftime} objects. Geometries are sticky, use 
 \code{\link{as.data.frame}} to let \code{dplyr}'s own methods drop them. Use 
 these methods without the \code{.sftime} suffix and after loading the 
-tidyverse package with the generic (or after loading package tidyverse).
+'tidyverse' package with the generic (or after loading package 'tidyverse').
 }
 \examples{
 g1 <- st_sfc(st_point(1:2), st_point(c(5, 8)), st_point(c(2, 9)))

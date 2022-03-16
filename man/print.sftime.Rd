@@ -2,7 +2,7 @@
 % Please edit documentation in R/sftime.R
 \name{print.sftime}
 \alias{print.sftime}
-\title{Print a \code{sftime} object}
+\title{Prints an \code{sftime} object}
 \usage{
 \method{print}{sftime}(x, ..., n = getOption("sf_max_print", default = 10))
 }
@@ -17,7 +17,7 @@
 \code{x} (invisible).
 }
 \description{
-Print a \code{sftime} object
+Prints an \code{sftime} object
 }
 \examples{
 g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 

@@ -35,7 +35,9 @@ arguments \code{tc_column_name} and \code{sf_column_name}; see also
 \link{st_sftime}.
 }
 \description{
-Bind columns (variables) of \code{sftime} objects.
+Bind rows (features) of \code{sftime} objects
+
+Bind columns (variables) of \code{sftime} objects
 }
 \details{
 Both \code{rbind} and \code{cbind} have non-standard method dispatch 

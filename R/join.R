@@ -1,4 +1,4 @@
-#' Helper function to adjust class and attributes of \code{sftime} objects when joining.
+#' Helper function to adjust class and attributes of \code{sftime} objects when joining
 #' 
 #' @param x An object to be reclassed to the \code{\link[=st_sftime]{sftime}} 
 #' class.

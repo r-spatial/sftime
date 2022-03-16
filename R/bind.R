@@ -50,8 +50,6 @@ rbind.sftime <- function(..., deparse.level = 1) {
 }
 
 #' Bind columns (variables) of \code{sftime} objects
-#'
-#' Bind columns (variables) of \code{sftime} objects.
 #' 
 #' @name bind
 #' @param sf_column_name Character value; specifies the active geometry column; 

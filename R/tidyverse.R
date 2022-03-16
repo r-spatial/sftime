@@ -1,11 +1,11 @@
 # Tidyverse methods (See also join.R)
 
-#' Tidyverse methods for \code{sftime} objects
+#' 'tidyverse' methods for \code{sftime} objects
 #'
-#' Tidyverse methods for \code{sftime} objects. Geometries are sticky, use 
+#' 'tidyverse' methods for \code{sftime} objects. Geometries are sticky, use 
 #' \code{\link{as.data.frame}} to let \code{dplyr}'s own methods drop them. Use 
 #' these methods without the \code{.sftime} suffix and after loading the 
-#' tidyverse package with the generic (or after loading package tidyverse).
+#' 'tidyverse' package with the generic (or after loading package 'tidyverse').
 #' @name tidyverse
 #' @inheritParams sf::tidyverse
 #' @inheritParams tidyr::pivot_longer

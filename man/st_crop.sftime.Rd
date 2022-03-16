@@ -2,7 +2,7 @@
 % Please edit documentation in R/crop.R
 \name{st_crop.sftime}
 \alias{st_crop.sftime}
-\title{crop an \code{sftime} object to a specific rectangle}
+\title{Crop an \code{sftime} object to a specific rectangle}
 \usage{
 \method{st_crop}{sftime}(x, y, ...)
 }
@@ -20,7 +20,7 @@ to a \code{bbox} object.}
 \code{x} cropped using \code{y}.
 }
 \description{
-crop an \code{sftime} object to a specific rectangle
+Crop an \code{sftime} object to a specific rectangle
 }
 \details{
 See \code{\link[sf:st_crop]{st_crop}}.

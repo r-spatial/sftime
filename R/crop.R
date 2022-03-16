@@ -1,4 +1,4 @@
-#' crop an \code{sftime} object to a specific rectangle
+#' Crop an \code{sftime} object to a specific rectangle
 #' 
 #' @param x An object of class \code{sftime}.
 #' @param y A numeric vector with named elements \code{xmin}, \code{ymin}, 

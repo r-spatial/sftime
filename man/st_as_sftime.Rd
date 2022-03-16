@@ -81,8 +81,20 @@ simple feature geometries; in case there is more than one and
 always put last, otherwise column order is left unmodified. If both \code{sfc_last}
 and \code{time_column_last} are \code{TRUE}, the active time column is put last.}
 }
+\value{
+\code{x} converted to an \code{sftime} object.
+
+\code{st_as_sftime.Tracks} furthermore adds a column 
+\code{track_name} with the names of the \code{tracks} slot of the input
+\code{Tracks} object.
+
+\code{st_as_sftime.TracksCollection} furthermore adds the columns 
+\code{tracks_name} with the names of the \code{tracksCollection} slot and 
+\code{track_name} with the names of the \code{tracks} slot of the input
+\code{Tracks} object.
+}
 \description{
-Convert a foreign object to an \code{sftime} object.
+Convert a foreign object to an \code{sftime} object
 }
 \examples{
 # modified from spacetime:

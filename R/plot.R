@@ -14,6 +14,7 @@
 #'
 #' @importFrom graphics plot
 #'
+#' @return Returns \code{NULL} and creates as side effect a plot for \code{x}.
 #' @examples
 #' set.seed(123)
 #' coords <- matrix(runif(100), ncol = 2)
@@ -80,4 +81,6 @@ plot.sftime <- function(x, y, ..., number = 6, tcuts) {
   d <- sf::st_sf(data, geometry = sf::st_geometry(x))
   
   plot(d, ...)
+  
+  NULL
 }

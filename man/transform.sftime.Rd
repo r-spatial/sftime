@@ -11,6 +11,10 @@
 
 \item{...}{Further arguments of the form new_variable=expression}
 }
+\value{
+\code{_data} (an \code{sftime object}) with modified attribute values 
+(columns).
+}
 \description{
 Can be used to create or modify attribute variables; for transforming 
 geometries see \code{\link[sf]{st_transform}}, and all other functions starting with 

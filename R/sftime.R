@@ -160,11 +160,12 @@ st_sftime <- function(...,
   res
 }
 
-#' Helper function for reclassing sftime objects
+#' Helper function for reclassing \code{sftime} objects
 #' 
-#' Reclasses sftime objects to the correct new class after modification. Checks
-#' if the sftime object (the active time column) gets invalidated. If so, the
-#' sftime class is dropped. If not, the object is reclassed to an sftime object.
+#' Reclasses \code{sftime} objects to the correct new class after modification. 
+#' Checks if the \code{sftime} object (the active time column) gets invalidated. 
+#' If so, the \code{sftime} class is dropped. If not, the object is reclassed to 
+#' an \code{sftime} object.
 #' 
 #' @param x An object to be reclassed to the \code{\link[=st_sftime]{sftime}} class.
 #' @param time_colmn_name A character value; name of the active time column.
@@ -299,7 +300,7 @@ reclass_sftime <- function(x, time_column_name) {
 
 #### printing ####
 
-#' Helper function to print time columns when printing sftime object
+#' Helper function to print time columns when printing an \code{sftime} object
 #'
 #' @noRd
 #' @keywords internal
@@ -343,7 +344,7 @@ print_time_column <- function(x, n = 5L, print_number_features = FALSE) {
   invisible(x)
 }
 
-#' Print a \code{sftime} object
+#' Prints an \code{sftime} object
 #'
 #' @param x An object of class \code{sftime}.
 #' @param ... Currently unused arguments, for compatibility.
@@ -396,13 +397,13 @@ print.sftime <- function(x, ..., n = getOption("sf_max_print", default = 10)) {
 #### coercion ####
 
 #' Convert a foreign object to an \code{sftime} object
-#'
-#' Convert a foreign object to an \code{sftime} object.
 #' 
 #' @name st_as_sftime
 #' @param x An object to be converted into an object of class 
 #' \code{\link[=st_sftime]{sftime}}.
 #' @param ... Further arguments passed to methods.
+#' 
+#' @return \code{x} converted to an \code{sftime} object.
 #' 
 #' @export
 #' @importFrom methods slotNames as
@@ -464,6 +465,10 @@ st_as_sftime.Track <- function(x, ...) {
 } 
 
 #' @name st_as_sftime
+#' @return \code{st_as_sftime.Tracks} furthermore adds a column 
+#' \code{track_name} with the names of the \code{tracks} slot of the input
+#' \code{Tracks} object.
+#' 
 #' @examples 
 #' # convert a Tracks object from package trajectories to an sftime object
 #' x2_Tracks <- trajectories::rTracks(m = 6)
@@ -480,6 +485,11 @@ st_as_sftime.Tracks <- function(x, ...) {
 } 
 
 #' @name st_as_sftime
+#' @return \code{st_as_sftime.TracksCollection} furthermore adds the columns 
+#' \code{tracks_name} with the names of the \code{tracksCollection} slot and 
+#' \code{track_name} with the names of the \code{tracks} slot of the input
+#' \code{Tracks} object.
+#' 
 #' @examples 
 #' # convert a TracksCollection object from package trajectories to an sftime object
 #' x3_TracksCollection <- trajectories::rTracksCollection(p = 2, m = 3, n = 50)
@@ -530,7 +540,7 @@ st_as_sftime.sf <- function(x, ..., time_column_name = NULL) {
 #' @name st_as_sftime
 #' @param long A logical value; See \code{\link[stars:st_as_sf]{st_as_sf}}. 
 #' Typically, \code{long} should be set to \code{TRUE} since time information
-#' typically is a dimension of a stars object.
+#' typically is a dimension of a \code{stars} object.
 #' @examples 
 #' # convert a Tracks object from package trajectories to an sftime object
 #' x5_stars <- stars::read_stars(system.file("nc/bcsd_obs_1999.nc", package = "stars"))
@@ -552,7 +562,7 @@ st_as_sftime.stars <- function(x, ..., long = TRUE, time_column_name = NULL) {
 }
 
 #' @name st_as_sftime
-#' @param agr A character vector; see details section of \code{\link{st_sf}}.
+#' @param agr A character vector; see the details section of \code{\link{st_sf}}.
 #' @param coords In case of point data: names or numbers of the numeric columns 
 #' holding coordinates.
 #' @param wkt The name or number of the character column that holds WKT encoded 
@@ -560,7 +570,7 @@ st_as_sftime.stars <- function(x, ..., long = TRUE, time_column_name = NULL) {
 #' @param dim Passed on to \code{\link{st_point}} (only when argument 
 #' \code{coords} is given).
 #' @param remove A logical value; when \code{coords} or \code{wkt} is given, 
-#' remove these columns from code{data.frame}?
+#' remove these columns from \code{x}?
 #' @param na.fail A logical value; if \code{TRUE}, raise an error if coordinates 
 #' contain missing values.
 #' @inheritParams st_sftime
@@ -612,6 +622,10 @@ st_as_sftime.data.frame <-
 #'
 #' @param _data An object of class \code{\link[=st_sftime]{sftime}}.
 #' @inheritParams sf::transform.sf
+#' 
+#' @return \code{_data} (an \code{sftime object}) with modified attribute values 
+#' (columns). 
+#' 
 #' @examples
 #' # create an sftime object
 #' g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 

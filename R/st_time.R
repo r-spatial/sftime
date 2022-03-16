@@ -1,25 +1,27 @@
 #' Get, set, or replace time information
 #'
-#' @param obj An object of class \code{sftime} or \code{tc}.
+#' @param obj An object of class \code{sftime}.
 #' @param x An object of class \code{sftime} or \code{sf}.
 #' @param ... Additional arguments; Ignored.
 #' @param time_column_name Character value; The name of the column to set as 
 #' active time column in \code{x}. 
-#' @param value An object of class \code{tc}, or \code{character}, or 
-#' \code{NULL}.
+#' @param value An object for which \code{\link{is_sortable}} returns 
+#' \code{TRUE} or an object of class \code{character}, or \code{NULL}.
 #' 
-#' @details In case \code{value} is character and \code{x} is of class \code{sftime}, 
-#' the "active" time column is set to \code{x[[value]]}.
+#' @details In case \code{value} is character and \code{x} is of class 
+#' \code{sftime}, the active time column (as indicated by attribute 
+#' \code{time_column}) is set to \code{x[[value]]}.
 #'
 #' The replacement function applied to \code{sftime} objects will overwrite the 
-#' time column, if \code{value} is \code{NULL}, it will remove it and coerce 
-#' \code{x} to an \code{sftime} object.
+#' active time column, if \code{value} is \code{NULL}, it will remove it and 
+#' coerce \code{x} to an \code{sftime} object.
 #' 
 #' @return \code{st_time} returns the content of the active time column of an
 #' \code{sftime} object. 
-#' Assigning a \code{tc} object to an \code{sf} object creates an 
-#' \code{\link[=st_sftime]{sftime}} object. Assigning a \code{tc} object to an \code{sftime}
-#' object replaces the time column.  
+#' Assigning an object for which \code{\link{is_sortable}} returns \code{TRUE} 
+#' to an \code{sf} object creates an \code{\link[=st_sftime]{sftime}} object. 
+#' Assigning an object for which \code{\link{is_sortable}} returns \code{TRUE} 
+#' to an \code{sftime} object replaces the active time column by this object.  
 #' @export
 st_time <- function(obj, ...) UseMethod("st_time")
 

@@ -17,7 +17,7 @@
 \code{sf} class.
 }
 \description{
-Drops the geometry column of an \code{sftime} objects. This will also drop 
+Drops the geometry column of an \code{sftime} object. This will also drop 
 the \code{sftime} class attribute and \code{time_column} attribute.
 }
 \examples{

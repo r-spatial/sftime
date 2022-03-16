@@ -21,6 +21,9 @@ larger than the number of timestamps; ignored when \code{tcuts} is provided.}
 \item{tcuts}{predefined temporal ranges assigned to each map; if missing, 
 will be determined as equal spans according to \code{number}.}
 }
+\value{
+Returns \code{NULL} and creates as side effect a plot for \code{x}.
+}
 \description{
 \code{plot.sftime}
 }
