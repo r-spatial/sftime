@@ -315,7 +315,7 @@ print_time_column <- function(x, n = 5L, print_number_features = FALSE) {
   stopifnot(is.logical(print_number_features) && length(print_number_features) == 1)
   stopifnot(is.integer(n) && length(n) == 1)
   
-  ord <- order(x)
+  ord <- order(x, na.last = NA)
   if(length(x) != 0) {
     x_min <- x[[ord[[1]]]]
     x_max <- x[[ord[[length(ord)]]]]
@@ -329,8 +329,8 @@ print_time_column <- function(x, n = 5L, print_number_features = FALSE) {
   cat(paste0("Time column with ", 
              ifelse(!print_number_features, "",
                     paste0(length(x), ifelse(x_is_value, " feature of ", " features, each of "))),
-             ifelse(length(x_class) == 2, "class", "classes"), ": \'", 
-             paste0(x_class[-1], collapse="\', \'"), "\'.\n",
+             ifelse(length(x_class) == 1, "class", "classes"), ": \'", 
+             paste0(x_class, collapse="\', \'"), "\'.\n",
              ifelse(x_is_value, 
                     paste0("Representing ", x_min, ".\n" ), 
                     paste0("Ranging from ", x_min, " to ", x_max, ".\n" ))))
@@ -611,6 +611,80 @@ st_as_sftime.data.frame <-
     )
   }
 
+#' @name st_as_sftime
+#' @examples
+#' # convert a ppp object to an sftime object (modified from the sf package)
+#' if (require(spatstat.geom)) {
+#'   st_as_sftime(gorillas, time_column_name = "date")
+#' }
+#' 
+#' @export
+st_as_sftime.ppp <- function(x, ..., time_column_name) {
+  st_sftime(sf::st_as_sf(x), time_column_name = time_column_name)
+}
+
+#' @name st_as_sftime
+#' @examples
+#' # convert a ppplist object to an sftime object (modified from the sf package)
+#' if (require(spatstat.geom)) {
+#'   # st_as_sftime(spatstat.geom::solist(gorillas), time_column_name = "date") 
+#'   #---todo: check with sf implementation: why are marks not included in the sf object?
+#' }
+#' 
+#' @export
+st_as_sftime.ppplist <- function(x, ..., time_column_name) {
+  st_sftime(sf::st_as_sf(x), time_column_name = time_column_name)
+}
+
+#' @name st_as_sftime
+#' @examples
+#' # convert a psp object to an sftime object (modified from the sf package)
+#' if (require(spatstat.geom)) {
+#'   # modified from spatstat.geom:
+#'   x_psp <- 
+#'     psp(
+#'       runif(10), runif(10), runif(10), runif(10), window=owin(), 
+#'       marks = data.frame(time = Sys.time() + 1:10)
+#'     )
+#'   st_as_sftime(x_psp, time_column_name = "time")
+#' }
+#' 
+#' @export
+st_as_sftime.psp <- function(x, ..., time_column_name) {
+  st_sftime(sf::st_as_sf(x), time_column_name = time_column_name)
+}
+
+#' @name st_as_sftime
+#' @examples
+#' # convert an lpp object to an sftime object (modified from the sf package)
+#' if (require(spatstat.geom) && require(spatstat.linnet)) {
+#'   # modified from spatstat.linnet:
+#'   
+#'   # letter 'A' 
+#'   v <- spatstat.geom::ppp(x=(-2):2, y=3*c(0,1,2,1,0), c(-3,3), c(-1,7))
+#'   edg <- cbind(1:4, 2:5)
+#'   edg <- rbind(edg, c(2,4))
+#'   letterA <- spatstat.linnet::linnet(v, edges=edg)
+#'   
+#'   # points on letter A
+#'   xx <- 
+#'     spatstat.geom::ppp(
+#'       x=c(-1.5,0,0.5,1.5), y=c(1.5,3,4.5,1.5), 
+#'       marks = data.frame(time = Sys.time() + 1:4, a = 1:4), 
+#'       window = spatstat.geom::owin(
+#'          xrange = range(c(-1.5,0,0.5,1.5)), 
+#'          yrange = range(c(1.5,3,4.5,1.5)))
+#'     )
+#'   x_lpp <- spatstat.linnet::lpp(xx, letterA)
+#'   
+#'   # convert to sftime
+#'   st_as_sftime(x_lpp, time_column_name = "time")
+#' }
+#' 
+#' @export
+st_as_sftime.lpp <- function(x, ..., time_column_name) {
+  st_sftime(sf::st_as_sf(x), time_column_name = time_column_name)
+}
 
 #### transform attributes ####
 

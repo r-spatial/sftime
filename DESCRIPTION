@@ -20,7 +20,10 @@ Suggests:
     ggplot2,
     magrittr,
     sp,
-    rlang
+    rlang,
+    vctrs,
+    spatstat.geom,
+    spatstat.linnet
 Authors@R: 
     c(person(given = "Henning",
              family = "Teickner",
