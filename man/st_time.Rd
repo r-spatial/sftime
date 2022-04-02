@@ -78,6 +78,9 @@ x
 x <- st_sftime(a = 3, g, time = time)
 st_time(x) <- Sys.time()
 
+## change the time column to another already existing column
+st_time(x) <- "a"
+
 ## remove time column from sftime object
 st_time(x) <- NULL
 

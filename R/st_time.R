@@ -70,6 +70,9 @@ st_time.sftime <- function(obj, ...) {
 #' x <- st_sftime(a = 3, g, time = time)
 #' st_time(x) <- Sys.time()
 #' 
+#' ## change the time column to another already existing column
+#' st_time(x) <- "a"
+#' 
 #' ## remove time column from sftime object
 #' st_time(x) <- NULL
 #' 
@@ -77,19 +80,14 @@ st_time.sftime <- function(obj, ...) {
   
   if (! is.null(value)) {
     stopifnot(is_sortable(value) || is.character(value))
-    if (inherits(value, "tc"))
-      stopifnot(nrow(x) == length(value))
-    if (is.character(value))
-      stopifnot(inherits(x[[value]], "tc"))
   }
   
-  if (! is.null(value) && is.character(value)) {# set flag to another column: #---todo: when removing the tc class, it will not be possible to use as time column a character vector or a class derived from a character vector
-    stopifnot(length(value) == 1)
+  if (! is.null(value) && is.character(value) && length(value) == 1 && value %in% colnames(x)) {# set flag to another column
     attr(x, "time_column") <- value 
   } else {# replace, remove, or set list-column
     x[[attr(x, "time_column")]] <- value
   }
-    
+  
   if (is.null(value))
     structure(x, time_column = NULL, class = setdiff(class(x), "sftime"))
   else
