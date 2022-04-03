@@ -23,7 +23,8 @@ Suggests:
     rlang,
     vctrs,
     spatstat.geom,
-    spatstat.linnet
+    spatstat.linnet,
+    sftrack
 Authors@R: 
     c(person(given = "Henning",
              family = "Teickner",

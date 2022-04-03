@@ -14,6 +14,8 @@
 \alias{st_as_sftime.ppplist}
 \alias{st_as_sftime.psp}
 \alias{st_as_sftime.lpp}
+\alias{st_as_sftime.sftrack}
+\alias{st_as_sftime.sftraj}
 \title{Convert a foreign object to an \code{sftime} object}
 \usage{
 st_as_sftime(x, ...)
@@ -53,6 +55,10 @@ st_as_sftime(x, ...)
 \method{st_as_sftime}{psp}(x, ..., time_column_name)
 
 \method{st_as_sftime}{lpp}(x, ..., time_column_name)
+
+\method{st_as_sftime}{sftrack}(x, ...)
+
+\method{st_as_sftime}{sftraj}(x, ...)
 }
 \arguments{
 \item{x}{An object to be converted into an object of class 
@@ -171,7 +177,8 @@ if (require(spatstat.geom)) {
   #---todo: check with sf implementation: why are marks not included in the sf object?
 }
 
-# convert a psp object to an sftime object (modified from the sf package)
+# convert a psp object to an sftime object (modified from the spatstat.geom 
+# package)
 if (require(spatstat.geom)) {
   # modified from spatstat.geom:
   x_psp <- 
@@ -182,7 +189,8 @@ if (require(spatstat.geom)) {
   st_as_sftime(x_psp, time_column_name = "time")
 }
 
-# convert an lpp object to an sftime object (modified from the sf package)
+# convert an lpp object to an sftime object (modified from the 
+# spatstat.linnet package)
 if (require(spatstat.geom) && require(spatstat.linnet)) {
   # modified from spatstat.linnet:
   
@@ -205,6 +213,49 @@ if (require(spatstat.geom) && require(spatstat.linnet)) {
   
   # convert to sftime
   st_as_sftime(x_lpp, time_column_name = "time")
+}
+
+# convert an sftrack object to an sftime object (modified from sftrack)
+if (require(sftrack)) {
+
+  # get an sftrack object
+  data("raccoon")
+  
+  raccoon$timestamp <- as.POSIXct(raccoon$timestamp, "EST")
+  
+  burstz <- 
+    list(id = raccoon$animal_id, month = as.POSIXlt(raccoon$timestamp)$mon)
+    
+  x_sftrack <- 
+    as_sftrack(raccoon,
+               group = burstz, time = "timestamp",
+               error = NA, coords = c("longitude", "latitude")
+  )
+  
+  # convert to sftime
+  st_as_sftime(x_sftrack)
+}
+
+# convert an sftraj object to an sftime object (modified from sftrack)
+if (require(sftrack)) {
+
+  # get an sftrack object
+  data("raccoon")
+  
+  raccoon$timestamp <- as.POSIXct(raccoon$timestamp, "EST")
+  
+  burstz <- 
+    list(id = raccoon$animal_id, month = as.POSIXlt(raccoon$timestamp)$mon)
+  
+  x_sftraj <- 
+    as_sftraj(raccoon,
+      time = "timestamp",
+      error = NA, coords = c("longitude", "latitude"),
+      group = burstz
+    )
+  
+  # convert to sftime
+  st_as_sftime(x_sftraj)
 }
 
 }

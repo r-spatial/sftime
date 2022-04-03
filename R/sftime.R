@@ -638,7 +638,8 @@ st_as_sftime.ppplist <- function(x, ..., time_column_name) {
 
 #' @name st_as_sftime
 #' @examples
-#' # convert a psp object to an sftime object (modified from the sf package)
+#' # convert a psp object to an sftime object (modified from the spatstat.geom 
+#' # package)
 #' if (require(spatstat.geom)) {
 #'   # modified from spatstat.geom:
 #'   x_psp <- 
@@ -656,7 +657,8 @@ st_as_sftime.psp <- function(x, ..., time_column_name) {
 
 #' @name st_as_sftime
 #' @examples
-#' # convert an lpp object to an sftime object (modified from the sf package)
+#' # convert an lpp object to an sftime object (modified from the 
+#' # spatstat.linnet package)
 #' if (require(spatstat.geom) && require(spatstat.linnet)) {
 #'   # modified from spatstat.linnet:
 #'   
@@ -685,6 +687,72 @@ st_as_sftime.psp <- function(x, ..., time_column_name) {
 st_as_sftime.lpp <- function(x, ..., time_column_name) {
   st_sftime(sf::st_as_sf(x), time_column_name = time_column_name)
 }
+
+#' @name st_as_sftime
+#' @examples
+#' # convert an sftrack object to an sftime object (modified from sftrack)
+#' if (require(sftrack)) {
+#' 
+#'   # get an sftrack object
+#'   data("raccoon")
+#'   
+#'   raccoon$timestamp <- as.POSIXct(raccoon$timestamp, "EST")
+#'   
+#'   burstz <- 
+#'     list(id = raccoon$animal_id, month = as.POSIXlt(raccoon$timestamp)$mon)
+#'     
+#'   x_sftrack <- 
+#'     as_sftrack(raccoon,
+#'                group = burstz, time = "timestamp",
+#'                error = NA, coords = c("longitude", "latitude")
+#'   )
+#'   
+#'   # convert to sftime
+#'   st_as_sftime(x_sftrack)
+#' }
+#' 
+#' @export
+st_as_sftime.sftrack <- function(x, ...) {
+  time_column_name <- attr(x, which = "time_column")
+  attr(x, which = "group_col") <- NULL
+  attr(x, which = "error_col") <- NULL
+  class(x) <- setdiff(class(x), "sftrack")
+  st_sftime(x, time_column_name = time_column_name)
+}
+
+#' @name st_as_sftime
+#' @examples
+#' # convert an sftraj object to an sftime object (modified from sftrack)
+#' if (require(sftrack)) {
+#' 
+#'   # get an sftrack object
+#'   data("raccoon")
+#'   
+#'   raccoon$timestamp <- as.POSIXct(raccoon$timestamp, "EST")
+#'   
+#'   burstz <- 
+#'     list(id = raccoon$animal_id, month = as.POSIXlt(raccoon$timestamp)$mon)
+#'   
+#'   x_sftraj <- 
+#'     as_sftraj(raccoon,
+#'       time = "timestamp",
+#'       error = NA, coords = c("longitude", "latitude"),
+#'       group = burstz
+#'     )
+#'   
+#'   # convert to sftime
+#'   st_as_sftime(x_sftraj)
+#' }
+#' 
+#' @export
+st_as_sftime.sftraj <- function(x, ...) {
+  time_column_name <- attr(x, which = "time_column")
+  attr(x, which = "group_col") <- NULL
+  attr(x, which = "error_col") <- NULL
+  class(x) <- setdiff(class(x), "sftraj")
+  st_sftime(x, time_column_name = time_column_name)
+}
+
 
 #### transform attributes ####
 
