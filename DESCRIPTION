@@ -46,6 +46,8 @@ Type: Package
 Encoding: UTF-8
 VignetteBuilder: knitr
 RoxygenNote: 7.1.2
+URL: https://r-spatial.github.io/sftime/, https://github.com/r-spatial/sftime
+BugReports: https://github.com/r-spatial/sftime/issues/
 Collate:
   sftime.R
   init.R
