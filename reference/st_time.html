@@ -24,6 +24,13 @@
 <li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/sftime.html">Introduction to the sftime package</a>
+    <a class="external-link dropdown-item" href="https://r-spatial.org/r/2022/04/12/sftime-1.html">r-spatial blog post introducing the sftime package</a>
+  </div>
+</li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
@@ -31,7 +38,7 @@
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/r-spatial/sftime/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/r-spatial/sftime/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -113,7 +120,7 @@ reclasses it accordingly.</p>
 <span class="r-in"><span class="va">time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="st_sftime.html">st_sftime</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">3</span>, <span class="va">g</span>, time <span class="op">=</span> <span class="va">time</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">st_time</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-04-29 05:40:35 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-04-29 08:32:53 UTC"</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## assign a vector with time information</span></span>
 <span class="r-in"></span>
@@ -127,9 +134,9 @@ reclasses it accordingly.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-04-29 05:40:35.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-04-29 08:32:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a           g                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3 POINT (1 2) 2022-04-29 05:40:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3 POINT (1 2) 2022-04-29 08:32:53</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># to sftime object</span></span>
 <span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="st_sftime.html">st_sftime</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">3</span>, <span class="va">g</span>, time <span class="op">=</span> <span class="va">time</span><span class="op">)</span></span>

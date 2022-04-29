@@ -26,6 +26,13 @@ vector to be usable as time column in a sftime object."><!-- mathjax --><script 
 <li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/sftime.html">Introduction to the sftime package</a>
+    <a class="external-link dropdown-item" href="https://r-spatial.org/r/2022/04/12/sftime-1.html">r-spatial blog post introducing the sftime package</a>
+  </div>
+</li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
@@ -33,7 +40,7 @@ vector to be usable as time column in a sftime object."><!-- mathjax --><script 
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/r-spatial/sftime/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/r-spatial/sftime/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -82,9 +89,9 @@ examples below for a template.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fl">5</span><span class="op">:</span><span class="fl">1</span> <span class="op">*</span> <span class="fl">3600</span> <span class="op">*</span> <span class="fl">24</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-04-30 05:40:25 UTC" "2022-05-01 05:40:25 UTC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "2022-05-02 05:40:25 UTC" "2022-05-03 05:40:25 UTC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "2022-05-04 05:40:25 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2022-04-30 08:32:43 UTC" "2022-05-01 08:32:43 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "2022-05-02 08:32:43 UTC" "2022-05-03 08:32:43 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "2022-05-04 08:32:43 UTC"</span>
 <span class="r-in"><span class="fu">is_sortable</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"></span>

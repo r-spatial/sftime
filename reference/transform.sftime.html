@@ -28,6 +28,13 @@ st_."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathja
 <li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/sftime.html">Introduction to the sftime package</a>
+    <a class="external-link dropdown-item" href="https://r-spatial.org/r/2022/04/12/sftime-1.html">r-spatial blog post introducing the sftime package</a>
+  </div>
+</li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
@@ -35,7 +42,7 @@ st_."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathja
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/r-spatial/sftime/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/r-spatial/sftime/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -92,13 +99,13 @@ geometries see <code><a href="https://r-spatial.github.io/sf/reference/st_transf
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 1 xmax: 3 ymax: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-04-29 05:40:39 to 2022-04-29 05:40:43.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-04-29 08:32:57 to 2022-04-29 08:33:01.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-04-29 05:40:39 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-04-29 05:40:40 POINT (1 3)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-04-29 05:40:41 POINT (2 3)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 4 2022-04-29 05:40:42 POINT (2 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 5 2022-04-29 05:40:43 POINT (3 1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-04-29 08:32:57 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-04-29 08:32:58 POINT (1 3)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-04-29 08:32:59 POINT (2 3)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 4 2022-04-29 08:33:00 POINT (2 1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 5 2022-04-29 08:33:01 POINT (3 1)</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># modify values in column a</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/transform.html" class="external-link">transform</a></span><span class="op">(</span><span class="va">x_sftime</span>, a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span></span>
@@ -108,13 +115,13 @@ geometries see <code><a href="https://r-spatial.github.io/sf/reference/st_transf
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 1 xmax: 3 ymax: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-04-29 05:40:39 to 2022-04-29 05:40:43.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-04-29 08:32:57 to 2022-04-29 08:33:01.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 5 2022-04-29 05:40:39 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 4 2022-04-29 05:40:40 POINT (1 3)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-04-29 05:40:41 POINT (2 3)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2 2022-04-29 05:40:42 POINT (2 1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1 2022-04-29 05:40:43 POINT (3 1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 5 2022-04-29 08:32:57 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 4 2022-04-29 08:32:58 POINT (1 3)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-04-29 08:32:59 POINT (2 3)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2 2022-04-29 08:33:00 POINT (2 1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 1 2022-04-29 08:33:01 POINT (3 1)</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

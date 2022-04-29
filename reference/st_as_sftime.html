@@ -24,6 +24,13 @@
 <li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/sftime.html">Introduction to the sftime package</a>
+    <a class="external-link dropdown-item" href="https://r-spatial.org/r/2022/04/12/sftime-1.html">r-spatial blog post introducing the sftime package</a>
+  </div>
+</li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
@@ -31,7 +38,7 @@
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/r-spatial/sftime/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/r-spatial/sftime/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -293,19 +300,19 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-04-29 05:40:30 to 2022-04-29 05:40:39.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-04-29 08:32:48 to 2022-04-29 08:32:57.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> First 10 features:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      label                           geom                time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NA  window POLYGON ((0 0, 1 0, 1 1, 0 ...                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  segment LINESTRING (0.3203339 0.798... 2022-04-29 05:40:30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  segment LINESTRING (0.4039816 0.366... 2022-04-29 05:40:31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  segment LINESTRING (0.03262274 0.38... 2022-04-29 05:40:32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  segment LINESTRING (0.4922266 0.673... 2022-04-29 05:40:33</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  segment LINESTRING (0.1416749 0.439... 2022-04-29 05:40:34</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  segment LINESTRING (0.7991584 0.712... 2022-04-29 05:40:35</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  segment LINESTRING (0.4091124 0.435... 2022-04-29 05:40:36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  segment LINESTRING (0.9364347 0.665... 2022-04-29 05:40:37</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  segment LINESTRING (0.7329098 0.523... 2022-04-29 05:40:38</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  segment LINESTRING (0.3203339 0.798... 2022-04-29 08:32:48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  segment LINESTRING (0.4039816 0.366... 2022-04-29 08:32:49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  segment LINESTRING (0.03262274 0.38... 2022-04-29 08:32:50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  segment LINESTRING (0.4922266 0.673... 2022-04-29 08:32:51</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  segment LINESTRING (0.1416749 0.439... 2022-04-29 08:32:52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  segment LINESTRING (0.7991584 0.712... 2022-04-29 08:32:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  segment LINESTRING (0.4091124 0.435... 2022-04-29 08:32:54</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  segment LINESTRING (0.9364347 0.665... 2022-04-29 08:32:55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  segment LINESTRING (0.7329098 0.523... 2022-04-29 08:32:56</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># convert an lpp object to an sftime object (modified from the </span></span>
 <span class="r-in"><span class="co"># spatstat.linnet package)</span></span>
@@ -351,7 +358,7 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: -3 ymin: -1 xmax: 3 ymax: 7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-04-29 05:40:30 to 2022-04-29 05:40:33.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-04-29 08:32:48 to 2022-04-29 08:32:51.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      label seg  tp  a                           geom                time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   window  NA  NA NA POLYGON ((-3 -1, 3 -1, 3 7,...                &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  segment  NA  NA NA        LINESTRING (-2 0, -1 3)                &lt;NA&gt;</span>
@@ -359,10 +366,10 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  segment  NA  NA NA          LINESTRING (0 6, 1 3)                &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  segment  NA  NA NA          LINESTRING (1 3, 2 0)                &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  segment  NA  NA NA         LINESTRING (-1 3, 1 3)                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    point   1 0.5  1               POINT (-1.5 1.5) 2022-04-29 05:40:30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    point   5 0.5  2                    POINT (0 3) 2022-04-29 05:40:31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    point   3 0.5  3                POINT (0.5 4.5) 2022-04-29 05:40:32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   point   4 0.5  4                POINT (1.5 1.5) 2022-04-29 05:40:33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    point   1 0.5  1               POINT (-1.5 1.5) 2022-04-29 08:32:48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    point   5 0.5  2                    POINT (0 3) 2022-04-29 08:32:49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9    point   3 0.5  3                POINT (0.5 4.5) 2022-04-29 08:32:50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10   point   4 0.5  4                POINT (1.5 1.5) 2022-04-29 08:32:51</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># convert an sftrack object to an sftime object (modified from sftrack)</span></span>
 <span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://mablab.org/sftrack/" class="external-link">sftrack</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
