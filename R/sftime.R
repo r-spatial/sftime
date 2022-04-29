@@ -625,19 +625,6 @@ st_as_sftime.ppp <- function(x, ..., time_column_name) {
 
 #' @name st_as_sftime
 #' @examples
-#' # convert a ppplist object to an sftime object (modified from the sf package)
-#' if (require(spatstat.geom)) {
-#'   # st_as_sftime(spatstat.geom::solist(gorillas), time_column_name = "date") 
-#'   #---todo: check with sf implementation: why are marks not included in the sf object?
-#' }
-#' 
-#' @export
-st_as_sftime.ppplist <- function(x, ..., time_column_name) {
-  st_sftime(sf::st_as_sf(x), time_column_name = time_column_name)
-}
-
-#' @name st_as_sftime
-#' @examples
 #' # convert a psp object to an sftime object (modified from the spatstat.geom 
 #' # package)
 #' if (require(spatstat.geom)) {

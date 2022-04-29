@@ -1,7 +1,7 @@
 # sftime (development version)
 
 * Add methods to convert `sftime` objects from:
-  + Objects from the `spatstat` package classes (`ppp`, `ppplist`, `psp`, `lpp`)
+  + Objects from the `spatstat` package classes (`ppp`, `psp`, `lpp`)
   + `sftrack` and `sftraj` objects from the `sftrack` package.
 
 * Bug fix in `st_time<-.sftime`:  

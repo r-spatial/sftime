@@ -11,7 +11,6 @@
 \alias{st_as_sftime.stars}
 \alias{st_as_sftime.data.frame}
 \alias{st_as_sftime.ppp}
-\alias{st_as_sftime.ppplist}
 \alias{st_as_sftime.psp}
 \alias{st_as_sftime.lpp}
 \alias{st_as_sftime.sftrack}
@@ -49,8 +48,6 @@ st_as_sftime(x, ...)
 )
 
 \method{st_as_sftime}{ppp}(x, ..., time_column_name)
-
-\method{st_as_sftime}{ppplist}(x, ..., time_column_name)
 
 \method{st_as_sftime}{psp}(x, ..., time_column_name)
 
@@ -169,12 +166,6 @@ x5_sftime <- st_as_sftime(x5_df)
 # convert a ppp object to an sftime object (modified from the sf package)
 if (require(spatstat.geom)) {
   st_as_sftime(gorillas, time_column_name = "date")
-}
-
-# convert a ppplist object to an sftime object (modified from the sf package)
-if (require(spatstat.geom)) {
-  # st_as_sftime(spatstat.geom::solist(gorillas), time_column_name = "date") 
-  #---todo: check with sf implementation: why are marks not included in the sf object?
 }
 
 # convert a psp object to an sftime object (modified from the spatstat.geom 
