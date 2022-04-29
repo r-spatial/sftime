@@ -1,5 +1,10 @@
-pandoc: '2.2'
-pkgdown: 1.4.1
+pandoc: 2.7.3
+pkgdown: 2.0.3
 pkgdown_sha: ~
-articles: []
+articles:
+  sftime: sftime.html
+last_built: 2022-04-29T05:40Z
+urls:
+  reference: https://r-spatial.github.io/sftime/reference
+  article: https://r-spatial.github.io/sftime/articles
 
