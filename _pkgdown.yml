@@ -2,3 +2,22 @@ url: https://r-spatial.github.io/sftime/
 template:
   bootstrap: 5
 
+navbar:
+  structure:
+    right: github
+  components:
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/r-spatial/sftime/
+    articles:
+      text: Articles
+      menu:
+      - text: "Introduction to the sftime package"
+        href: articles/sftime.html
+      - text: "r-spatial blog post introducing the sftime package"
+        href: https://r-spatial.org/r/2022/04/12/sftime-1.html
+    news:
+      text: Changelog
+      href: news/index.html
+ 
+
