@@ -65,8 +65,17 @@ rbind(x1, x2) # error because both tc1 and tc2 do not have the same class
 
 cbind(x1, x2) 
 
-if (require(dplyr))
-  dplyr::bind_cols(x1, x2)
+if (require(dplyr)) {
+  # returns a data frame because names of sf and time column are modified:
+  dplyr::bind_cols(x1, x2) 
+  
+  # returns an sf object because the name of the time column is modified:
+  dplyr::bind_cols(x1, x2 \%>\% sf::st_drop_geometry()) 
+  
+  # returns an sftime object because names of sf and time column are both 
+  # preserved:
+  dplyr::bind_cols(x1, x2 \%>\% st_drop_time() \%>\% sf::st_drop_geometry()) 
+}
   
 df <- data.frame(x = 3)   
 st_sftime(data.frame(x1, df))   

@@ -43,6 +43,7 @@ register_all_s3_methods <- function() {
   register_s3_method("dplyr", "distinct", "sftime")
   register_s3_method("dplyr", "group_by", "sftime")
   register_s3_method("dplyr", "mutate", "sftime")
+  register_s3_method("dplyr", "dplyr_reconstruct", "sftime")
   register_s3_method("dplyr", "rename", "sftime")
   register_s3_method("dplyr", "rowwise", "sftime")
   register_s3_method("dplyr", "sample_frac", "sftime")
