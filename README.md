@@ -8,7 +8,7 @@ Status](https://ci.appveyor.com/api/projects/status/github/r-spatial/sftime?bran
 [![codecov](https://codecov.io/gh/r-spatial/sftime/branch/master/graph/badge.svg)](https://codecov.io/gh/r-spatial/sftime)
 [![CRAN](https://www.r-pkg.org/badges/version/sftime)](https://cran.r-project.org/package=sftime)
 [![cran
-checks](https://cranchecks.info/badges/worst/sftime)](https://cran.r-project.org/web/checks/check_results_sftime.html)
+checks](https://badges.cranchecks.info/worst/sftime.svg)](https://cran.r-project.org/web/checks/check_results_sftime.html)
 
 # sftime
 
@@ -45,12 +45,12 @@ install_github("r-spatial/sftime")
 
 ## Contributing
 
-  - Contributions of all sorts are most welcome, issues and pull
-    requests are the preferred ways of sharing them.
-  - Please note that the sftime project is released with a [Contributor
-    Code of
-    Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-    By contributing to this project, you agree to abide by its terms.
+- Contributions of all sorts are most welcome, issues and pull requests
+  are the preferred ways of sharing them.
+- Please note that the sftime project is released with a [Contributor
+  Code of
+  Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+  By contributing to this project, you agree to abide by its terms.
 
 ## Acknowledgment
 
