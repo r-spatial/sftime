@@ -70,45 +70,65 @@ these methods without the <code>.sftime</code> suffix and after loading the
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">inner_join.sftime</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">left_join.sftime</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">right_join.sftime</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">right_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">full_join.sftime</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">semi_join.sftime</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">anti_join.sftime</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="cn">NULL</span>, copy <span class="op">=</span> <span class="cn">FALSE</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".x"</span>, <span class="st">".y"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">filter.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">arrange.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">group_by.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, add <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">ungroup.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">rowwise.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">mutate.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">transmute.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">transmute</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">select.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">rename.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">slice.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">summarise.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span>, do_union <span class="op">=</span> <span class="cn">TRUE</span>, is_coverage <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span>, do_union <span class="op">=</span> <span class="cn">TRUE</span>, is_coverage <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">summarize.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span>, do_union <span class="op">=</span> <span class="cn">TRUE</span>, is_coverage <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">.dots</span>, do_union <span class="op">=</span> <span class="cn">TRUE</span>, is_coverage <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">distinct.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .keep_all <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .keep_all <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">gather.sftime</span><span class="op">(</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">gather</span><span class="op">(</span></span>
 <span>  <span class="va">data</span>,</span>
 <span>  <span class="va">key</span>,</span>
 <span>  <span class="va">value</span>,</span>
@@ -118,7 +138,8 @@ these methods without the <code>.sftime</code> suffix and after loading the
 <span>  factor_key <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">pivot_longer.sftime</span><span class="op">(</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">pivot_longer</span><span class="op">(</span></span>
 <span>  <span class="va">data</span>,</span>
 <span>  <span class="va">cols</span>,</span>
 <span>  names_to <span class="op">=</span> <span class="st">"name"</span>,</span>
@@ -135,25 +156,14 @@ these methods without the <code>.sftime</code> suffix and after loading the
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">spread.sftime</span><span class="op">(</span></span>
-<span>  <span class="va">data</span>,</span>
-<span>  <span class="va">key</span>,</span>
-<span>  <span class="va">value</span>,</span>
-<span>  fill <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  convert <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  drop <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  sep <span class="op">=</span> <span class="cn">NULL</span></span>
-<span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">spread</span><span class="op">(</span><span class="va">data</span>, <span class="va">key</span>, <span class="va">value</span>, fill <span class="op">=</span> <span class="cn">NA</span>, convert <span class="op">=</span> <span class="cn">FALSE</span>, drop <span class="op">=</span> <span class="cn">TRUE</span>, sep <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">sample_n.sftime</span><span class="op">(</span></span>
-<span>  <span class="va">tbl</span>,</span>
-<span>  <span class="va">size</span>,</span>
-<span>  replace <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  weight <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  .env <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html" class="external-link">sample_n</a></span><span class="op">(</span><span class="va">tbl</span>, <span class="va">size</span>, replace <span class="op">=</span> <span class="cn">FALSE</span>, weight <span class="op">=</span> <span class="cn">NULL</span>, .env <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">sample_frac.sftime</span><span class="op">(</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html" class="external-link">sample_frac</a></span><span class="op">(</span></span>
 <span>  <span class="va">tbl</span>,</span>
 <span>  size <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  replace <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -161,11 +171,14 @@ these methods without the <code>.sftime</code> suffix and after loading the
 <span>  .env <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">nest.sftime</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">nest</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">unnest.sftime</span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span>, .preserve <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">unnest</span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span>, .preserve <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">separate.sftime</span><span class="op">(</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">separate</span><span class="op">(</span></span>
 <span>  <span class="va">data</span>,</span>
 <span>  <span class="va">col</span>,</span>
 <span>  <span class="va">into</span>,</span>
@@ -177,9 +190,14 @@ these methods without the <code>.sftime</code> suffix and after loading the
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">unite.sftime</span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span>, <span class="va">...</span>, sep <span class="op">=</span> <span class="st">"_"</span>, remove <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">unite</span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span>, <span class="va">...</span>, sep <span class="op">=</span> <span class="st">"_"</span>, remove <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">separate_rows.sftime</span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span>, sep <span class="op">=</span> <span class="st">"[^[:alnum:]]+"</span>, convert <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">separate_rows</span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span>, sep <span class="op">=</span> <span class="st">"[^[:alnum:]]+"</span>, convert <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for sftime</span></span>
+<span><span class="fu">drop_na</span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -189,9 +207,7 @@ these methods without the <code>.sftime</code> suffix and after loading the
 
 
 <dt>y</dt>
-<dd><p>A pair of data frames, data frame extensions (e.g. a tibble), or
-lazy data frames (e.g. from dbplyr or dtplyr). See <em>Methods</em>, below, for
-more details.</p></dd>
+<dd><p>See <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::`mutate-joins`</a></code>.</p></dd>
 
 
 <dt>by</dt>
@@ -419,10 +435,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-05 16:13:59 POINT (5 8) POINT (4 6) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-05 16:13:59 POINT (2 9) POINT (4 6) 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-07 08:20:53 POINT (5 8) POINT (4 6) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-07 08:20:53 POINT (2 9) POINT (4 6) 2022-12-07 08:20:53</span>
 <span class="r-in"><span><span class="co"># time.x and the active geometry column geometry.x</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -433,10 +449,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-05 16:13:59 POINT (4 6) POINT (5 8) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-05 16:13:59 POINT (4 6) POINT (2 9) 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-07 08:20:53 POINT (4 6) POINT (5 8) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-07 08:20:53 POINT (4 6) POINT (2 9) 2022-12-07 08:20:53</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## left_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -447,11 +463,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1                &lt;NA&gt; POINT (1 2) POINT EMPTY 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-05 16:13:59 POINT (5 8) POINT (4 6) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-05 16:13:59 POINT (2 9) POINT (4 6) 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1                &lt;NA&gt; POINT (1 2) POINT EMPTY 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-07 08:20:53 POINT (5 8) POINT (4 6) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-07 08:20:53 POINT (2 9) POINT (4 6) 2022-12-07 08:20:53</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 3 features and 2 fields</span>
@@ -461,11 +477,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-05 16:13:59 POINT (4 6) POINT (5 8) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-05 16:13:59 POINT (4 6) POINT (2 9) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4                &lt;NA&gt; POINT (4 6) POINT EMPTY 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-07 08:20:53 POINT (4 6) POINT (5 8) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-07 08:20:53 POINT (4 6) POINT (2 9) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4                &lt;NA&gt; POINT (4 6) POINT EMPTY 2022-12-07 08:20:53</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## right_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">right_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -476,11 +492,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-05 16:13:59 POINT (5 8) POINT (4 6) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-05 16:13:59 POINT (2 9) POINT (4 6) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4 2022-12-05 16:13:59 POINT EMPTY POINT (4 6)                &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-07 08:20:53 POINT (5 8) POINT (4 6) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-07 08:20:53 POINT (2 9) POINT (4 6) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4 2022-12-07 08:20:53 POINT EMPTY POINT (4 6)                &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">right_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 3 features and 2 fields</span>
@@ -490,11 +506,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-05 16:13:59 POINT (4 6) POINT (5 8) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-05 16:13:59 POINT (4 6) POINT (2 9) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1 2022-12-05 16:13:59 POINT EMPTY POINT (1 2)                &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-07 08:20:53 POINT (4 6) POINT (5 8) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-07 08:20:53 POINT (4 6) POINT (2 9) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1 2022-12-07 08:20:53 POINT EMPTY POINT (1 2)                &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## full_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -505,12 +521,12 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1                &lt;NA&gt; POINT (1 2) POINT EMPTY 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-05 16:13:59 POINT (5 8) POINT (4 6) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-05 16:13:59 POINT (2 9) POINT (4 6) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 4 2022-12-05 16:13:59 POINT EMPTY POINT (4 6)                &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1                &lt;NA&gt; POINT (1 2) POINT EMPTY 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-07 08:20:53 POINT (5 8) POINT (4 6) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-07 08:20:53 POINT (2 9) POINT (4 6) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 4 2022-12-07 08:20:53 POINT EMPTY POINT (4 6)                &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 4 features and 2 fields</span>
@@ -520,12 +536,12 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-05 16:13:59 POINT (4 6) POINT (5 8) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-05 16:13:59 POINT (4 6) POINT (2 9) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4                &lt;NA&gt; POINT (4 6) POINT EMPTY 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1 2022-12-05 16:13:59 POINT EMPTY POINT (1 2)                &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-07 08:20:53 POINT (4 6) POINT (5 8) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-07 08:20:53 POINT (4 6) POINT (2 9) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4                &lt;NA&gt; POINT (4 6) POINT EMPTY 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1 2022-12-07 08:20:53 POINT EMPTY POINT (1 2)                &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## semi_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -535,10 +551,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 POINT (5 8) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 POINT (2 9) 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 POINT (5 8) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 POINT (2 9) 2022-12-07 08:20:53</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 2 features and 1 field</span>
@@ -547,10 +563,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 POINT (4 6) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 POINT (4 6) 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 POINT (4 6) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 POINT (4 6) 2022-12-07 08:20:53</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## anti_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -560,9 +576,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2022-12-07 08:20:53</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 1 feature and 1 field</span>
@@ -571,9 +587,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 4 POINT (4 6) 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 4 POINT (4 6) 2022-12-07 08:20:53</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## filter</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">a</span> <span class="op">&lt;=</span> <span class="fl">2</span><span class="op">)</span></span></span>
@@ -583,10 +599,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2022-12-05 16:13:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 POINT (5 8) 2022-12-05 16:13:59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2022-12-07 08:20:53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 POINT (5 8) 2022-12-07 08:20:53</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## arrange</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -596,11 +612,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3 2022-12-05 16:13:59 POINT (2 9)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-05 16:13:59 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1 2022-12-05 16:13:59 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3 2022-12-07 08:20:53 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-07 08:20:53 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1 2022-12-07 08:20:53 POINT (1 2)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## group_by</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">time</span><span class="op">)</span></span></span>
@@ -610,14 +626,14 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   time [1]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-05 <span style="color: #949494;">16:13:59</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2022-12-05 <span style="color: #949494;">16:13:59</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-07 <span style="color: #949494;">08:20:53</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2022-12-07 <span style="color: #949494;">08:20:53</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ungroup</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">time</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -627,13 +643,13 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-05 <span style="color: #949494;">16:13:59</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2022-12-05 <span style="color: #949494;">16:13:59</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-07 <span style="color: #949494;">08:20:53</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2022-12-07 <span style="color: #949494;">08:20:53</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## rowwise</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -646,14 +662,14 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Rowwise: </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time                   a1    a2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-05 <span style="color: #949494;">16:13:59</span>     5     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span>     6     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2022-12-05 <span style="color: #949494;">16:13:59</span>     7     3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-07 <span style="color: #949494;">08:20:53</span>     5     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span>     6     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2022-12-07 <span style="color: #949494;">08:20:53</span>     7     3</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## mutate</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -664,11 +680,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time a1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2022-12-05 16:13:59  5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 POINT (5 8) 2022-12-05 16:13:59  6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 POINT (2 9) 2022-12-05 16:13:59  7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2022-12-07 08:20:53  5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 POINT (5 8) 2022-12-07 08:20:53  6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 POINT (2 9) 2022-12-07 08:20:53  7</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## transmute</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -706,11 +722,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a1                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2022-12-05 16:13:59 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 2022-12-05 16:13:59 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 2022-12-05 16:13:59 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2022-12-07 08:20:53 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 2022-12-07 08:20:53 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 2022-12-07 08:20:53 POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## slice</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -721,10 +737,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-05 16:13:59 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-05 16:13:59 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-07 08:20:53 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-07 08:20:53 POINT (5 8)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## summarise</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -735,9 +751,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time                       geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-05 16:13:59 MULTIPOINT ((1 2), (2 9), (...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-07 08:20:53 MULTIPOINT ((1 2), (2 9), (...</span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -747,9 +763,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time                       geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-05 16:13:59 MULTIPOINT ((1 2), (2 9), (...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-07 08:20:53 MULTIPOINT ((1 2), (2 9), (...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## distinct</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -775,14 +791,14 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time key value    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-05 16:13:59   a     1 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2022-12-05 16:13:59   a     2 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2022-12-05 16:13:59   a     3 POINT (2 9)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2022-12-05 16:13:59  a1     5 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2022-12-05 16:13:59  a1     6 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2022-12-05 16:13:59  a1     7 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-07 08:20:53   a     1 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2022-12-07 08:20:53   a     2 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2022-12-07 08:20:53   a     3 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2022-12-07 08:20:53  a1     5 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2022-12-07 08:20:53  a1     6 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2022-12-07 08:20:53  a1     7 POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## pivot_longer</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -794,16 +810,16 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   geometry time                variable value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>    (1 2) 2022-12-05 <span style="color: #949494;">16:13:59</span> a            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>    (1 2) 2022-12-05 <span style="color: #949494;">16:13:59</span> a1           5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span> a            2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span> a1           6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>    (2 9) 2022-12-05 <span style="color: #949494;">16:13:59</span> a            3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>    (2 9) 2022-12-05 <span style="color: #949494;">16:13:59</span> a1           7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>    (1 2) 2022-12-07 <span style="color: #949494;">08:20:53</span> a            1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>    (1 2) 2022-12-07 <span style="color: #949494;">08:20:53</span> a1           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span> a            2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span> a1           6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>    (2 9) 2022-12-07 <span style="color: #949494;">08:20:53</span> a            3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>    (2 9) 2022-12-07 <span style="color: #949494;">08:20:53</span> a1           7</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## spread</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -816,11 +832,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time a a1    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-05 16:13:59 1  5 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2022-12-05 16:13:59 2  6 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2022-12-05 16:13:59 3  7 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-07 08:20:53 1  5 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2022-12-07 08:20:53 2  6 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2022-12-07 08:20:53 3  7 POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## sample_n</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">234</span><span class="op">)</span></span></span>
@@ -832,18 +848,18 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2022-12-05 16:13:59 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  3 2022-12-05 16:13:59 POINT (2 9)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2 2022-12-05 16:13:59 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2 2022-12-05 16:13:59 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2 2022-12-05 16:13:59 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2 2022-12-05 16:13:59 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1 2022-12-05 16:13:59 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  1 2022-12-05 16:13:59 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  3 2022-12-05 16:13:59 POINT (2 9)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2 2022-12-05 16:13:59 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2022-12-07 08:20:53 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  3 2022-12-07 08:20:53 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2 2022-12-07 08:20:53 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2 2022-12-07 08:20:53 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2 2022-12-07 08:20:53 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2 2022-12-07 08:20:53 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1 2022-12-07 08:20:53 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  1 2022-12-07 08:20:53 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  3 2022-12-07 08:20:53 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2 2022-12-07 08:20:53 POINT (5 8)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## sample_frac</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -855,17 +871,17 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 2 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-05 16:13:59 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1 2022-12-05 16:13:59 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-05 16:13:59 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-07 08:20:53 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1 2022-12-07 08:20:53 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-07 08:20:53 POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## nest</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html" class="external-link">nest</a></span><span class="op">(</span>a1 <span class="op">=</span> <span class="op">-</span><span class="va">time</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time                        a1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-05 16:13:59 1, 2, 3, 1, 2, 5, 8, 2, 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2022-12-07 08:20:53 1, 2, 3, 1, 2, 5, 8, 2, 9</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## unnest</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -877,14 +893,14 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time                   a1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-05 <span style="color: #949494;">16:13:59</span>     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span>     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span>     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     3    (2 9) 2022-12-05 <span style="color: #949494;">16:13:59</span>     5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-07 <span style="color: #949494;">08:20:53</span>     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span>     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span>     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     3    (2 9) 2022-12-07 <span style="color: #949494;">08:20:53</span>     5</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## separate</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -896,11 +912,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    A    B    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-05 16:13:59 &lt;NA&gt; &lt;NA&gt; POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-05 16:13:59    a    b POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-05 16:13:59    a    d POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-07 08:20:53 &lt;NA&gt; &lt;NA&gt; POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-07 08:20:53    a    b POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-07 08:20:53    a    d POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## unite</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -913,11 +929,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time   col    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-05 16:13:59 NA_NA POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-05 16:13:59   a_b POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-05 16:13:59   a_d POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-07 08:20:53 NA_NA POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-07 08:20:53   a_b POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2022-12-07 08:20:53   a_d POINT (2 9)</span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="co">## separate_rows</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -929,17 +945,58 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-05 16:13:59 to 2022-12-05 16:13:59.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time                    z</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-05 <span style="color: #949494;">16:13:59</span>     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span>     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span>     3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     2    (5 8) 2022-12-05 <span style="color: #949494;">16:13:59</span>     4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     3    (2 9) 2022-12-05 <span style="color: #949494;">16:13:59</span>     5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     3    (2 9) 2022-12-05 <span style="color: #949494;">16:13:59</span>     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2022-12-07 <span style="color: #949494;">08:20:53</span>     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span>     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span>     3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     2    (5 8) 2022-12-07 <span style="color: #949494;">08:20:53</span>     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     3    (2 9) 2022-12-07 <span style="color: #949494;">08:20:53</span>     5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     3    (2 9) 2022-12-07 <span style="color: #949494;">08:20:53</span>     6</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## drop_na</span></span></span>
+<span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 2 features and 2 fields</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   a                time z    geometry</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-07 08:20:53 1 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2022-12-07 08:20:53 2 POINT (5 8)</span>
+<span class="r-in"><span>  </span></span>
+<span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span>   </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 1 feature and 2 fields</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2022-12-07 08:20:53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   a                time z    geometry</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2022-12-07 08:20:53 1 POINT (1 2)</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/replace.html" class="external-link">replace</a></span><span class="op">(</span><span class="va">time</span>, <span class="fl">1</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 2 features and 1 field</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2022-12-07 08:20:53 to 2022-12-07 08:20:53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2022-12-07 08:20:53 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2022-12-07 08:20:53 POINT (2 9)</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
