@@ -62,6 +62,7 @@ register_all_s3_methods <- function() {
   register_s3_method("tidyr", "separate_rows", "sftime")
   register_s3_method("tidyr", "unite", "sftime")
   register_s3_method("tidyr", "unnest", "sftime")
+  register_s3_method("tidyr", "drop_na", "sftime")
   
 }
 

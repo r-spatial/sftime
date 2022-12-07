@@ -77,7 +77,8 @@ and return an \code{sf} object.}
 \item{op}{A function; geometrical binary predicate function to apply when 
 \code{i} is a simple feature object.}
 
-\item{value}{An object to insert into \code{x}.}
+\item{value}{An object to insert into \code{x} or with which to rename 
+columns of \code{x}.}
 }
 \value{
 \code{st_sftime}: An object of class \code{sftime}.

@@ -31,47 +31,48 @@
 \alias{separate.sftime}
 \alias{unite.sftime}
 \alias{separate_rows.sftime}
+\alias{drop_na.sftime}
 \title{'tidyverse' methods for \code{sftime} objects}
 \usage{
-inner_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{inner_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-left_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{left_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-right_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{right_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-full_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{full_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-semi_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{semi_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-anti_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{anti_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-filter.sftime(.data, ..., .dots)
+\method{filter}{sftime}(.data, ..., .dots)
 
-arrange.sftime(.data, ..., .dots)
+\method{arrange}{sftime}(.data, ..., .dots)
 
-group_by.sftime(.data, ..., add = FALSE)
+\method{group_by}{sftime}(.data, ..., add = FALSE)
 
-ungroup.sftime(.data, ...)
+\method{ungroup}{sftime}(.data, ...)
 
-rowwise.sftime(.data, ...)
+\method{rowwise}{sftime}(.data, ...)
 
-mutate.sftime(.data, ..., .dots)
+\method{mutate}{sftime}(.data, ..., .dots)
 
-transmute.sftime(.data, ..., .dots)
+\method{transmute}{sftime}(.data, ..., .dots)
 
-select.sftime(.data, ...)
+\method{select}{sftime}(.data, ...)
 
-rename.sftime(.data, ...)
+\method{rename}{sftime}(.data, ...)
 
-slice.sftime(.data, ..., .dots)
+\method{slice}{sftime}(.data, ..., .dots)
 
-summarise.sftime(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
+\method{summarise}{sftime}(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
 
-summarize.sftime(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
+\method{summarize}{sftime}(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
 
-distinct.sftime(.data, ..., .keep_all = FALSE)
+\method{distinct}{sftime}(.data, ..., .keep_all = FALSE)
 
-gather.sftime(
+\method{gather}{sftime}(
   data,
   key,
   value,
@@ -81,7 +82,7 @@ gather.sftime(
   factor_key = FALSE
 )
 
-pivot_longer.sftime(
+\method{pivot_longer}{sftime}(
   data,
   cols,
   names_to = "name",
@@ -98,25 +99,11 @@ pivot_longer.sftime(
   ...
 )
 
-spread.sftime(
-  data,
-  key,
-  value,
-  fill = NA,
-  convert = FALSE,
-  drop = TRUE,
-  sep = NULL
-)
+\method{spread}{sftime}(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)
 
-sample_n.sftime(
-  tbl,
-  size,
-  replace = FALSE,
-  weight = NULL,
-  .env = parent.frame()
-)
+\method{sample_n}{sftime}(tbl, size, replace = FALSE, weight = NULL, .env = parent.frame())
 
-sample_frac.sftime(
+\method{sample_frac}{sftime}(
   tbl,
   size = 1,
   replace = FALSE,
@@ -124,11 +111,11 @@ sample_frac.sftime(
   .env = parent.frame()
 )
 
-nest.sftime(.data, ...)
+\method{nest}{sftime}(.data, ...)
 
-unnest.sftime(data, ..., .preserve = NULL)
+\method{unnest}{sftime}(data, ..., .preserve = NULL)
 
-separate.sftime(
+\method{separate}{sftime}(
   data,
   col,
   into,
@@ -140,16 +127,16 @@ separate.sftime(
   ...
 )
 
-unite.sftime(data, col, ..., sep = "_", remove = TRUE)
+\method{unite}{sftime}(data, col, ..., sep = "_", remove = TRUE)
 
-separate_rows.sftime(data, ..., sep = "[^[:alnum:]]+", convert = FALSE)
+\method{separate_rows}{sftime}(data, ..., sep = "[^[:alnum:]]+", convert = FALSE)
+
+\method{drop_na}{sftime}(data, ...)
 }
 \arguments{
 \item{x}{An object of class \code{sftime}.}
 
-\item{y}{A pair of data frames, data frame extensions (e.g. a tibble), or
-lazy data frames (e.g. from dbplyr or dtplyr). See \emph{Methods}, below, for
-more details.}
+\item{y}{See \code{dplyr::`mutate-joins`}.}
 
 \item{by}{A character vector of variables to join by.
 
@@ -425,4 +412,16 @@ x1 \%>\%
   mutate(z = c("1", "2,3,4", "5,6")) \%>\%
   separate_rows(z, convert = TRUE)
 
+## drop_na
+x1 \%>\%
+  mutate(z = c(1, 2, NA)) \%>\%
+  drop_na(z)
+  
+x1 \%>\%
+  mutate(z = c(1, NA, NA)) \%>\%
+  drop_na(z)   
+
+x1 \%>\%
+  mutate(time = replace(time, 1, NA)) \%>\%
+  drop_na(time)
 }

@@ -6,7 +6,7 @@ Description: Classes and methods for spatial objects that have a registered time
     data (vector or raster data cubes) are handled by package 'stars'. 
 Version: 0.2.0.9000
 Depends: 
-    sf (>= 1.0.7)
+    sf (>= 1.0.9)
 Imports: methods
 Suggests:
     knitr,

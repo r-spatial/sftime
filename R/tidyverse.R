@@ -10,6 +10,7 @@
 #' @inheritParams sf::tidyverse
 #' @inheritParams tidyr::pivot_longer
 #' @param x An object of class \code{sftime}.
+#' @param y See \code{dplyr::`mutate-joins`}.
 #' @param .data An object of class \code{stime}.
 #' @return 
 #' \itemize{
@@ -310,3 +311,22 @@ dplyr_reconstruct.sftime <- function(data, template) {
   }
 
 }
+
+#' @rdname tidyverse
+#' @examples
+#' ## drop_na
+#' x1 %>%
+#'   mutate(z = c(1, 2, NA)) %>%
+#'   drop_na(z)
+#'   
+#' x1 %>%
+#'   mutate(z = c(1, NA, NA)) %>%
+#'   drop_na(z)   
+#' 
+#' x1 %>%
+#'   mutate(time = replace(time, 1, NA)) %>%
+#'   drop_na(time)
+drop_na.sftime <- function(data, ...) {
+ reclass_sftime(NextMethod(), time_column_name = attr(data, "time_column"))
+}
+

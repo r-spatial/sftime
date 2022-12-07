@@ -1,8 +1,9 @@
 # sftime (development version)
 
+* Add a dedicated `tidyr::drop_na()` method for `sftime` objects. (See the same recent addition for `sf` objects [#1975](https://github.com/r-spatial/sf/pull/1975/)).
+
 * Add a dedicated `dplyr::dplyr_reconstruct()` method for `sftime` objects. 
 Relying on the method for `sf` objects caused erroneously column binding when the second object was a data frame without conflicting column names for the `sf` and time columns. In this case, a `sf` objects was returned, even though an `sftime` object should be returned. See also https://github.com/r-spatial/sf/issues/1958#issuecomment-1181982244.
-
 
 * Add methods to convert `sftime` objects from:
   + Objects from the `spatstat` package classes (`ppp`, `psp`, `lpp`)

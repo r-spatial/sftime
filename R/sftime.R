@@ -265,7 +265,8 @@ reclass_sftime <- function(x, time_column_name) {
 }
 
 #' @name st_sftime
-#' @param value An object to insert into \code{x}.
+#' @param value An object to insert into \code{x} or with which to rename 
+#' columns of \code{x}.
 #' @examples
 #' ## Assigning values to columns
 #' 
@@ -297,6 +298,18 @@ reclass_sftime <- function(x, time_column_name) {
 "$<-.sftime" = function(x, i, value) {
   structure(NextMethod(), class = c("sftime", setdiff(class(x), "sftime")))
 }
+
+
+##' name st_sftime
+##' examples
+##' # renaming column names
+##' names(x)[1] <- "b"
+##' 
+##' export
+#"names<-.sftime" <- function(x, value) {
+#  out <- NextMethod()
+#  dplyr_reconstruct.sftime(out, x)
+#} # ---todo: raises an error
 
 #### printing ####
 
