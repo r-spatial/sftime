@@ -33,43 +33,43 @@
 \alias{separate_rows.sftime}
 \title{'tidyverse' methods for \code{sftime} objects}
 \usage{
-inner_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{inner_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-left_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{left_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-right_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{right_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-full_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{full_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-semi_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{semi_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-anti_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+\method{anti_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-filter.sftime(.data, ..., .dots)
+\method{filter}{sftime}(.data, ..., .dots)
 
-arrange.sftime(.data, ..., .dots)
+\method{arrange}{sftime}(.data, ..., .dots)
 
-group_by.sftime(.data, ..., add = FALSE)
+\method{group_by}{sftime}(.data, ..., add = FALSE)
 
-ungroup.sftime(.data, ...)
+\method{ungroup}{sftime}(.data, ...)
 
-rowwise.sftime(.data, ...)
+\method{rowwise}{sftime}(.data, ...)
 
-mutate.sftime(.data, ..., .dots)
+\method{mutate}{sftime}(.data, ..., .dots)
 
-transmute.sftime(.data, ..., .dots)
+\method{transmute}{sftime}(.data, ..., .dots)
 
-select.sftime(.data, ...)
+\method{select}{sftime}(.data, ...)
 
-rename.sftime(.data, ...)
+\method{rename}{sftime}(.data, ...)
 
-slice.sftime(.data, ..., .dots)
+\method{slice}{sftime}(.data, ..., .dots)
 
-summarise.sftime(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
+\method{summarise}{sftime}(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
 
-summarize.sftime(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
+\method{summarize}{sftime}(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
 
-distinct.sftime(.data, ..., .keep_all = FALSE)
+\method{distinct}{sftime}(.data, ..., .keep_all = FALSE)
 
 gather.sftime(
   data,
@@ -108,15 +108,9 @@ spread.sftime(
   sep = NULL
 )
 
-sample_n.sftime(
-  tbl,
-  size,
-  replace = FALSE,
-  weight = NULL,
-  .env = parent.frame()
-)
+\method{sample_n}{sftime}(tbl, size, replace = FALSE, weight = NULL, .env = parent.frame())
 
-sample_frac.sftime(
+\method{sample_frac}{sftime}(
   tbl,
   size = 1,
   replace = FALSE,
@@ -147,9 +141,7 @@ separate_rows.sftime(data, ..., sep = "[^[:alnum:]]+", convert = FALSE)
 \arguments{
 \item{x}{An object of class \code{sftime}.}
 
-\item{y}{A pair of data frames, data frame extensions (e.g. a tibble), or
-lazy data frames (e.g. from dbplyr or dtplyr). See \emph{Methods}, below, for
-more details.}
+\item{y}{A data frame to be joined with \code{x}.}
 
 \item{by}{A character vector of variables to join by.
 
@@ -204,121 +196,29 @@ Should be a character vector of length 2.}
 
 \item{factor_key}{see original function docs}
 
-\item{cols}{<\code{\link[tidyr:tidyr_tidy_select]{tidy-select}}> Columns to pivot into
-longer format.}
+\item{cols}{see original function docs}
 
-\item{names_to}{A character vector specifying the new column or columns to
-create from the information stored in the column names of \code{data} specified
-by \code{cols}.
-\itemize{
-\item If length 0, or if \code{NULL} is supplied, no columns will be created.
-\item If length 1, a single column will be created which will contain the
-column names specified by \code{cols}.
-\item If length >1, multiple columns will be created. In this case, one of
-\code{names_sep} or \code{names_pattern} must be supplied to specify how the
-column names should be split. There are also two additional character
-values you can take advantage of:
-\itemize{
-\item \code{NA} will discard the corresponding component of the column name.
-\item \code{".value"} indicates that the corresponding component of the column
-name defines the name of the output column containing the cell values,
-overriding \code{values_to} entirely.
-}
-}}
+\item{names_to}{see original function docs}
 
-\item{names_prefix}{A regular expression used to remove matching text
-from the start of each variable name.}
+\item{names_prefix}{see original function docs}
 
-\item{names_sep}{If \code{names_to} contains multiple values,
-these arguments control how the column name is broken up.
+\item{names_sep}{see original function docs}
 
-\code{names_sep} takes the same specification as \code{\link[tidyr:separate]{separate()}}, and can either
-be a numeric vector (specifying positions to break on), or a single string
-(specifying a regular expression to split on).
+\item{names_pattern}{see original function docs}
 
-\code{names_pattern} takes the same specification as \code{\link[tidyr:extract]{extract()}}, a regular
-expression containing matching groups (\verb{()}).
+\item{names_ptypes}{see original function docs}
 
-If these arguments do not give you enough control, use
-\code{pivot_longer_spec()} to create a spec object and process manually as
-needed.}
+\item{names_transform}{see original function docs}
 
-\item{names_pattern}{If \code{names_to} contains multiple values,
-these arguments control how the column name is broken up.
+\item{names_repair}{see original function docs}
 
-\code{names_sep} takes the same specification as \code{\link[tidyr:separate]{separate()}}, and can either
-be a numeric vector (specifying positions to break on), or a single string
-(specifying a regular expression to split on).
+\item{values_to}{see original function docs}
 
-\code{names_pattern} takes the same specification as \code{\link[tidyr:extract]{extract()}}, a regular
-expression containing matching groups (\verb{()}).
+\item{values_drop_na}{see original function docs}
 
-If these arguments do not give you enough control, use
-\code{pivot_longer_spec()} to create a spec object and process manually as
-needed.}
+\item{values_ptypes}{see original function docs}
 
-\item{names_ptypes}{Optionally, a list of column name-prototype
-pairs. Alternatively, a single empty prototype can be supplied, which will
-be applied to all columns. A prototype (or ptype for short) is a
-zero-length vector (like \code{integer()} or \code{numeric()}) that defines the type,
-class, and attributes of a vector. Use these arguments if you want to
-confirm that the created columns are the types that you expect. Note that
-if you want to change (instead of confirm) the types of specific columns,
-you should use \code{names_transform} or \code{values_transform} instead.
-
-For backwards compatibility reasons, supplying \code{list()} is interpreted as
-being identical to \code{NULL} rather than as using a list prototype on all
-columns. Expect this to change in the future.}
-
-\item{names_transform}{Optionally, a list of column
-name-function pairs. Alternatively, a single function can be supplied,
-which will be applied to all columns. Use these arguments if you need to
-change the types of specific columns. For example, \code{names_transform = list(week = as.integer)} would convert a character variable called \code{week}
-to an integer.
-
-If not specified, the type of the columns generated from \code{names_to} will
-be character, and the type of the variables generated from \code{values_to}
-will be the common type of the input columns used to generate them.}
-
-\item{names_repair}{What happens if the output has invalid column names?
-The default, \code{"check_unique"} is to error if the columns are duplicated.
-Use \code{"minimal"} to allow duplicates in the output, or \code{"unique"} to
-de-duplicated by adding numeric suffixes. See \code{\link[vctrs:vec_as_names]{vctrs::vec_as_names()}}
-for more options.}
-
-\item{values_to}{A string specifying the name of the column to create
-from the data stored in cell values. If \code{names_to} is a character
-containing the special \code{.value} sentinel, this value will be ignored,
-and the name of the value column will be derived from part of the
-existing column names.}
-
-\item{values_drop_na}{If \code{TRUE}, will drop rows that contain only \code{NA}s
-in the \code{value_to} column. This effectively converts explicit missing values
-to implicit missing values, and should generally be used only when missing
-values in \code{data} were created by its structure.}
-
-\item{values_ptypes}{Optionally, a list of column name-prototype
-pairs. Alternatively, a single empty prototype can be supplied, which will
-be applied to all columns. A prototype (or ptype for short) is a
-zero-length vector (like \code{integer()} or \code{numeric()}) that defines the type,
-class, and attributes of a vector. Use these arguments if you want to
-confirm that the created columns are the types that you expect. Note that
-if you want to change (instead of confirm) the types of specific columns,
-you should use \code{names_transform} or \code{values_transform} instead.
-
-For backwards compatibility reasons, supplying \code{list()} is interpreted as
-being identical to \code{NULL} rather than as using a list prototype on all
-columns. Expect this to change in the future.}
-
-\item{values_transform}{Optionally, a list of column
-name-function pairs. Alternatively, a single function can be supplied,
-which will be applied to all columns. Use these arguments if you need to
-change the types of specific columns. For example, \code{names_transform = list(week = as.integer)} would convert a character variable called \code{week}
-to an integer.
-
-If not specified, the type of the columns generated from \code{names_to} will
-be character, and the type of the variables generated from \code{values_to}
-will be the common type of the input columns used to generate them.}
+\item{values_transform}{see original function docs}
 
 \item{fill}{see original function docs}
 

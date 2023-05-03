@@ -10,6 +10,7 @@
 #' @inheritParams sf::tidyverse
 #' @inheritParams tidyr::pivot_longer
 #' @param x An object of class \code{sftime}.
+#' @param y A data frame to be joined with \code{x}.
 #' @param .data An object of class \code{stime}.
 #' @return 
 #' \itemize{
