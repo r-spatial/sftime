@@ -753,6 +753,57 @@ st_as_sftime.sftraj <- function(x, ...) {
   st_sftime(x, time_column_name = time_column_name)
 }
 
+#' @name st_as_sftime
+#' @inheritParams cubble::add_geometry_column
+#' @examples 
+#' # convert a cubble_df object from package cubble to an sftime object
+#' if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.2")) {
+#' 
+#'   # get a cubble_df object
+#'   data("climate_aus", package = "cubble")
+#'   
+#'   # convert to sftime
+#'   climate_aus_sftime <- 
+#'     st_as_sftime(climate_aus[1:4, ])
+#'   climate_aus_sftime <- 
+#'     st_as_sftime(cubble::face_temporal(climate_aus)[1:4, ])
+#'   
+#' }
+#' @export
+st_as_sftime.cubble_df <- function(x, ..., sfc = NULL, crs, silent = FALSE) {
+  
+  if (! requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.1"))
+    stop("You need the `cubble` package (>= 0.2.1) to use this function. Install that first.")
+  
+  # make sure the cubble_df object has the right format
+  if(! cubble::is_nested(x)) {
+    x <- cubble::face_spatial(data = x)
+  }
+  if(! inherits(x, "sf")) {
+    x <- cubble::add_geometry_column(x, sfc = sfc, crs = crs, silent = silent)
+  }
+  
+  # extract information needed to create the sftime object
+  time_column_name <- attr(x, which = "index")
+  id_column_name <- names(attr(x, "groups"))[[1]]
+  column_names <- c(setdiff(colnames(x), "ts"), colnames(x$ts[[1]]))
+  x_ts <- as.data.frame(cubble::face_temporal(x, col = "ts"))
+  
+  # convert to sf (drop all cubble_df attributes)
+  attr(x, which = "form") <- NULL
+  attr(x, which = "coords") <- NULL
+  attr(x, which = "index") <- NULL
+  class(x) <- setdiff(class(x), "cubble_df")  
+  
+  # merge spatial and temporal faces
+  x <- merge(x_ts, x[, !colnames(x) == "ts"], by = id_column_name)
+  x <- x[, column_names]
+    
+  st_as_sftime(x, time_column_name = time_column_name)
+  
+}
+
+
 
 #### transform attributes ####
 

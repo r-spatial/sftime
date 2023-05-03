@@ -34,45 +34,45 @@
 \alias{drop_na.sftime}
 \title{'tidyverse' methods for \code{sftime} objects}
 \usage{
-\method{inner_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+inner_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{left_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+left_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{right_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+right_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{full_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+full_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{semi_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+semi_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{anti_join}{sftime}(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
+anti_join.sftime(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...)
 
-\method{filter}{sftime}(.data, ..., .dots)
+filter.sftime(.data, ..., .dots)
 
-\method{arrange}{sftime}(.data, ..., .dots)
+arrange.sftime(.data, ..., .dots)
 
-\method{group_by}{sftime}(.data, ..., add = FALSE)
+group_by.sftime(.data, ..., add = FALSE)
 
-\method{ungroup}{sftime}(.data, ...)
+ungroup.sftime(.data, ...)
 
-\method{rowwise}{sftime}(.data, ...)
+rowwise.sftime(.data, ...)
 
-\method{mutate}{sftime}(.data, ..., .dots)
+mutate.sftime(.data, ..., .dots)
 
-\method{transmute}{sftime}(.data, ..., .dots)
+transmute.sftime(.data, ..., .dots)
 
-\method{select}{sftime}(.data, ...)
+select.sftime(.data, ...)
 
-\method{rename}{sftime}(.data, ...)
+rename.sftime(.data, ...)
 
-\method{slice}{sftime}(.data, ..., .dots)
+slice.sftime(.data, ..., .dots)
 
-\method{summarise}{sftime}(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
+summarise.sftime(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
 
-\method{summarize}{sftime}(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
+summarize.sftime(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE)
 
-\method{distinct}{sftime}(.data, ..., .keep_all = FALSE)
+distinct.sftime(.data, ..., .keep_all = FALSE)
 
-\method{gather}{sftime}(
+gather.sftime(
   data,
   key,
   value,
@@ -82,7 +82,7 @@
   factor_key = FALSE
 )
 
-\method{pivot_longer}{sftime}(
+pivot_longer.sftime(
   data,
   cols,
   names_to = "name",
@@ -99,11 +99,25 @@
   ...
 )
 
-\method{spread}{sftime}(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)
+spread.sftime(
+  data,
+  key,
+  value,
+  fill = NA,
+  convert = FALSE,
+  drop = TRUE,
+  sep = NULL
+)
 
-\method{sample_n}{sftime}(tbl, size, replace = FALSE, weight = NULL, .env = parent.frame())
+sample_n.sftime(
+  tbl,
+  size,
+  replace = FALSE,
+  weight = NULL,
+  .env = parent.frame()
+)
 
-\method{sample_frac}{sftime}(
+sample_frac.sftime(
   tbl,
   size = 1,
   replace = FALSE,
@@ -111,11 +125,11 @@
   .env = parent.frame()
 )
 
-\method{nest}{sftime}(.data, ...)
+nest.sftime(.data, ...)
 
-\method{unnest}{sftime}(data, ..., .preserve = NULL)
+unnest.sftime(data, ..., .preserve = NULL)
 
-\method{separate}{sftime}(
+separate.sftime(
   data,
   col,
   into,
@@ -127,11 +141,11 @@
   ...
 )
 
-\method{unite}{sftime}(data, col, ..., sep = "_", remove = TRUE)
+unite.sftime(data, col, ..., sep = "_", remove = TRUE)
 
-\method{separate_rows}{sftime}(data, ..., sep = "[^[:alnum:]]+", convert = FALSE)
+separate_rows.sftime(data, ..., sep = "[^[:alnum:]]+", convert = FALSE)
 
-\method{drop_na}{sftime}(data, ...)
+drop_na.sftime(data, ...)
 }
 \arguments{
 \item{x}{An object of class \code{sftime}.}

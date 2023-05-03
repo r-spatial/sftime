@@ -8,6 +8,7 @@ Relying on the method for `sf` objects caused erroneously column binding when th
 * Add methods to convert `sftime` objects from:
   + Objects from the `spatstat` package classes (`ppp`, `psp`, `lpp`)
   + `sftrack` and `sftraj` objects from the `sftrack` package.
+  + `cubble_df` objects from the `cubble` package.
 
 * Bug fix in `st_time<-.sftime`:  
   + Still contained references to the old `tc`class.
