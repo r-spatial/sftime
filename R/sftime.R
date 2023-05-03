@@ -744,7 +744,7 @@ st_as_sftime.sftraj <- function(x, ...) {
 #' @inheritParams cubble::add_geometry_column
 #' @examples 
 #' # convert a cubble_df object from package cubble to an sftime object
-#' if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.1")) {
+#' if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.2")) {
 #' 
 #'   # get a cubble_df object
 #'   data("climate_aus", package = "cubble")
