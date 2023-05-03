@@ -24,7 +24,8 @@ Suggests:
     vctrs,
     spatstat.geom,
     spatstat.linnet,
-    sftrack
+    sftrack,
+    cubble (>= 0.2.1)
 Authors@R: 
     c(person(given = "Henning",
              family = "Teickner",
@@ -45,7 +46,7 @@ License: Apache License
 Type: Package
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 URL: https://r-spatial.github.io/sftime/, https://github.com/r-spatial/sftime
 BugReports: https://github.com/r-spatial/sftime/issues/
 Collate:

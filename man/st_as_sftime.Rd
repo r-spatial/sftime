@@ -15,6 +15,7 @@
 \alias{st_as_sftime.lpp}
 \alias{st_as_sftime.sftrack}
 \alias{st_as_sftime.sftraj}
+\alias{st_as_sftime.cubble_df}
 \title{Convert a foreign object to an \code{sftime} object}
 \usage{
 st_as_sftime(x, ...)
@@ -56,6 +57,8 @@ st_as_sftime(x, ...)
 \method{st_as_sftime}{sftrack}(x, ...)
 
 \method{st_as_sftime}{sftraj}(x, ...)
+
+\method{st_as_sftime}{cubble_df}(x, ..., sfc = NULL, crs, silent = FALSE)
 }
 \arguments{
 \item{x}{An object to be converted into an object of class 
@@ -95,6 +98,13 @@ simple feature geometries; in case there is more than one and
 \item{time_column_last}{A logical value; if \code{TRUE}, the active time column is 
 always put last, otherwise column order is left unmodified. If both \code{sfc_last}
 and \code{time_column_last} are \code{TRUE}, the active time column is put last.}
+
+\item{sfc}{object of class \code{sfc} (see package sf)}
+
+\item{crs}{Coordinate reference system, something suitable as input to 
+\code{\link[sf]{st_crs}}.}
+
+\item{silent}{logical; suppress message?}
 }
 \value{
 \code{x} converted to an \code{sftime} object.
@@ -249,4 +259,17 @@ if (require(sftrack)) {
   st_as_sftime(x_sftraj)
 }
 
+# convert a cubble_df object from package cubble to an sftime object
+if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.1")) {
+
+  # get a cubble_df object
+  data("climate_aus", package = "cubble")
+  
+  # convert to sftime
+  climate_aus_sftime <- 
+    st_as_sftime(climate_aus[1:4, ])
+  climate_aus_sftime <- 
+    st_as_sftime(cubble::face_temporal(climate_aus)[1:4, ])
+  
+}
 }
