@@ -25,7 +25,7 @@ Suggests:
     spatstat.geom,
     spatstat.linnet,
     sftrack,
-    cubble (>= 0.2.1)
+    cubble (>= 0.3.0)
 Authors@R: 
     c(person(given = "Henning",
              family = "Teickner",
