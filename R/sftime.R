@@ -757,7 +757,7 @@ st_as_sftime.sftraj <- function(x, ...) {
 #' @inheritParams cubble::add_geometry_column
 #' @examples 
 #' # convert a cubble_df object from package cubble to an sftime object
-#' if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.2")) {
+#' if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.3.0")) {
 #' 
 #'   # get a cubble_df object
 #'   data("climate_aus", package = "cubble")
@@ -772,20 +772,20 @@ st_as_sftime.sftraj <- function(x, ...) {
 #' @export
 st_as_sftime.cubble_df <- function(x, ..., sfc = NULL, crs, silent = FALSE) {
   
-  if (! requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.1"))
-    stop("You need the `cubble` package (>= 0.2.1) to use this function. Install that first.")
+  if (! requireNamespace("cubble", quietly = TRUE, versionCheck = "0.3.0"))
+    stop("You need the `cubble` package (>= 0.3.0) to use this function. Install that first.")
   
   # make sure the cubble_df object has the right format
-  if(! cubble::is_nested(x)) {
+  if(! cubble::is_cubble_spatial(x)) {
     x <- cubble::face_spatial(data = x)
   }
   if(! inherits(x, "sf")) {
-    x <- cubble::add_geometry_column(x, sfc = sfc, crs = crs, silent = silent)
+    x <- cubble::make_spatial_sf(x, sfc = sfc, crs = crs, silent = silent)
   }
   
   # extract information needed to create the sftime object
   time_column_name <- attr(x, which = "index")
-  id_column_name <- names(attr(x, "groups"))[[1]]
+  id_column_name <- head(names(attr(x, "key")), -1)
   column_names <- c(setdiff(colnames(x), "ts"), colnames(x$ts[[1]]))
   x_ts <- as.data.frame(cubble::face_temporal(x, col = "ts"))
   
@@ -793,7 +793,7 @@ st_as_sftime.cubble_df <- function(x, ..., sfc = NULL, crs, silent = FALSE) {
   attr(x, which = "form") <- NULL
   attr(x, which = "coords") <- NULL
   attr(x, which = "index") <- NULL
-  class(x) <- setdiff(class(x), "cubble_df")  
+  class(x) <- setdiff(class(x), c("cubble_df", "spatial_cubble_df"))  
   
   # merge spatial and temporal faces
   x <- merge(x_ts, x[, !colnames(x) == "ts"], by = id_column_name)
