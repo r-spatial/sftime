@@ -114,7 +114,7 @@ sftime supports coercion to `sftime` objects from the following classes (grouped
 - spacetime: STI, STIDF
 - trajectories: Track, Tracks, TracksCollection
 - sftrack: sftrack, sftraj
-<!-- - cubble: cubble_df-->
+- cubble: cubble_df
 
 **Conversion from `sf` objects:**
 
@@ -178,21 +178,21 @@ x2_Tracks_sftime <- st_as_sftime(x2_TracksCollection@tracksCollection[[1]])
 x2_Track_sftime <- st_as_sftime(x2_TracksCollection@tracksCollection[[1]]@tracks[[1]])
 ```
 
-<!--**Conversion from `cubble_df` objects**
+**Conversion from `cubble_df` objects**
 
 Both, nested and long-form `cubble_df` can be converted to class `sftime`. If the `cubble_df` object has no simple features column (is not also of class `sf`), the function first converts longitude and latitude to a simple features column using `cubble::add_geometry_column()`.
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=TRUE, echo=TRUE}
 # get a sample cubble_df object
 climate_aus <- cubble::climate_aus
 
 # convert to sftime
 climate_aus_sftime <- 
   st_as_sftime(climate_aus[1:4, ])
+
 climate_aus_sftime <- 
   st_as_sftime(cubble::face_temporal(climate_aus)[1:4, ])
 ```
--->
 
 
 ## Subsetting

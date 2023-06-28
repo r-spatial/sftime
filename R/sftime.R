@@ -754,7 +754,7 @@ st_as_sftime.sftraj <- function(x, ...) {
 }
 
 #' @name st_as_sftime
-#' @inheritParams cubble::add_geometry_column
+#' @inheritParams cubble::make_spatial_sf
 #' @examples 
 #' # convert a cubble_df object from package cubble to an sftime object
 #' if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.3.0")) {
@@ -765,6 +765,7 @@ st_as_sftime.sftraj <- function(x, ...) {
 #'   # convert to sftime
 #'   climate_aus_sftime <- 
 #'     st_as_sftime(climate_aus[1:4, ])
+#'     
 #'   climate_aus_sftime <- 
 #'     st_as_sftime(cubble::face_temporal(climate_aus)[1:4, ])
 #'   
@@ -785,7 +786,7 @@ st_as_sftime.cubble_df <- function(x, ..., sfc = NULL, crs, silent = FALSE) {
   
   # extract information needed to create the sftime object
   time_column_name <- attr(x, which = "index")
-  id_column_name <- head(names(attr(x, "key")), -1)
+  id_column_name <- utils::head(names(attr(x, "key")), -1)
   column_names <- c(setdiff(colnames(x), "ts"), colnames(x$ts[[1]]))
   x_ts <- as.data.frame(cubble::face_temporal(x, col = "ts"))
   

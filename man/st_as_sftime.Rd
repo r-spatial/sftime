@@ -260,7 +260,7 @@ if (require(sftrack)) {
 }
 
 # convert a cubble_df object from package cubble to an sftime object
-if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.2")) {
+if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.3.0")) {
 
   # get a cubble_df object
   data("climate_aus", package = "cubble")
@@ -268,6 +268,7 @@ if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.2.2")) {
   # convert to sftime
   climate_aus_sftime <- 
     st_as_sftime(climate_aus[1:4, ])
+    
   climate_aus_sftime <- 
     st_as_sftime(cubble::face_temporal(climate_aus)[1:4, ])
   
