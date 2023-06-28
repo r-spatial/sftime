@@ -79,7 +79,7 @@
                         <h4 data-toc-skip class="author">Benedikt
 Gräler, Edzer Pebesma</h4>
             
-            <h4 data-toc-skip class="date">2023-05-03</h4>
+            <h4 data-toc-skip class="date">2023-06-28</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-spatial/sftime/blob/HEAD/vignettes/sftime.Rmd" class="external-link"><code>vignettes/sftime.Rmd</code></a></small>
       <div class="d-none name"><code>sftime.Rmd</code></div>
@@ -107,6 +107,14 @@ decisions behind the implementation of <code>sftime</code>.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/stars/" class="external-link">stars</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: abind</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edzer/spacetime" class="external-link">spacetime</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; The legacy packages maptools, rgdal, and rgeos, underpinning the sp package,</span></span>
+<span><span class="co">#&gt; which was just loaded, will retire in October 2023.</span></span>
+<span><span class="co">#&gt; Please refer to R-spatial evolution reports for details, especially</span></span>
+<span><span class="co">#&gt; https://r-spatial.org/r/2023/05/15/evolution4.html.</span></span>
+<span><span class="co">#&gt; It may be desirable to make the sf package available;</span></span>
+<span><span class="co">#&gt; package maintainers should consider adding sf to Suggests:.</span></span>
+<span><span class="co">#&gt; The sp package is now running under evolution status 2</span></span>
+<span><span class="co">#&gt;      (status 2 uses the sf package in place of rgdal)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
@@ -164,12 +172,12 @@ temporal information:</p>
 <span><span class="co">#&gt; Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3</span></span>
 <span><span class="co">#&gt; CRS:           NA</span></span>
 <span><span class="co">#&gt; Time column with classes: 'POSIXct', 'POSIXt'.</span></span>
-<span><span class="co">#&gt; Ranging from 2023-04-30 10:24:30.472991 to 2023-05-03 10:24:30.472991.</span></span>
+<span><span class="co">#&gt; Ranging from 2023-06-25 08:39:17.616259 to 2023-06-28 08:39:17.616259.</span></span>
 <span><span class="co">#&gt;   a       x_sfc                time</span></span>
-<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-05-03 10:24:30</span></span>
-<span><span class="co">#&gt; 2 2 POINT (1 3) 2023-05-02 10:24:30</span></span>
-<span><span class="co">#&gt; 3 3 POINT (2 3) 2023-05-01 10:24:30</span></span>
-<span><span class="co">#&gt; 4 4 POINT (2 1) 2023-04-30 10:24:30</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-06-28 08:39:17</span></span>
+<span><span class="co">#&gt; 2 2 POINT (1 3) 2023-06-27 08:39:17</span></span>
+<span><span class="co">#&gt; 3 3 POINT (2 3) 2023-06-26 08:39:17</span></span>
+<span><span class="co">#&gt; 4 4 POINT (2 1) 2023-06-25 08:39:17</span></span></code></pre></div>
 <p>Methods for <code>sftime</code> objects are:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html" class="external-link">methods</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"sftime"</span><span class="op">)</span></span>
@@ -195,17 +203,17 @@ object are:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get the values from the time column</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "2023-05-03 10:24:30 UTC" "2023-05-02 10:24:30 UTC"</span></span>
-<span><span class="co">#&gt; [3] "2023-05-01 10:24:30 UTC" "2023-04-30 10:24:30 UTC"</span></span>
+<span><span class="co">#&gt; [1] "2023-06-28 08:39:17 UTC" "2023-06-27 08:39:17 UTC"</span></span>
+<span><span class="co">#&gt; [3] "2023-06-26 08:39:17 UTC" "2023-06-25 08:39:17 UTC"</span></span>
 <span><span class="va">x_sftime1</span><span class="op">$</span><span class="va">time</span> <span class="co"># alternative way</span></span>
-<span><span class="co">#&gt; [1] "2023-05-03 10:24:30 UTC" "2023-05-02 10:24:30 UTC"</span></span>
-<span><span class="co">#&gt; [3] "2023-05-01 10:24:30 UTC" "2023-04-30 10:24:30 UTC"</span></span>
+<span><span class="co">#&gt; [1] "2023-06-28 08:39:17 UTC" "2023-06-27 08:39:17 UTC"</span></span>
+<span><span class="co">#&gt; [3] "2023-06-26 08:39:17 UTC" "2023-06-25 08:39:17 UTC"</span></span>
 <span></span>
 <span><span class="co"># set the values in the time column</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "2023-05-03 10:24:30 UTC" "2023-05-03 10:24:30 UTC"</span></span>
-<span><span class="co">#&gt; [3] "2023-05-03 10:24:30 UTC" "2023-05-03 10:24:30 UTC"</span></span>
+<span><span class="co">#&gt; [1] "2023-06-28 08:39:17 UTC" "2023-06-28 08:39:17 UTC"</span></span>
+<span><span class="co">#&gt; [3] "2023-06-28 08:39:17 UTC" "2023-06-28 08:39:17 UTC"</span></span>
 <span></span>
 <span><span class="co"># drop the time column to convert an sftime object to an sf object</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_drop_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span></span>
@@ -226,12 +234,12 @@ object are:</p>
 <span><span class="co">#&gt; Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3</span></span>
 <span><span class="co">#&gt; CRS:           NA</span></span>
 <span><span class="co">#&gt; Time column with classes: 'POSIXct', 'POSIXt'.</span></span>
-<span><span class="co">#&gt; Ranging from 2023-05-03 10:24:30.734841 to 2023-05-03 10:24:30.734841.</span></span>
+<span><span class="co">#&gt; Ranging from 2023-06-28 08:39:17.846532 to 2023-06-28 08:39:17.846532.</span></span>
 <span><span class="co">#&gt;   a       x_sfc                time</span></span>
-<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-05-03 10:24:30</span></span>
-<span><span class="co">#&gt; 2 2 POINT (1 3) 2023-05-03 10:24:30</span></span>
-<span><span class="co">#&gt; 3 3 POINT (2 3) 2023-05-03 10:24:30</span></span>
-<span><span class="co">#&gt; 4 4 POINT (2 1) 2023-05-03 10:24:30</span></span>
+<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-06-28 08:39:17</span></span>
+<span><span class="co">#&gt; 2 2 POINT (1 3) 2023-06-28 08:39:17</span></span>
+<span><span class="co">#&gt; 3 3 POINT (2 3) 2023-06-28 08:39:17</span></span>
+<span><span class="co">#&gt; 4 4 POINT (2 1) 2023-06-28 08:39:17</span></span>
 <span></span>
 <span><span class="co"># add a time column to an sf object converts it to an sftime object</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span>, time_column_name <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -254,8 +262,8 @@ following classes (grouped according to packages):</p>
 <li>stars: stars</li>
 <li>spacetime: STI, STIDF</li>
 <li>trajectories: Track, Tracks, TracksCollection</li>
-<li>sftrack: sftrack, sftraj <!-- - cubble: cubble_df-->
-</li>
+<li>sftrack: sftrack, sftraj</li>
+<li>cubble: cubble_df</li>
 </ul>
 <p><strong>Conversion from <code>sf</code> objects:</strong></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -333,8 +341,8 @@ time point:</p>
 <span><span class="co">#&gt; An object of class "STIDF"</span></span>
 <span><span class="co">#&gt; Slot "data":</span></span>
 <span><span class="co">#&gt;   values   ID</span></span>
-<span><span class="co">#&gt; 1   9.61 ID 1</span></span>
-<span><span class="co">#&gt; 2  19.00 ID 2</span></span>
+<span><span class="co">#&gt; 1   9.64 ID 1</span></span>
+<span><span class="co">#&gt; 2  21.40 ID 2</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Slot "sp":</span></span>
 <span><span class="co">#&gt; SpatialPoints:</span></span>
@@ -376,12 +384,24 @@ package)</strong></p>
 <span><span class="co">#&gt; Warning in .check_tzones(e1, e2): 'tzone' attributes are inconsistent</span></span>
 <span><span class="va">x2_Track_sftime</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/st_as_sftime.html">st_as_sftime</a></span><span class="op">(</span><span class="va">x2_TracksCollection</span><span class="op">@</span><span class="va">tracksCollection</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">@</span><span class="va">tracks</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in .check_tzones(e1, e2): 'tzone' attributes are inconsistent</span></span></code></pre></div>
-<!--**Conversion from `cubble_df` objects**
-
-Both, nested and long-form `cubble_df` can be converted to class `sftime`. If the `cubble_df` object has no simple features column (is not also of class `sf`), the function first converts longitude and latitude to a simple features column using `cubble::add_geometry_column()`.
-
-
--->
+<p><strong>Conversion from <code>cubble_df</code> objects</strong></p>
+<p>Both, nested and long-form <code>cubble_df</code> can be converted to
+class <code>sftime</code>. If the <code>cubble_df</code> object has no
+simple features column (is not also of class <code>sf</code>), the
+function first converts longitude and latitude to a simple features
+column using <code>cubble::add_geometry_column()</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># get a sample cubble_df object</span></span>
+<span><span class="va">climate_aus</span> <span class="op">&lt;-</span> <span class="fu">cubble</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/cubble/man/climate-data.html" class="external-link">climate_aus</a></span></span>
+<span></span>
+<span><span class="co"># convert to sftime</span></span>
+<span><span class="va">climate_aus_sftime</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="../reference/st_as_sftime.html">st_as_sftime</a></span><span class="op">(</span><span class="va">climate_aus</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt; CRS missing: using OGC:CRS84 (WGS84) as default</span></span>
+<span></span>
+<span><span class="va">climate_aus_sftime</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="../reference/st_as_sftime.html">st_as_sftime</a></span><span class="op">(</span><span class="fu">cubble</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/cubble/man/face.html" class="external-link">face_temporal</a></span><span class="op">(</span><span class="va">climate_aus</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt; CRS missing: using OGC:CRS84 (WGS84) as default</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="subsetting">Subsetting<a class="anchor" aria-label="anchor" href="#subsetting"></a>
@@ -392,10 +412,10 @@ objects, all subsetting methods for <code>sf</code> objects also work
 for <code>sftime</code> objects.</p>
 <p>Above (section <a href="#the-sftime-class">The <code>sftime</code>
 class</a>), the method to subset the time column was introduced:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "2023-05-03 10:24:30 UTC" "2023-05-03 10:24:30 UTC"</span></span>
-<span><span class="co">#&gt; [3] "2023-05-03 10:24:30 UTC" "2023-05-03 10:24:30 UTC"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "2023-06-28 08:39:17 UTC" "2023-06-28 08:39:17 UTC"</span></span>
+<span><span class="co">#&gt; [3] "2023-06-28 08:39:17 UTC" "2023-06-28 08:39:17 UTC"</span></span></code></pre></div>
 <p>Other subsetting functions work as for <code>sf</code> objects,
 e.g. selecting rows by row indices returns the specified rows. A key
 difference is that the active time column of an <code>sftime</code>
@@ -405,7 +425,7 @@ Therefore, the active time column of an <code>sftime</code> object
 always has to be selected explicitly. If omitted, the subset will
 simplify to an <code>sf</code> objects without the active time
 column:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># selecting rows and columns (works just as for sf objects)</span></span>
 <span><span class="va">x_sftime1</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt; Spatiotemporal feature collection with 1 feature and 1 field</span></span>
@@ -414,9 +434,9 @@ column:</p>
 <span><span class="co">#&gt; Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2</span></span>
 <span><span class="co">#&gt; CRS:           NA</span></span>
 <span><span class="co">#&gt; Time column with classes: 'POSIXct', 'POSIXt'.</span></span>
-<span><span class="co">#&gt; Representing 2023-05-03 10:24:30.748067.</span></span>
+<span><span class="co">#&gt; Representing 2023-06-28 08:39:17.858337.</span></span>
 <span><span class="co">#&gt;   a       x_sfc                time</span></span>
-<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-05-03 10:24:30</span></span>
+<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-06-28 08:39:17</span></span>
 <span><span class="va">x_sftime1</span><span class="op">[</span>, <span class="fl">3</span><span class="op">]</span></span>
 <span><span class="co">#&gt; Spatiotemporal feature collection with 4 features and 0 fields</span></span>
 <span><span class="co">#&gt; Geometry type: POINT</span></span>
@@ -424,12 +444,12 @@ column:</p>
 <span><span class="co">#&gt; Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3</span></span>
 <span><span class="co">#&gt; CRS:           NA</span></span>
 <span><span class="co">#&gt; Time column with classes: 'POSIXct', 'POSIXt'.</span></span>
-<span><span class="co">#&gt; Ranging from 2023-05-03 10:24:30.748067 to 2023-05-03 10:24:30.748067.</span></span>
+<span><span class="co">#&gt; Ranging from 2023-06-28 08:39:17.858337 to 2023-06-28 08:39:17.858337.</span></span>
 <span><span class="co">#&gt;                  time       x_sfc</span></span>
-<span><span class="co">#&gt; 1 2023-05-03 10:24:30 POINT (1 2)</span></span>
-<span><span class="co">#&gt; 2 2023-05-03 10:24:30 POINT (1 3)</span></span>
-<span><span class="co">#&gt; 3 2023-05-03 10:24:30 POINT (2 3)</span></span>
-<span><span class="co">#&gt; 4 2023-05-03 10:24:30 POINT (2 1)</span></span>
+<span><span class="co">#&gt; 1 2023-06-28 08:39:17 POINT (1 2)</span></span>
+<span><span class="co">#&gt; 2 2023-06-28 08:39:17 POINT (1 3)</span></span>
+<span><span class="co">#&gt; 3 2023-06-28 08:39:17 POINT (2 3)</span></span>
+<span><span class="co">#&gt; 4 2023-06-28 08:39:17 POINT (2 1)</span></span>
 <span></span>
 <span><span class="co"># beware: the time column is not sticky. If omitted, the subset becomes an sf object</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
@@ -465,7 +485,7 @@ feature geometries might be overlaid several times when multiple
 observations fall in the same time interval. This is similar to
 <code><a href="https://rdrr.io/pkg/spacetime/man/stplot.html" class="external-link">stplot()</a></code> from package spacetime with
 <code>mode = "xy"</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">coords</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_point</a></span><span class="op">(</span><span class="va">coords</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span><span class="op">)</span> <span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -487,14 +507,14 @@ observations fall in the same time interval. This is similar to
 <code>sf</code> objects. This makes it possible to customize plot
 appearance using the arguments of <code>plot.sf()</code>, for
 example:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot.sftime.html">plot</a></span><span class="op">(</span><span class="va">x_sftime4</span>, number <span class="op">=</span> <span class="fl">10</span>, max.plot <span class="op">=</span> <span class="fl">10</span>, key.pos <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <p><img src="sftime_files/figure-html/plotting-plot.sftime-2-1.png" width="672"></p>
 <pre><code><span><span class="co">#&gt; NULL</span></span></code></pre>
 <p>To create customized plots or plots which have different variables on
 plot axes than longitude and latitude, we recommend using ggplot2. For
 example, the plot method output can be mimicked by:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -508,14 +528,14 @@ example, the plot method output can be mimicked by:</p>
 <p>This strategy can also be used to create other plots, for example
 plotting the id of entities over time (similar to <code><a href="https://rdrr.io/pkg/spacetime/man/stplot.html" class="external-link">stplot()</a></code>
 with <code>mode = "xt"</code>):</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">x_sftime4</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">id_object</span>, x <span class="op">=</span> <span class="va">time</span>, color <span class="op">=</span> <span class="va">b</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="sftime_files/figure-html/plotting-ggplot-2-1.png" width="672"></p>
 <p>Or for plotting time series of values of all variables with different
 panels for each entity (location) defined via a categorical variable
 (similar to <code><a href="https://rdrr.io/pkg/spacetime/man/stplot.html" class="external-link">stplot()</a></code> with <code>mode = "tp"</code>):</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x_sftime4</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"variable"</span>, values_to <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -526,7 +546,7 @@ panels for each entity (location) defined via a categorical variable
 entities defined via a categorical variable with different panels for
 each variable (similar to <code><a href="https://rdrr.io/pkg/spacetime/man/stplot.html" class="external-link">stplot()</a></code> with
 <code>mode = "ts"</code>):</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x_sftime4</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"variable"</span>, values_to <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -544,7 +564,7 @@ in R (e.g. <code>POSIXct</code>, <code>POSIXlt</code>,
 <code>Date</code>, <code>yearmon</code>, <code>yearqtr</code>) are
 allowed, as well as optional user-defined types. Let us look at a simple
 example where we define a time column based on <code>POSIXct</code></p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">tc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2020-09-01 08:00:00"</span><span class="op">)</span><span class="op">-</span><span class="fl">0</span><span class="op">:</span><span class="fl">3</span><span class="op">*</span><span class="fl">3600</span><span class="op">*</span><span class="fl">24</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "2020-09-01 08:00:00 UTC" "2020-08-31 08:00:00 UTC"</span></span>
 <span><span class="co">#&gt; [3] "2020-08-30 08:00:00 UTC" "2020-08-29 08:00:00 UTC"</span></span></code></pre></div>
@@ -552,7 +572,7 @@ example where we define a time column based on <code>POSIXct</code></p>
 representations). If a different order is required, the
 <code>order</code> function and <code>sort</code> method can be applied
 to the time column:</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tc</span></span>
 <span><span class="co">#&gt; [1] "2020-09-01 08:00:00 UTC" "2020-08-31 08:00:00 UTC"</span></span>
 <span><span class="co">#&gt; [3] "2020-08-30 08:00:00 UTC" "2020-08-29 08:00:00 UTC"</span></span>
@@ -566,7 +586,7 @@ information such as intervals of different length. The following example
 is also meant as template for other user-defined classes which could be
 used to build the time column of the sftime class.</p>
 <p>At first, we will need a few helper functions:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># utility functions</span></span>
 <span><span class="va">as.character.interval</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"["</span>, <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">", "</span>, <span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="st">"]"</span><span class="op">)</span></span>
@@ -583,7 +603,7 @@ used to build the time column of the sftime class.</p>
 <span><span class="co">#}</span></span></code></pre></div>
 <p>Now, we can define the different intervals used to represent our
 temporal information:</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># time interval definition</span></span>
 <span><span class="va">i1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5.3</span>,<span class="fl">12</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">i1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"interval"</span></span>
@@ -598,7 +618,7 @@ temporal information:</p>
 <span><span class="co"># provide dedicated generic to xtfrm for class intervals</span></span></code></pre></div>
 <p>The advantage is to be able to define different sorting
 approaches:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">xtfrm.Intervals</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">mean</span><span class="op">)</span></span>
 <span><span class="co"># - sort by centre</span></span>
 <span><span class="op">(</span><span class="va">tc</span> <span class="op">&lt;-</span> <span class="va">intrvls</span><span class="op">)</span></span>
@@ -621,7 +641,7 @@ approaches:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="va">tc</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
 <span><span class="co">#&gt; Interval: [1.4, 6.9]</span></span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># - sort by end</span></span>
 <span><span class="va">xtfrm.Intervals</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">max</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">tc</span> <span class="op">&lt;-</span> <span class="va">intrvls</span><span class="op">)</span></span>
@@ -644,7 +664,7 @@ approaches:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="va">tc</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
 <span><span class="co">#&gt; Interval: [3.1, 6]</span></span></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># - sort by start</span></span>
 <span><span class="va">xtfrm.Intervals</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">min</span><span class="op">)</span></span>
 <span><span class="va">tc</span> <span class="op">&lt;-</span> <span class="va">intrvls</span></span>
