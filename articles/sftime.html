@@ -79,7 +79,7 @@
                         <h4 data-toc-skip class="author">Benedikt
 Gräler, Edzer Pebesma</h4>
             
-            <h4 data-toc-skip class="date">2023-06-28</h4>
+            <h4 data-toc-skip class="date">2023-09-01</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/r-spatial/sftime/blob/HEAD/vignettes/sftime.Rmd" class="external-link"><code>vignettes/sftime.Rmd</code></a></small>
       <div class="d-none name"><code>sftime.Rmd</code></div>
@@ -172,12 +172,12 @@ temporal information:</p>
 <span><span class="co">#&gt; Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3</span></span>
 <span><span class="co">#&gt; CRS:           NA</span></span>
 <span><span class="co">#&gt; Time column with classes: 'POSIXct', 'POSIXt'.</span></span>
-<span><span class="co">#&gt; Ranging from 2023-06-25 08:39:17.616259 to 2023-06-28 08:39:17.616259.</span></span>
+<span><span class="co">#&gt; Ranging from 2023-08-29 10:23:41.484551 to 2023-09-01 10:23:41.484551.</span></span>
 <span><span class="co">#&gt;   a       x_sfc                time</span></span>
-<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-06-28 08:39:17</span></span>
-<span><span class="co">#&gt; 2 2 POINT (1 3) 2023-06-27 08:39:17</span></span>
-<span><span class="co">#&gt; 3 3 POINT (2 3) 2023-06-26 08:39:17</span></span>
-<span><span class="co">#&gt; 4 4 POINT (2 1) 2023-06-25 08:39:17</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-09-01 10:23:41</span></span>
+<span><span class="co">#&gt; 2 2 POINT (1 3) 2023-08-31 10:23:41</span></span>
+<span><span class="co">#&gt; 3 3 POINT (2 3) 2023-08-30 10:23:41</span></span>
+<span><span class="co">#&gt; 4 4 POINT (2 1) 2023-08-29 10:23:41</span></span></code></pre></div>
 <p>Methods for <code>sftime</code> objects are:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/methods.html" class="external-link">methods</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"sftime"</span><span class="op">)</span></span>
@@ -203,17 +203,17 @@ object are:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get the values from the time column</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "2023-06-28 08:39:17 UTC" "2023-06-27 08:39:17 UTC"</span></span>
-<span><span class="co">#&gt; [3] "2023-06-26 08:39:17 UTC" "2023-06-25 08:39:17 UTC"</span></span>
+<span><span class="co">#&gt; [1] "2023-09-01 10:23:41 UTC" "2023-08-31 10:23:41 UTC"</span></span>
+<span><span class="co">#&gt; [3] "2023-08-30 10:23:41 UTC" "2023-08-29 10:23:41 UTC"</span></span>
 <span><span class="va">x_sftime1</span><span class="op">$</span><span class="va">time</span> <span class="co"># alternative way</span></span>
-<span><span class="co">#&gt; [1] "2023-06-28 08:39:17 UTC" "2023-06-27 08:39:17 UTC"</span></span>
-<span><span class="co">#&gt; [3] "2023-06-26 08:39:17 UTC" "2023-06-25 08:39:17 UTC"</span></span>
+<span><span class="co">#&gt; [1] "2023-09-01 10:23:41 UTC" "2023-08-31 10:23:41 UTC"</span></span>
+<span><span class="co">#&gt; [3] "2023-08-30 10:23:41 UTC" "2023-08-29 10:23:41 UTC"</span></span>
 <span></span>
 <span><span class="co"># set the values in the time column</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "2023-06-28 08:39:17 UTC" "2023-06-28 08:39:17 UTC"</span></span>
-<span><span class="co">#&gt; [3] "2023-06-28 08:39:17 UTC" "2023-06-28 08:39:17 UTC"</span></span>
+<span><span class="co">#&gt; [1] "2023-09-01 10:23:41 UTC" "2023-09-01 10:23:41 UTC"</span></span>
+<span><span class="co">#&gt; [3] "2023-09-01 10:23:41 UTC" "2023-09-01 10:23:41 UTC"</span></span>
 <span></span>
 <span><span class="co"># drop the time column to convert an sftime object to an sf object</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_drop_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span></span>
@@ -234,12 +234,12 @@ object are:</p>
 <span><span class="co">#&gt; Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3</span></span>
 <span><span class="co">#&gt; CRS:           NA</span></span>
 <span><span class="co">#&gt; Time column with classes: 'POSIXct', 'POSIXt'.</span></span>
-<span><span class="co">#&gt; Ranging from 2023-06-28 08:39:17.846532 to 2023-06-28 08:39:17.846532.</span></span>
+<span><span class="co">#&gt; Ranging from 2023-09-01 10:23:41.720536 to 2023-09-01 10:23:41.720536.</span></span>
 <span><span class="co">#&gt;   a       x_sfc                time</span></span>
-<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-06-28 08:39:17</span></span>
-<span><span class="co">#&gt; 2 2 POINT (1 3) 2023-06-28 08:39:17</span></span>
-<span><span class="co">#&gt; 3 3 POINT (2 3) 2023-06-28 08:39:17</span></span>
-<span><span class="co">#&gt; 4 4 POINT (2 1) 2023-06-28 08:39:17</span></span>
+<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-09-01 10:23:41</span></span>
+<span><span class="co">#&gt; 2 2 POINT (1 3) 2023-09-01 10:23:41</span></span>
+<span><span class="co">#&gt; 3 3 POINT (2 3) 2023-09-01 10:23:41</span></span>
+<span><span class="co">#&gt; 4 4 POINT (2 1) 2023-09-01 10:23:41</span></span>
 <span></span>
 <span><span class="co"># add a time column to an sf object converts it to an sftime object</span></span>
 <span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span>, time_column_name <span class="op">=</span> <span class="st">"time"</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -341,8 +341,8 @@ time point:</p>
 <span><span class="co">#&gt; An object of class "STIDF"</span></span>
 <span><span class="co">#&gt; Slot "data":</span></span>
 <span><span class="co">#&gt;   values   ID</span></span>
-<span><span class="co">#&gt; 1   9.64 ID 1</span></span>
-<span><span class="co">#&gt; 2  21.40 ID 2</span></span>
+<span><span class="co">#&gt; 1    9.8 ID 1</span></span>
+<span><span class="co">#&gt; 2   19.4 ID 2</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Slot "sp":</span></span>
 <span><span class="co">#&gt; SpatialPoints:</span></span>
@@ -414,8 +414,8 @@ for <code>sftime</code> objects.</p>
 class</a>), the method to subset the time column was introduced:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/st_time.html">st_time</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "2023-06-28 08:39:17 UTC" "2023-06-28 08:39:17 UTC"</span></span>
-<span><span class="co">#&gt; [3] "2023-06-28 08:39:17 UTC" "2023-06-28 08:39:17 UTC"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "2023-09-01 10:23:41 UTC" "2023-09-01 10:23:41 UTC"</span></span>
+<span><span class="co">#&gt; [3] "2023-09-01 10:23:41 UTC" "2023-09-01 10:23:41 UTC"</span></span></code></pre></div>
 <p>Other subsetting functions work as for <code>sf</code> objects,
 e.g. selecting rows by row indices returns the specified rows. A key
 difference is that the active time column of an <code>sftime</code>
@@ -434,9 +434,9 @@ column:</p>
 <span><span class="co">#&gt; Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2</span></span>
 <span><span class="co">#&gt; CRS:           NA</span></span>
 <span><span class="co">#&gt; Time column with classes: 'POSIXct', 'POSIXt'.</span></span>
-<span><span class="co">#&gt; Representing 2023-06-28 08:39:17.858337.</span></span>
+<span><span class="co">#&gt; Representing 2023-09-01 10:23:41.732652.</span></span>
 <span><span class="co">#&gt;   a       x_sfc                time</span></span>
-<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-06-28 08:39:17</span></span>
+<span><span class="co">#&gt; 1 1 POINT (1 2) 2023-09-01 10:23:41</span></span>
 <span><span class="va">x_sftime1</span><span class="op">[</span>, <span class="fl">3</span><span class="op">]</span></span>
 <span><span class="co">#&gt; Spatiotemporal feature collection with 4 features and 0 fields</span></span>
 <span><span class="co">#&gt; Geometry type: POINT</span></span>
@@ -444,12 +444,12 @@ column:</p>
 <span><span class="co">#&gt; Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3</span></span>
 <span><span class="co">#&gt; CRS:           NA</span></span>
 <span><span class="co">#&gt; Time column with classes: 'POSIXct', 'POSIXt'.</span></span>
-<span><span class="co">#&gt; Ranging from 2023-06-28 08:39:17.858337 to 2023-06-28 08:39:17.858337.</span></span>
+<span><span class="co">#&gt; Ranging from 2023-09-01 10:23:41.732652 to 2023-09-01 10:23:41.732652.</span></span>
 <span><span class="co">#&gt;                  time       x_sfc</span></span>
-<span><span class="co">#&gt; 1 2023-06-28 08:39:17 POINT (1 2)</span></span>
-<span><span class="co">#&gt; 2 2023-06-28 08:39:17 POINT (1 3)</span></span>
-<span><span class="co">#&gt; 3 2023-06-28 08:39:17 POINT (2 3)</span></span>
-<span><span class="co">#&gt; 4 2023-06-28 08:39:17 POINT (2 1)</span></span>
+<span><span class="co">#&gt; 1 2023-09-01 10:23:41 POINT (1 2)</span></span>
+<span><span class="co">#&gt; 2 2023-09-01 10:23:41 POINT (1 3)</span></span>
+<span><span class="co">#&gt; 3 2023-09-01 10:23:41 POINT (2 3)</span></span>
+<span><span class="co">#&gt; 4 2023-09-01 10:23:41 POINT (2 1)</span></span>
 <span></span>
 <span><span class="co"># beware: the time column is not sticky. If omitted, the subset becomes an sf object</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">x_sftime1</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
