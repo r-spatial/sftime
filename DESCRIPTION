@@ -46,10 +46,9 @@ License: Apache License
 Type: Package
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 URL: https://r-spatial.github.io/sftime/, https://github.com/r-spatial/sftime
 BugReports: https://github.com/r-spatial/sftime/issues/
-Remotes: github::huizezhang-sherry/cubble
 Collate:
   sftime.R
   init.R
