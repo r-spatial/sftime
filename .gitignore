@@ -6,3 +6,5 @@ packrat/lib*/
 sftime.Rproj
 inst/doc
 docs
+/doc/
+/Meta/
