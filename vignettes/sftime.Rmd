@@ -1,6 +1,6 @@
 ---
 title: "Introduction to sftime"
-author: "Benedikt Gräler, Edzer Pebesma"
+author: "Henning Teickner, Benedikt Gräler, Edzer Pebesma"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
