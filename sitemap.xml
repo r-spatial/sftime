@@ -1,75 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://r-spatial.github.io/sftime/404.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/articles/sftime.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/bind.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/geos_binary_ops.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/geos_combine.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/is_sortable.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/plot.sftime.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/print.sftime.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/st_as_sftime.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/st_cast.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/st_crop.sftime.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/st_geometry.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/st_join.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/st_sftime.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/st_time.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/tidyverse.html</loc>
-  </url>
-  <url>
-    <loc>https://r-spatial.github.io/sftime/reference/transform.sftime.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://r-spatial.github.io/sftime/404.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/LICENSE-text.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/articles/index.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/articles/sftime.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/authors.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/index.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/news/index.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/bind.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/geos_binary_ops.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/geos_combine.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/index.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/is_sortable.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/plot.sftime.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/print.sftime.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/st_as_sftime.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/st_cast.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/st_crop.sftime.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/st_geometry.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/st_join.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/st_sftime.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/st_time.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/tidyverse.html</loc></url>
+<url><loc>https://r-spatial.github.io/sftime/reference/transform.sftime.html</loc></url>
 </urlset>
+
