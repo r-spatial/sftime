@@ -1,11 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![Build
-Status](https://travis-ci.org/r-spatial/sftime.png?branch=master)](https://travis-ci.org/r-spatial/sftime)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/r-spatial/sftime?branch=master&svg=true)](https://ci.appveyor.com/project/edzerpebesma/sftime)
-[![codecov](https://codecov.io/gh/r-spatial/sftime/branch/master/graph/badge.svg)](https://codecov.io/gh/r-spatial/sftime)
 [![CRAN](https://www.r-pkg.org/badges/version/sftime)](https://cran.r-project.org/package=sftime)
 [![cran
 checks](https://badges.cranchecks.info/worst/sftime.svg)](https://cran.r-project.org/web/checks/check_results_sftime.html)
@@ -57,6 +54,6 @@ install_github("r-spatial/sftime")
 This project gratefully acknowledges financial
 [support](https://www.r-consortium.org/projects) from the
 
-<a href="https://www.r-consortium.org/projects/awarded-projects">
+<a href="https://www.r-consortium.org/all-projects/awarded-projects/2020-group-1#spatiotemporal+data+and+analytics">
 <img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" width="300">
 </a>
