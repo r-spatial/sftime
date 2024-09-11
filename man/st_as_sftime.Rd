@@ -74,7 +74,7 @@ first one is taken.}
 Typically, \code{long} should be set to \code{TRUE} since time information
 typically is a dimension of a \code{stars} object.}
 
-\item{agr}{A character vector; see the details section of \code{\link{st_sf}}.}
+\item{agr}{A character vector; see the details section of \code{\link[sf]{st_sf}}.}
 
 \item{coords}{In case of point data: names or numbers of the numeric columns 
 holding coordinates.}
@@ -82,7 +82,7 @@ holding coordinates.}
 \item{wkt}{The name or number of the character column that holds WKT encoded 
 geometries.}
 
-\item{dim}{Passed on to \code{\link{st_point}} (only when argument 
+\item{dim}{Passed on to \code{\link[sf]{st_point}} (only when argument 
 \code{coords} is given).}
 
 \item{remove}{A logical value; when \code{coords} or \code{wkt} is given, 

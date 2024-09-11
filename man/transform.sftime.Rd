@@ -12,7 +12,7 @@
 \item{...}{Further arguments of the form new_variable=expression}
 }
 \value{
-\code{_data} (an \code{sftime object}) with modified attribute values 
+\code{_data} (an \code{sftime} object) with modified attribute values 
 (columns).
 }
 \description{

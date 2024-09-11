@@ -575,12 +575,12 @@ st_as_sftime.stars <- function(x, ..., long = TRUE, time_column_name = NULL) {
 }
 
 #' @name st_as_sftime
-#' @param agr A character vector; see the details section of \code{\link{st_sf}}.
+#' @param agr A character vector; see the details section of \code{\link[sf]{st_sf}}.
 #' @param coords In case of point data: names or numbers of the numeric columns 
 #' holding coordinates.
 #' @param wkt The name or number of the character column that holds WKT encoded 
 #' geometries.
-#' @param dim Passed on to \code{\link{st_point}} (only when argument 
+#' @param dim Passed on to \code{\link[sf]{st_point}} (only when argument 
 #' \code{coords} is given).
 #' @param remove A logical value; when \code{coords} or \code{wkt} is given, 
 #' remove these columns from \code{x}?
@@ -817,7 +817,7 @@ st_as_sftime.cubble_df <- function(x, ..., sfc = NULL, crs, silent = FALSE) {
 #' @param _data An object of class \code{\link[=st_sftime]{sftime}}.
 #' @inheritParams sf::transform.sf
 #' 
-#' @return \code{_data} (an \code{sftime object}) with modified attribute values 
+#' @return \code{_data} (an \code{sftime} object) with modified attribute values 
 #' (columns). 
 #' 
 #' @examples
