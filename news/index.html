@@ -33,11 +33,11 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/r-spatial/sftime/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/r-spatial/sftime/blob/v0.3.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.3.0" id="sftime-030">sftime 0.3.0<a class="anchor" aria-label="anchor" href="#sftime-030"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.3.0" id="sftime-030">sftime 0.3.0<a class="anchor" aria-label="anchor" href="#sftime-030"></a></h2><p class="text-muted">CRAN release: 2024-09-11</p>
 <ul><li><p>Add a dedicated <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code> method for <code>sftime</code> objects. (See the same recent addition for <code>sf</code> objects <a href="https://github.com/r-spatial/sf/pull/1975/" class="external-link">#1975</a>).</p></li>
 <li><p>Add a dedicated <code><a href="https://dplyr.tidyverse.org/reference/dplyr_extending.html" class="external-link">dplyr::dplyr_reconstruct()</a></code> method for <code>sftime</code> objects. Relying on the method for <code>sf</code> objects caused erroneously column binding when the second object was a data frame without conflicting column names for the <code>sf</code> and time columns. In this case, a <code>sf</code> objects was returned, even though an <code>sftime</code> object should be returned. See also <a href="https://github.com/r-spatial/sf/issues/1958#issuecomment-1181982244" class="external-link uri">https://github.com/r-spatial/sf/issues/1958#issuecomment-1181982244</a>.</p></li>
 <li>
