@@ -1,3 +1,5 @@
+# sftime (development version)
+
 # sftime 0.3.0
 
 * Add a dedicated `tidyr::drop_na()` method for `sftime` objects. (See the same recent addition for `sf` objects [#1975](https://github.com/r-spatial/sf/pull/1975/)).
