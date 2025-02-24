@@ -54,6 +54,6 @@ install_github("r-spatial/sftime")
 This project gratefully acknowledges financial
 [support](https://www.r-consortium.org/projects) from the
 
-<a href="https://www.r-consortium.org/all-projects/awarded-projects/2020-group-1#spatiotemporal+data+and+analytics">
-<img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" width="300">
+<a href="https://r-consortium.org/all-projects/2020-group-1.html#spatiotemporal-data-and-analytics">
+<img src="https://r-consortium.org/images/RConsortium_Horizontal_Pantone.webp" width="300">
 </a>
