@@ -260,7 +260,7 @@ if (require(sftrack)) {
 }
 
 # convert a cubble_df object from package cubble to an sftime object
-if (requireNamespace("cubble", quietly = TRUE, versionCheck = "0.3.0")) {
+if (requireNamespace("cubble", quietly = TRUE, versionCheck = list(op = ">=", version = "0.3.0"))) {
 
   # get a cubble_df object
   data("climate_aus", package = "cubble")
