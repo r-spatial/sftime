@@ -239,22 +239,22 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 300 features and 3 fields</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: -57.87874 ymin: -105.2126 xmax: 15.68272 ymax: 40.13782</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: -66.07486 ymin: -99.7043 xmax: 19.35767 ymax: 36.22099</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 1970-01-01 to 1970-01-01 04:49:00.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> First 10 features:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ones tracks_name track_name             st_as_sfc.x.sp.                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     1     Tracks1     Track1 POINT (0.8546559 -1.036985) 1970-01-01 00:00:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     1     Tracks1     Track1  POINT (0.2559254 1.134189) 1970-01-01 00:00:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     1     Tracks1     Track1 POINT (0.7723814 -2.861054) 1970-01-01 00:01:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     1     Tracks1     Track1  POINT (-0.578062 1.354914) 1970-01-01 00:01:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     1     Tracks1     Track1 POINT (0.4824357 -4.520175) 1970-01-01 00:02:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     1     Tracks1     Track1  POINT (-2.030241 2.319898) 1970-01-01 00:02:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     1     Tracks1     Track1    POINT (1.821826 -6.1945) 1970-01-01 00:03:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8     1     Tracks1     Track1  POINT (-1.977036 3.783254) 1970-01-01 00:03:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     1     Tracks1     Track1  POINT (1.765991 -6.699866) 1970-01-01 00:04:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10    1     Tracks1     Track1  POINT (-2.123454 6.196938) 1970-01-01 00:04:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     1     Tracks1     Track1   POINT (-0.2912249 -1.661) 1970-01-01 00:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     1     Tracks1     Track1 POINT (-1.448059 0.9679559) 1970-01-01 00:00:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     1     Tracks1     Track1  POINT (1.047142 -3.336828) 1970-01-01 00:01:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     1     Tracks1     Track1  POINT (-1.391558 2.433689) 1970-01-01 00:01:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     1     Tracks1     Track1 POINT (0.9904884 -3.843395) 1970-01-01 00:02:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     1     Tracks1     Track1  POINT (-1.535339 4.849275) 1970-01-01 00:02:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7     1     Tracks1     Track1  POINT (1.892959 -2.718766) 1970-01-01 00:03:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8     1     Tracks1     Track1  POINT (-2.407562 8.763954) 1970-01-01 00:03:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9     1     Tracks1     Track1  POINT (3.063705 -1.830986) 1970-01-01 00:04:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10    1     Tracks1     Track1  POINT (-2.313282 11.24925) 1970-01-01 00:04:00</span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="co"># convert an sf object to an sftime object</span></span></span>
 <span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu">st_sfc</span><span class="op">(</span><span class="fu">st_point</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>, <span class="fu">st_point</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>, <span class="fu">st_point</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>, </span></span>
@@ -286,8 +286,8 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: spatstat.geom</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: spatstat.data</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: spatstat.univar</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.univar 3.1-1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.geom 3.3-5</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.univar 3.1-4</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.geom 3.5-0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 648 features and 3 fields</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: GEOMETRY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
@@ -325,19 +325,19 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-02-24 19:23:53.433589 to 2025-02-24 19:24:02.433589.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-13 08:27:09.63512 to 2025-08-13 08:27:18.63512.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> First 10 features:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      label                           geom                time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NA  window POLYGON ((0 0, 1 0, 1 1, 0 ...                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  segment LINESTRING (0.3203339 0.798... 2025-02-24 19:23:53</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  segment LINESTRING (0.4039816 0.366... 2025-02-24 19:23:54</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  segment LINESTRING (0.03262274 0.38... 2025-02-24 19:23:55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  segment LINESTRING (0.4922266 0.673... 2025-02-24 19:23:56</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  segment LINESTRING (0.1416749 0.439... 2025-02-24 19:23:57</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  segment LINESTRING (0.7991584 0.712... 2025-02-24 19:23:58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  segment LINESTRING (0.4091124 0.435... 2025-02-24 19:23:59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  segment LINESTRING (0.9364347 0.665... 2025-02-24 19:24:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  segment LINESTRING (0.7329098 0.523... 2025-02-24 19:24:01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  segment LINESTRING (0.1416749 0.439... 2025-08-13 08:27:09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  segment LINESTRING (0.7991584 0.712... 2025-08-13 08:27:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  segment LINESTRING (0.4091124 0.435... 2025-08-13 08:27:11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  segment LINESTRING (0.9364347 0.665... 2025-08-13 08:27:12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  segment LINESTRING (0.7329098 0.523... 2025-08-13 08:27:13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  segment LINESTRING (0.4349627 0.903... 2025-08-13 08:27:14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  segment LINESTRING (0.7988289 0.937... 2025-08-13 08:27:15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  segment LINESTRING (0.3663013 0.961... 2025-08-13 08:27:16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  segment LINESTRING (0.3809876 0.233... 2025-08-13 08:27:17</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># convert an lpp object to an sftime object (modified from the </span></span></span>
 <span class="r-in"><span><span class="co"># spatstat.linnet package)</span></span></span>
@@ -366,7 +366,7 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: spatstat.linnet</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: spatstat.random</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.random 3.3-2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.random 3.4-1</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: spatstat.explore</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: nlme</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
@@ -374,18 +374,18 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:dplyr’:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     collapse</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.explore 3.3-4</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.explore 3.5-2</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: spatstat.model</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: rpart</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.model 3.3-4</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.linnet 3.2-5</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.model 3.4-0</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.linnet 3.3-1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 10 features and 4 fields</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: GEOMETRY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: -3 ymin: -1 xmax: 3 ymax: 7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-02-24 19:23:53.963288 to 2025-02-24 19:23:56.963288.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-13 08:27:09.88583 to 2025-08-13 08:27:12.88583.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      label seg  tp  a                           geom                time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1   window  NA  NA NA POLYGON ((-3 -1, 3 -1, 3 7,...                &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  segment  NA  NA NA        LINESTRING (-2 0, -1 3)                &lt;NA&gt;</span>
@@ -393,10 +393,10 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  segment  NA  NA NA          LINESTRING (0 6, 1 3)                &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  segment  NA  NA NA          LINESTRING (1 3, 2 0)                &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  segment  NA  NA NA         LINESTRING (-1 3, 1 3)                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7    point   1 0.5  1               POINT (-1.5 1.5) 2025-02-24 19:23:53</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8    point   5 0.5  2                    POINT (0 3) 2025-02-24 19:23:54</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9    point   3 0.5  3                POINT (0.5 4.5) 2025-02-24 19:23:55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10   point   4 0.5  4                POINT (1.5 1.5) 2025-02-24 19:23:56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    point   1 0.5  1               POINT (-1.5 1.5) 2025-08-13 08:27:09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    point   5 0.5  2                    POINT (0 3) 2025-08-13 08:27:10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9    point   3 0.5  3                POINT (0.5 4.5) 2025-08-13 08:27:11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10   point   4 0.5  4                POINT (1.5 1.5) 2025-08-13 08:27:12</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># convert an sftrack object to an sftime object (modified from sftrack)</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://mablab.org/sftrack/" class="external-link">sftrack</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
@@ -503,7 +503,7 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 LINESTRING (-80.279 26.0698... 2019-01-19 12:02:30</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># convert a cubble_df object from package cubble to an sftime object</span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"cubble"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span>, versionCheck <span class="op">=</span> <span class="st">"0.3.0"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"cubble"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span>, versionCheck <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>op <span class="op">=</span> <span class="st">"&gt;="</span>, version <span class="op">=</span> <span class="st">"0.3.0"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="co"># get a cubble_df object</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"climate_aus"</span>, package <span class="op">=</span> <span class="st">"cubble"</span><span class="op">)</span></span></span>
@@ -516,6 +516,11 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 <span class="r-in"><span>    <span class="fu">st_as_sftime</span><span class="op">(</span><span class="fu">cubble</span><span class="fu">::</span><span class="fu"><a href="https://huizezhang-sherry.github.io/cubble/reference/face.html" class="external-link">face_temporal</a></span><span class="op">(</span><span class="va">climate_aus</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registered S3 method overwritten by 'tsibble':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   method               from </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   as_tibble.grouped_df dplyr</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> CRS missing: using OGC:CRS84 (WGS84) as default</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> CRS missing: using OGC:CRS84 (WGS84) as default</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -527,7 +532,7 @@ and <code>time_column_last</code> are <code>TRUE</code>, the active time column 
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>
