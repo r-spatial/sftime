@@ -1,3 +1,5 @@
+# sftime (development version)
+
 # sftime 0.3.1
 
 * Correct argument `versionCheck` the `requireNamespace` for the `cubble` package in `st_as_sftime.cubble_df()`.
