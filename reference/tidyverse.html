@@ -13,7 +13,7 @@ these methods without the .sftime suffix and after loading the
 
     <a class="navbar-brand me-2" href="../index.html">sftime</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@ these methods without the .sftime suffix and after loading the
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>'tidyverse' methods for <code>sftime</code> objects</h1>
-      <small class="dont-index">Source: <a href="https://github.com/r-spatial/sftime/blob/v0.3.1/R/join.R" class="external-link"><code>R/join.R</code></a>, <a href="https://github.com/r-spatial/sftime/blob/v0.3.1/R/tidyverse.R" class="external-link"><code>R/tidyverse.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/r-spatial/sftime/blob/main/R/join.R" class="external-link"><code>R/join.R</code></a>, <a href="https://github.com/r-spatial/sftime/blob/main/R/tidyverse.R" class="external-link"><code>R/tidyverse.R</code></a></small>
       <div class="d-none name"><code>tidyverse.Rd</code></div>
     </div>
 
@@ -411,10 +411,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:23:25 POINT (5 8) POINT (4 6) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:23:25 POINT (2 9) POINT (4 6) 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:27:39 POINT (5 8) POINT (4 6) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:27:39 POINT (2 9) POINT (4 6) 2025-08-22 04:27:39</span>
 <span class="r-in"><span><span class="co"># time.x and the active geometry column geometry.x</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -425,10 +425,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.532854 to 2025-08-22 04:23:25.532854.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.804703 to 2025-08-22 04:27:39.804703.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:23:25 POINT (4 6) POINT (5 8) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:23:25 POINT (4 6) POINT (2 9) 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:27:39 POINT (4 6) POINT (5 8) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:27:39 POINT (4 6) POINT (2 9) 2025-08-22 04:27:39</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## left_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -439,11 +439,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1                &lt;NA&gt; POINT (1 2) POINT EMPTY 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:23:25 POINT (5 8) POINT (4 6) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:23:25 POINT (2 9) POINT (4 6) 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1                &lt;NA&gt; POINT (1 2) POINT EMPTY 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:27:39 POINT (5 8) POINT (4 6) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:27:39 POINT (2 9) POINT (4 6) 2025-08-22 04:27:39</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 3 features and 2 fields</span>
@@ -453,11 +453,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.532854 to 2025-08-22 04:23:25.532854.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.804703 to 2025-08-22 04:27:39.804703.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:23:25 POINT (4 6) POINT (5 8) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:23:25 POINT (4 6) POINT (2 9) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4                &lt;NA&gt; POINT (4 6) POINT EMPTY 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:27:39 POINT (4 6) POINT (5 8) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:27:39 POINT (4 6) POINT (2 9) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4                &lt;NA&gt; POINT (4 6) POINT EMPTY 2025-08-22 04:27:39</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## right_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">right_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -468,11 +468,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:23:25 POINT (5 8) POINT (4 6) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:23:25 POINT (2 9) POINT (4 6) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4 2025-08-22 04:23:25 POINT EMPTY POINT (4 6)                &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:27:39 POINT (5 8) POINT (4 6) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:27:39 POINT (2 9) POINT (4 6) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4 2025-08-22 04:27:39 POINT EMPTY POINT (4 6)                &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">right_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 3 features and 2 fields</span>
@@ -482,11 +482,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.532854 to 2025-08-22 04:23:25.532854.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.804703 to 2025-08-22 04:27:39.804703.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:23:25 POINT (4 6) POINT (5 8) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:23:25 POINT (4 6) POINT (2 9) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1 2025-08-22 04:23:25 POINT EMPTY POINT (1 2)                &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:27:39 POINT (4 6) POINT (5 8) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:27:39 POINT (4 6) POINT (2 9) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1 2025-08-22 04:27:39 POINT EMPTY POINT (1 2)                &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## full_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -497,12 +497,12 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1                &lt;NA&gt; POINT (1 2) POINT EMPTY 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:23:25 POINT (5 8) POINT (4 6) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:23:25 POINT (2 9) POINT (4 6) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 4 2025-08-22 04:23:25 POINT EMPTY POINT (4 6)                &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1                &lt;NA&gt; POINT (1 2) POINT EMPTY 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:27:39 POINT (5 8) POINT (4 6) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:27:39 POINT (2 9) POINT (4 6) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 4 2025-08-22 04:27:39 POINT EMPTY POINT (4 6)                &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 4 features and 2 fields</span>
@@ -512,12 +512,12 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.532854 to 2025-08-22 04:23:25.532854.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.804703 to 2025-08-22 04:27:39.804703.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a              time.y  geometry.x  geometry.y              time.x</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:23:25 POINT (4 6) POINT (5 8) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:23:25 POINT (4 6) POINT (2 9) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4                &lt;NA&gt; POINT (4 6) POINT EMPTY 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1 2025-08-22 04:23:25 POINT EMPTY POINT (1 2)                &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:27:39 POINT (4 6) POINT (5 8) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:27:39 POINT (4 6) POINT (2 9) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 4                &lt;NA&gt; POINT (4 6) POINT EMPTY 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 1 2025-08-22 04:27:39 POINT EMPTY POINT (1 2)                &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## semi_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -527,10 +527,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 POINT (5 8) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 POINT (2 9) 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 POINT (5 8) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 POINT (2 9) 2025-08-22 04:27:39</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 2 features and 1 field</span>
@@ -539,10 +539,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.532854 to 2025-08-22 04:23:25.532854.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.804703 to 2025-08-22 04:27:39.804703.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 POINT (4 6) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 POINT (4 6) 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 POINT (4 6) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 POINT (4 6) 2025-08-22 04:27:39</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## anti_join</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
@@ -552,9 +552,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2025-08-22 04:27:39</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">anti_join</a></span><span class="op">(</span><span class="va">x2</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spatiotemporal feature collection with 1 feature and 1 field</span>
@@ -563,9 +563,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:23:25.532854.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:27:39.804703.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 4 POINT (4 6) 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 4 POINT (4 6) 2025-08-22 04:27:39</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## filter</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">a</span> <span class="op">&lt;=</span> <span class="fl">2</span><span class="op">)</span></span></span>
@@ -575,10 +575,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2025-08-22 04:23:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 POINT (5 8) 2025-08-22 04:23:25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2025-08-22 04:27:39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 POINT (5 8) 2025-08-22 04:27:39</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## arrange</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -588,11 +588,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3 2025-08-22 04:23:25 POINT (2 9)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:23:25 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1 2025-08-22 04:23:25 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3 2025-08-22 04:27:39 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:27:39 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 1 2025-08-22 04:27:39 POINT (1 2)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## group_by</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">time</span><span class="op">)</span></span></span>
@@ -602,14 +602,14 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   time [1]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:23:25</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:23:25</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:27:39</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:27:39</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## ungroup</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">time</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -619,13 +619,13 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:23:25</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:23:25</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:27:39</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:27:39</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## rowwise</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -638,14 +638,14 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Rowwise: </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time                   a1    a2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:23:25</span>     5     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span>     6     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:23:25</span>     7     3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:27:39</span>     5     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span>     6     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:27:39</span>     7     3</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## mutate</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -656,11 +656,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a    geometry                time a1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2025-08-22 04:23:25  5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 POINT (5 8) 2025-08-22 04:23:25  6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 POINT (2 9) 2025-08-22 04:23:25  7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 POINT (1 2) 2025-08-22 04:27:39  5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 POINT (5 8) 2025-08-22 04:27:39  6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 POINT (2 9) 2025-08-22 04:27:39  7</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## transmute</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -698,11 +698,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a1                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2025-08-22 04:23:25 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 2025-08-22 04:23:25 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 2025-08-22 04:23:25 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2025-08-22 04:27:39 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 2025-08-22 04:27:39 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 2025-08-22 04:27:39 POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## slice</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -713,10 +713,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:23:25 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:23:25 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:27:39 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:27:39 POINT (5 8)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## summarise</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -727,9 +727,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time                       geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:23:25 MULTIPOINT ((1 2), (2 9), (...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:27:39 MULTIPOINT ((1 2), (2 9), (...</span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -739,9 +739,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time                       geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:23:25 MULTIPOINT ((1 2), (2 9), (...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:27:39 MULTIPOINT ((1 2), (2 9), (...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## distinct</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -767,14 +767,14 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time key value    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:23:25   a     1 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2025-08-22 04:23:25   a     2 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2025-08-22 04:23:25   a     3 POINT (2 9)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2025-08-22 04:23:25  a1     5 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2025-08-22 04:23:25  a1     6 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2025-08-22 04:23:25  a1     7 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:27:39   a     1 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2025-08-22 04:27:39   a     2 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2025-08-22 04:27:39   a     3 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2025-08-22 04:27:39  a1     5 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2025-08-22 04:27:39  a1     6 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2025-08-22 04:27:39  a1     7 POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## pivot_longer</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -786,16 +786,16 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   geometry time                variable value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>    (1 2) 2025-08-22 <span style="color: #949494;">04:23:25</span> a            1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>    (1 2) 2025-08-22 <span style="color: #949494;">04:23:25</span> a1           5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span> a            2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span> a1           6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>    (2 9) 2025-08-22 <span style="color: #949494;">04:23:25</span> a            3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>    (2 9) 2025-08-22 <span style="color: #949494;">04:23:25</span> a1           7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>    (1 2) 2025-08-22 <span style="color: #949494;">04:27:39</span> a            1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>    (1 2) 2025-08-22 <span style="color: #949494;">04:27:39</span> a1           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span> a            2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span> a1           6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>    (2 9) 2025-08-22 <span style="color: #949494;">04:27:39</span> a            3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>    (2 9) 2025-08-22 <span style="color: #949494;">04:27:39</span> a1           7</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## spread</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -808,11 +808,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time a a1    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:23:25 1  5 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2025-08-22 04:23:25 2  6 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2025-08-22 04:23:25 3  7 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:27:39 1  5 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2025-08-22 04:27:39 2  6 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2025-08-22 04:27:39 3  7 POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## sample_n</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">234</span><span class="op">)</span></span></span>
@@ -824,18 +824,18 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2025-08-22 04:23:25 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  3 2025-08-22 04:23:25 POINT (2 9)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2 2025-08-22 04:23:25 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2 2025-08-22 04:23:25 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2 2025-08-22 04:23:25 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2 2025-08-22 04:23:25 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1 2025-08-22 04:23:25 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  1 2025-08-22 04:23:25 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  3 2025-08-22 04:23:25 POINT (2 9)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2 2025-08-22 04:23:25 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2025-08-22 04:27:39 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  3 2025-08-22 04:27:39 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2 2025-08-22 04:27:39 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2 2025-08-22 04:27:39 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2 2025-08-22 04:27:39 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2 2025-08-22 04:27:39 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  1 2025-08-22 04:27:39 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  1 2025-08-22 04:27:39 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  3 2025-08-22 04:27:39 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2 2025-08-22 04:27:39 POINT (5 8)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## sample_frac</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -847,17 +847,17 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 2 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:23:25 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1 2025-08-22 04:23:25 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:23:25 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:27:39 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1 2025-08-22 04:27:39 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:27:39 POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## nest</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html" class="external-link">nest</a></span><span class="op">(</span>a1 <span class="op">=</span> <span class="op">-</span><span class="va">time</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  time                        a1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:23:25 1, 2, 3, 1, 2, 5, 8, 2, 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-08-22 04:27:39 1, 2, 3, 1, 2, 5, 8, 2, 9</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## unnest</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -869,14 +869,14 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time                   a1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:23:25</span>     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span>     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span>     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:23:25</span>     5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:27:39</span>     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span>     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span>     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:27:39</span>     5</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## separate</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -888,11 +888,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    A    B    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:23:25 &lt;NA&gt; &lt;NA&gt; POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:23:25    a    b POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:23:25    a    d POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:27:39 &lt;NA&gt; &lt;NA&gt; POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:27:39    a    b POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:27:39    a    d POINT (2 9)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## unite</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -905,11 +905,11 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time   col    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:23:25 NA_NA POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:23:25   a_b POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:23:25   a_d POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:27:39 NA_NA POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:27:39   a_b POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 3 2025-08-22 04:27:39   a_d POINT (2 9)</span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="co">## separate_rows</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -921,16 +921,16 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       a geometry time                    z</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;POINT&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:23:25</span>     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span>     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span>     3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:23:25</span>     4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:23:25</span>     5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:23:25</span>     6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     1    (1 2) 2025-08-22 <span style="color: #949494;">04:27:39</span>     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span>     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span>     3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     2    (5 8) 2025-08-22 <span style="color: #949494;">04:27:39</span>     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:27:39</span>     5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     3    (2 9) 2025-08-22 <span style="color: #949494;">04:27:39</span>     6</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## drop_na</span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -942,10 +942,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time z    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:23:25 1 POINT (1 2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:23:25 2 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:27:39 1 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2025-08-22 04:27:39 2 POINT (5 8)</span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -956,9 +956,9 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Representing 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time z    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:23:25 1 POINT (1 2)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 2025-08-22 04:27:39 1 POINT (1 2)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">x1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/replace.html" class="external-link">replace</a></span><span class="op">(</span><span class="va">time</span>, <span class="fl">1</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
@@ -969,10 +969,10 @@ Should be a character vector of length 2.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> CRS:           NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Time column with classes: 'POSIXct', 'POSIXt'.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:23:25.529993 to 2025-08-22 04:23:25.529993.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ranging from 2025-08-22 04:27:39.801783 to 2025-08-22 04:27:39.801783.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   a                time    geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:23:25 POINT (5 8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:23:25 POINT (2 9)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2 2025-08-22 04:27:39 POINT (5 8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 3 2025-08-22 04:27:39 POINT (2 9)</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
