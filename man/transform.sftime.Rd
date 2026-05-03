@@ -9,7 +9,7 @@
 \arguments{
 \item{_data}{An object of class \code{\link[=st_sftime]{sftime}}.}
 
-\item{...}{Further arguments of the form new_variable=expression}
+\item{...}{Further arguments of the form \code{new_variable = expression}}
 }
 \value{
 \code{_data} (an \code{sftime} object) with modified attribute values 

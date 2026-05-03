@@ -18,7 +18,6 @@ Suggests:
     ncmeta,
     tidyr,
     ggplot2,
-    magrittr,
     sp,
     rlang,
     vctrs,
@@ -46,7 +45,7 @@ License: Apache License
 Type: Package
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 URL: https://r-spatial.github.io/sftime/, https://github.com/r-spatial/sftime
 BugReports: https://github.com/r-spatial/sftime/issues/
 Collate:

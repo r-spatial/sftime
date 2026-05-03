@@ -76,9 +76,9 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## rowwise
-#' x1 %>%
-#'   mutate(a1 = 5:7) %>%
-#'   rowwise() %>%
+#' x1 |>
+#'   mutate(a1 = 5:7) |>
+#'   rowwise() |>
 #'   mutate(a2 = mean(a, a1))
 #' 
  rowwise.sftime <- function(.data, ...) {
@@ -88,7 +88,7 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## mutate
-#' x1 %>%
+#' x1 |>
 #'   mutate(a1 = 5:7)
 #' 
  mutate.sftime <- function(.data, ..., .dots) {
@@ -98,7 +98,7 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## transmute
-#' x1 %>%
+#' x1 |>
 #'   transmute(a1 = 5:7)
 #' 
  transmute.sftime <- function(.data, ..., .dots) {
@@ -108,8 +108,8 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## select
-#' x1 %>%
-#'   select(-time) %>%
+#' x1 |>
+#'   select(-time) |>
 #'   select(geometry)
 #' 
  select.sftime <- function(.data, ...) {
@@ -119,7 +119,7 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## rename
-#' x1 %>%
+#' x1 |>
 #'   rename(a1 = a)
 #' 
  rename.sftime <- function(.data, ...) {
@@ -129,7 +129,7 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## slice
-#' x1 %>%
+#' x1 |>
 #'   slice(1:2)
 #' 
  slice.sftime <- function(.data, ..., .dots) {
@@ -139,10 +139,10 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## summarise
-#' x1 %>%
+#' x1 |>
 #'   summarise(time = mean(time))
 #'   
-#' x1 %>%
+#' x1 |>
 #'   summarize(time = mean(time))
 #' 
  summarise.sftime <- function(.data, ..., .dots, do_union = TRUE, is_coverage = FALSE) {
@@ -155,7 +155,7 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## distinct
-#' x1 %>%
+#' x1 |>
 #'   distinct(geometry)
 #' 
  distinct.sftime <- function(.data, ..., .keep_all = FALSE) {
@@ -166,8 +166,8 @@ NULL
 #' @examples
 #' ## gather
 #' library(tidyr)
-#' x1 %>%
-#'   mutate(a1 = 5:7) %>%
+#' x1 |>
+#'   mutate(a1 = 5:7) |>
 #'   gather(key = "variable", value = "value", a, a1)
 #' 
  gather.sftime <- function(data, key, value, ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE) {
@@ -177,8 +177,8 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## pivot_longer
-#' x1 %>%
-#'   mutate(a1 = 5:7) %>%
+#' x1 |>
+#'   mutate(a1 = 5:7) |>
 #'   pivot_longer(cols = c("a", "a1"), names_to = "variable", values_to = "value")
 #' 
  pivot_longer.sftime <- function (data, cols, names_to = "name", names_prefix = NULL,
@@ -192,9 +192,9 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## spread
-#' x1 %>%
-#'   mutate(a1 = 5:7) %>%
-#'   gather(key = "variable", value = "value", a, a1) %>%
+#' x1 |>
+#'   mutate(a1 = 5:7) |>
+#'   gather(key = "variable", value = "value", a, a1) |>
 #'   spread(key = "variable", value = "value")
 #' 
  spread.sftime <- function(data, key, value, fill = NA, convert = FALSE, drop = TRUE,
@@ -206,7 +206,7 @@ NULL
 #' @examples
 #' ## sample_n
 #' set.seed(234)
-#' x1 %>%
+#' x1 |>
 #'   sample_n(size = 10, replace = TRUE)
 #' 
  sample_n.sftime <- function(tbl, size, replace = FALSE, weight = NULL, .env = parent.frame()) {
@@ -216,8 +216,8 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## sample_frac
-#' x1 %>%
-#'   sample_frac(size = 10, replace = TRUE) %>%
+#' x1 |>
+#'   sample_frac(size = 10, replace = TRUE) |>
 #'   sample_frac(size = 0.1, replace = FALSE)
 #' 
  sample_frac.sftime <- function(tbl, size = 1, replace = FALSE, weight = NULL, .env = parent.frame()) {
@@ -227,7 +227,7 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## nest
-#' x1 %>%
+#' x1 |>
 #'   nest(a1 = -time)
 #' 
  nest.sftime <- function (.data, ...) {
@@ -237,8 +237,8 @@ NULL
 #' @name tidyverse
 #' @examples
 #' ## unnest
-#' x1 %>%
-#'   mutate(a1 = list(1, c(1, 2), 5)) %>%
+#' x1 |>
+#'   mutate(a1 = list(1, c(1, 2), 5)) |>
 #'   unnest(a1)
 #' 
  unnest.sftime = function(data, ..., .preserve = NULL) {
@@ -248,8 +248,8 @@ NULL
 #' @rdname tidyverse
 #' @examples
 #' ## separate
-#' x1 %>%
-#'   mutate(x = c(NA, "a.b", "a.d")) %>%
+#' x1 |>
+#'   mutate(x = c(NA, "a.b", "a.d")) |>
 #'   separate(x, c("A", "B"))
 #' 
  separate.sftime <- function(data, col, into, sep = "[^[:alnum:]]+", remove = TRUE,
@@ -272,9 +272,9 @@ NULL
 #' @name tidyverse
 #' @examples
 #' ## unite
-#' x1 %>%
-#'   mutate(x = c(NA, "a.b", "a.d")) %>%
-#'   separate(x, c("A", "B")) %>%
+#' x1 |>
+#'   mutate(x = c(NA, "a.b", "a.d")) |>
+#'   separate(x, c("A", "B")) |>
 #'   unite(x, c("A", "B"))
 #'   
 unite.sftime <- function(data, col, ..., sep = "_", remove = TRUE) {
@@ -284,8 +284,8 @@ unite.sftime <- function(data, col, ..., sep = "_", remove = TRUE) {
 #' @rdname tidyverse
 #' @examples
 #' ## separate_rows
-#' x1 %>%
-#'   mutate(z = c("1", "2,3,4", "5,6")) %>%
+#' x1 |>
+#'   mutate(z = c("1", "2,3,4", "5,6")) |>
 #'   separate_rows(z, convert = TRUE)
 #' 
 separate_rows.sftime <- function(data, ..., sep = "[^[:alnum:]]+", convert = FALSE) {
@@ -315,16 +315,16 @@ dplyr_reconstruct.sftime <- function(data, template) {
 #' @rdname tidyverse
 #' @examples
 #' ## drop_na
-#' x1 %>%
-#'   mutate(z = c(1, 2, NA)) %>%
+#' x1 |>
+#'   mutate(z = c(1, 2, NA)) |>
 #'   drop_na(z)
 #'   
-#' x1 %>%
-#'   mutate(z = c(1, NA, NA)) %>%
+#' x1 |>
+#'   mutate(z = c(1, NA, NA)) |>
 #'   drop_na(z)   
 #' 
-#' x1 %>%
-#'   mutate(time = replace(time, 1, NA)) %>%
+#' x1 |>
+#'   mutate(time = replace(time, 1, NA)) |>
 #'   drop_na(time)
 drop_na.sftime <- function(data, ...) {
  reclass_sftime(NextMethod(), time_column_name = attr(data, "time_column"))

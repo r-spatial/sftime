@@ -29,8 +29,8 @@ Cast geometry to another type: either simplify, or cast explicitly
 g <- st_sfc(st_point(1:2), st_point(c(2, 4)))
 time <- Sys.time()
 x <- 
-  st_sftime(a = 3:4, g, time = time) \%>\%
-  dplyr::group_by(time) \%>\%
-  dplyr::summarize(do_union = TRUE) \%>\%
+  st_sftime(a = 3:4, g, time = time) |>
+  dplyr::group_by(time) |>
+  dplyr::summarize(do_union = TRUE) |>
   st_cast(to = "LINESTRING")
 }

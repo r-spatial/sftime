@@ -204,7 +204,7 @@ Should be a character vector of length 2.}
 
 \item{.keep_all}{see corresponding function in dplyr}
 
-\item{data}{see original function docs}
+\item{data}{data object of class \link[sf]{sf}}
 
 \item{key}{see original function docs}
 
@@ -218,27 +218,11 @@ Should be a character vector of length 2.}
 
 \item{cols}{see original function docs}
 
-\item{names_to}{see original function docs}
+\item{names_to, names_pattern, names_ptypes, names_transform}{see \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}}
 
-\item{names_prefix}{see original function docs}
+\item{names_prefix, names_sep, names_repair}{see original function docs.}
 
-\item{names_sep}{see original function docs}
-
-\item{names_pattern}{see original function docs}
-
-\item{names_ptypes}{see original function docs}
-
-\item{names_transform}{see original function docs}
-
-\item{names_repair}{see original function docs}
-
-\item{values_to}{see original function docs}
-
-\item{values_drop_na}{see original function docs}
-
-\item{values_ptypes}{see original function docs}
-
-\item{values_transform}{see original function docs}
+\item{values_to, values_drop_na, values_ptypes, values_transform}{See \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}}
 
 \item{fill}{see original function docs}
 
@@ -348,105 +332,105 @@ group_by(x1, time)
 ungroup(group_by(x1, time))
 
 ## rowwise
-x1 \%>\%
-  mutate(a1 = 5:7) \%>\%
-  rowwise() \%>\%
+x1 |>
+  mutate(a1 = 5:7) |>
+  rowwise() |>
   mutate(a2 = mean(a, a1))
 
 ## mutate
-x1 \%>\%
+x1 |>
   mutate(a1 = 5:7)
 
 ## transmute
-x1 \%>\%
+x1 |>
   transmute(a1 = 5:7)
 
 ## select
-x1 \%>\%
-  select(-time) \%>\%
+x1 |>
+  select(-time) |>
   select(geometry)
 
 ## rename
-x1 \%>\%
+x1 |>
   rename(a1 = a)
 
 ## slice
-x1 \%>\%
+x1 |>
   slice(1:2)
 
 ## summarise
-x1 \%>\%
+x1 |>
   summarise(time = mean(time))
   
-x1 \%>\%
+x1 |>
   summarize(time = mean(time))
 
 ## distinct
-x1 \%>\%
+x1 |>
   distinct(geometry)
 
 ## gather
 library(tidyr)
-x1 \%>\%
-  mutate(a1 = 5:7) \%>\%
+x1 |>
+  mutate(a1 = 5:7) |>
   gather(key = "variable", value = "value", a, a1)
 
 ## pivot_longer
-x1 \%>\%
-  mutate(a1 = 5:7) \%>\%
+x1 |>
+  mutate(a1 = 5:7) |>
   pivot_longer(cols = c("a", "a1"), names_to = "variable", values_to = "value")
 
 ## spread
-x1 \%>\%
-  mutate(a1 = 5:7) \%>\%
-  gather(key = "variable", value = "value", a, a1) \%>\%
+x1 |>
+  mutate(a1 = 5:7) |>
+  gather(key = "variable", value = "value", a, a1) |>
   spread(key = "variable", value = "value")
 
 ## sample_n
 set.seed(234)
-x1 \%>\%
+x1 |>
   sample_n(size = 10, replace = TRUE)
 
 ## sample_frac
-x1 \%>\%
-  sample_frac(size = 10, replace = TRUE) \%>\%
+x1 |>
+  sample_frac(size = 10, replace = TRUE) |>
   sample_frac(size = 0.1, replace = FALSE)
 
 ## nest
-x1 \%>\%
+x1 |>
   nest(a1 = -time)
 
 ## unnest
-x1 \%>\%
-  mutate(a1 = list(1, c(1, 2), 5)) \%>\%
+x1 |>
+  mutate(a1 = list(1, c(1, 2), 5)) |>
   unnest(a1)
 
 ## separate
-x1 \%>\%
-  mutate(x = c(NA, "a.b", "a.d")) \%>\%
+x1 |>
+  mutate(x = c(NA, "a.b", "a.d")) |>
   separate(x, c("A", "B"))
 
 ## unite
-x1 \%>\%
-  mutate(x = c(NA, "a.b", "a.d")) \%>\%
-  separate(x, c("A", "B")) \%>\%
+x1 |>
+  mutate(x = c(NA, "a.b", "a.d")) |>
+  separate(x, c("A", "B")) |>
   unite(x, c("A", "B"))
   
 ## separate_rows
-x1 \%>\%
-  mutate(z = c("1", "2,3,4", "5,6")) \%>\%
+x1 |>
+  mutate(z = c("1", "2,3,4", "5,6")) |>
   separate_rows(z, convert = TRUE)
 
 ## drop_na
-x1 \%>\%
-  mutate(z = c(1, 2, NA)) \%>\%
+x1 |>
+  mutate(z = c(1, 2, NA)) |>
   drop_na(z)
   
-x1 \%>\%
-  mutate(z = c(1, NA, NA)) \%>\%
+x1 |>
+  mutate(z = c(1, NA, NA)) |>
   drop_na(z)   
 
-x1 \%>\%
-  mutate(time = replace(time, 1, NA)) \%>\%
+x1 |>
+  mutate(time = replace(time, 1, NA)) |>
   drop_na(time)
 }

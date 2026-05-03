@@ -1,5 +1,7 @@
 # sftime (development version)
 
+* Switch from the magrittr pipe (`%>%`) to the R-native pipe (`|>`) in examples and vignettes (#15).
+
 # sftime 0.3.1
 
 * Correct argument `versionCheck` the `requireNamespace` for the `cubble` package in `st_as_sftime.cubble_df()`.

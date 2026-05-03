@@ -30,7 +30,6 @@ library(stars)
 library(spacetime)
 library(ggplot2)
 library(tidyr)
-library(magrittr)
 ```
 
 
@@ -99,8 +98,8 @@ class(x_sftime1)
 
 # These can also be used with pipes
 x_sftime1 <-
-  x_sftime1 %>%
-  st_drop_time() %>%
+  x_sftime1 |>
+  st_drop_time() |>
   st_set_time(Sys.time(), time_column_name = "time")
 ```
 
@@ -274,8 +273,8 @@ ggplot(x_sftime4) +
 Or for plotting time series of values of all variables with different panels for each entity (location) defined via a categorical variable (similar to `stplot()` with `mode = "tp"`):
 
 ```{r plotting-ggplot-3, fig.width=7}
-x_sftime4 %>%
-  tidyr::pivot_longer(cols = c("a", "b"), names_to = "variable", values_to = "value") %>%
+x_sftime4 |>
+  tidyr::pivot_longer(cols = c("a", "b"), names_to = "variable", values_to = "value") |>
   ggplot() + 
   geom_path(aes(y = value, x = time, color = variable)) +
   facet_wrap(~ id_object)
@@ -284,8 +283,8 @@ x_sftime4 %>%
 Or for plotting time series of values of all variables for all entities defined via a categorical variable with different panels for each variable (similar to `stplot()` with `mode = "ts"`):
 
 ```{r plotting-ggplot-4, fig.width=7}
-x_sftime4 %>%
-  tidyr::pivot_longer(cols = c("a", "b"), names_to = "variable", values_to = "value") %>%
+x_sftime4 |>
+  tidyr::pivot_longer(cols = c("a", "b"), names_to = "variable", values_to = "value") |>
   ggplot() + 
   geom_path(aes(y = value, x = time, color = id_object)) +
   facet_wrap(~ variable, scales = "free_y")
