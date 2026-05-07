@@ -41,13 +41,13 @@ print(x)
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-07 19:40:32.084414 to 2026-05-07 19:40:36.084414.
+#> Ranging from 2026-05-07 20:02:55.211676 to 2026-05-07 20:02:59.211676.
 #>   a           g                time
-#> 1 1 POINT (1 2) 2026-05-07 19:40:32
-#> 2 2 POINT (1 3) 2026-05-07 19:40:33
-#> 3 3 POINT (2 3) 2026-05-07 19:40:34
-#> 4 4 POINT (2 1) 2026-05-07 19:40:35
-#> 5 5 POINT (3 1) 2026-05-07 19:40:36
+#> 1 1 POINT (1 2) 2026-05-07 20:02:55
+#> 2 2 POINT (1 3) 2026-05-07 20:02:56
+#> 3 3 POINT (2 3) 2026-05-07 20:02:57
+#> 4 4 POINT (2 1) 2026-05-07 20:02:58
+#> 5 5 POINT (3 1) 2026-05-07 20:02:59
 print(x[0, ])
 #> Spatiotemporal feature collection with 0 features and 1 field
 #> Geometry type: POINT

@@ -77,12 +77,12 @@ x_sftime1
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-04 19:40:42.443315 to 2026-05-07 19:40:42.443315.
+#> Ranging from 2026-05-04 20:03:06.910009 to 2026-05-07 20:03:06.910009.
 #>   a       x_sfc                time
-#> 1 1 POINT (1 2) 2026-05-07 19:40:42
-#> 2 2 POINT (1 3) 2026-05-06 19:40:42
-#> 3 3 POINT (2 3) 2026-05-05 19:40:42
-#> 4 4 POINT (2 1) 2026-05-04 19:40:42
+#> 1 1 POINT (1 2) 2026-05-07 20:03:06
+#> 2 2 POINT (1 3) 2026-05-06 20:03:06
+#> 3 3 POINT (2 3) 2026-05-05 20:03:06
+#> 4 4 POINT (2 1) 2026-05-04 20:03:06
 ```
 
 Methods for `sftime` objects are:
@@ -113,17 +113,17 @@ Functions to get or set the time column of an `sftime` object are:
 
 # get the values from the time column
 st_time(x_sftime1)
-#> [1] "2026-05-07 19:40:42 UTC" "2026-05-06 19:40:42 UTC"
-#> [3] "2026-05-05 19:40:42 UTC" "2026-05-04 19:40:42 UTC"
+#> [1] "2026-05-07 20:03:06 UTC" "2026-05-06 20:03:06 UTC"
+#> [3] "2026-05-05 20:03:06 UTC" "2026-05-04 20:03:06 UTC"
 x_sftime1$time # alternative way
-#> [1] "2026-05-07 19:40:42 UTC" "2026-05-06 19:40:42 UTC"
-#> [3] "2026-05-05 19:40:42 UTC" "2026-05-04 19:40:42 UTC"
+#> [1] "2026-05-07 20:03:06 UTC" "2026-05-06 20:03:06 UTC"
+#> [3] "2026-05-05 20:03:06 UTC" "2026-05-04 20:03:06 UTC"
 
 # set the values in the time column
 st_time(x_sftime1) <- Sys.time()
 st_time(x_sftime1)
-#> [1] "2026-05-07 19:40:42 UTC" "2026-05-07 19:40:42 UTC"
-#> [3] "2026-05-07 19:40:42 UTC" "2026-05-07 19:40:42 UTC"
+#> [1] "2026-05-07 20:03:07 UTC" "2026-05-07 20:03:07 UTC"
+#> [3] "2026-05-07 20:03:07 UTC" "2026-05-07 20:03:07 UTC"
 
 # drop the time column to convert an sftime object to an sf object
 st_drop_time(x_sftime1)
@@ -144,12 +144,12 @@ x_sftime1
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-07 19:40:42.629831 to 2026-05-07 19:40:42.629831.
+#> Ranging from 2026-05-07 20:03:07.098635 to 2026-05-07 20:03:07.098635.
 #>   a       x_sfc                time
-#> 1 1 POINT (1 2) 2026-05-07 19:40:42
-#> 2 2 POINT (1 3) 2026-05-07 19:40:42
-#> 3 3 POINT (2 3) 2026-05-07 19:40:42
-#> 4 4 POINT (2 1) 2026-05-07 19:40:42
+#> 1 1 POINT (1 2) 2026-05-07 20:03:07
+#> 2 2 POINT (1 3) 2026-05-07 20:03:07
+#> 3 3 POINT (2 3) 2026-05-07 20:03:07
+#> 4 4 POINT (2 1) 2026-05-07 20:03:07
 
 # add a time column to an sf object converts it to an sftime object
 st_time(x_sftime1, time_column_name = "time") <- Sys.time()
@@ -348,8 +348,8 @@ subset the time column was introduced:
 ``` r
 
 st_time(x_sftime1)
-#> [1] "2026-05-07 19:40:42 UTC" "2026-05-07 19:40:42 UTC"
-#> [3] "2026-05-07 19:40:42 UTC" "2026-05-07 19:40:42 UTC"
+#> [1] "2026-05-07 20:03:07 UTC" "2026-05-07 20:03:07 UTC"
+#> [3] "2026-05-07 20:03:07 UTC" "2026-05-07 20:03:07 UTC"
 ```
 
 Other subsetting functions work as for `sf` objects, e.g. selecting rows
@@ -370,9 +370,9 @@ x_sftime1[1, ]
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-07 19:40:42.637647.
+#> Representing 2026-05-07 20:03:07.106444.
 #>   a       x_sfc                time
-#> 1 1 POINT (1 2) 2026-05-07 19:40:42
+#> 1 1 POINT (1 2) 2026-05-07 20:03:07
 x_sftime1[, 3]
 #> Spatiotemporal feature collection with 4 features and 0 fields
 #> Geometry type: POINT
@@ -380,12 +380,12 @@ x_sftime1[, 3]
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-07 19:40:42.637647 to 2026-05-07 19:40:42.637647.
+#> Ranging from 2026-05-07 20:03:07.106444 to 2026-05-07 20:03:07.106444.
 #>                  time       x_sfc
-#> 1 2026-05-07 19:40:42 POINT (1 2)
-#> 2 2026-05-07 19:40:42 POINT (1 3)
-#> 3 2026-05-07 19:40:42 POINT (2 3)
-#> 4 2026-05-07 19:40:42 POINT (2 1)
+#> 1 2026-05-07 20:03:07 POINT (1 2)
+#> 2 2026-05-07 20:03:07 POINT (1 3)
+#> 3 2026-05-07 20:03:07 POINT (2 3)
+#> 4 2026-05-07 20:03:07 POINT (2 1)
 
 # beware: the time column is not sticky. If omitted, the subset becomes an sf object
 class(x_sftime1[, 1])

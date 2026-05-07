@@ -43,13 +43,13 @@ x_sftime
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-07 19:40:40.701067 to 2026-05-07 19:40:44.701067.
+#> Ranging from 2026-05-07 20:03:05.187299 to 2026-05-07 20:03:09.187299.
 #>   a                time    geometry
-#> 1 1 2026-05-07 19:40:40 POINT (1 2)
-#> 2 2 2026-05-07 19:40:41 POINT (1 3)
-#> 3 3 2026-05-07 19:40:42 POINT (2 3)
-#> 4 4 2026-05-07 19:40:43 POINT (2 1)
-#> 5 5 2026-05-07 19:40:44 POINT (3 1)
+#> 1 1 2026-05-07 20:03:05 POINT (1 2)
+#> 2 2 2026-05-07 20:03:06 POINT (1 3)
+#> 3 3 2026-05-07 20:03:07 POINT (2 3)
+#> 4 4 2026-05-07 20:03:08 POINT (2 1)
+#> 5 5 2026-05-07 20:03:09 POINT (3 1)
 
 # modify values in column a
 transform(x_sftime, a = rev(a))
@@ -59,11 +59,11 @@ transform(x_sftime, a = rev(a))
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-07 19:40:40.701067 to 2026-05-07 19:40:44.701067.
+#> Ranging from 2026-05-07 20:03:05.187299 to 2026-05-07 20:03:09.187299.
 #>   a                time    geometry
-#> 1 5 2026-05-07 19:40:40 POINT (1 2)
-#> 2 4 2026-05-07 19:40:41 POINT (1 3)
-#> 3 3 2026-05-07 19:40:42 POINT (2 3)
-#> 4 2 2026-05-07 19:40:43 POINT (2 1)
-#> 5 1 2026-05-07 19:40:44 POINT (3 1)
+#> 1 5 2026-05-07 20:03:05 POINT (1 2)
+#> 2 4 2026-05-07 20:03:06 POINT (1 3)
+#> 3 3 2026-05-07 20:03:07 POINT (2 3)
+#> 4 2 2026-05-07 20:03:08 POINT (2 1)
+#> 5 1 2026-05-07 20:03:09 POINT (3 1)
 ```
