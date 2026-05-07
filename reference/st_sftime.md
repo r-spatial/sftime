@@ -149,9 +149,9 @@ st_sftime(a = 3, g, time = tc)
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-03 09:57:54.386823.
+#> Representing 2026-05-07 19:40:37.196381.
 #>   a           g                time
-#> 1 3 POINT (1 2) 2026-05-03 09:57:54
+#> 1 3 POINT (1 2) 2026-05-07 19:40:37
 
 ## construction with an sf object
 if (FALSE) { # \dontrun{
@@ -167,9 +167,9 @@ st_sftime(st_sf(a = 3, g, time = tc))
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-03 09:57:54.386823.
+#> Representing 2026-05-07 19:40:37.196381.
 #>   a           g                time
-#> 1 3 POINT (1 2) 2026-05-03 09:57:54
+#> 1 3 POINT (1 2) 2026-05-07 19:40:37
 
 ## Subsetting
 g <- st_sfc(st_point(c(1, 2)), st_point(c(1, 3)), st_point(c(2, 3)), 
@@ -185,9 +185,9 @@ x[1, ]
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-03 09:57:55.396784.
+#> Representing 2026-05-07 19:40:38.205997.
 #>   a           g                time
-#> 1 1 POINT (1 2) 2026-05-03 09:57:55
+#> 1 1 POINT (1 2) 2026-05-07 19:40:38
 class(x[1, ])
 #> [1] "sftime"     "sf"         "data.frame"
 
@@ -198,10 +198,10 @@ x[x$a < 3, ]
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.396784 to 2026-05-03 09:57:56.396784.
+#> Ranging from 2026-05-07 19:40:38.205997 to 2026-05-07 19:40:39.205997.
 #>   a           g                time
-#> 1 1 POINT (1 2) 2026-05-03 09:57:55
-#> 2 2 POINT (1 3) 2026-05-03 09:57:56
+#> 1 1 POINT (1 2) 2026-05-07 19:40:38
+#> 2 2 POINT (1 3) 2026-05-07 19:40:39
 class(x[x$a < 3, ])
 #> [1] "sftime"     "sf"         "data.frame"
 
@@ -229,21 +229,21 @@ x[, 3]
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.396784 to 2026-05-03 09:57:59.396784.
+#> Ranging from 2026-05-07 19:40:38.205997 to 2026-05-07 19:40:42.205997.
 #>                  time           g
-#> 1 2026-05-03 09:57:55 POINT (1 2)
-#> 2 2026-05-03 09:57:56 POINT (1 3)
-#> 3 2026-05-03 09:57:57 POINT (2 3)
-#> 4 2026-05-03 09:57:58 POINT (2 1)
-#> 5 2026-05-03 09:57:59 POINT (3 1)
+#> 1 2026-05-07 19:40:38 POINT (1 2)
+#> 2 2026-05-07 19:40:39 POINT (1 3)
+#> 3 2026-05-07 19:40:40 POINT (2 3)
+#> 4 2026-05-07 19:40:41 POINT (2 1)
+#> 5 2026-05-07 19:40:42 POINT (3 1)
 class(x[, 3]) # keeps time column because it is explicitly selected,
 #> [1] "sftime"     "sf"         "data.frame"
 # keeps geometry column of sf object, returns an sftime object
 
 x[, 3, drop = TRUE] 
-#> [1] "2026-05-03 09:57:55 UTC" "2026-05-03 09:57:56 UTC"
-#> [3] "2026-05-03 09:57:57 UTC" "2026-05-03 09:57:58 UTC"
-#> [5] "2026-05-03 09:57:59 UTC"
+#> [1] "2026-05-07 19:40:38 UTC" "2026-05-07 19:40:39 UTC"
+#> [3] "2026-05-07 19:40:40 UTC" "2026-05-07 19:40:41 UTC"
+#> [5] "2026-05-07 19:40:42 UTC"
 class(x[, 3, drop = TRUE]) # if the geometry column is dropped, not only the
 #> [1] "POSIXct" "POSIXt" 
 # sf class is dropped, but also the sftime class
@@ -272,13 +272,13 @@ x[c("a", "time")]
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.396784 to 2026-05-03 09:57:59.396784.
+#> Ranging from 2026-05-07 19:40:38.205997 to 2026-05-07 19:40:42.205997.
 #>   a                time           g
-#> 1 1 2026-05-03 09:57:55 POINT (1 2)
-#> 2 2 2026-05-03 09:57:56 POINT (1 3)
-#> 3 3 2026-05-03 09:57:57 POINT (2 3)
-#> 4 4 2026-05-03 09:57:58 POINT (2 1)
-#> 5 5 2026-05-03 09:57:59 POINT (3 1)
+#> 1 1 2026-05-07 19:40:38 POINT (1 2)
+#> 2 2 2026-05-07 19:40:39 POINT (1 3)
+#> 3 3 2026-05-07 19:40:40 POINT (2 3)
+#> 4 4 2026-05-07 19:40:41 POINT (2 1)
+#> 5 5 2026-05-07 19:40:42 POINT (3 1)
 class(x[c("a", "time")]) # keeps the time column
 #> [1] "sftime"     "sf"         "data.frame"
 
@@ -293,8 +293,8 @@ x[h, ]
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 2 ymax: 2
 #> CRS:           NA
 #>   a           g                time
-#> 1 1 POINT (1 2) 2026-05-03 09:57:55
-#> 4 4 POINT (2 1) 2026-05-03 09:57:58
+#> 1 1 POINT (1 2) 2026-05-07 19:40:38
+#> 4 4 POINT (2 1) 2026-05-07 19:40:41
 class(x[h, ]) # returns sftime object
 #> [1] "sf"         "data.frame"
 

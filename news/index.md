@@ -1,6 +1,6 @@
 # Changelog
 
-## sftime (development version)
+## sftime 0.3.2
 
 - Switch from the magrittr pipe (`%>%`) to the R-native pipe (`|>`) in
   examples and vignettes

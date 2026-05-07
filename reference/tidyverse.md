@@ -381,10 +381,10 @@ inner_join(x1, as.data.frame(x2), by = "a") # note: the active time column is
 #> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a              time.y  geometry.x  geometry.y              time.x
-#> 1 2 2026-05-03 09:57:55 POINT (5 8) POINT (4 6) 2026-05-03 09:57:55
-#> 2 3 2026-05-03 09:57:55 POINT (2 9) POINT (4 6) 2026-05-03 09:57:55
+#> 1 2 2026-05-07 19:40:38 POINT (5 8) POINT (4 6) 2026-05-07 19:40:38
+#> 2 3 2026-05-07 19:40:38 POINT (2 9) POINT (4 6) 2026-05-07 19:40:38
 # time.x and the active geometry column geometry.x
 
 inner_join(x2, as.data.frame(x1), by = "a")
@@ -395,10 +395,10 @@ inner_join(x2, as.data.frame(x1), by = "a")
 #> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.607153 to 2026-05-03 09:57:55.607153.
+#> Ranging from 2026-05-07 19:40:38.386014 to 2026-05-07 19:40:38.386014.
 #>   a              time.y  geometry.x  geometry.y              time.x
-#> 1 2 2026-05-03 09:57:55 POINT (4 6) POINT (5 8) 2026-05-03 09:57:55
-#> 2 3 2026-05-03 09:57:55 POINT (4 6) POINT (2 9) 2026-05-03 09:57:55
+#> 1 2 2026-05-07 19:40:38 POINT (4 6) POINT (5 8) 2026-05-07 19:40:38
+#> 2 3 2026-05-07 19:40:38 POINT (4 6) POINT (2 9) 2026-05-07 19:40:38
 
 ## left_join
 left_join(x1, as.data.frame(x2), by = "a")
@@ -409,11 +409,11 @@ left_join(x1, as.data.frame(x2), by = "a")
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a              time.y  geometry.x  geometry.y              time.x
-#> 1 1                <NA> POINT (1 2) POINT EMPTY 2026-05-03 09:57:55
-#> 2 2 2026-05-03 09:57:55 POINT (5 8) POINT (4 6) 2026-05-03 09:57:55
-#> 3 3 2026-05-03 09:57:55 POINT (2 9) POINT (4 6) 2026-05-03 09:57:55
+#> 1 1                <NA> POINT (1 2) POINT EMPTY 2026-05-07 19:40:38
+#> 2 2 2026-05-07 19:40:38 POINT (5 8) POINT (4 6) 2026-05-07 19:40:38
+#> 3 3 2026-05-07 19:40:38 POINT (2 9) POINT (4 6) 2026-05-07 19:40:38
 
 left_join(x2, as.data.frame(x1), by = "a")
 #> Spatiotemporal feature collection with 3 features and 2 fields
@@ -423,11 +423,11 @@ left_join(x2, as.data.frame(x1), by = "a")
 #> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.607153 to 2026-05-03 09:57:55.607153.
+#> Ranging from 2026-05-07 19:40:38.386014 to 2026-05-07 19:40:38.386014.
 #>   a              time.y  geometry.x  geometry.y              time.x
-#> 1 2 2026-05-03 09:57:55 POINT (4 6) POINT (5 8) 2026-05-03 09:57:55
-#> 2 3 2026-05-03 09:57:55 POINT (4 6) POINT (2 9) 2026-05-03 09:57:55
-#> 3 4                <NA> POINT (4 6) POINT EMPTY 2026-05-03 09:57:55
+#> 1 2 2026-05-07 19:40:38 POINT (4 6) POINT (5 8) 2026-05-07 19:40:38
+#> 2 3 2026-05-07 19:40:38 POINT (4 6) POINT (2 9) 2026-05-07 19:40:38
+#> 3 4                <NA> POINT (4 6) POINT EMPTY 2026-05-07 19:40:38
 
 ## right_join
 right_join(x1, as.data.frame(x2), by = "a")
@@ -438,11 +438,11 @@ right_join(x1, as.data.frame(x2), by = "a")
 #> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a              time.y  geometry.x  geometry.y              time.x
-#> 1 2 2026-05-03 09:57:55 POINT (5 8) POINT (4 6) 2026-05-03 09:57:55
-#> 2 3 2026-05-03 09:57:55 POINT (2 9) POINT (4 6) 2026-05-03 09:57:55
-#> 3 4 2026-05-03 09:57:55 POINT EMPTY POINT (4 6)                <NA>
+#> 1 2 2026-05-07 19:40:38 POINT (5 8) POINT (4 6) 2026-05-07 19:40:38
+#> 2 3 2026-05-07 19:40:38 POINT (2 9) POINT (4 6) 2026-05-07 19:40:38
+#> 3 4 2026-05-07 19:40:38 POINT EMPTY POINT (4 6)                <NA>
 
 right_join(x2, as.data.frame(x1), by = "a")
 #> Spatiotemporal feature collection with 3 features and 2 fields
@@ -452,11 +452,11 @@ right_join(x2, as.data.frame(x1), by = "a")
 #> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.607153 to 2026-05-03 09:57:55.607153.
+#> Ranging from 2026-05-07 19:40:38.386014 to 2026-05-07 19:40:38.386014.
 #>   a              time.y  geometry.x  geometry.y              time.x
-#> 1 2 2026-05-03 09:57:55 POINT (4 6) POINT (5 8) 2026-05-03 09:57:55
-#> 2 3 2026-05-03 09:57:55 POINT (4 6) POINT (2 9) 2026-05-03 09:57:55
-#> 3 1 2026-05-03 09:57:55 POINT EMPTY POINT (1 2)                <NA>
+#> 1 2 2026-05-07 19:40:38 POINT (4 6) POINT (5 8) 2026-05-07 19:40:38
+#> 2 3 2026-05-07 19:40:38 POINT (4 6) POINT (2 9) 2026-05-07 19:40:38
+#> 3 1 2026-05-07 19:40:38 POINT EMPTY POINT (1 2)                <NA>
 
 ## full_join
 full_join(x1, as.data.frame(x2), by = "a")
@@ -467,12 +467,12 @@ full_join(x1, as.data.frame(x2), by = "a")
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a              time.y  geometry.x  geometry.y              time.x
-#> 1 1                <NA> POINT (1 2) POINT EMPTY 2026-05-03 09:57:55
-#> 2 2 2026-05-03 09:57:55 POINT (5 8) POINT (4 6) 2026-05-03 09:57:55
-#> 3 3 2026-05-03 09:57:55 POINT (2 9) POINT (4 6) 2026-05-03 09:57:55
-#> 4 4 2026-05-03 09:57:55 POINT EMPTY POINT (4 6)                <NA>
+#> 1 1                <NA> POINT (1 2) POINT EMPTY 2026-05-07 19:40:38
+#> 2 2 2026-05-07 19:40:38 POINT (5 8) POINT (4 6) 2026-05-07 19:40:38
+#> 3 3 2026-05-07 19:40:38 POINT (2 9) POINT (4 6) 2026-05-07 19:40:38
+#> 4 4 2026-05-07 19:40:38 POINT EMPTY POINT (4 6)                <NA>
 
 full_join(x2, as.data.frame(x1), by = "a")
 #> Spatiotemporal feature collection with 4 features and 2 fields
@@ -482,12 +482,12 @@ full_join(x2, as.data.frame(x1), by = "a")
 #> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.607153 to 2026-05-03 09:57:55.607153.
+#> Ranging from 2026-05-07 19:40:38.386014 to 2026-05-07 19:40:38.386014.
 #>   a              time.y  geometry.x  geometry.y              time.x
-#> 1 2 2026-05-03 09:57:55 POINT (4 6) POINT (5 8) 2026-05-03 09:57:55
-#> 2 3 2026-05-03 09:57:55 POINT (4 6) POINT (2 9) 2026-05-03 09:57:55
-#> 3 4                <NA> POINT (4 6) POINT EMPTY 2026-05-03 09:57:55
-#> 4 1 2026-05-03 09:57:55 POINT EMPTY POINT (1 2)                <NA>
+#> 1 2 2026-05-07 19:40:38 POINT (4 6) POINT (5 8) 2026-05-07 19:40:38
+#> 2 3 2026-05-07 19:40:38 POINT (4 6) POINT (2 9) 2026-05-07 19:40:38
+#> 3 4                <NA> POINT (4 6) POINT EMPTY 2026-05-07 19:40:38
+#> 4 1 2026-05-07 19:40:38 POINT EMPTY POINT (1 2)                <NA>
 
 ## semi_join
 semi_join(x1, as.data.frame(x2), by = "a")
@@ -497,10 +497,10 @@ semi_join(x1, as.data.frame(x2), by = "a")
 #> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a    geometry                time
-#> 1 2 POINT (5 8) 2026-05-03 09:57:55
-#> 2 3 POINT (2 9) 2026-05-03 09:57:55
+#> 1 2 POINT (5 8) 2026-05-07 19:40:38
+#> 2 3 POINT (2 9) 2026-05-07 19:40:38
 
 semi_join(x2, as.data.frame(x1), by = "a")
 #> Spatiotemporal feature collection with 2 features and 1 field
@@ -509,10 +509,10 @@ semi_join(x2, as.data.frame(x1), by = "a")
 #> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.607153 to 2026-05-03 09:57:55.607153.
+#> Ranging from 2026-05-07 19:40:38.386014 to 2026-05-07 19:40:38.386014.
 #>   a    geometry                time
-#> 1 2 POINT (4 6) 2026-05-03 09:57:55
-#> 2 3 POINT (4 6) 2026-05-03 09:57:55
+#> 1 2 POINT (4 6) 2026-05-07 19:40:38
+#> 2 3 POINT (4 6) 2026-05-07 19:40:38
 
 ## anti_join
 anti_join(x1, as.data.frame(x2), by = "a")
@@ -522,9 +522,9 @@ anti_join(x1, as.data.frame(x2), by = "a")
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-03 09:57:55.604221.
+#> Representing 2026-05-07 19:40:38.383047.
 #>   a    geometry                time
-#> 1 1 POINT (1 2) 2026-05-03 09:57:55
+#> 1 1 POINT (1 2) 2026-05-07 19:40:38
 
 anti_join(x2, as.data.frame(x1), by = "a")
 #> Spatiotemporal feature collection with 1 feature and 1 field
@@ -533,9 +533,9 @@ anti_join(x2, as.data.frame(x1), by = "a")
 #> Bounding box:  xmin: 4 ymin: 6 xmax: 4 ymax: 6
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-03 09:57:55.607153.
+#> Representing 2026-05-07 19:40:38.386014.
 #>   a    geometry                time
-#> 1 4 POINT (4 6) 2026-05-03 09:57:55
+#> 1 4 POINT (4 6) 2026-05-07 19:40:38
 
 ## filter
 filter(x1, a <= 2)
@@ -545,10 +545,10 @@ filter(x1, a <= 2)
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a    geometry                time
-#> 1 1 POINT (1 2) 2026-05-03 09:57:55
-#> 2 2 POINT (5 8) 2026-05-03 09:57:55
+#> 1 1 POINT (1 2) 2026-05-07 19:40:38
+#> 2 2 POINT (5 8) 2026-05-07 19:40:38
 
 ## arrange
 arrange(x1, dplyr::desc(a))
@@ -558,11 +558,11 @@ arrange(x1, dplyr::desc(a))
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a                time    geometry
-#> 1 3 2026-05-03 09:57:55 POINT (2 9)
-#> 2 2 2026-05-03 09:57:55 POINT (5 8)
-#> 3 1 2026-05-03 09:57:55 POINT (1 2)
+#> 1 3 2026-05-07 19:40:38 POINT (2 9)
+#> 2 2 2026-05-07 19:40:38 POINT (5 8)
+#> 3 1 2026-05-07 19:40:38 POINT (1 2)
 
 ## group_by
 group_by(x1, time)
@@ -572,14 +572,14 @@ group_by(x1, time)
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #> # A tibble: 3 × 3
 #> # Groups:   time [1]
 #>       a geometry time               
 #> * <int>  <POINT> <dttm>             
-#> 1     1    (1 2) 2026-05-03 09:57:55
-#> 2     2    (5 8) 2026-05-03 09:57:55
-#> 3     3    (2 9) 2026-05-03 09:57:55
+#> 1     1    (1 2) 2026-05-07 19:40:38
+#> 2     2    (5 8) 2026-05-07 19:40:38
+#> 3     3    (2 9) 2026-05-07 19:40:38
 
 ## ungroup
 ungroup(group_by(x1, time))
@@ -589,13 +589,13 @@ ungroup(group_by(x1, time))
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #> # A tibble: 3 × 3
 #>       a geometry time               
 #> * <int>  <POINT> <dttm>             
-#> 1     1    (1 2) 2026-05-03 09:57:55
-#> 2     2    (5 8) 2026-05-03 09:57:55
-#> 3     3    (2 9) 2026-05-03 09:57:55
+#> 1     1    (1 2) 2026-05-07 19:40:38
+#> 2     2    (5 8) 2026-05-07 19:40:38
+#> 3     3    (2 9) 2026-05-07 19:40:38
 
 ## rowwise
 x1 |>
@@ -608,14 +608,14 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #> # A tibble: 3 × 5
 #> # Rowwise: 
 #>       a geometry time                   a1    a2
 #> * <int>  <POINT> <dttm>              <int> <int>
-#> 1     1    (1 2) 2026-05-03 09:57:55     5     1
-#> 2     2    (5 8) 2026-05-03 09:57:55     6     2
-#> 3     3    (2 9) 2026-05-03 09:57:55     7     3
+#> 1     1    (1 2) 2026-05-07 19:40:38     5     1
+#> 2     2    (5 8) 2026-05-07 19:40:38     6     2
+#> 3     3    (2 9) 2026-05-07 19:40:38     7     3
 
 ## mutate
 x1 |>
@@ -626,11 +626,11 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a    geometry                time a1
-#> 1 1 POINT (1 2) 2026-05-03 09:57:55  5
-#> 2 2 POINT (5 8) 2026-05-03 09:57:55  6
-#> 3 3 POINT (2 9) 2026-05-03 09:57:55  7
+#> 1 1 POINT (1 2) 2026-05-07 19:40:38  5
+#> 2 2 POINT (5 8) 2026-05-07 19:40:38  6
+#> 3 3 POINT (2 9) 2026-05-07 19:40:38  7
 
 ## transmute
 x1 |>
@@ -668,11 +668,11 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a1                time    geometry
-#> 1  1 2026-05-03 09:57:55 POINT (1 2)
-#> 2  2 2026-05-03 09:57:55 POINT (5 8)
-#> 3  3 2026-05-03 09:57:55 POINT (2 9)
+#> 1  1 2026-05-07 19:40:38 POINT (1 2)
+#> 2  2 2026-05-07 19:40:38 POINT (5 8)
+#> 3  3 2026-05-07 19:40:38 POINT (2 9)
 
 ## slice
 x1 |>
@@ -683,10 +683,10 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a                time    geometry
-#> 1 1 2026-05-03 09:57:55 POINT (1 2)
-#> 2 2 2026-05-03 09:57:55 POINT (5 8)
+#> 1 1 2026-05-07 19:40:38 POINT (1 2)
+#> 2 2 2026-05-07 19:40:38 POINT (5 8)
 
 ## summarise
 x1 |>
@@ -697,9 +697,9 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-03 09:57:55.604221.
+#> Representing 2026-05-07 19:40:38.383047.
 #>                  time                       geometry
-#> 1 2026-05-03 09:57:55 MULTIPOINT ((1 2), (2 9), (...
+#> 1 2026-05-07 19:40:38 MULTIPOINT ((1 2), (2 9), (...
   
 x1 |>
   summarize(time = mean(time))
@@ -709,9 +709,9 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-03 09:57:55.604221.
+#> Representing 2026-05-07 19:40:38.383047.
 #>                  time                       geometry
-#> 1 2026-05-03 09:57:55 MULTIPOINT ((1 2), (2 9), (...
+#> 1 2026-05-07 19:40:38 MULTIPOINT ((1 2), (2 9), (...
 
 ## distinct
 x1 |>
@@ -737,14 +737,14 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>                  time key value    geometry
-#> 1 2026-05-03 09:57:55   a     1 POINT (1 2)
-#> 2 2026-05-03 09:57:55   a     2 POINT (5 8)
-#> 3 2026-05-03 09:57:55   a     3 POINT (2 9)
-#> 4 2026-05-03 09:57:55  a1     5 POINT (1 2)
-#> 5 2026-05-03 09:57:55  a1     6 POINT (5 8)
-#> 6 2026-05-03 09:57:55  a1     7 POINT (2 9)
+#> 1 2026-05-07 19:40:38   a     1 POINT (1 2)
+#> 2 2026-05-07 19:40:38   a     2 POINT (5 8)
+#> 3 2026-05-07 19:40:38   a     3 POINT (2 9)
+#> 4 2026-05-07 19:40:38  a1     5 POINT (1 2)
+#> 5 2026-05-07 19:40:38  a1     6 POINT (5 8)
+#> 6 2026-05-07 19:40:38  a1     7 POINT (2 9)
 
 ## pivot_longer
 x1 |>
@@ -756,16 +756,16 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #> # A tibble: 6 × 4
 #>   geometry time                variable value
 #> *  <POINT> <dttm>              <chr>    <int>
-#> 1    (1 2) 2026-05-03 09:57:55 a            1
-#> 2    (1 2) 2026-05-03 09:57:55 a1           5
-#> 3    (5 8) 2026-05-03 09:57:55 a            2
-#> 4    (5 8) 2026-05-03 09:57:55 a1           6
-#> 5    (2 9) 2026-05-03 09:57:55 a            3
-#> 6    (2 9) 2026-05-03 09:57:55 a1           7
+#> 1    (1 2) 2026-05-07 19:40:38 a            1
+#> 2    (1 2) 2026-05-07 19:40:38 a1           5
+#> 3    (5 8) 2026-05-07 19:40:38 a            2
+#> 4    (5 8) 2026-05-07 19:40:38 a1           6
+#> 5    (2 9) 2026-05-07 19:40:38 a            3
+#> 6    (2 9) 2026-05-07 19:40:38 a1           7
 
 ## spread
 x1 |>
@@ -778,11 +778,11 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>                  time a a1    geometry
-#> 1 2026-05-03 09:57:55 1  5 POINT (1 2)
-#> 2 2026-05-03 09:57:55 2  6 POINT (5 8)
-#> 3 2026-05-03 09:57:55 3  7 POINT (2 9)
+#> 1 2026-05-07 19:40:38 1  5 POINT (1 2)
+#> 2 2026-05-07 19:40:38 2  6 POINT (5 8)
+#> 3 2026-05-07 19:40:38 3  7 POINT (2 9)
 
 ## sample_n
 set.seed(234)
@@ -794,18 +794,18 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>    a                time    geometry
-#> 1  1 2026-05-03 09:57:55 POINT (1 2)
-#> 2  3 2026-05-03 09:57:55 POINT (2 9)
-#> 3  2 2026-05-03 09:57:55 POINT (5 8)
-#> 4  2 2026-05-03 09:57:55 POINT (5 8)
-#> 5  2 2026-05-03 09:57:55 POINT (5 8)
-#> 6  2 2026-05-03 09:57:55 POINT (5 8)
-#> 7  1 2026-05-03 09:57:55 POINT (1 2)
-#> 8  1 2026-05-03 09:57:55 POINT (1 2)
-#> 9  3 2026-05-03 09:57:55 POINT (2 9)
-#> 10 2 2026-05-03 09:57:55 POINT (5 8)
+#> 1  1 2026-05-07 19:40:38 POINT (1 2)
+#> 2  3 2026-05-07 19:40:38 POINT (2 9)
+#> 3  2 2026-05-07 19:40:38 POINT (5 8)
+#> 4  2 2026-05-07 19:40:38 POINT (5 8)
+#> 5  2 2026-05-07 19:40:38 POINT (5 8)
+#> 6  2 2026-05-07 19:40:38 POINT (5 8)
+#> 7  1 2026-05-07 19:40:38 POINT (1 2)
+#> 8  1 2026-05-07 19:40:38 POINT (1 2)
+#> 9  3 2026-05-07 19:40:38 POINT (2 9)
+#> 10 2 2026-05-07 19:40:38 POINT (5 8)
 
 ## sample_frac
 x1 |>
@@ -817,17 +817,17 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 2 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a                time    geometry
-#> 1 1 2026-05-03 09:57:55 POINT (1 2)
-#> 2 1 2026-05-03 09:57:55 POINT (1 2)
-#> 3 3 2026-05-03 09:57:55 POINT (2 9)
+#> 1 1 2026-05-07 19:40:38 POINT (1 2)
+#> 2 1 2026-05-07 19:40:38 POINT (1 2)
+#> 3 3 2026-05-07 19:40:38 POINT (2 9)
 
 ## nest
 x1 |>
   nest(a1 = -time)
 #>                  time                        a1
-#> 1 2026-05-03 09:57:55 1, 2, 3, 1, 2, 5, 8, 2, 9
+#> 1 2026-05-07 19:40:38 1, 2, 3, 1, 2, 5, 8, 2, 9
 
 ## unnest
 x1 |>
@@ -839,14 +839,14 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #> # A tibble: 4 × 4
 #>       a geometry time                   a1
 #> * <int>  <POINT> <dttm>              <dbl>
-#> 1     1    (1 2) 2026-05-03 09:57:55     1
-#> 2     2    (5 8) 2026-05-03 09:57:55     1
-#> 3     2    (5 8) 2026-05-03 09:57:55     2
-#> 4     3    (2 9) 2026-05-03 09:57:55     5
+#> 1     1    (1 2) 2026-05-07 19:40:38     1
+#> 2     2    (5 8) 2026-05-07 19:40:38     1
+#> 3     2    (5 8) 2026-05-07 19:40:38     2
+#> 4     3    (2 9) 2026-05-07 19:40:38     5
 
 ## separate
 x1 |>
@@ -858,11 +858,11 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a                time    A    B    geometry
-#> 1 1 2026-05-03 09:57:55 <NA> <NA> POINT (1 2)
-#> 2 2 2026-05-03 09:57:55    a    b POINT (5 8)
-#> 3 3 2026-05-03 09:57:55    a    d POINT (2 9)
+#> 1 1 2026-05-07 19:40:38 <NA> <NA> POINT (1 2)
+#> 2 2 2026-05-07 19:40:38    a    b POINT (5 8)
+#> 3 3 2026-05-07 19:40:38    a    d POINT (2 9)
 
 ## unite
 x1 |>
@@ -875,11 +875,11 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a                time   col    geometry
-#> 1 1 2026-05-03 09:57:55 NA_NA POINT (1 2)
-#> 2 2 2026-05-03 09:57:55   a_b POINT (5 8)
-#> 3 3 2026-05-03 09:57:55   a_d POINT (2 9)
+#> 1 1 2026-05-07 19:40:38 NA_NA POINT (1 2)
+#> 2 2 2026-05-07 19:40:38   a_b POINT (5 8)
+#> 3 3 2026-05-07 19:40:38   a_d POINT (2 9)
   
 ## separate_rows
 x1 |>
@@ -891,16 +891,16 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #> # A tibble: 6 × 4
 #>       a geometry time                    z
 #> * <int>  <POINT> <dttm>              <int>
-#> 1     1    (1 2) 2026-05-03 09:57:55     1
-#> 2     2    (5 8) 2026-05-03 09:57:55     2
-#> 3     2    (5 8) 2026-05-03 09:57:55     3
-#> 4     2    (5 8) 2026-05-03 09:57:55     4
-#> 5     3    (2 9) 2026-05-03 09:57:55     5
-#> 6     3    (2 9) 2026-05-03 09:57:55     6
+#> 1     1    (1 2) 2026-05-07 19:40:38     1
+#> 2     2    (5 8) 2026-05-07 19:40:38     2
+#> 3     2    (5 8) 2026-05-07 19:40:38     3
+#> 4     2    (5 8) 2026-05-07 19:40:38     4
+#> 5     3    (2 9) 2026-05-07 19:40:38     5
+#> 6     3    (2 9) 2026-05-07 19:40:38     6
 
 ## drop_na
 x1 |>
@@ -912,10 +912,10 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 5 ymax: 8
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a                time z    geometry
-#> 1 1 2026-05-03 09:57:55 1 POINT (1 2)
-#> 2 2 2026-05-03 09:57:55 2 POINT (5 8)
+#> 1 1 2026-05-07 19:40:38 1 POINT (1 2)
+#> 2 2 2026-05-07 19:40:38 2 POINT (5 8)
   
 x1 |>
   mutate(z = c(1, NA, NA)) |>
@@ -926,9 +926,9 @@ x1 |>
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-03 09:57:55.604221.
+#> Representing 2026-05-07 19:40:38.383047.
 #>   a                time z    geometry
-#> 1 1 2026-05-03 09:57:55 1 POINT (1 2)
+#> 1 1 2026-05-07 19:40:38 1 POINT (1 2)
 
 x1 |>
   mutate(time = replace(time, 1, NA)) |>
@@ -939,8 +939,8 @@ x1 |>
 #> Bounding box:  xmin: 2 ymin: 8 xmax: 5 ymax: 9
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:55.604221 to 2026-05-03 09:57:55.604221.
+#> Ranging from 2026-05-07 19:40:38.383047 to 2026-05-07 19:40:38.383047.
 #>   a                time    geometry
-#> 1 2 2026-05-03 09:57:55 POINT (5 8)
-#> 2 3 2026-05-03 09:57:55 POINT (2 9)
+#> 1 2 2026-05-07 19:40:38 POINT (5 8)
+#> 2 3 2026-05-07 19:40:38 POINT (2 9)
 ```

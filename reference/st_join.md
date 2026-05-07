@@ -126,12 +126,12 @@ st_join(x1, x2)
 #> Bounding box:  xmin: 1 ymin: 1 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:53.979847 to 2026-05-03 09:57:53.979847.
+#> Ranging from 2026-05-07 19:40:36.808367 to 2026-05-07 19:40:36.808367.
 #>     a.x a.y              time.y    geometry              time.x
-#> 1     1  NA                <NA> POINT (1 1) 2026-05-03 09:57:53
-#> 2     2  12 2026-05-03 09:57:53 POINT (2 2) 2026-05-03 09:57:53
-#> 2.1   2  13 2026-05-03 09:57:53 POINT (2 2) 2026-05-03 09:57:53
-#> 3     3  14 2026-05-03 09:57:53 POINT (3 3) 2026-05-03 09:57:53
+#> 1     1  NA                <NA> POINT (1 1) 2026-05-07 19:40:36
+#> 2     2  12 2026-05-07 19:40:36 POINT (2 2) 2026-05-07 19:40:36
+#> 2.1   2  13 2026-05-07 19:40:36 POINT (2 2) 2026-05-07 19:40:36
+#> 3     3  14 2026-05-07 19:40:36 POINT (3 3) 2026-05-07 19:40:36
 
 # inner spatial join with st_intersects
 st_join(x1, x2, left = FALSE)
@@ -141,11 +141,11 @@ st_join(x1, x2, left = FALSE)
 #> Bounding box:  xmin: 2 ymin: 2 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:53.979847 to 2026-05-03 09:57:53.979847.
+#> Ranging from 2026-05-07 19:40:36.808367 to 2026-05-07 19:40:36.808367.
 #>     a.x a.y              time.y    geometry              time.x
-#> 2     2  12 2026-05-03 09:57:53 POINT (2 2) 2026-05-03 09:57:53
-#> 2.1   2  13 2026-05-03 09:57:53 POINT (2 2) 2026-05-03 09:57:53
-#> 3     3  14 2026-05-03 09:57:53 POINT (3 3) 2026-05-03 09:57:53
+#> 2     2  12 2026-05-07 19:40:36 POINT (2 2) 2026-05-07 19:40:36
+#> 2.1   2  13 2026-05-07 19:40:36 POINT (2 2) 2026-05-07 19:40:36
+#> 3     3  14 2026-05-07 19:40:36 POINT (3 3) 2026-05-07 19:40:36
 
 ## st_filter
 
@@ -156,10 +156,10 @@ st_filter(x1, x2)
 #> Bounding box:  xmin: 2 ymin: 2 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:53.979847 to 2026-05-03 09:57:53.979847.
+#> Ranging from 2026-05-07 19:40:36.808367 to 2026-05-07 19:40:36.808367.
 #>   a    geometry                time
-#> 1 2 POINT (2 2) 2026-05-03 09:57:53
-#> 2 3 POINT (3 3) 2026-05-03 09:57:53
+#> 1 2 POINT (2 2) 2026-05-07 19:40:36
+#> 2 3 POINT (3 3) 2026-05-07 19:40:36
 st_filter(x2, x1)
 #> Spatiotemporal feature collection with 3 features and 1 field
 #> Geometry type: POINT
@@ -167,9 +167,9 @@ st_filter(x2, x1)
 #> Bounding box:  xmin: 2 ymin: 2 xmax: 3 ymax: 3
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-03 09:57:53.98288 to 2026-05-03 09:57:53.98288.
+#> Ranging from 2026-05-07 19:40:36.811217 to 2026-05-07 19:40:36.811217.
 #>    a    geometry                time
-#> 1 12 POINT (2 2) 2026-05-03 09:57:53
-#> 2 13 POINT (2 2) 2026-05-03 09:57:53
-#> 3 14 POINT (3 3) 2026-05-03 09:57:53
+#> 1 12 POINT (2 2) 2026-05-07 19:40:36
+#> 2 13 POINT (2 2) 2026-05-07 19:40:36
+#> 3 14 POINT (3 3) 2026-05-07 19:40:36
 ```

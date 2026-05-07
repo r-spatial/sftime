@@ -33,5 +33,5 @@ time <- Sys.time()
 x <- st_sftime(a = 3, g, time = time)
 st_drop_geometry(x)
 #>   a                time
-#> 1 3 2026-05-03 09:57:53
+#> 1 3 2026-05-07 19:40:36
 ```
