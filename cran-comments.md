@@ -1,6 +1,6 @@
-This release should fix a CRAN check error required to be fixed before 2025-08-27.
+This release should fix a CRAN check error required to be fixed before 2026-05-28.
 
-To this end, we corrected argument `versionCheck` in `requireNamespace()` to avoid the error.
+To this end, replaced magrittr pipes by the R native pipe.
 
 ## R CMD check results
 
