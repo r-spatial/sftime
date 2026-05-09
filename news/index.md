@@ -1,5 +1,7 @@
 # Changelog
 
+## sftime (development version)
+
 ## sftime 0.3.2
 
 CRAN release: 2026-05-09

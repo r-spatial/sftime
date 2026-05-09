@@ -289,19 +289,19 @@ if (require(spatstat.geom)) {
 #> Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-09 15:44:22.879954 to 2026-05-09 15:44:31.879954.
+#> Ranging from 2026-05-09 15:46:53.408871 to 2026-05-09 15:47:02.408871.
 #> First 10 features:
 #>      label                           geom                time
 #> NA  window POLYGON ((0 0, 1 0, 1 1, 0 ...                <NA>
-#> 1  segment LINESTRING (0.3203339 0.798... 2026-05-09 15:44:22
-#> 2  segment LINESTRING (0.4039816 0.366... 2026-05-09 15:44:23
-#> 3  segment LINESTRING (0.03262274 0.38... 2026-05-09 15:44:24
-#> 4  segment LINESTRING (0.4922266 0.673... 2026-05-09 15:44:25
-#> 5  segment LINESTRING (0.1416749 0.439... 2026-05-09 15:44:26
-#> 6  segment LINESTRING (0.7991584 0.712... 2026-05-09 15:44:27
-#> 7  segment LINESTRING (0.4091124 0.435... 2026-05-09 15:44:28
-#> 8  segment LINESTRING (0.9364347 0.665... 2026-05-09 15:44:29
-#> 9  segment LINESTRING (0.7329098 0.523... 2026-05-09 15:44:30
+#> 1  segment LINESTRING (0.3203339 0.798... 2026-05-09 15:46:53
+#> 2  segment LINESTRING (0.4039816 0.366... 2026-05-09 15:46:54
+#> 3  segment LINESTRING (0.03262274 0.38... 2026-05-09 15:46:55
+#> 4  segment LINESTRING (0.4922266 0.673... 2026-05-09 15:46:56
+#> 5  segment LINESTRING (0.1416749 0.439... 2026-05-09 15:46:57
+#> 6  segment LINESTRING (0.7991584 0.712... 2026-05-09 15:46:58
+#> 7  segment LINESTRING (0.4091124 0.435... 2026-05-09 15:46:59
+#> 8  segment LINESTRING (0.9364347 0.665... 2026-05-09 15:47:00
+#> 9  segment LINESTRING (0.7329098 0.523... 2026-05-09 15:47:01
 
 # convert an lpp object to an sftime object (modified from the 
 # spatstat.linnet package)
@@ -349,7 +349,7 @@ if (require(spatstat.geom) && require(spatstat.linnet)) {
 #> Bounding box:  xmin: -3 ymin: -1 xmax: 3 ymax: 7
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-09 15:44:23.111574 to 2026-05-09 15:44:26.111574.
+#> Ranging from 2026-05-09 15:46:53.638716 to 2026-05-09 15:46:56.638716.
 #>      label seg  tp  a                           geom                time
 #> 1   window  NA  NA NA POLYGON ((-3 -1, 3 -1, 3 7,...                <NA>
 #> 2  segment  NA  NA NA        LINESTRING (-2 0, -1 3)                <NA>
@@ -357,10 +357,10 @@ if (require(spatstat.geom) && require(spatstat.linnet)) {
 #> 4  segment  NA  NA NA          LINESTRING (0 6, 1 3)                <NA>
 #> 5  segment  NA  NA NA          LINESTRING (1 3, 2 0)                <NA>
 #> 6  segment  NA  NA NA         LINESTRING (-1 3, 1 3)                <NA>
-#> 7    point   1 0.5  1               POINT (-1.5 1.5) 2026-05-09 15:44:23
-#> 8    point   5 0.5  2                    POINT (0 3) 2026-05-09 15:44:24
-#> 9    point   3 0.5  3                POINT (0.5 4.5) 2026-05-09 15:44:25
-#> 10   point   4 0.5  4                POINT (1.5 1.5) 2026-05-09 15:44:26
+#> 7    point   1 0.5  1               POINT (-1.5 1.5) 2026-05-09 15:46:53
+#> 8    point   5 0.5  2                    POINT (0 3) 2026-05-09 15:46:54
+#> 9    point   3 0.5  3                POINT (0.5 4.5) 2026-05-09 15:46:55
+#> 10   point   4 0.5  4                POINT (1.5 1.5) 2026-05-09 15:46:56
 
 # convert an sftrack object to an sftime object (modified from sftrack)
 if (require(sftrack)) {

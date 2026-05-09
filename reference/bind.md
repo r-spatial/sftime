@@ -77,10 +77,10 @@ rbind(x1, x2) # works because both tc1 and tc2 have the same class
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 4 ymax: 6
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Ranging from 2026-05-09 15:44:17.481836 to 2026-05-09 15:44:17.485757.
+#> Ranging from 2026-05-09 15:46:47.843065 to 2026-05-09 15:46:47.847203.
 #>   a    geometry                time
-#> 1 3 POINT (1 2) 2026-05-09 15:44:17
-#> 2 4 POINT (4 6) 2026-05-09 15:44:17
+#> 1 3 POINT (1 2) 2026-05-09 15:46:47
+#> 2 4 POINT (4 6) 2026-05-09 15:46:47
 
 if (FALSE) { # \dontrun{
 st_time(x2) <- 1
@@ -95,9 +95,9 @@ cbind(x1, x2)
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-09 15:44:17.481836.
+#> Representing 2026-05-09 15:46:47.843065.
 #>   a a.1              time.1    geometry  geometry.1                time
-#> 1 3   4 2026-05-09 15:44:17 POINT (1 2) POINT (4 6) 2026-05-09 15:44:17
+#> 1 3   4 2026-05-09 15:46:47 POINT (1 2) POINT (4 6) 2026-05-09 15:46:47
 
 if (require(dplyr)) {
   # returns a data frame because names of sf and time column are modified:
@@ -140,9 +140,9 @@ if (require(dplyr)) {
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-09 15:44:17.481836.
+#> Representing 2026-05-09 15:46:47.843065.
 #>   a...1 a...4    geometry                time
-#> 1     3     4 POINT (1 2) 2026-05-09 15:44:17
+#> 1     3     4 POINT (1 2) 2026-05-09 15:46:47
   
 df <- data.frame(x = 3)   
 st_sftime(data.frame(x1, df))   
@@ -152,8 +152,8 @@ st_sftime(data.frame(x1, df))
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-09 15:44:17.481836.
+#> Representing 2026-05-09 15:46:47.843065.
 #>   a x    geometry                time
-#> 1 3 3 POINT (1 2) 2026-05-09 15:44:17
+#> 1 3 3 POINT (1 2) 2026-05-09 15:46:47
   
 ```

@@ -14,16 +14,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/r-spatial/sftime/blob/v0.3.2/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/r-spatial/sftime/blob/main/DESCRIPTION)
 
 Teickner H, Pebesma E, Graeler B (2026). *sftime: Classes and Methods
 for Simple Feature Objects that Have a Time Column*. R package version
-0.3.2, <https://r-spatial.github.io/sftime/>.
+0.3.2.9000, <https://r-spatial.github.io/sftime/>.
 
     @Manual{,
       title = {sftime: Classes and Methods for Simple Feature Objects that Have a Time Column},
       author = {Henning Teickner and Edzer Pebesma and Benedikt Graeler},
       year = {2026},
-      note = {R package version 0.3.2},
+      note = {R package version 0.3.2.9000},
       url = {https://r-spatial.github.io/sftime/},
     }

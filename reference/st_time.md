@@ -81,7 +81,7 @@ g <- st_sfc(st_point(1:2))
 time <- Sys.time()
 x <- st_sftime(a = 3, g, time = time)
 st_time(x) 
-#> [1] "2026-05-09 15:44:27 UTC"
+#> [1] "2026-05-09 15:47:58 UTC"
 
 ## assign a vector with time information
 
@@ -95,9 +95,9 @@ x
 #> Bounding box:  xmin: 1 ymin: 2 xmax: 1 ymax: 2
 #> CRS:           NA
 #> Time column with classes: 'POSIXct', 'POSIXt'.
-#> Representing 2026-05-09 15:44:27.058873.
+#> Representing 2026-05-09 15:47:58.087134.
 #>   a           g                time
-#> 1 3 POINT (1 2) 2026-05-09 15:44:27
+#> 1 3 POINT (1 2) 2026-05-09 15:47:58
 
 # to sftime object
 x <- st_sftime(a = 3, g, time = time)

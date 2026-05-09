@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   sftime: sftime.html
-last_built: 2026-05-09T15:44Z
+last_built: 2026-05-09T15:46Z
 urls:
   reference: https://r-spatial.github.io/sftime/reference
   article: https://r-spatial.github.io/sftime/articles
