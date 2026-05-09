@@ -14,7 +14,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/r-spatial/sftime/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/r-spatial/sftime/blob/v0.3.2/DESCRIPTION)
 
 Teickner H, Pebesma E, Graeler B (2026). *sftime: Classes and Methods
 for Simple Feature Objects that Have a Time Column*. R package version

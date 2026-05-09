@@ -2,6 +2,8 @@
 
 ## sftime 0.3.2
 
+CRAN release: 2026-05-09
+
 - Switch from the magrittr pipe (`%>%`) to the R-native pipe (`|>`) in
   examples and vignettes
   ([\#15](https://github.com/r-spatial/sftime/issues/15)).
